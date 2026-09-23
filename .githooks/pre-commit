@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Spike walls. While on a spike/* branch or while spike/THROWAWAY exists and the
+# commit touches spike/, reject dependency changes and files outside spike/.
+# Rigor tiers are prohibitions: this hook is the exit code, not the request.
+
+branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+changed="$(git diff --cached --name-only)"
+
+if [[ "$branch" == spike/* ]]; then
+  bad=""
+  while IFS= read -r f; do
+    [[ -z "$f" ]] && continue
+    case "$f" in
+      spike/*|LEDGER.md) ;;
+      *) bad+="$f"$'\n' ;;
+    esac
+  done <<< "$changed"
+  if [[ -n "$bad" ]]; then
+    echo "pre-commit: spike branch may only touch spike/ and LEDGER.md. Rejected:" >&2
+    echo "$bad" >&2
+    exit 1
+  fi
+fi
+
+if echo "$changed" | grep -Eq '^spike/.*(requirements.*\.txt|package(-lock)?\.json|poetry\.lock|Pipfile(\.lock)?|pyproject\.toml)$'; then
+  echo "pre-commit: no dependency manifests in spike/. One flat script per question." >&2
+  exit 1
+fi
+
+if echo "$changed" | grep -Eq '^spike/.*(test_|_test\.py|README)'; then
+  echo "pre-commit: no tests or README in spike/. Spike tier." >&2
+  exit 1
+fi
+
+exit 0

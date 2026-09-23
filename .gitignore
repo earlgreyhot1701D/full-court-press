@@ -1,0 +1,21 @@
+# Proof artifacts and local renders (Block 0 spikes, transcripts)
+proof/
+out/
+
+# SAM / deploy config that may carry account-specific values
+samconfig.toml
+.aws-sam/
+
+# Local dev secret (never committed; key lives in SSM)
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db

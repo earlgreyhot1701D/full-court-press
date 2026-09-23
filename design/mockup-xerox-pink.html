@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morning After Zine mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:#F4EEE2; --ink:#1E1B18; --mut:#6B6259; --card:#FFFBF3;
+    --spot:#FF48B0;        /* surfaces, shadows, stamps. never text on paper */
+    --spot-text:#B8156E;   /* the only spot color allowed as text on paper */
+    --on-spot:#1E1B18;     /* text on a spot surface, chosen by contrast */
+  }
+  :root[data-team="comets"] { --spot:#15606F; --spot-text:#15606F; /* fictional team color, darkened by the contrast check */ --on-spot:#F4EEE2; }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--paper); color:var(--ink); font-family:'Archivo',sans-serif; line-height:1.6;
+    background-image:repeating-linear-gradient(0deg, transparent, transparent 34px, rgba(30,27,24,0.05) 34px, rgba(30,27,24,0.05) 35px); }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 16px 60px; }
+
+  .sec-id { display:inline-block; font:800 10px/1 'Archivo'; letter-spacing:.14em; text-transform:uppercase; background:#fff; color:var(--ink);
+    border:2px dashed var(--ink); padding:4px 8px; margin:0 0 8px; }
+  .mockbar { background:var(--ink); color:var(--paper); font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+    padding:10px 16px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between; }
+  .mockbar button { font:800 11px 'Archivo'; letter-spacing:.1em; text-transform:uppercase; border:2px solid var(--paper); background:transparent; color:var(--paper); padding:6px 12px; cursor:pointer; }
+  .mockbar button[aria-pressed="true"] { background:var(--spot); color:var(--on-spot); border-color:var(--spot); }
+
+  /* 1 masthead */
+  .hero { background:var(--ink); border-bottom:8px solid var(--spot); padding:48px 16px 40px; text-align:center; position:relative; overflow:hidden; }
+  .hero::before { content:""; position:absolute; inset:0;
+    background-image:radial-gradient(rgba(244,238,226,.10) 1.2px, transparent 1.3px); background-size:9px 9px; }
+  .hero > * { position:relative; }
+  .kicker { display:inline-block; background:var(--spot); color:var(--on-spot); font-weight:800; font-size:12px; letter-spacing:.28em; text-transform:uppercase; padding:6px 18px; transform:rotate(-1.5deg); }
+  .hero h1 { font-family:'Alfa Slab One',serif; font-size:clamp(40px,8vw,88px); line-height:1.02; color:var(--paper); text-transform:uppercase; margin:16px 0 8px; text-shadow:5px 5px 0 var(--spot); }
+  .hero .sub { color:#d9d2c6; font-size:15px; }
+  .stamp { display:inline-block; margin-top:16px; border:3px solid var(--paper); color:var(--paper); font-weight:800; font-size:12px; letter-spacing:.12em; text-transform:uppercase; padding:7px 18px; transform:rotate(1deg); }
+
+  /* 2 ticker */
+  .ticker { background:var(--paper); color:var(--ink); border-bottom:3px solid var(--ink); font-weight:800; font-size:12px; letter-spacing:.16em; text-transform:uppercase; padding:10px 0; overflow:hidden; white-space:nowrap; }
+  .ticker span { display:inline-block; padding-left:100%; animation:tick 26s linear infinite; }
+  .ticker b { background:var(--spot); color:var(--on-spot); padding:1px 6px; }
+  .ticker:hover span { animation-play-state:paused; }
+  @keyframes tick { to { transform:translateX(-100%); } }
+  @media (prefers-reduced-motion:reduce) { .ticker span { animation:none; padding-left:16px; } }
+
+  /* 3 team picker */
+  nav.teams { position:sticky; top:0; z-index:5; background:var(--paper); border-bottom:3px solid var(--ink); }
+  nav.teams .row { max-width:1000px; margin:0 auto; display:flex; overflow-x:auto; padding:0 16px; }
+  nav.teams a { color:var(--ink); text-decoration:none; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; padding:11px 12px; white-space:nowrap; border-bottom:4px solid transparent; }
+  nav.teams a.on, nav.teams a:hover { border-bottom-color:var(--spot); }
+
+  h2.sec { font-family:'Alfa Slab One',serif; font-size:clamp(24px,4vw,36px); text-transform:uppercase; margin:48px 0 16px; }
+  h2.sec .tab { background:var(--spot); color:var(--on-spot); padding:2px 14px; box-shadow:4px 4px 0 var(--ink); display:inline-block; transform:rotate(-.5deg); }
+  .block { margin-top:34px; }
+
+  /* 4 score tiles */
+  .metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+  .metric { background:var(--card); border:3px solid var(--ink); box-shadow:6px 6px 0 var(--spot); padding:16px 18px; }
+  .metric .l { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--mut); font-weight:800; }
+  .metric .v { font-family:'Alfa Slab One',serif; font-size:36px; font-variant-numeric:tabular-nums; }
+  .metric .v small { font-family:'Archivo'; font-size:12px; color:var(--mut); font-weight:600; }
+  .pill { display:inline-block; font-size:10px; font-weight:800; letter-spacing:.16em; padding:3px 10px; background:var(--ink); color:var(--paper); transform:rotate(-1deg); margin-right:6px; }
+  .pill.spot { background:var(--spot); color:var(--on-spot); }
+
+  /* 5 headline */
+  .verdict { background:var(--spot); color:var(--on-spot); border:3px solid var(--ink); box-shadow:6px 6px 0 var(--ink); padding:16px 22px; font-family:'Alfa Slab One',serif; font-size:clamp(18px,2.8vw,26px); text-transform:uppercase; transform:rotate(-.4deg); }
+
+  /* 6 voice + recap */
+  .voices { display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+  .voices button { font:800 11px 'Archivo'; letter-spacing:.1em; text-transform:uppercase; padding:6px 12px; border:2px solid var(--ink); background:var(--card); color:var(--ink); cursor:pointer; transform:rotate(-.8deg); }
+  .voices button[aria-pressed="true"] { background:var(--ink); color:var(--paper); }
+  .voices button:focus-visible, .mockbar button:focus-visible, nav.teams a:focus-visible { outline:3px solid var(--spot-text); outline-offset:2px; }
+  .lede { max-width:680px; font-size:16px; font-weight:600; line-height:1.75; }
+
+  /* 7 spotlight */
+  .card { background:var(--card); border:3px solid var(--ink); box-shadow:8px 8px 0 var(--spot); padding:18px 20px; }
+  .who { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+  .ava { width:48px; height:48px; border-radius:50%; background:var(--ink); color:var(--paper); display:flex; align-items:center; justify-content:center; font-weight:800; border:3px solid var(--ink); box-shadow:3px 3px 0 var(--spot); }
+  .who .nm { font-weight:800; text-transform:uppercase; }
+  .who .mt { font-size:12.5px; color:var(--mut); }
+
+  /* 8 box score */
+  table.split { width:100%; border-collapse:collapse; font-size:13px; border:2px solid var(--ink); background:var(--card); }
+  table.split th { background:var(--ink); color:var(--paper); font-size:10px; letter-spacing:.08em; text-transform:uppercase; text-align:left; padding:7px 6px; }
+  table.split td { padding:7px 6px; border-top:1px solid #d8cfbf; font-variant-numeric:tabular-nums; }
+  table.split td:first-child { font-weight:700; }
+  .tables { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px; }
+
+  /* 9 game flow */
+  .flow { display:grid; gap:10px; }
+  .run { display:grid; grid-template-columns:90px 1fr 60px; gap:10px; align-items:center; font-size:13px; }
+  .run .bar { height:14px; border:2px solid var(--ink); background:var(--card); }
+  .run .bar i { display:block; height:100%; background:var(--spot); }
+  .run em { font-style:normal; font-weight:800; text-align:right; font-variant-numeric:tabular-nums; }
+
+  /* 10 dropped state */
+  .gone { position:relative; }
+  .gone > p { opacity:.35; filter:grayscale(1); }
+  .gone .stamp-gone { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) rotate(-8deg); font-family:'Alfa Slab One',serif; font-size:20px; text-transform:uppercase; color:var(--ink); border:4px solid var(--ink); background:var(--spot); padding:6px 16px; white-space:nowrap; box-shadow:4px 4px 0 var(--ink); }
+
+  /* 11 share card */
+  .sharecard { aspect-ratio:1200/630; max-width:600px; background:var(--paper); border:3px solid var(--ink); position:relative; overflow:hidden;
+    background-image:repeating-linear-gradient(0deg, transparent, transparent 17px, rgba(30,27,24,0.06) 17px, rgba(30,27,24,0.06) 18px); }
+  .sharecard .band { background:var(--ink); border-bottom:5px solid var(--spot); padding:10px 16px; color:var(--paper); font-family:'Alfa Slab One'; font-size:20px; text-transform:uppercase; display:flex; justify-content:space-between; align-items:center; }
+  .sharecard .band small { font-family:'Archivo'; font-size:10px; letter-spacing:.2em; font-weight:800; }
+  .sharecard .sc { padding:12px 16px 0; font-family:'Alfa Slab One'; font-size:26px; text-transform:uppercase; }
+  .sharecard .vd { margin:8px 16px; background:var(--spot); color:var(--on-spot); border:2px solid var(--ink); box-shadow:4px 4px 0 var(--ink); padding:8px 12px; font-family:'Alfa Slab One'; font-size:15px; text-transform:uppercase; }
+  .sharecard .num { position:absolute; right:16px; bottom:30px; background:var(--card); border:2px solid var(--ink); box-shadow:4px 4px 0 var(--spot); padding:6px 12px; text-align:right; }
+  .sharecard .num b { font-family:'Alfa Slab One'; font-size:28px; display:block; line-height:1.1; }
+  .sharecard .num span { font-size:9px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; color:var(--mut); }
+  .sharecard .foot { position:absolute; left:16px; bottom:10px; font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--mut); }
+
+  /* 12 footer */
+  footer { margin-top:60px; background:var(--ink); border-top:8px solid var(--spot); padding:36px 16px; color:#d9d2c6; }
+  footer .in { max-width:1000px; margin:0 auto; }
+  footer h3 { font-family:'Alfa Slab One'; color:var(--paper); text-transform:uppercase; font-size:22px; margin-bottom:8px; }
+  footer p { font-size:13.5px; max-width:760px; margin-bottom:8px; }
+</style>
+</head>
+<body>
+
+<div class="mockbar">
+  <span>Mockup . fictional teams and players . not real data</span>
+  <span>
+    <button type="button" id="t-default" aria-pressed="true">Default: xerox + pink</button>
+    <button type="button" id="t-team" aria-pressed="false">Fan picked a team</button>
+  </span>
+</div>
+
+<header class="hero">
+  <span class="sec-id">1 . Masthead</span><br>
+  <span class="kicker">WNBA . Issue No. 112</span>
+  <h1>Morning After</h1>
+  <p class="sub">Saturday, September 19, 2026 . the zine for last night's games</p>
+  <span class="stamp">Unofficial fan zine</span>
+</header>
+
+<div class="ticker" aria-label="Around the League scores">
+  <span><b>Game of the Night</b> Harbor Tides 88 . Mesa Comets 85 (OT) &nbsp; / &nbsp; Ridge Owls 97 . Lantern Bay 81 &nbsp; / &nbsp; Canyon Flyers 74 . Northgate 70 &nbsp; / &nbsp; 2 . Around the League</span>
+</div>
+
+<nav class="teams" aria-label="Pick your team">
+  <div class="row">
+    <a href="#" class="on">All</a><a href="#">Tides</a><a href="#">Comets</a><a href="#">Owls</a><a href="#">Lantern Bay</a><a href="#">Flyers</a><a href="#">Northgate</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <p style="margin-top:12px"><span class="sec-id">3 . Team picker (sticky)</span></p>
+
+  <section class="block">
+    <span class="sec-id">4 . Score + The Number</span>
+    <div class="metrics">
+      <div class="metric"><span class="pill spot">Game of the Night</span><span class="pill">OT</span>
+        <div class="l" style="margin-top:8px">Final</div><div class="v">88 <small>Tides</small> . 85 <small>Comets</small></div></div>
+      <div class="metric"><div class="l">The Number</div><div class="v">14</div><div class="l" style="letter-spacing:.06em;text-transform:none;font-weight:600">unanswered points by the Tides to force OT</div></div>
+      <div class="metric"><div class="l">Top line</div><div class="v">31 <small>pts</small></div><div class="l" style="letter-spacing:.06em;text-transform:none;font-weight:600">June Okafor, Tides</div></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <span class="sec-id">5 . Headline</span>
+    <div class="verdict" id="headline">Down 14, the Tides simply refused to leave</div>
+  </section>
+
+  <section class="block">
+    <span class="sec-id">6 . Voice switcher + recap</span>
+    <div class="voices" role="group" aria-label="Voice">
+      <button type="button" data-v="call" aria-pressed="true">The Call</button>
+      <button type="button" data-v="film" aria-pressed="false">The Film Room</button>
+    </div>
+    <p class="lede" id="recap">Fourth quarter, Tides down 14, and the building had started doing math. June Okafor did not do math. She did 31 points, the last 9 of them in a stretch where the Comets forgot what a rebound was. Overtime was a formality with a jump ball.</p>
+  </section>
+
+  <section class="block">
+    <span class="sec-id">7 . Spotlight</span>
+    <div class="card">
+      <div class="who"><div class="ava" aria-hidden="true">JO</div><div><div class="nm">June Okafor</div><div class="mt">Tides . 31 pts . 9 reb . 5 ast</div></div></div>
+      <p>Initials, never photos. One player, one short paragraph, every number locked to the box score.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <span class="sec-id">8 . Box score summary (top 5 each)</span>
+    <div class="tables">
+      <table class="split"><thead><tr><th>Tides</th><th>Pts</th><th>Reb</th><th>Ast</th><th>FG</th></tr></thead>
+        <tbody><tr><td>J. Okafor</td><td>31</td><td>9</td><td>5</td><td>11-20</td></tr><tr><td>R. Vance</td><td>17</td><td>4</td><td>7</td><td>6-14</td></tr><tr><td>T. Mills</td><td>14</td><td>11</td><td>1</td><td>5-9</td></tr><tr><td>A. Reyes</td><td>12</td><td>3</td><td>2</td><td>4-10</td></tr><tr><td>K. Dunn</td><td>8</td><td>2</td><td>3</td><td>3-6</td></tr></tbody></table>
+      <table class="split"><thead><tr><th>Comets</th><th>Pts</th><th>Reb</th><th>Ast</th><th>FG</th></tr></thead>
+        <tbody><tr><td>S. Hale</td><td>26</td><td>6</td><td>4</td><td>9-19</td></tr><tr><td>M. Ito</td><td>19</td><td>8</td><td>2</td><td>7-13</td></tr><tr><td>D. Price</td><td>15</td><td>3</td><td>6</td><td>5-12</td></tr><tr><td>C. Lowe</td><td>11</td><td>10</td><td>1</td><td>4-8</td></tr><tr><td>P. Shaw</td><td>6</td><td>2</td><td>2</td><td>2-5</td></tr></tbody></table>
+    </div>
+  </section>
+
+  <section class="block">
+    <span class="sec-id">9 . Game flow (scoring runs)</span>
+    <div class="flow">
+      <div class="run"><span>Q2 Comets</span><div class="bar"><i style="width:57%"></i></div><em>8-0</em></div>
+      <div class="run"><span>Q4 Tides</span><div class="bar"><i style="width:100%"></i></div><em>14-0</em></div>
+      <div class="run"><span>OT Tides</span><div class="bar"><i style="width:64%"></i></div><em>9-0</em></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <span class="sec-id">10 . When a section fails the number check</span>
+    <div class="card gone">
+      <p>This is where the second voice would go if it had passed the fact lock. It didn't, so it doesn't publish.</p>
+      <span class="stamp-gone">Writers' room passed</span>
+    </div>
+  </section>
+
+  <section class="block">
+    <span class="sec-id">11 . Share card (1200x630, shown at half size)</span>
+    <div class="sharecard">
+      <div class="band">Morning After <small>WNBA . Sep 19</small></div>
+      <div class="sc">Tides 88 . Comets 85 <span class="pill">OT</span></div>
+      <div class="vd">Down 14, the Tides simply refused to leave</div>
+      <div class="num"><span>The Number</span><b>14</b><span>unanswered to force OT</span></div>
+      <div class="foot">Morning After Zine . unofficial fan zine</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="in">
+    <span class="sec-id">12 . Footer</span>
+    <h3>How this is made</h3>
+    <p>Stats come straight from the box score. The voice is AI. Every number and name the AI writes is checked against the box score before it publishes, and anything that fails is dropped.</p>
+    <p>Unofficial fan zine. Not affiliated with ESPN, the WNBA, the NBA or any team. AI assisted. Human approved. Powered by NLP.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var recaps = {
+      call: "Fourth quarter, Tides down 14, and the building had started doing math. June Okafor did not do math. She did 31 points, the last 9 of them in a stretch where the Comets forgot what a rebound was. Overtime was a formality with a jump ball.",
+      film: "Watch the Tides' 14-0 run and it's one action on repeat: high screen, the Comets' big drops, Okafor gets downhill before help arrives. The Comets never switched it. That's the whole fourth quarter on a whiteboard, and it's why there was an overtime."
+    };
+    var recap = document.getElementById('recap');
+    var buttons = document.querySelectorAll('.voices button');
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () {
+        buttons.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true');
+        recap.textContent = recaps[b.getAttribute('data-v')];
+      });
+    });
+    var root = document.documentElement;
+    var tDef = document.getElementById('t-default'), tTeam = document.getElementById('t-team');
+    tDef.addEventListener('click', function () { root.removeAttribute('data-team'); tDef.setAttribute('aria-pressed','true'); tTeam.setAttribute('aria-pressed','false'); });
+    tTeam.addEventListener('click', function () { root.setAttribute('data-team','comets'); tTeam.setAttribute('aria-pressed','true'); tDef.setAttribute('aria-pressed','false'); });
+  })();
+</script>
+</body>
+</html>
