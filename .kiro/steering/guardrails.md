@@ -58,3 +58,17 @@ Good enough is the PASS line. The first result that meets it wins. Do not polish
 - Every checkpoint asks two questions: PASS or FAIL? Is anything from `spike/` still in use? If yes, stop and report so the owner decides promote or discard.
 - No code is deleted before its `LEDGER.md` entry exists.
 - Deploy (`sam deploy`) only in tasks that say so, after owner approval.
+
+## Build log
+- Maintain `BUILD-LOG.md` at the repo root. Append one entry at the end of every task, before reporting to the owner.
+- Never rewrite or edit earlier entries. Append only.
+- `BUILD-LOG.md` is public. It must never contain the AWS account id, any ARN that carries the account id, secrets, the BALLDONTLIE API key, prompts, or model output text.
+- Entry format:
+  ```
+  ## <date> . <task id> . <short title>
+  - Tier: <Spike|Working|Full>
+  - Did: <what was done, one or two lines>
+  - Result: <PASS | FAIL | the spike question's answer>
+  - Resources: <cloud resources touched + tags, or "none">
+  - Evidence: <commit hash, file paths, timestamps; no account id, ARN, or secret>
+  ```
