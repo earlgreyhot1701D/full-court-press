@@ -50,3 +50,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS with one deferred teardown. Deleted: S3 bucket fcp-proof-7y2983ri, Lambda fcp-spike-card, its log group, local spike/ dir, branch spike/hook-check. HELD by owner instruction: Lambda fcp-spike-bdl + role fcp-spike-bdl-role + its log group, for the player_stats re-run after the ALL-STAR upgrade; to be deleted right after that re-run. Remaining Project-tagged resources: fcp-spike-bdl (held) and the permanent SSM key parameter.
 - Resources: see above. All were tagged Project=full-court-press.
 - Evidence: HeadBucket 404 for the bucket; GetFunctionConfiguration ResourceNotFound for fcp-spike-card; resource-groups tagging list shows only fcp-spike-bdl + the SSM key. CloudTrail capture (0.3d/0.3e) deferred out of Block 0 by owner.
+
+## 2026-09-23 . recovery . Restore spike artifacts deleted at checkpoint
+- Tier: Spike
+- Did: recovered spike/ after it was deleted uncommitted at 0.8. Restored THROWAWAY from dangling commit ac908b1; bdl_from_lambda.py from the deployed fcp-spike-bdl code; card_in_lambda.py, mp3_duration.py, bdl_out.json, card_out.json verbatim from session context. Added the "What discard means" guardrail (commit spike files per task, not at the checkpoint).
+- Result: spike/ recovered and committed as a kept artifact, not product code. Lost and not reconstructed: trust.json, ssm-kms.json, the Pillow build zip, the OFL TTF, and the Polly mp3/text/meta (numeric findings survive in the logs).
+- Resources: none. fcp-spike-bdl still deployed and held.
+- Evidence: commits b46bb9c (spike artifacts + guardrail); dangling commit ac908b1 for THROWAWAY.

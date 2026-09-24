@@ -131,3 +131,11 @@ Conflict:     Task 0.8 says delete fcp-spike-bdl, but the owner asked to re-run 
 Cost:         ~5 min. Verified against live state (HeadBucket 404, GetFunctionConfiguration ResourceNotFound, tagging API).
 Disposition:  Block 0 complete pending the single held re-run. CloudTrail 0.3d/0.3e deferred.
 Changes PRD?: no.
+
+### 2026-09-23 . Block 0 . CHECKPOINT 0 passed with spike code partially reconstructed after the fact
+Question:     After 0.8 deleted the uncommitted spike/ folder, could the spike code be recovered, and what was lost?
+Answer:       CHECKPOINT 0 stands as PASS, but the spike code had to be recovered after the checkpoint because it was never committed before deletion (root cause: spike files were only committed at the checkpoint, not per task; see new guardrail "What discard means"). Recovered: spike/THROWAWAY (from dangling commit ac908b1); spike/bdl_from_lambda.py (from the deployed fcp-spike-bdl code, authoritative); spike/card_in_lambda.py and spike/mp3_duration.py (verbatim from session context, not reconstructed from memory of behavior); spike/bdl_out.json and spike/card_out.json (exact invocation outputs from session context). Committed b46bb9c as a kept artifact, not product code.
+Lost (not reconstructed): spike/trust.json and spike/ssm-kms.json (the throwaway IAM policy docs for fcp-spike-bdl-role; regenerable); the Pillow build dir and card_build_pkg.zip (build artifacts); the downloaded OFL AlfaSlabOne-Regular.ttf (re-downloadable); polly_ruth.mp3, polly_line.txt, polly_meta.txt (Polly derived outputs; the numeric findings 6.79s/40796 bytes/132 chars survive in LEDGER and BUILD-LOG).
+Cost:         ~10 min recovery. No cloud resource involved (fcp-spike-bdl still deployed, held).
+Disposition:  spike/ committed on master. Process fixed by the new guardrail.
+Changes PRD?: no.
