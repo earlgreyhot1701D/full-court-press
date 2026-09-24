@@ -13,6 +13,43 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import render  # noqa: E402
+import contrast  # noqa: E402
+
+from datetime import date  # noqa: E402
+
+# Category labels for the visible dropped-category note (design pass Sep 23, item 9).
+CATEGORY_LABELS = {
+    "reb": "Rebounds", "ast": "Assists", "stl": "Steals",
+    "blk": "Blocks", "to": "Turnovers",
+}
+
+
+def human_date(iso):
+    """'2026-09-19' -> 'SATURDAY, SEP 19, 2026' (design pass Sep 23, item 7)."""
+    try:
+        y, m, d = (int(x) for x in iso.split("-"))
+        dt = date(y, m, d)
+    except Exception:
+        return iso
+    days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
+    months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+    return "%s, %s %d, %d" % (days[dt.weekday()], months[dt.month - 1], dt.day, dt.year)
+
+
+def dropped_labels(f):
+    """Return (labels_text, count) for the dropped-category note, or ("", 0)."""
+    dropped = f.get("dropped_categories") or []
+    names = [CATEGORY_LABELS.get(c, c) for c in dropped]
+    if not names:
+        return "", 0
+    if len(names) == 1:
+        return names[0], 1
+    return (", ".join(names[:-1]) + " and " + names[-1]), len(names)
+
+
+def max_run(f):
+    runs = f.get("runs") or []
+    return max((r.get("points", 0) for r in runs), default=1) or 1
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 FIXTURES = os.path.join(ROOT, "fixtures", "mock")
@@ -130,6 +167,9 @@ def main():
             # static/ is a sibling of out/, so 4 up from the edition dir
             static_prefix = "../../../../static/"
             # spot color: the edition team's color if that team played (it did)
+            spot = spot_for(colors, edition)
+            on_text, ratio, low = contrast.on_spot(spot)
+            dl_text, dl_count = dropped_labels(f)
             ctx = {
                 "f": f,
                 "edition": edition,
@@ -141,7 +181,13 @@ def main():
                 "card_url": "card.png",
                 "slate": slate,
                 "standings_movers": None,
-                "spot_color": spot_for(colors, edition),
+                "spot_color": spot,
+                "on_spot_text": on_text,
+                "low_contrast": low,
+                "date_display": human_date(f["date_local"]),
+                "max_run": max_run(f),
+                "dropped_labels": dl_text,
+                "dropped_count": dl_count,
                 "root_prefix": root_prefix,
                 "static_prefix": static_prefix,
             }
@@ -171,12 +217,15 @@ def main():
     # Game of the Night first
     index_slate.sort(key=lambda g: (not g["is_game_of_night"],))
     team_tabs = [{"abbrev": a, "spot": t["spot"]} for a, t in colors.items()]
+    idx_on_text, _idx_ratio, idx_low = contrast.on_spot("#FF48B0")  # default pink
     idx_ctx = {
-        "date_local": "2026-09-19",
+        "date_display": human_date("2026-09-19"),
         "slate": index_slate,
         "team_tabs": team_tabs,
         "ticker": [{"text": "%s %s . %s %s" % (s["winner_team"], s["winner_score"], s["loser_team"], s["loser_score"]), "mark": "F"} for s in slate],
         "spot_color": None,
+        "on_spot_text": idx_on_text,
+        "low_contrast": idx_low,
         "root_prefix": "",            # index is at out/index.html
         "static_prefix": "../static/", # static/ is a sibling of out/
     }
@@ -186,7 +235,9 @@ def main():
     written.append(p)
 
     # --- about --- (out/about/index.html: root is 1 up, static 2 up)
-    about_ctx = {"root_prefix": "../", "static_prefix": "../../static/", "spot_color": None}
+    ab_on_text, _ab_ratio, ab_low = contrast.on_spot("#FF48B0")
+    about_ctx = {"root_prefix": "../", "static_prefix": "../../static/", "spot_color": None,
+                 "on_spot_text": ab_on_text, "low_contrast": ab_low}
     d = os.path.join(OUT, "about")
     os.makedirs(d, exist_ok=True)
     p = os.path.join(d, "index.html")

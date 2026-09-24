@@ -34,7 +34,7 @@
   <header class="pnl p1 cover">
     <div class="wrap">
       <div class="toprow">
-        <span class="kick spot-surface">{{ f.league|upper }} . {{ f.date_local }}</span>
+        <span class="kick spot-surface">{{ f.league|upper }} . {{ date_display }}</span>
         {% if is_game_of_night %}<div class="gotn" aria-label="Game of the Night">Game<br>of the<br>Night</div>{% endif %}
       </div>
       <a class="homelink" href="{{ root_prefix }}index.html" aria-label="All of last night&rsquo;s games"><h1 class="slab mast">Full Court Press</h1></a>
@@ -137,8 +137,13 @@
   <section class="pnl p5">
     <div class="wrap">
       <div class="fold screen-only">fold</div>
-      <span class="lbl">Stat line . counted from the play-by-play</span>
-      <h2 class="slab misreg">The sheet</h2>
+      <span class="lbl">The stat line . counted from the play-by-play</span>
+      <h2 class="slab misreg">The stat line</h2>
+      {# A dropped category must be visible, not silent: the About page promises
+         the reader sees where something was cut (design pass Sep 23, item 9). #}
+      {% if dropped_labels %}
+      <p class="droppednote">{{ dropped_labels }} aren&rsquo;t shown for this game. The count didn&rsquo;t add up, so we left them out.</p>
+      {% endif %}
       <details class="box">
         <summary>Show the stat line</summary>
         <div class="tbls">
@@ -167,7 +172,6 @@
           </table>
           {% endfor %}
         </div>
-        {% if dropped %}<p class="samplenote2">Some columns are not shown for this game: a category is left out entirely when its count cannot be trusted, rather than shown as zero.</p>{% endif %}
       </details>
       <span class="folio print-only">4</span>
     </div>
@@ -191,9 +195,11 @@
           <div class="bar"><i style="width:{{ (100 * [h, a]|max / total)|round|int }}%"></i></div>
           <b>{{ qwin }}</b>
         </div>
-        {# scoring runs that belong to this quarter render within its row #}
+        {# scoring runs that belong to this quarter render within its row.
+           Bar width scales against the largest run in the game (max_run),
+           with a visible minimum so a small run still shows. #}
         {% for r in f.runs if r.quarter == (i + 1) %}
-        <div class="run runline"><span class="q">run</span><div class="bar"><i style="width:100%"></i></div><b>{{ r.team_abbrev }} {{ r.points }}</b></div>
+        <div class="run runline"><span class="q">run</span><div class="bar"><i style="width:{{ [ (100 * r.points / max_run)|round|int, 12 ]|max }}%"></i></div><b>{{ r.team_abbrev }} {{ r.points }}</b></div>
         {% endfor %}
         {% endfor %}
       </div>

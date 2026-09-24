@@ -113,3 +113,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS on the machine-checkable items. Visual checks (375px no-scroll, cover within first screen, actual printed fold) need the owner's eyes in a browser.
 - Resources: none. Installed jinja2 3.1.6 (an allowed dependency per tech.md).
 - Evidence: out/ renders (gitignored), font glyph test still green (2 passed).
+
+## 2026-09-24 . design-pass . Four render-time fixes on the Block 1 render
+- Tier: Working
+- Did: implemented the four renderer items from design/DESIGN-PASS-SEP23.md on top of the owner's six CSS fixes (not reverted). (1) src/zine/contrast.py picks paper vs ink text on each team's spot colour at render time by WCAG contrast, and _base.html emits data-on-spot / data-lowc on <html>; (2) tests/test_contrast.py walks all 15 teams; (3) human dates ("SATURDAY, SEP 19, 2026") in the mastheads and "Last night"; (4) run bars scaled against the largest run in the game with a visible minimum; plus the visible dropped-category note and stat-line naming alignment.
+- Result: PASS. Re-rendered out/. DAL text=paper, NY text=ink, all 15 teams clear 4.5:1; dates human; run widths proportional (e.g. 67% vs 100%); the gate-fail editions now say "Assists aren't shown for this game...". Tests: 5 passed.
+- Resources: none.
+- Evidence: src/zine/contrast.py, tests/test_contrast.py, templates/{_base,issue,today}.html, static/styles.css (.droppednote appended), out/ renders (gitignored).

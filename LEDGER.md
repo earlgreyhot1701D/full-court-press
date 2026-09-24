@@ -242,3 +242,11 @@ Finding 2: the spec does not enumerate the values of `type`, so the category voc
 Finding 3: `/wnba/v1/plays` takes `game_id` only, required, with no pagination. Consistent with the 407-play single response observed in the 0.4 spike.
 Disposition:  promote (tech.md authoritative-source note, design.md pbp_stats.py attribution section)
 Changes PRD?: no, but the derived-statistics risk is higher than when the scope change was approved.
+
+### 2026-09-24 . Block 1 . Render-time contrast, and a silent dropped column was a broken promise
+Question:     The design pass found the team colour text was invisible on most teams and a dropped stat category vanished silently. Fix in the renderer?
+Answer:       Yes. Text colour on the spot colour is now decided at render time in src/zine/contrast.py (WCAG relative luminance and contrast ratio, pure Python, no dependency) and emitted as data-on-spot / data-lowc on <html>, never in JS, so the no-JS baseline reads correctly. All 15 teams clear 4.5:1 with the chosen colour; none needs the low-contrast escape hatch. The dropped-category note is a correctness fix, not polish: the About page promises the reader sees where a count was cut, and a silently missing column broke that promise. The stat line now carries one plain line, e.g. "Assists aren't shown for this game. The count didn't add up, so we left them out."
+Note:         RENDER-CONTRAST.md lists default pink ink-on-pink at 4.3:1; the standard WCAG 2.x formula gives 5.6:1. The decision is identical (ink, and it passes), and contrast.py matches all five verified team figures in the doc exactly (DAL 13.7, NY 9.1, GS 6.8, LV 5.7, CHI 5.1). Kept the WCAG value; did not bend the math to the doc's number.
+Cost:         ~40 min. No cloud resource. Owner's six CSS fixes left intact, re-rendered on top.
+Disposition:  promote (contrast.py, test_contrast.py, template + style updates).
+Changes PRD?: no.

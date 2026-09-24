@@ -11,7 +11,7 @@
 {% block body %}
 <header class="top">
   <div class="wrap">
-    <span class="kick spot-surface">WNBA . {{ date_local }}</span>
+    <span class="kick spot-surface">WNBA . {{ date_display }}</span>
     {# index masthead does NOT link to itself (Req 10d) #}
     <h1 class="slab mast">Full Court Press</h1>
     <p class="sub">the morning zine for women&rsquo;s pro basketball</p>
@@ -34,7 +34,7 @@
 <div class="wrap">
   <div class="slatehead">
     <h2 class="slab">Last night</h2>
-    <span class="date">{{ date_local }}</span>
+    <span class="date">{{ date_display }}</span>
   </div>
 
   {% if not slate %}

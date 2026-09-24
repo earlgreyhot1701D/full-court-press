@@ -24,6 +24,7 @@
 :root {
   --paper:#F4EEE2; --ink:#1E1B18; --mut:#6B6259; --card:#FFFBF3;
   --spot:#FF48B0; --spot-text:#B8156E; --on-spot:#1E1B18;
+    /* --on-spot is chosen at RENDER time, never in JS: see design/RENDER-CONTRAST.md */
   --grit:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .14 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   --lines:repeating-linear-gradient(0deg, transparent, transparent 29px, rgba(30,27,24,.05) 29px, rgba(30,27,24,.05) 30px);
   --dots:radial-gradient(rgba(244,238,226,.12) 1px, transparent 1.2px);
@@ -62,7 +63,7 @@ nav.teams .sw { display:inline-block; width:9px; height:9px; border:1.5px solid 
 .tagline { margin-top:8px; color:#d9d2c6; font-size:14px; font-weight:600; }
 .date { color:#d9d2c6; font:800 10.5px 'Archivo'; letter-spacing:.2em; text-transform:uppercase; margin-top:4px; }
 .toprow { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
-.gotn { flex:0 0 auto; width:74px; height:74px; border-radius:50%; background:var(--paper); color:var(--ink); border:4px solid var(--spot); display:flex; align-items:center; justify-content:center; text-align:center; font:800 9px/1.15 'Archivo'; letter-spacing:.08em; text-transform:uppercase; transform:rotate(12deg); }
+.cover .gotn { flex:0 0 auto; width:74px; height:74px; border-radius:50%; background:var(--paper); color:var(--ink); border:4px solid var(--spot); display:flex; align-items:center; justify-content:center; text-align:center; font:800 9px/1.15 'Archivo'; letter-spacing:.08em; text-transform:uppercase; transform:rotate(12deg); }
 .scorerow { display:grid; grid-template-columns:1.5fr 1fr; gap:14px; margin-top:22px; }
 .score { background:var(--paper); color:var(--ink); padding:12px 14px; box-shadow:6px 6px 0 var(--spot); transform:rotate(-1deg); }
 .score .r { display:flex; justify-content:space-between; align-items:baseline; font-size:clamp(22px,6vw,32px); }
@@ -152,7 +153,7 @@ footer p { font-size:14px; margin-top:8px; }
 
 @media (max-width:480px) {
   .scorerow { grid-template-columns:1fr; }
-  .gotn { width:62px; height:62px; font-size:8px; }
+  .cover .gotn { width:62px; height:62px; font-size:8px; }
   .run { grid-template-columns:92px 1fr 44px; }
 }
 @media (prefers-reduced-motion:reduce) { * { transition:none !important; } }
@@ -237,3 +238,61 @@ nav.teams.index .sw { width:11px; height:11px; border:1px solid var(--ink); }
 .about blockquote p { font-size:16.5px; font-weight:600; line-height:1.7; margin-bottom:8px; }
 .about > .aboutblock > p { font-size:15px; line-height:1.7; margin-top:8px; }
 .about a { color:var(--ink); }
+
+
+/* ============================================================
+   Design pass, Sep 23. Fixes found by rendering out/ at 390px.
+   Three of these are selector collisions from merging the two
+   mockups' stylesheets into one file.
+   ============================================================ */
+
+/* (a) Text on the team colour. Chosen at render time, never in JS, because the
+   no-JS baseline is a requirement and the team is known when the page is built.
+   Default is ink, which suits the default pink. The renderer sets
+   data-on-spot="paper" when cream beats ink against that team's colour. */
+:root[data-on-spot="paper"] { --on-spot: var(--paper); }
+:root[data-on-spot="ink"]   { --on-spot: var(--ink); }
+
+/* (b) Site footer. A bare `footer {}` rule from the issue mockup was painting the
+   index's light footer dark, which made every link in it invisible. Class beats
+   element, so this wins without touching the other rule. */
+.sitefoot {
+  background: none;
+  background-image: none;
+  color: var(--mut);
+  border-top: 3px solid var(--ink);
+  padding: 16px 0 40px;
+}
+.sitefoot .disclaimer, .sitefoot .attribution { color: var(--mut); }
+.sitefoot .attribution a, .sitefoot .footlinks a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* (c) Game flow: a run line needs room for "PHX 12" without wrapping, and should
+   read as a child of the quarter above it, not a peer. */
+.run { grid-template-columns: 120px 1fr 74px; }
+@media (max-width: 420px) { .run { grid-template-columns: 84px 1fr 66px; } }
+.run b { white-space: nowrap; }
+.run.runline { margin-left: 14px; }
+.run.runline .bar { height: 10px; }
+.run.runline .q { font-size: 9px; }
+
+/* (d) Focus states. Nothing in the lifted CSS had one, and the team picker and the
+   edition toggle are the two things a keyboard user reaches for first. */
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--spot-text);
+  outline-offset: 3px;
+}
+
+/* (e) Respect a reduced-motion preference. The zine tilts things by a degree or two;
+   keep the character, drop it for anyone who asked for less. */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Dropped-category note in the stat line panel. Same plain, honest voice as the
+   dropped-voice line; the About page promises the reader sees where a count was
+   cut (design pass Sep 23, item 9). Not decorative: this is the honesty. */
+.droppednote { font:600 13px 'Archivo'; color:var(--mut); background:var(--paper); border-left:4px solid var(--spot); padding:8px 12px; margin:8px 0 12px; }
