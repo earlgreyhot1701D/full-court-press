@@ -21,15 +21,23 @@ Not official brand assets and not an endorsement. The About page states the non-
 | PHX | Phoenix Mercury | `#201747` | Purple | |
 | SEA | Seattle Storm | `#2C5234` | Green | Yellow `#FBE122` is listed first, unusable on cream |
 | WSH | Washington Mystics | `#0C2340` | Navy | Collides with DAL; see the collision note |
-| GS | Golden State Valkyries | `#B38FCF` | Violet | **UNVERIFIED** |
-| POR | Portland Fire | `#CEE5EB` | Pale blue | **UNVERIFIED** |
-| TOR | Toronto Tempo | `#33476D` | Slate | **UNVERIFIED** |
+| GS | Golden State Valkyries | `#B896D4` | Valkyrie Violet | Light. The contrast fallback will fire. Second-hand source |
+| POR | Portland Fire | `#C8102E` | Fire Red | Three-way collision with ATL and IND. Second-hand source |
+| TOR | Toronto Tempo | `#612C51` | Tempo Bordeaux | Second-hand source |
 
-## Unverified teams
-teamcolorcodes.com lists only the twelve established clubs. The three 2026 expansion teams are not on it,
-so their values are the mockup's originals and are guesses. Confirm from each club's own site before
-Block 1 ships, or fall back to `--spot` (the pink) for any team whose color is not confirmed. Do not
-invent a value.
+## The three expansion teams: weaker sourcing
+teamcolorcodes.com lists only the twelve established clubs. Golden State, Portland and Toronto come from
+a search engine's AI summary citing trucolor.net and Wikipedia, supplied by the owner Sep 23. That is
+second-hand and it hedged on Portland, saying the secondary values "vary across ongoing merchandise
+drops". The three values above are the ones it gave with confidence and they are plausible: Valkyrie
+Violet and Tempo Bordeaux are both named brand colours, and Portland's red maps to Pantone 186 C.
+
+They are good enough to build with and they are NOT confirmed. Before the site goes live, check each
+against the club's own site and correct or confirm here. If a check comes back different, the club wins.
+Do not take a value from a merchandise listing or a fan wiki.
+
+Alternates seen in the same summary, kept in case a check disagrees: Valkyries violet `#AD96DC`, Tempo
+bordeaux `#441E36`, Tempo light blue `#B8CCEA`.
 
 ## Collisions
 Two teams share `#0C2340` and two share `#C8102E`. An issue page shows one team's color at a time, so

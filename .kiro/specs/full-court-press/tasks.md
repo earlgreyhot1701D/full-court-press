@@ -65,7 +65,12 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
 - [ ] 1.1 Extract the design from the approved mockup
   - `design/full-court-press-mockup.html` is the design source of truth. Lift the CSS custom properties, type scale, spacing, component styles, print rules and section order from it into `static/styles.css` and `static/print.css`. Self-host the two fonts from `static/fonts/`.
   - Do NOT redesign, do not add colors or fonts, do not use `design/reference.html` (superseded).
-  - The mockup is one issue page. The index ("All") page is described in requirements 10.1 to 10.1c and reuses the same components.
+  - TWO design sources of truth, both binding:
+    `design/full-court-press-mockup.html` is the issue page.
+    `design/full-court-press-index-mockup.html` is the index ("All") page, added Sep 23.
+    Lift both. Do not redesign either, and do not invent an index layout from the requirement text.
+  - The index mockup's sample slate is invented copy with real team names. Do not carry its scores,
+    dates or ticker text into the product.
 - [ ] 1.2 Mock facts
   - `fixtures/mock/` with 3 hand-written facts sheets (one normal, one OT, one where voices were dropped) matching the design.md schema
 - [ ] 1.3 Templates

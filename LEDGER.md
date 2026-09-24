@@ -201,3 +201,12 @@ Answer:       YES. Deleted fcp-spike-bdl (Lambda), fcp-spike-bdl-role (IAM role,
 Cost:         ~5 min.
 Disposition:  Block 0 teardown done. spike/ code kept in git (commits b46bb9c, 3ff4a25, e811011). CloudTrail 0.3d/0.3e remain deferred.
 Changes PRD?: no.
+
+### 2026-09-23 . Block 1 . The index page had no design
+Question:     Requirement 10 specifies the index ("All") page in prose. Is that enough to build from?
+Answer:       No. Every other screen had a mockup that is the binding design source of truth; the index had only requirement text, so Kiro would have invented a layout at build time and the first time anyone saw it would have been CHECKPOINT 1.
+Fixed:        `design/full-court-press-index-mockup.html` built and rendered: masthead, team picker, Around the League ticker, one card per game with both teams, scores, spot-colour swatches, status, Game of the Night badge, archive strip, footer credit. Task 1.1 now names both mockups as binding.
+Found while building: a fan of the losing team had no way in. Tapping a card opened the winner's edition and they had to toggle. Both team names on a card are now direct links to that team's edition (Requirement 10.1b-i), server-rendered, working with JavaScript off.
+Also added: 10.1b-ii pins down what a card shows and, more usefully, what it does not. No recap text, no stat line, no model output on the index.
+Disposition:  promote (Requirement 10.1b, 10.1b-i, 10.1b-ii, task 1.1, new mockup)
+Changes PRD?: no

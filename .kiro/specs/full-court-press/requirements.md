@@ -142,7 +142,9 @@ exists to check them against. An event the feed omits is an event we miss silent
 **User Story:** As a fan, I want to find my team's issues fast, so that I'm not scrolling.
 #### Acceptance Criteria
 1. WHEN a visitor opens the site root ("All") THE SYSTEM SHALL show an INDEX of last night's slate, not an issue: the masthead, the Around the League ticker, then one card per finished game (both teams, final score, Game of the Night badge where it applies), Game of the Night first, then the rest by tip time. No recap text on the index.
-1b. WHEN a visitor taps a game card THE SYSTEM SHALL open that game's issue, in the winning team's edition by default, with the edition toggle visible.
+1b. WHEN a visitor taps a game card's "Read the issue" link THE SYSTEM SHALL open that game's issue in the winning team's edition, with the edition toggle visible.
+1b-i. WHEN a visitor taps either TEAM NAME on a game card THE SYSTEM SHALL open that game's issue in THAT team's edition directly. A fan of the losing team SHALL NOT have to open the winner's edition first and then toggle. Both team names are links, server-rendered, working with JavaScript off.
+1b-ii. Each game card SHALL show both teams with their final scores, the winner in ink and the loser in the muted tone, a small swatch of each team's spot color, the status ("Final", or "Final / OT"), and the Game of the Night badge where it applies. No recap text, no stat line, no model output on the index.
 1c. WHEN a visitor has picked a team and opens "All" THE SYSTEM SHALL still show the whole slate, with that team's game pinned first and the spot color set to that team.
 2. WHEN a visitor picks a team THE SYSTEM SHALL filter the index by that team's abbreviation (no model involved), show that team's most recent issue first and its older issues below, apply that team's spot color, and remember the choice in browser storage inside try/catch.
 2b. WHEN the picked team did not play last night THE SYSTEM SHALL say "No game last night." above that team's most recent issue.

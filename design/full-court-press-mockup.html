@@ -99,7 +99,7 @@
   .stats span { font:800 9px 'Archivo'; letter-spacing:.14em; }
   .clip p { margin-top:12px; font-size:15px; font-weight:600; }
 
-  /* box score */
+  /* stat line */
   details.box { border:3px solid var(--ink); background:var(--card); }
   details.box summary { list-style:none; cursor:pointer; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; font:800 12px 'Archivo'; letter-spacing:.1em; text-transform:uppercase; min-height:44px; }
   details.box summary::-webkit-details-marker { display:none; }
@@ -185,7 +185,7 @@
     .p4 .ava { flex-basis:40px; height:40px; font-size:13px; } .p4 .who .nm { font-size:16px; } .p4 .who .tm { font-size:7.5px; }
     .p4 .stats b { font-size:18px; } .p4 .stats span { font-size:7px; }
     .p4 .clip p { font-size:9.5px; }
-    /* box score */
+    /* stat line */
     .p5 details.box { border:0; background:none; } .p5 details.box summary { display:none; }
     .p5 .tbls { padding:0; gap:8px; }
     .p5 table { font-size:8.5px; background:var(--card); border:2px solid var(--ink); } .p5 th { font-size:7px; padding:3px 4px; } .p5 td { padding:2.5px 4px; }
@@ -209,7 +209,7 @@
 </head>
 <body>
 
-<div class="mockbar"><span>Mockup . real WNBA teams and real box score (Sep 19 2026) . recap copy written by hand, not AI . tap a team for its color</span><output id="cx">Default: xerox + pink</output></div>
+<div class="mockbar"><span>Mockup . real WNBA teams and real numbers (Sep 19 2026) . recap copy written by hand, not AI . tap a team for its color</span><output id="cx">Default: xerox + pink</output></div>
 
 <nav class="teams screen-only" aria-label="Pick your team">
   <div class="row" id="teamrow">
@@ -240,7 +240,7 @@
         </div>
       </div>
       <div class="slab headline spot-surface" id="headline">Bueckers 26, Wings hold on 87 to 82</div>
-      <p class="samplenote screen-only">Sample copy, written by hand from the box score. Not AI generated.</p>
+      <p class="samplenote screen-only">Sample copy, written by hand from the night&rsquo;s numbers. Not AI generated.</p>
     </div>
   </header>
 
@@ -298,14 +298,14 @@
     </div>
   </section>
 
-  <!-- PANEL 5: BOX SCORE -->
+  <!-- PANEL 5: STAT LINE (counted from the play-by-play) -->
   <section class="pnl p5">
     <div class="wrap">
       <div class="fold screen-only">fold</div>
-      <span class="lbl">Box score . top 5</span>
+      <span class="lbl">Stat line . top 5 . counted from the play-by-play</span>
       <h2 class="slab misreg">The sheet</h2>
       <details class="box" id="box">
-        <summary>Show the box score</summary>
+        <summary>Show the stat line</summary>
         <div class="tbls">
           <table><thead><tr><th>Wings</th><th>PTS</th><th>REB</th><th>AST</th><th>FG</th></tr></thead>
           <tbody><tr><td>P. Bueckers</td><td>26</td><td>4</td><td>5</td><td>10-19</td></tr><tr><td>A. Ogunbowale</td><td>22</td><td>2</td><td>6</td><td>8-14</td></tr><tr><td>A. Kuier</td><td>11</td><td>5</td><td>2</td><td>4-4</td></tr><tr><td>J. Shepard</td><td>10</td><td>6</td><td>5</td><td>3-10</td></tr><tr><td>O. Sims</td><td>5</td><td>0</td><td>0</td><td>2-3</td></tr></tbody></table>
@@ -366,7 +366,7 @@
     <footer>
       <div class="wrap">
         <h2 class="slab misreg">How this is made</h2>
-        <p>Stats come straight from the box score. The voice is AI. Every number and name the AI writes is checked against the box score before it prints. Anything that fails gets cut.</p>
+        <p>The stats are counted from the play-by-play by code, never by the AI. Each team&rsquo;s points are checked against the final score before anything prints. The voice is AI, and every number and name it writes is checked against those same facts. Anything that fails gets cut.</p>
         <div class="qr print-only"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 31" role="img" aria-label="QR code (mock)" class="segno"><path class="qrline" stroke="#1e1b18" d="M1 1.5h7m3 0h1m1 0h1m2 0h4m3 0h7m-29 1h1m5 0h1m2 0h2m1 0h1m7 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m2 0h3m2 0h1m2 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h3m1 0h1m1 0h2m1 0h3m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h4m1 0h1m3 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m1 0h1m2 0h2m3 0h3m3 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h3m1 0h1m3 0h1m1 0h1m-18 1h2m3 0h1m5 0h1m2 0h1m4 0h1m1 0h2m1 0h1m-26 1h1m1 0h2m3 0h2m1 0h1m1 0h1m1 0h4m1 0h5m1 0h4m-27 1h2m2 0h1m1 0h1m2 0h1m1 0h5m1 0h1m1 0h1m6 0h1m-29 1h4m1 0h1m1 0h2m1 0h1m1 0h3m3 0h3m1 0h1m2 0h1m-26 1h1m5 0h2m1 0h3m3 0h1m5 0h2m2 0h1m1 0h1m-24 1h2m2 0h2m1 0h1m2 0h1m3 0h3m1 0h1m2 0h1m2 0h1m-28 1h10m1 0h5m1 0h2m1 0h2m2 0h2m1 0h1m-29 1h1m1 0h2m4 0h2m3 0h1m2 0h1m1 0h1m1 0h3m2 0h1m1 0h2m-29 1h4m2 0h2m3 0h1m2 0h1m1 0h1m2 0h2m1 0h1m4 0h2m-26 1h1m4 0h2m1 0h1m4 0h1m2 0h1m1 0h3m1 0h2m1 0h1m-29 1h2m1 0h2m1 0h2m4 0h1m3 0h4m4 0h1m1 0h1m1 0h1m-25 1h2m2 0h3m2 0h4m3 0h3m1 0h1m3 0h1m-29 1h2m1 0h2m1 0h1m1 0h3m2 0h1m2 0h1m2 0h7m-18 1h1m2 0h1m3 0h1m1 0h1m2 0h1m3 0h2m2 0h1m-29 1h7m2 0h2m4 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h2m1 0h3m1 0h1m1 0h3m3 0h2m2 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m1 0h13m-25 1h1m1 0h3m1 0h1m2 0h4m4 0h1m1 0h2m2 0h5m-28 1h1m1 0h3m1 0h1m1 0h2m1 0h7m3 0h1m2 0h1m2 0h2m-29 1h1m5 0h1m1 0h2m2 0h1m1 0h1m5 0h2m3 0h1m-26 1h7m3 0h1m2 0h1m1 0h2m3 0h1m1 0h4m2 0h1"/></svg>
 <span>Read it online<br>+ past issues</span></div>
         <button type="button" class="printbtn" id="printbtn">Print this issue <small>folds into an 8-page pocket zine</small></button>
@@ -382,9 +382,9 @@
 (function () {
   // ---- team colors (fictional). In the real build these come from the feed, and code picks text color by contrast.
   var TEAMS = [
-    ['ATL','#C8102E'], ['CHI','#418FDE'], ['CON','#A6192E'], ['DAL','#0C2340'], ['GS','#B38FCF'],
+    ['ATL','#C8102E'], ['CHI','#418FDE'], ['CON','#A6192E'], ['DAL','#0C2340'], ['GS','#B896D4'],
     ['IND','#C8102E'], ['LA','#702F8A'], ['LV','#BA0C2F'], ['MIN','#236192'], ['NY','#6ECEB2'],
-    ['PHX','#201747'], ['POR','#CEE5EB'], ['SEA','#2C5234'], ['TOR','#33476D'], ['WSH','#0C2340']
+    ['PHX','#201747'], ['POR','#C8102E'], ['SEA','#2C5234'], ['TOR','#612C51'], ['WSH','#0C2340']
   ];
   var DEFAULT = { spot:'#FF48B0', spotText:'#B8156E', onSpot:'#1E1B18' };
   var PAPER = '#F4EEE2', INK = '#1E1B18';
@@ -431,7 +431,7 @@
       b.setAttribute('aria-pressed','true'); fn(b);
     }); });
   }
-  // Sample copy, written by hand from the real box score. Not AI generated.
+  // Sample copy, written by hand from the real numbers. Not AI generated.
   var COPY = {
     DAL: {
       headline: "Bueckers 26, Wings hold on 87 to 82",
@@ -469,7 +469,7 @@
   group('[data-v]', function (b) { voice = b.getAttribute('data-v'); draw(); });
   apply('#0C2340','DAL'); draw();
 
-  // ---- print: open the box score so it prints, restore after
+  // ---- print: open the stat line so it prints, restore after
   var box = document.getElementById('box'), wasOpen = false;
   window.addEventListener('beforeprint', function () { wasOpen = box.open; box.open = true; });
   window.addEventListener('afterprint', function () { box.open = wasOpen; });
