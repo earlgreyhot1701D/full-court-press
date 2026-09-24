@@ -101,3 +101,7 @@ Good enough is the PASS line. The first result that meets it wins. Do not polish
   - Resources: <cloud resources touched + tags, or "none">
   - Evidence: <commit hash, file paths, timestamps; no account id, ARN, or secret>
   ```
+
+## What discard means
+- Spike files are committed at the end of each spike task, not at the checkpoint. An uncommitted
+  spike file is one `rm` away from gone, and the findings are only half the artifact.
