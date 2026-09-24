@@ -60,10 +60,20 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
 
 - [ ] 1.0 Team colors
   - `design/team-colors.md` is the source for the spot color table. Lift it verbatim into the product.
-  - Three teams (GS, POR, TOR) are marked UNVERIFIED. Until the owner confirms them, those teams fall
-    back to `--spot`. Do not invent a value and do not fetch one from an unofficial source.
+  - All 15 teams have a value. Use them as given, including GS, POR and TOR, whose sourcing is weaker
+    and is caveated in `design/team-colors.md`. The `--spot` fallback is no longer in play: it applied
+    when those three had no value at all. Do not invent a value and do not fetch one from any source.
+    If the owner later confirms a different hex from a club's own site, the club wins and the change
+    happens in `design/team-colors.md` first.
 - [ ] 1.1 Extract the design from the approved mockup
-  - `design/full-court-press-mockup.html` is the design source of truth. Lift the CSS custom properties, type scale, spacing, component styles, print rules and section order from it into `static/styles.css` and `static/print.css`. Self-host the two fonts from `static/fonts/`.
+  - `design/full-court-press-mockup.html` is the design source of truth. Lift the CSS custom properties, type scale, spacing, component styles, print rules and section order from it into `static/styles.css` and `static/print.css`.
+  - Fonts, moved up from task 4.1 because 1.1 cannot render without them: Alfa Slab One (display) and
+    Archivo (body), both SIL Open Font License. Download from the Google Fonts repository and commit the
+    font files plus each family's `OFL.txt` into `static/fonts/`. The OFL permits redistribution and
+    requires the licence travel with the files. Do NOT extract the base64 faces embedded in the mockups:
+    those are subset for the mockup's sample copy and will be missing glyphs the real content needs.
+    Then render a page containing every team name and abbreviation and confirm nothing falls back to a
+    system font. If the download is blocked, stop and report; never substitute a different typeface.
   - Do NOT redesign, do not add colors or fonts, do not use `design/reference.html` (superseded).
   - TWO design sources of truth, both binding:
     `design/full-court-press-mockup.html` is the issue page.
@@ -129,7 +139,7 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
   - _Requirements: 5, 6_
 
 ## Block 4: Share card (Tier: Working. Disposition: promote)
-- [ ] 4.1 Bundle Alfa Slab One + Archivo TTFs and OFL licenses in `static/fonts/`
+- [ ] 4.1 Fonts: DONE in task 1.1 (moved up, Block 1 cannot render without them). Verify here that the OFL.txt files are present and that the print sheet renders with no glyph fallback.
 - [ ] 4.2 `card.py` per design.md share card spec, text fitting rules (shrink to a floor, then ellipsis), one card per edition, contrast pick for text on the team color. Reference output: `design/card-*.png`
 - [ ] 4.3 CHECKPOINT 4
   - Cards for all golden games x both editions: nothing overflows, only locked or deterministic text, no logos or photos, pale team colors still readable

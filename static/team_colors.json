@@ -1,0 +1,21 @@
+{
+  "_source": "design/team-colors.md (teamcolorcodes.com fetched 2026-09-23; GS/POR/TOR second-hand and UNVERIFIED, see that file). Not official brand assets, not an endorsement.",
+  "_note": "One spot color per team. Text color is chosen at render time by contrast against --card; below 4.5:1 the color renders on shapes/borders only and text falls back to --ink.",
+  "teams": {
+    "ATL": { "team": "Atlanta Dream",         "spot": "#C8102E" },
+    "CHI": { "team": "Chicago Sky",            "spot": "#418FDE" },
+    "CON": { "team": "Connecticut Sun",        "spot": "#A6192E" },
+    "DAL": { "team": "Dallas Wings",           "spot": "#0C2340" },
+    "IND": { "team": "Indiana Fever",          "spot": "#C8102E" },
+    "LA":  { "team": "Los Angeles Sparks",     "spot": "#702F8A" },
+    "LV":  { "team": "Las Vegas Aces",         "spot": "#BA0C2F" },
+    "MIN": { "team": "Minnesota Lynx",         "spot": "#236192" },
+    "NY":  { "team": "New York Liberty",       "spot": "#6ECEB2" },
+    "PHX": { "team": "Phoenix Mercury",        "spot": "#201747" },
+    "SEA": { "team": "Seattle Storm",          "spot": "#2C5234" },
+    "WSH": { "team": "Washington Mystics",     "spot": "#0C2340" },
+    "GS":  { "team": "Golden State Valkyries", "spot": "#B896D4", "unverified": true },
+    "POR": { "team": "Portland Fire",          "spot": "#C8102E", "unverified": true },
+    "TOR": { "team": "Toronto Tempo",          "spot": "#612C51", "unverified": true }
+  }
+}

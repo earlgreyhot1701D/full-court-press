@@ -78,3 +78,17 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: all spike cloud resources gone. Only Project=full-court-press resource remaining is the SSM key parameter. Block 0 teardown complete.
 - Resources: deleted Lambda fcp-spike-bdl, role fcp-spike-bdl-role, log group /aws/lambda/fcp-spike-bdl.
 - Evidence: GetFunctionConfiguration ResourceNotFound; GetRole NoSuchEntity; DescribeLogGroups 0; tagging API returns only the SSM parameter.
+
+## 2026-09-24 . 1.0 . Team colors
+- Tier: Working
+- Did: created static/team_colors.json from design/team-colors.md verbatim, 15 teams, one spot hex each. Expansion teams GS/POR/TOR filled with their values and flagged unverified; the --spot fallback is not used. No value invented or fetched.
+- Result: PASS. Data file matches the source table.
+- Resources: none.
+- Evidence: static/team_colors.json.
+
+## 2026-09-24 . 1.1 . Extract the design (both mockups) + self-hosted fonts
+- Tier: Working
+- Did: downloaded Alfa Slab One and Archivo (OFL) from the Google Fonts repo into static/fonts/ with each family's OFL.txt; lifted the issue and index mockups into static/styles.css (tokens, type, spacing, components, home link + back bar per Req 10d) and static/print.css (8-panel fold layout, verbatim from the issue mockup print block); wired @font-face to the self-hosted files. Did not extract the mockups' embedded base64 faces; did not use reference.html; did not carry the index mockup's sample slate.
+- Result: PASS. Glyph-coverage check (tests/test_font_glyph_coverage.py) confirms all 43 distinct characters in every team name and abbreviation resolve in BOTH fonts, so nothing falls back to a system font. pytest: 2 passed.
+- Resources: none.
+- Evidence: static/fonts/ (AlfaSlabOne-Regular.ttf, Archivo-VariableFont_wdth_wght.ttf, AlfaSlabOne-OFL.txt, Archivo-OFL.txt), static/styles.css, static/print.css, tests/test_font_glyph_coverage.py, out/font-check.html (gitignored render).

@@ -1,0 +1,77 @@
+/* Full Court Press . print styles: the 8-panel foldable mini zine.
+   Lifted verbatim from the @media print block of
+   design/full-court-press-mockup.html. A folded paper zine has no links, so
+   navigation (home link, back bar, team picker) is hidden here (Req 10d). */
+
+@media print {
+  @page { size:letter landscape; margin:0; }
+  html, body { background:#fff !important; }
+  nav.teams, .fold, .screen-only, .printbtn, .voices, .backbar, .homelink, .ticker { display:none !important; }
+  .print-only { display:block; }
+  main.contents { display:contents; }
+  body { background-image:none; }
+
+  .sheet { display:grid; grid-template-columns:repeat(4,2.75in); grid-template-rows:repeat(2,4.25in); width:11in; height:8.5in; }
+  .pnl { width:2.75in; height:4.25in; overflow:hidden; padding:.2in .18in .25in; position:relative; background:var(--paper); background-image:var(--grit), repeating-linear-gradient(0deg, transparent, transparent 17px, rgba(30,27,24,.05) 17px, rgba(30,27,24,.05) 18px); background-size:160px 160px, auto; outline:1px dashed #bbb; font-size:10px; }
+  .pnl .wrap { padding:0; max-width:none; }
+
+  /* fold order: top row upside down (5,4,3,2); bottom row (6,7,8,1) */
+  .p5 { grid-area:1/1; transform:rotate(180deg); } .p4 { grid-area:1/2; transform:rotate(180deg); }
+  .p3 { grid-area:1/3; transform:rotate(180deg); } .p2 { grid-area:1/4; transform:rotate(180deg); }
+  .p6 { grid-area:2/1; } .p7 { grid-area:2/2; } .p8 { grid-area:2/3; } .p1 { grid-area:2/4; }
+  .folio { position:absolute; bottom:.08in; font:800 8px 'Archivo'; letter-spacing:.14em; color:var(--mut); }
+  .p2 .folio, .p4 .folio, .p6 .folio { left:.18in; } .p3 .folio, .p5 .folio, .p7 .folio { right:.18in; }
+
+  /* cover */
+  .p1.cover { border-bottom:0; padding:.2in .18in; background-color:var(--ink) !important; background-image:var(--grit), var(--dots) !important; background-size:160px 160px, 7px 7px !important; }
+  .p1 .mast { font-size:30px; margin-top:10px; }
+  .p1 .tagline { font-size:9px; } .p1 .date { font-size:7.5px; position:absolute; bottom:.12in; left:.18in; }
+  .p1 .kick { font-size:6.5px; letter-spacing:.14em; max-width:1.55in; }
+  .p1 .gotn { width:48px; height:48px; font-size:6px; border-width:3px; }
+  .p1 .scorerow { grid-template-columns:1fr; margin-top:14px; }
+  .p1 .num { display:none; }
+  .p1 .score .r { font-size:20px; }
+  .p1 .headline { font-size:14px; margin-top:14px; }
+
+  /* number panel */
+  .p2 .bign { font-family:'Alfa Slab One'; font-size:110px; text-align:center; margin-top:.35in; text-shadow:3px 3px 0 var(--spot); line-height:1; }
+  .p2 .cap { font:800 11px/1.35 'Archivo'; text-transform:uppercase; text-align:center; margin-top:.2in; }
+
+  /* recap */
+  .p3 h2, .p4 h2, .p5 h2, .p6 h2, .p7 h2, .p8 h2 { font-size:19px; margin:2px 0 8px; }
+  .p3 .audio, .p3 .transcript { display:none; }
+  .p3 .recap { font-size:10px; line-height:1.6; }
+  .p3 .recap::first-letter { font-size:32px; }
+  .p3 .byline { font-size:7.5px; position:absolute; right:.18in; bottom:.3in; }
+  .lbl { font-size:7.5px; }
+
+  /* spotlight */
+  .p4 .clip { padding:12px 10px 10px; box-shadow:4px 4px 0 var(--spot); }
+  .p4 .ava { flex-basis:40px; height:40px; font-size:13px; } .p4 .who .nm { font-size:16px; } .p4 .who .tm { font-size:7.5px; }
+  .p4 .stats b { font-size:18px; } .p4 .stats span { font-size:7px; }
+  .p4 .clip p { font-size:9.5px; }
+
+  /* stat line */
+  .p5 details.box { border:0; background:none; } .p5 details.box summary { display:none; }
+  .p5 .tbls { padding:0; gap:8px; }
+  .p5 table { font-size:8.5px; background:var(--card); border:2px solid var(--ink); } .p5 th { font-size:7px; padding:3px 4px; } .p5 td { padding:2.5px 4px; }
+
+  /* flow */
+  .p6 .run { grid-template-columns:1fr; gap:3px; } .p6 .run .q { font-size:7.5px; } .p6 .run b { text-align:left; font-size:15px; }
+  .p6 .runs { gap:9px; }
+
+  /* league */
+  .p7 .strip { font-size:9px; padding:5px 7px; } .p7 .movers { font-size:9px; }
+
+  /* back cover */
+  .p8 { background-color:var(--paper); }
+  .p8 footer { margin:0; padding:0; background:none; border:0; color:var(--ink); }
+  .p8 footer h2 { color:var(--ink); }
+  .p8 footer p { font-size:9px; }
+  .p8 .qr { display:flex; gap:8px; align-items:center; margin-top:8px; } .p8 .qr svg { width:66px; height:66px; border:2px solid var(--ink); }
+  .p8 .qr span { font:800 8px/1.4 'Archivo'; letter-spacing:.1em; text-transform:uppercase; }
+  .p8 .colo { font-size:7.5px; border-color:var(--ink); color:var(--mut); position:absolute; left:.18in; right:.18in; bottom:.25in; }
+  .p8 .colo i { color:var(--ink); }
+
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}

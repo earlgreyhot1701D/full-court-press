@@ -1,0 +1,205 @@
+/* Full Court Press . screen styles.
+   Lifted from design/full-court-press-mockup.html (issue) and
+   design/full-court-press-index-mockup.html (index), both binding design
+   sources. Do not redesign here; change the mockups first.
+   Print layout lives in print.css. The .mockbar approval bar is intentionally
+   not carried over (it is not part of the product). */
+
+/* ---- self-hosted fonts (OFL, files + licenses in static/fonts/) ---- */
+@font-face {
+  font-family: 'Alfa Slab One';
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/AlfaSlabOne-Regular.ttf') format('truetype');
+}
+@font-face {
+  /* Archivo variable font: covers the 400/600/800 weights the mockups use. */
+  font-family: 'Archivo';
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('fonts/Archivo-VariableFont_wdth_wght.ttf') format('truetype');
+}
+
+/* ---- design tokens (shared by both mockups) ---- */
+:root {
+  --paper:#F4EEE2; --ink:#1E1B18; --mut:#6B6259; --card:#FFFBF3;
+  --spot:#FF48B0; --spot-text:#B8156E; --on-spot:#1E1B18;
+  --grit:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .14 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  --lines:repeating-linear-gradient(0deg, transparent, transparent 29px, rgba(30,27,24,.05) 29px, rgba(30,27,24,.05) 30px);
+  --dots:radial-gradient(rgba(244,238,226,.12) 1px, transparent 1.2px);
+}
+/* low-contrast team color: color stays on shapes; text on spot surfaces falls back to ink on card */
+:root[data-lowc="1"] .spot-surface { background:var(--card) !important; color:var(--ink) !important; border-color:var(--spot) !important; }
+
+* { box-sizing:border-box; margin:0; padding:0; }
+html { -webkit-text-size-adjust:100%; }
+body { background:var(--paper); background-image:var(--grit), var(--lines); background-size:160px 160px, auto; color:var(--ink); font-family:'Archivo',system-ui,sans-serif; line-height:1.6; }
+button, summary { font-family:'Archivo',sans-serif; }
+:focus-visible { outline:3px solid var(--ink); outline-offset:3px; }
+a { color:inherit; }
+.slab { font-family:'Alfa Slab One',serif; text-transform:uppercase; line-height:1; font-weight:400; }
+.lbl { font:800 11px 'Archivo'; letter-spacing:.18em; text-transform:uppercase; color:var(--mut); }
+.misreg { text-shadow:2px 2px 0 var(--spot); }
+.wrap { max-width:720px; margin:0 auto; padding:0 16px; }
+
+/* ---- home link + back bar (Requirement 10d), hidden in print ---- */
+.homelink { text-decoration:none; display:block; }
+.homelink:focus-visible { outline:3px solid var(--spot); outline-offset:4px; }
+.backbar { background:var(--card); border-bottom:3px solid var(--ink); padding:9px 0; font:800 11px 'Archivo'; letter-spacing:.14em; text-transform:uppercase; }
+.backbar a { color:var(--ink); text-decoration:none; border-bottom:2px solid var(--spot); padding-bottom:1px; }
+
+/* ---- team picker (issue page) ---- */
+nav.teams { position:sticky; top:0; z-index:5; background:var(--paper); border-bottom:3px solid var(--ink); }
+nav.teams .row { max-width:720px; margin:0 auto; display:flex; overflow-x:auto; padding:0 8px; scrollbar-width:none; }
+nav.teams button { flex:0 0 auto; background:none; border:0; border-bottom:5px solid transparent; color:var(--ink); font:800 12px 'Archivo'; letter-spacing:.1em; text-transform:uppercase; padding:12px 10px 9px; cursor:pointer; }
+nav.teams button[aria-pressed="true"] { border-bottom-color:var(--spot); }
+nav.teams .sw { display:inline-block; width:9px; height:9px; border:1.5px solid var(--ink); margin-right:6px; vertical-align:1px; }
+
+/* ---- cover ---- */
+.cover { background-color:var(--ink); background-image:var(--grit), var(--dots); background-size:160px 160px, 8px 8px; color:var(--paper); border-bottom:8px solid var(--spot); padding:22px 0 30px; position:relative; overflow:hidden; }
+.kick { display:inline-block; font:800 10.5px 'Archivo'; letter-spacing:.22em; text-transform:uppercase; padding:4px 12px; transform:rotate(-1.5deg); background:var(--spot); color:var(--on-spot); }
+.mast { font-size:clamp(40px,12vw,76px); margin-top:4px; color:var(--paper); text-shadow:4px 4px 0 var(--spot); }
+.tagline { margin-top:8px; color:#d9d2c6; font-size:14px; font-weight:600; }
+.date { color:#d9d2c6; font:800 10.5px 'Archivo'; letter-spacing:.2em; text-transform:uppercase; margin-top:4px; }
+.toprow { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+.gotn { flex:0 0 auto; width:74px; height:74px; border-radius:50%; background:var(--paper); color:var(--ink); border:4px solid var(--spot); display:flex; align-items:center; justify-content:center; text-align:center; font:800 9px/1.15 'Archivo'; letter-spacing:.08em; text-transform:uppercase; transform:rotate(12deg); }
+.scorerow { display:grid; grid-template-columns:1.5fr 1fr; gap:14px; margin-top:22px; }
+.score { background:var(--paper); color:var(--ink); padding:12px 14px; box-shadow:6px 6px 0 var(--spot); transform:rotate(-1deg); }
+.score .r { display:flex; justify-content:space-between; align-items:baseline; font-size:clamp(22px,6vw,32px); }
+.score .r b { font-weight:400; font-variant-numeric:tabular-nums; }
+.score .lose { color:var(--mut); }
+.ot { display:inline-block; margin-top:6px; background:var(--ink); color:var(--paper); font:800 9px 'Archivo'; letter-spacing:.2em; padding:2px 8px; }
+.num { background:var(--card); color:var(--ink); padding:10px 12px; transform:rotate(1.2deg); border:3px solid var(--paper); position:relative; }
+.num .n { font-size:clamp(40px,11vw,58px); position:relative; display:inline-block; padding:6px 10px 2px 4px; }
+.num p { font:800 10px/1.3 'Archivo'; text-transform:uppercase; letter-spacing:.04em; }
+.num .n svg { position:absolute; left:-10px; top:-8px; width:calc(100% + 16px); height:calc(100% + 12px); pointer-events:none; }
+.shot { display:block; width:100%; height:auto; border:3px solid var(--ink); box-shadow:7px 7px 0 var(--spot); }
+.samplenote2 { margin-top:10px; font:600 12.5px "Archivo"; color:var(--mut); }
+.samplenote { margin-top:10px; font:800 10px "Archivo"; letter-spacing:.12em; text-transform:uppercase; color:#d9d2c6; }
+.headline { margin-top:22px; padding:12px 14px; font-size:clamp(20px,5.2vw,28px); border:3px solid var(--paper); transform:rotate(-.6deg); background:var(--spot); color:var(--on-spot); }
+
+/* ---- sections ---- */
+.fold { display:flex; align-items:center; gap:10px; margin:30px 0 22px; color:var(--mut); font:800 10px 'Archivo'; letter-spacing:.24em; text-transform:uppercase; }
+.fold::before, .fold::after { content:""; flex:1; border-top:2px dashed var(--mut); }
+h2 { font-size:clamp(24px,6.5vw,34px); margin:4px 0 12px; }
+
+/* ---- audio ---- */
+.audio { display:flex; gap:14px; align-items:center; background:var(--card); border:3px solid var(--ink); box-shadow:5px 5px 0 var(--spot); padding:12px 14px; margin-top:22px; }
+.play { flex:0 0 52px; height:52px; border-radius:50%; background:var(--ink); color:var(--paper); border:0; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.play svg { width:20px; height:20px; }
+.audio .t { font:800 12px 'Archivo'; letter-spacing:.1em; text-transform:uppercase; }
+.audio .s { font-size:12.5px; color:var(--mut); }
+.transcript { font-size:13px; margin-top:10px; color:var(--ink); background:var(--paper); border-left:4px solid var(--spot); padding:6px 10px; }
+
+/* ---- recap ---- */
+.voices { display:flex; gap:8px; margin-bottom:12px; }
+.voices button { font:800 11px 'Archivo'; letter-spacing:.08em; text-transform:uppercase; padding:7px 12px; border:2px solid var(--ink); background:var(--card); color:var(--ink); cursor:pointer; transform:rotate(-1deg); min-height:40px; }
+.voices button[aria-pressed="true"] { background:var(--ink); color:var(--paper); }
+.recap { font-size:16.5px; font-weight:600; line-height:1.75; }
+.recap::first-letter { font-family:'Alfa Slab One'; float:left; font-size:52px; line-height:.9; margin:4px 8px 0 0; text-shadow:3px 3px 0 var(--spot); }
+.byline { display:inline-block; margin-top:12px; font:800 10px 'Archivo'; letter-spacing:.16em; text-transform:uppercase; border:2px solid var(--ink); padding:3px 9px; transform:rotate(-2deg); }
+
+/* ---- spotlight ---- */
+.clip { background:var(--card); border:3px solid var(--ink); box-shadow:7px 7px 0 var(--spot); padding:18px 16px 16px; transform:rotate(-1deg); position:relative; }
+.tape { position:absolute; top:-11px; left:40%; width:80px; height:20px; background:rgba(255,255,255,.6); border:1px solid rgba(30,27,24,.1); transform:rotate(-4deg); }
+.who { display:flex; gap:14px; align-items:center; }
+.ava { flex:0 0 60px; height:60px; border-radius:50%; background:var(--ink); color:var(--paper); display:flex; align-items:center; justify-content:center; font:800 19px 'Archivo'; box-shadow:3px 3px 0 var(--spot); }
+.who .nm { font-size:24px; }
+.who .tm { font:800 10.5px 'Archivo'; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); margin-top:4px; }
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:14px; }
+.stats div { border:2px solid var(--ink); background:var(--paper); text-align:center; padding:6px 2px; }
+.stats b { display:block; font-family:'Alfa Slab One'; font-weight:400; font-size:26px; font-variant-numeric:tabular-nums; }
+.stats span { font:800 9px 'Archivo'; letter-spacing:.14em; }
+.clip p { margin-top:12px; font-size:15px; font-weight:600; }
+
+/* ---- stat line (counted from the play-by-play; never called a box score) ---- */
+details.box { border:3px solid var(--ink); background:var(--card); }
+details.box summary { list-style:none; cursor:pointer; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; font:800 12px 'Archivo'; letter-spacing:.1em; text-transform:uppercase; min-height:44px; }
+details.box summary::-webkit-details-marker { display:none; }
+details.box summary::after { content:"+"; font-family:'Alfa Slab One'; font-size:22px; }
+details.box[open] summary::after { content:"-"; }
+.tbls { padding:0 12px 14px; display:grid; gap:14px; }
+table { width:100%; border-collapse:collapse; font-size:13.5px; font-variant-numeric:tabular-nums; }
+th { background:var(--ink); color:var(--paper); font:800 9.5px 'Archivo'; letter-spacing:.08em; text-transform:uppercase; text-align:left; padding:6px 6px; }
+td { padding:6px 6px; border-top:1px solid #d8cfbf; }
+td:first-child { font-weight:800; }
+
+/* ---- game flow (scoring runs render inside here, per Req 7.1a-i) ---- */
+.runs { display:grid; gap:12px; }
+.run { display:grid; grid-template-columns:120px 1fr 52px; gap:10px; align-items:center; }
+.run .q { font:800 10px/1.3 'Archivo'; letter-spacing:.12em; text-transform:uppercase; color:var(--mut); }
+.run .bar { height:14px; border:2px solid var(--ink); background:var(--card); }
+.run .bar i { display:block; height:100%; background:var(--spot); }
+.run b { font-family:'Alfa Slab One'; font-weight:400; font-size:18px; text-align:right; font-variant-numeric:tabular-nums; }
+
+/* ---- around the league ---- */
+.strip { display:flex; justify-content:space-between; background:var(--card); border:2px solid var(--ink); padding:9px 12px; margin-top:8px; font:800 13px 'Archivo'; text-transform:uppercase; letter-spacing:.04em; font-variant-numeric:tabular-nums; }
+.strip:nth-child(odd) { transform:rotate(-.6deg); } .strip:nth-child(even) { transform:rotate(.5deg); }
+.strip.g { background:var(--spot); color:var(--on-spot); }
+.movers { margin-top:14px; font-size:14px; }
+.movers b { font-weight:800; }
+
+/* ---- footer ---- */
+footer { margin-top:40px; background-color:var(--ink); background-image:var(--grit); background-size:160px; color:#d9d2c6; border-top:8px solid var(--spot); padding:28px 0 40px; }
+footer h2 { color:var(--paper); }
+footer p { font-size:14px; margin-top:8px; }
+.printbtn { margin-top:18px; display:inline-flex; gap:10px; align-items:center; background:var(--paper); color:var(--ink); border:3px solid var(--paper); box-shadow:5px 5px 0 var(--spot); padding:12px 18px; font:800 12px 'Archivo'; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; min-height:48px; }
+.printbtn small { font-weight:600; letter-spacing:.02em; text-transform:none; color:var(--mut); }
+.colo { margin-top:24px; border-top:2px solid #4a443d; padding-top:10px; font-size:12px; }
+.colo i { color:var(--paper); }
+
+.print-only { display:none; }
+
+@media (max-width:480px) {
+  .scorerow { grid-template-columns:1fr; }
+  .gotn { width:62px; height:62px; font-size:8px; }
+  .run { grid-template-columns:92px 1fr 44px; }
+}
+@media (prefers-reduced-motion:reduce) { * { transition:none !important; } }
+
+/* =========================================================================
+   INDEX ("All") page. Lifted from full-court-press-index-mockup.html.
+   Same tokens and fonts; a few index-only components.
+   ========================================================================= */
+
+/* index masthead */
+.top { background:var(--ink); background-image:var(--grit),var(--dots); background-size:160px 160px,8px 8px; color:var(--paper); border-bottom:8px solid var(--spot); padding:18px 0 22px; }
+.top .mast { font-size:clamp(34px,10vw,58px); margin-top:6px; line-height:.95; }
+.sub { font:400 14px 'Archivo'; color:#cfc7bb; margin-top:8px; }
+
+/* index team picker (non-sticky flex variant) */
+nav.teams.index { display:flex; gap:2px; overflow-x:auto; background:var(--card); border-bottom:3px solid var(--ink); padding:0 8px; -webkit-overflow-scrolling:touch; position:static; }
+nav.teams.index button { display:flex; align-items:center; gap:6px; padding:12px 10px; border-bottom:4px solid transparent; }
+nav.teams.index .sw { width:11px; height:11px; border:1px solid var(--ink); }
+
+/* around-the-league ticker */
+.ticker { background:var(--ink); color:var(--paper); font:800 11px 'Archivo'; letter-spacing:.14em; text-transform:uppercase; padding:9px 0; overflow:hidden; white-space:nowrap; }
+.ticker span { padding:0 10px; color:#e6ded1; }
+.ticker b { color:var(--spot); }
+
+.slatehead { display:flex; align-items:baseline; justify-content:space-between; margin:22px 0 4px; gap:10px; }
+.slatehead h2 { font-size:26px; }
+.slatehead .date { font:800 11px 'Archivo'; letter-spacing:.14em; text-transform:uppercase; color:var(--mut); }
+
+/* game card */
+.card { background:var(--card); border:3px solid var(--ink); box-shadow:6px 6px 0 var(--spot); padding:14px 14px 12px; margin:16px 0; position:relative; }
+.card.gotn { box-shadow:8px 8px 0 var(--spot); margin-top:30px; padding-top:20px; }
+.badge { position:absolute; top:-22px; left:-14px; background:var(--paper); border:3px solid var(--spot); border-radius:50%; width:62px; height:62px; display:flex; align-items:center; justify-content:center; text-align:center; font:800 8px/1.15 'Archivo'; letter-spacing:.08em; text-transform:uppercase; transform:rotate(12deg); }
+.card .row { display:flex; align-items:center; gap:10px; padding:5px 0; text-decoration:none; }
+.card .row + .row { border-top:1px dashed #d9d2c6; }
+.card .row .chip { width:12px; height:22px; flex:0 0 12px; border:2px solid var(--ink); }
+.card .row .nm { font-family:'Alfa Slab One',serif; font-size:21px; flex:1; line-height:1.1; }
+.card .row .sc { font-family:'Alfa Slab One',serif; font-size:23px; }
+.card .row.win .nm, .card .row.win .sc { color:var(--ink); }
+.card .row.lose .nm, .card .row.lose .sc { color:var(--mut); }
+.card .row:hover .nm { text-decoration:underline; text-underline-offset:3px; }
+.meta { display:flex; justify-content:space-between; align-items:center; margin-top:10px; font:800 10px 'Archivo'; letter-spacing:.12em; text-transform:uppercase; color:var(--mut); }
+.meta .go { color:var(--ink); border-bottom:2px solid var(--spot); text-decoration:none; padding-bottom:1px; }
+.hint { font:400 12px 'Archivo'; color:var(--mut); margin:-6px 0 18px; }
+
+.strip.about { margin:26px 0 0; padding:12px 14px; border:3px solid var(--ink); background:var(--card); display:block; }
+.strip.about h3 { font-size:17px; }
+.strip.about p { margin:6px 0 0; font-size:14px; color:var(--mut); }
+.indexfooter { margin:26px 0 40px; padding-top:14px; border-top:3px solid var(--ink); font:400 12.5px 'Archivo'; color:var(--mut); }
+.indexfooter a { color:var(--ink); }
+.nogame { background:var(--card); border:3px dashed var(--ink); padding:12px 14px; margin:16px 0; font:800 12px 'Archivo'; letter-spacing:.1em; text-transform:uppercase; }

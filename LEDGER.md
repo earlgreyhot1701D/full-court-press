@@ -219,3 +219,10 @@ Found while clearing the banner: there was no way back to the index from anywher
 Also fixed:   Requirement 7.1 said "box score", now "stat line". Requirement 9.2 was conditional on the tier including standings; the tier does, confirmed Sep 23, so it is now unconditional.
 Disposition:  promote (Requirement 7.1, 7.1a-i, 7.1a-ii, 9.2, new 10d, issue mockup patched, OPEN banner cleared)
 Changes PRD?: yes. The banner is gone and Block 1 is open.
+
+### 2026-09-24 . Block 1 . Fonts self-hosted; Archivo as a variable font
+Question:     How to satisfy "self-host Alfa Slab One and Archivo, all glyphs present" without the mockups' subset base64 faces?
+Answer:       Downloaded both from the Google Fonts GitHub repo (OFL) into static/fonts/ with each family's OFL.txt so the licence travels with the files. Alfa Slab One ships as a single static TTF. Archivo in the repo is a variable font (Archivo[wdth,wght].ttf); saved as Archivo-VariableFont_wdth_wght.ttf and declared @font-face with font-weight:100 900, which covers the 400/600/800 weights the mockups use in one file. The mockups' embedded base64 faces were NOT used (they are subset to the sample copy and would miss glyphs the real content needs, per task 1.1). Verified: a stdlib cmap check (tests/test_font_glyph_coverage.py) shows all 43 distinct characters across the 15 team names and abbreviations resolve in both fonts.
+Cost:         ~20 min. One extra API lookup to find the variable-font filename in the repo.
+Disposition:  promote. Task 4.1 now only verifies the fonts and licences are present.
+Changes PRD?: no.
