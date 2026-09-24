@@ -64,3 +64,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: player_stats returns 401 "Unauthorized" (route exists, key refused). stats/box_scores/box_scores/live return 404 (routes do not exist for WNBA). players returns 200. Conclusion: correct path, tier/entitlement denial, not a bad URL. Contradiction: GOAT standings/plays 200 but ALL-STAR player_stats 401. Owner to check the BALLDONTLIE plan. No key/SSM change, nothing deleted.
 - Resources: fcp-spike-bdl still deployed and held (code now the routes probe). Tagged Project=full-court-press.
 - Evidence: spike/routes_out.json; SSM parameter still Version 1.
+
+## 2026-09-24 . probe . Confirm WNBA ALL-STAR entitlements
+- Tier: Spike
+- Did: updated the held fcp-spike-bdl to probe the four WNBA ALL-STAR endpoints against game 25072 and counted plays.
+- Result: standings 200 (77855B), plays 200 (137191B, 407 plays first page), players/active 200 (7926B), player_injuries 200 (11758B). Confirms WNBA ALL-STAR grants these; player_stats stays GOAT-only (401 is correct). Root cause of the earlier confusion: WNBA tiers were inferred from NBA docs and never confirmed per sport as tech.md required. player_injuries is on the NEVER-read list and must not be used in the product.
+- Resources: fcp-spike-bdl still deployed and held (code now the ALL-STAR probe). Tagged Project=full-court-press.
+- Evidence: spike/allstar_out.json.

@@ -149,3 +149,16 @@ Answer:       TIER/ENTITLEMENT denial, not a wrong path. Probe against game 2507
 Cost:         ~15 min. Used the held fcp-spike-bdl (code updated to a routes probe, still tagged Project=full-court-press). No key change, no SSM change, nothing deleted.
 Disposition:  Owner to check BALLDONTLIE plan/entitlements for the WNBA key (is player_stats included and active). Teardown of fcp-spike-bdl stays deferred until player_stats returns 200.
 Changes PRD?: no yet. If player_stats cannot be enabled, the spotlight/box score/The Number decision from the ALL-STAR entry reopens.
+
+### 2026-09-24 . Block 0 . WNBA endpoint tiers were inferred from NBA docs and were wrong
+Question:     What does WNBA ALL-STAR actually grant, and where did our tier assumptions come from?
+Answer:       We inferred the WNBA endpoint tiers from BALLDONTLIE's NBA documentation, because the NBA docs were the ones we found. tech.md explicitly said "confirm per sport in Block 0" and we did not. That cost a wrong STUB list (standings and plays were marked GOAT/STUB when they are actually ALL-STAR) and a wrong spend framing (we told the owner ALL-STAR would unlock player_stats; it does not).
+Correct WNBA table (source: https://wnba.balldontlie.io, "Account Tiers"):
+  - ALL-STAR ($9.99): standings, play-by-play (plays), active players, player injuries.
+  - GOAT ($39.99): player_stats, team_stats, season stats endpoints.
+Confirmed live on the owner's WNBA ALL-STAR key (paid Sep 23, renews Oct 23), probe against game 25072:
+  standings 200 (77855B); plays 200 (137191B, 407 plays first page, next_cursor null); players/active 200 (7926B); player_injuries 200 (11758B). player_stats 401 "Unauthorized" is CORRECT for ALL-STAR (it is GOAT-only).
+Note:         player_injuries is accessible on this tier but is on the guardrails NEVER-read list; it must not be read or published in the product. It was hit here once only for tier confirmation at owner request.
+Cost:         The inference error burned the earlier player_stats spend decision and the runs/standings STUB calls. Diagnosis + confirmation ~30 min across two probes.
+Disposition:  Owner is preparing a scope change. Do not edit the spec yet. fcp-spike-bdl still held (not deleted).
+Changes PRD?: pending owner scope change (STUB list and which sections are buildable will shift: plays/standings now available, player_stats now the paid gap).

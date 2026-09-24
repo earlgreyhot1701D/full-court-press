@@ -1,0 +1,1 @@
+{"game_id": 25072, "results": [{"path": "/wnba/v1/standings", "status": 200, "bytes": 77855}, {"path": "/wnba/v1/plays?game_id=25072", "status": 200, "bytes": 137191, "next_cursor": null, "per_page": null}, {"path": "/wnba/v1/players/active", "status": 200, "bytes": 7926}, {"path": "/wnba/v1/player_injuries", "status": 200, "bytes": 11758}], "plays_count_first_page": 407}
