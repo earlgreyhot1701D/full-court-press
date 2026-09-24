@@ -116,7 +116,10 @@ exists to check them against. An event the feed omits is an event we miss silent
 ### Requirement 7: Issue page: one-pager on screen, foldable zine in print (MUST)
 **User Story:** As a fan, I want a clean one-page issue I can read on my phone or print, so that it feels like a real zine.
 #### Acceptance Criteria
-1. WHEN an edition is published THE SYSTEM SHALL render `site/{league}/{date}/{game_id}/{team_abbrev}/index.html` (and `site/{league}/{date}/{game_id}/index.html` redirects to the winning edition) as one condensed vertical page in this order: cover block (masthead, final score, The Number, headline), audio recap player, recap with voice switcher, spotlight, box score (collapsed by default), game flow, Around the League, footer with a "Print this issue" button. (Section list pending owner approval, see banner.)
+1. WHEN an edition is published THE SYSTEM SHALL render `site/{league}/{date}/{game_id}/{team_abbrev}/index.html` (and `site/{league}/{date}/{game_id}/index.html` redirects to the winning edition) as one condensed vertical page in this order, **approved by the owner Sep 23**:
+   cover block (masthead, final score, The Number, headline), audio recap player, recap with voice switcher and edition toggle, spotlight, stat line (collapsed by default), game flow, Around the League, footer with a "Print this issue" button.
+1a-i. Scoring runs live INSIDE the game flow panel, not as a panel of their own. A run never crosses a period boundary, so every run belongs to exactly one quarter and renders within that quarter's row. The print layout has eight panels and no spare one.
+1a-ii. WHEN a single run is the largest deterministic swing in the game THE SYSTEM MAY surface it as The Number on the cover. Game flow remains where the reader sees it in context.
 2. WHEN the visitor prints or saves as PDF THE SYSTEM SHALL lay the same content out as an 8-panel one-sheet mini zine on US Letter landscape in fold order (top row upside down: pages 5, 4, 3, 2; bottom row: 6, 7, 8, 1) using `print.css` only, with no server-side PDF.
 2a. WHEN rendered at 375px wide THE SYSTEM SHALL show no horizontal scroll and keep the cover block within the first screen.
 3. WHEN a voice section was dropped THE SYSTEM SHALL show the deterministic sections and the text "The writers' room passed on this one." in its place.
@@ -135,7 +138,7 @@ exists to check them against. An event the feed omits is an event we miss silent
 **User Story:** As a fan, I want every score from last night in one glance, so that I don't miss anything.
 #### Acceptance Criteria
 1. WHEN the today page is built THE SYSTEM SHALL show every Final score for that date and link each to its issue.
-2. WHEN the account tier includes standings THE SYSTEM SHALL show the current order and mark position changes since the previous run. Otherwise THE SYSTEM SHALL omit the standings block (STUB) and show scores only.
+2. THE SYSTEM SHALL show the current standings order and mark position changes since the previous run. The standings endpoint is on the ALL-STAR tier, confirmed Sep 23; this is no longer conditional.
 3. IF standings fail to load THEN THE SYSTEM SHALL show the scores only and omit the standings block without an error message on the page.
 
 ### Requirement 10: Today, team and archive pages (MUST)
@@ -173,6 +176,17 @@ come from, and who made it, so I can decide whether to trust it.
   non-commercial
 - The page SHALL NOT contain a payment link, donation link, tip jar, advertising, tracking script, or any
   third-party embed. A support link is a STUB, deferred until after judging (Requirement 14)
+
+### Requirement 10d: Getting back (MUST, added Sep 23)
+**User story:** As a visitor who landed on one issue from a shared link, I want out of it without using the back button.
+
+- EVERY page on the site SHALL carry a link to the index, in the masthead, above the fold, reachable
+  without scrolling
+- The link SHALL be server-rendered and SHALL work with JavaScript off
+- The masthead wordmark itself SHALL be that link on every page, and the index's own masthead SHALL NOT
+  link to itself
+- The archive and About pages SHALL carry it too. No page on this site is a dead end
+- `print.css` SHALL hide navigation: a folded paper zine has no links
 
 ### Requirement 11: Golden set (MUST)
 **User Story:** As a judge, I want the demo to work whenever I look, so that I can evaluate it.

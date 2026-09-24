@@ -1,6 +1,6 @@
 # Implementation Plan: Full Court Press
 
-> **OPEN (Sep 19):** palette, name and team color are decided. Final OK on the issue sections as mocked (Req 5, 7, 8, 9) is still pending. Do not start Block 1 until this banner is removed.
+> **CLEARED Sep 23:** palette, name, team colours and the issue section running order are all approved by the owner. Scoring runs live inside the game flow panel. Every page links home (Requirement 10d). Block 1 is open.
 
 Blocks run in order. Each block ends with a CHECKPOINT task. Every task in the next block depends on the previous checkpoint. Record PASS or FAIL with evidence in the checkpoint summary and in `LEDGER.md`. Guardrails in `.kiro/steering/guardrails.md` apply to every task. Each task names its tier. DO NOT refactor other code. Propose first, wait for owner approval, then implement.
 

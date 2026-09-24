@@ -44,6 +44,11 @@
   /* cover */
   .cover { background-color:var(--ink); background-image:var(--grit), var(--dots); background-size:160px 160px, 8px 8px; color:var(--paper); border-bottom:8px solid var(--spot); padding:22px 0 30px; position:relative; overflow:hidden; }
   .kick { display:inline-block; font:800 10.5px 'Archivo'; letter-spacing:.22em; text-transform:uppercase; padding:4px 12px; transform:rotate(-1.5deg); background:var(--spot); color:var(--on-spot); }
+  .homelink{text-decoration:none;display:block}
+  .homelink:focus-visible{outline:3px solid var(--spot);outline-offset:4px}
+  .backbar{background:var(--card);border-bottom:3px solid var(--ink);padding:9px 0;font:800 11px 'Archivo';letter-spacing:.14em;text-transform:uppercase}
+  .backbar a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--spot);padding-bottom:1px}
+  @media print{.backbar,.homelink{display:none!important}}
   .mast { font-size:clamp(40px,12vw,76px); margin-top:4px; color:var(--paper); text-shadow:4px 4px 0 var(--spot); }
   .tagline { margin-top:8px; color:#d9d2c6; font-size:14px; font-weight:600; }
   .date { color:#d9d2c6; font:800 10.5px 'Archivo'; letter-spacing:.2em; text-transform:uppercase; margin-top:4px; }
@@ -211,6 +216,7 @@
 
 <div class="mockbar"><span>Mockup . real WNBA teams and real numbers (Sep 19 2026) . recap copy written by hand, not AI . tap a team for its color</span><output id="cx">Default: xerox + pink</output></div>
 
+<div class="backbar screen-only"><div class="wrap"><a href="#">&larr; All of last night&rsquo;s games</a></div></div>
 <nav class="teams screen-only" aria-label="Pick your team">
   <div class="row" id="teamrow">
     <button type="button" aria-pressed="true" data-team="">All</button>
@@ -224,7 +230,7 @@
     <div class="wrap">
       <div class="toprow"><span class="kick spot-surface">WNBA . Saturday, Sep 19, 2026</span>
       <div class="gotn" aria-label="Game of the Night">Game<br>of the<br>Night</div></div>
-      <h1 class="slab mast">Full Court Press</h1>
+      <a class="homelink" href="#" aria-label="All of last night&rsquo;s games"><h1 class="slab mast">Full Court Press</h1></a>
       <p class="tagline">the morning zine for women's pro basketball</p>
       <p class="date">Wings 87 . Mercury 82 . final</p>
       <div class="scorerow">

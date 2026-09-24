@@ -210,3 +210,12 @@ Found while building: a fan of the losing team had no way in. Tapping a card ope
 Also added: 10.1b-ii pins down what a card shows and, more usefully, what it does not. No recap text, no stat line, no model output on the index.
 Disposition:  promote (Requirement 10.1b, 10.1b-i, 10.1b-ii, task 1.1, new mockup)
 Changes PRD?: no
+
+### 2026-09-23 . Block 1 . Section order approved, runs placed, and no page is a dead end
+Question:     Where do scoring runs go, and is the issue running order final?
+Answer:       Owner approved the running order as mocked. Runs go inside the game flow panel, not a panel of their own.
+Why inside:   A run never crosses a period boundary, which the spec already required, so every run belongs to exactly one quarter and nests inside that quarter's row. One panel answers "how did this game go" instead of two circling it. The print sheet has eight panels and no spare. A run that decided the game can still climb to The Number on the cover, so nothing is buried.
+Found while clearing the banner: there was no way back to the index from anywhere on the site. Someone arriving from a shared link was stuck on that issue. New Requirement 10d: every page links home from the masthead, above the fold, server-rendered, working with JavaScript off, and hidden in print because a folded paper zine has no links.
+Also fixed:   Requirement 7.1 said "box score", now "stat line". Requirement 9.2 was conditional on the tier including standings; the tier does, confirmed Sep 23, so it is now unconditional.
+Disposition:  promote (Requirement 7.1, 7.1a-i, 7.1a-ii, 9.2, new 10d, issue mockup patched, OPEN banner cleared)
+Changes PRD?: yes. The banner is gone and Block 1 is open.
