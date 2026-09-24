@@ -194,3 +194,10 @@ Decision:     Owner: the stat line stays, because stats are how fans argue and t
 Honesty:      The About page and the submission post state that points are verified against the final score and the other categories are counted but unverified, because nothing independent exists to check them against.
 Disposition:  promote (Requirement 3b rewritten, design.md pbp_stats.py, task 2.6b)
 Changes PRD?: yes. The issue section list and the limitations language.
+
+### 2026-09-24 . Block 0 . Teardown complete
+Question:     Are all Block 0 spike cloud resources now deleted?
+Answer:       YES. Deleted fcp-spike-bdl (Lambda), fcp-spike-bdl-role (IAM role, after detaching AWSLambdaBasicExecutionRole and deleting the ssm-kms-read inline policy), and log group /aws/lambda/fcp-spike-bdl. Verified against live state: GetFunctionConfiguration ResourceNotFound, GetRole NoSuchEntity, DescribeLogGroups returns 0. Tagging API (Project=full-court-press) now returns only the SSM parameter /full-court-press/bdl-api-key, which is the permanent key, not a spike resource. The hold was released because the WNBA tier finding confirmed player_stats 401 is correct behavior, so no further re-run was needed.
+Cost:         ~5 min.
+Disposition:  Block 0 teardown done. spike/ code kept in git (commits b46bb9c, 3ff4a25, e811011). CloudTrail 0.3d/0.3e remain deferred.
+Changes PRD?: no.

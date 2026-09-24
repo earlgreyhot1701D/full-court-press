@@ -71,3 +71,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: standings 200 (77855B), plays 200 (137191B, 407 plays first page), players/active 200 (7926B), player_injuries 200 (11758B). Confirms WNBA ALL-STAR grants these; player_stats stays GOAT-only (401 is correct). Root cause of the earlier confusion: WNBA tiers were inferred from NBA docs and never confirmed per sport as tech.md required. player_injuries is on the NEVER-read list and must not be used in the product.
 - Resources: fcp-spike-bdl still deployed and held (code now the ALL-STAR probe). Tagged Project=full-court-press.
 - Evidence: spike/allstar_out.json.
+
+## 2026-09-24 . 0.8 . Teardown complete
+- Tier: Spike
+- Did: released the hold on fcp-spike-bdl (player_stats 401 confirmed correct for WNBA ALL-STAR) and deleted it, its role fcp-spike-bdl-role, and its log group. Verified deletions and ran the tagging API.
+- Result: all spike cloud resources gone. Only Project=full-court-press resource remaining is the SSM key parameter. Block 0 teardown complete.
+- Resources: deleted Lambda fcp-spike-bdl, role fcp-spike-bdl-role, log group /aws/lambda/fcp-spike-bdl.
+- Evidence: GetFunctionConfiguration ResourceNotFound; GetRole NoSuchEntity; DescribeLogGroups 0; tagging API returns only the SSM parameter.
