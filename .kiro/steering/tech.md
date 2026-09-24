@@ -35,13 +35,19 @@ Only: `boto3` (provided by Lambda, do not bundle unless Block 0 finds a reason),
 Chosen Sep 20 2026 after the compliance gate ruled out ESPN (see LEDGER.md). BALLDONTLIE's terms Section 6 expressly permit caching, publishing, derivative works and AI outputs, with no attribution required.
 - Base: `https://api.balldontlie.io`. Auth header on every request: `Authorization: <api key>` (no "Bearer").
 - Games (schedule + final scores + per-quarter scores): `GET /wnba/v1/games?dates[]=YYYY-MM-DD`
-- Player stats per game: `GET /wnba/v1/player_stats?game_ids[]=<id>`
-- Standings: `GET /wnba/v1/standings` . Play-by-play: `GET /wnba/v1/plays?game_id=<id>`
+- Player stats per game: `GET /wnba/v1/player_stats?game_ids[]=<id>` . **GOAT only, NEVER called.** Per-player points are counted from play-by-play instead (Requirement 3b, `pbp_stats.py`).
+- Standings: `GET /wnba/v1/standings` and play-by-play: `GET /wnba/v1/plays?game_id=<id>` . both available on ALL-STAR. One game is about 400 plays and 140 KB; no pagination needed per game.
+- Roster for name matching: `GET /wnba/v1/players?team_ids[]=<id>`. Required by `pbp_stats.py`; exact matches only.
+- **Never call** `player_injuries` in the product. It is on our tier and on the NEVER list; access does not change that.
 - NBA STUB swaps `wnba` for `nba` in the path.
 - Pagination is cursor based: `meta.next_cursor`, `per_page` max 100.
-- Tiers (confirm per sport in Block 0; the published table is for NBA): Free = teams, players, games. ALL-STAR $9.99/mo per sport = game player stats. GOAT $39.99/mo = box scores, standings, plays, odds. A 48-hour GOAT trial exists per sport.
+- **WNBA tiers, confirmed Sep 23 2026 from https://wnba.balldontlie.io (NOT the NBA table):**
+  Free = teams, players, games. ALL-STAR $9.99/mo = active players, player injuries, standings,
+  play-by-play. GOAT $39.99/mo = player stats, team stats, season stats, advanced stats, odds, props.
+  Current subscription: **WNBA ALL-STAR**. `player_stats` returns 401 and that is correct.
+  Rate limits: Free 5 req/min, ALL-STAR 60, GOAT 600.
 - **Never read** the odds or player-prop endpoints at any tier.
-- Outbound limits: honor the tier's requests/min (Free 5, ALL-STAR 60), at least 1 second between requests anyway, max 60 requests per run, 10 second timeout, and back off on HTTP 429.
+- Outbound limits: honor the tier's requests/min (ALL-STAR 60), at least 1 second between requests anyway, max 60 requests per run, 10 second timeout, and back off on HTTP 429.
 
 ## Secret: the API key
 - Stored in SSM Parameter Store as a SecureString at `/full-court-press/bdl-api-key`. Never in the repo, never in env vars checked into git, never printed.

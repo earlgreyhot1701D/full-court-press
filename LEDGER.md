@@ -162,3 +162,35 @@ Note:         player_injuries is accessible on this tier but is on the guardrail
 Cost:         The inference error burned the earlier player_stats spend decision and the runs/standings STUB calls. Diagnosis + confirmation ~30 min across two probes.
 Disposition:  Owner is preparing a scope change. Do not edit the spec yet. fcp-spike-bdl still held (not deleted).
 Changes PRD?: pending owner scope change (STUB list and which sections are buildable will shift: plays/standings now available, player_stats now the paid gap).
+
+### 2026-09-23 . Block 2 . Scope change: count the points ourselves
+Question:     WNBA player_stats is GOAT only ($39.99, above the $25 ceiling). Cut the player sections, derive them, or pay?
+Answer:       Derive. Owner decision. Per-player POINTS are counted by code from the play-by-play, which is on our ALL-STAR tier. Nothing else is derived.
+Scope:        Points, made field goals, made free throws. NEVER rebounds, assists, steals, blocks, turnovers, minutes, plus-minus, percentages or attempts: not reliably recoverable from play text, so they are absent rather than estimated. Double-doubles and triple-doubles become impossible to state and are never inferred.
+Safety:       A reconciliation gate. Each team's derived player points must equal that team's final score from the games endpoint. Any mismatch or any unattributed scoring play drops every derived section for that game, and the issue publishes without them. Nothing derived is ever published unreconciled.
+Labeling:     Every derived figure is labeled "counted from the play-by-play". The words "box score" never appear in the product. The About page explains the method and says full statistics sit behind a tier this project does not buy.
+Cut rule:     Fewer than 4 of the 5 golden games reconcile at task 2.6b and derived scoring is dropped entirely, back to runs and standings. The matcher is not tuned to hit the number.
+Also promoted: runs and standings move from STUB to MUST. Both are on ALL-STAR, which we only learned today.
+Cost:         $9.99/month, inside the ceiling. One extra module, one extra roster call per game, and a real chance the cut rule fires.
+Disposition:  promote (Requirement 3b, design.md pbp_stats.py, tech.md tier table, tasks 2.6b and 2.6c, Requirement 14 STUB list)
+Changes PRD?: yes. Data tier, the issue section list, the STUB list, and a new deterministic module.
+
+### 2026-09-23 . Block 1 . Team colors were wrong, all fifteen
+Question:     Do the mockup's team spot colors match public record?
+Answer:       No. Every one of the fifteen was wrong, from off-by-one-digit to wrong colour entirely.
+Examples:     DAL, the mockup's default team, used #002b5c against an official navy of #0C2340. LA used #552583, which is the Lakers' purple, not the Sparks' #702F8A. LV used a silver that is neither the Aces' primary red #BA0C2F nor their actual silver. CON used an orange that is a secondary, not the primary red #A6192E. PHX used #3c286e against #201747. SEA was #2c5235 against #2C5234.
+Fixed:        `design/team-colors.md` written with one sourced colour per team and the reason for each pick. The mockup's table and its default were patched to match. Three teams (Sky, Sparks, Storm) lead with a yellow that fails contrast on cream, so their second colour is used and the reason is recorded.
+Unverified:   Golden State, Portland and Toronto are 2026 expansion clubs and are not on the source. Their values are the mockup's original guesses, marked UNVERIFIED, and they fall back to the pink until the owner confirms them from each club's own site. Task 1.0 enforces this.
+Source:       teamcolorcodes.com, fetched Sep 23 2026.
+Why it matters: nobody had checked. The colours came from memory and looked plausible, which is exactly why they survived several design reviews.
+Disposition:  promote (design/team-colors.md, mockup patched, task 1.0)
+Changes PRD?: no
+
+### 2026-09-23 . Block 2 . Statistics scope widened, and a claim of mine corrected
+Question:     Earlier the spec said rebounds, assists, steals and blocks were "not reliably recoverable from play text". Is that true?
+Answer:       No, and the claim was mine, made without checking. The feed carries typed events (`Defensive Rebound`, block and steal text naming the player), so those categories are extractable.
+Real distinction: points have an independent check, the final score from a different endpoint, so a miscount is caught by arithmetic. The other categories have none. Sanity checks catch impossible values (assists exceeding made field goals, steals exceeding opponent turnovers) but cannot catch a missing event. So points are verified; the rest are counted.
+Decision:     Owner: the stat line stays, because stats are how fans argue and the landing page already shows one. Points keep the hard reconciliation gate. Each other category has its own gate and is dropped alone when it fails, rather than taking the game down with it. Minutes, plus-minus, percentages and attempts stay out: no denominator, no number.
+Honesty:      The About page and the submission post state that points are verified against the final score and the other categories are counted but unverified, because nothing independent exists to check them against.
+Disposition:  promote (Requirement 3b rewritten, design.md pbp_stats.py, task 2.6b)
+Changes PRD?: yes. The issue section list and the limitations language.

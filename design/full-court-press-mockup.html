@@ -382,9 +382,9 @@
 (function () {
   // ---- team colors (fictional). In the real build these come from the feed, and code picks text color by contrast.
   var TEAMS = [
-    ['ATL','#e31837'], ['CHI','#5091cd'], ['CON','#f05023'], ['DAL','#002b5c'], ['GS','#b38fcf'],
-    ['IND','#002d62'], ['LA','#552583'], ['LV','#a7a8aa'], ['MIN','#266092'], ['NY','#86cebc'],
-    ['PHX','#3c286e'], ['POR','#cee5eb'], ['SEA','#2c5235'], ['TOR','#33476D'], ['WSH','#e03a3e']
+    ['ATL','#C8102E'], ['CHI','#418FDE'], ['CON','#A6192E'], ['DAL','#0C2340'], ['GS','#B38FCF'],
+    ['IND','#C8102E'], ['LA','#702F8A'], ['LV','#BA0C2F'], ['MIN','#236192'], ['NY','#6ECEB2'],
+    ['PHX','#201747'], ['POR','#CEE5EB'], ['SEA','#2C5234'], ['TOR','#33476D'], ['WSH','#0C2340']
   ];
   var DEFAULT = { spot:'#FF48B0', spotText:'#B8156E', onSpot:'#1E1B18' };
   var PAPER = '#F4EEE2', INK = '#1E1B18';
@@ -467,7 +467,7 @@
   }
   group('[data-e]', function (b) { edition = b.getAttribute('data-e'); var hex=''; TEAMS.forEach(function(t){ if(t[0]===edition) hex=t[1]; }); apply(hex, edition); draw(); });
   group('[data-v]', function (b) { voice = b.getAttribute('data-v'); draw(); });
-  apply('#002b5c','DAL'); draw();
+  apply('#0C2340','DAL'); draw();
 
   // ---- print: open the box score so it prints, restore after
   var box = document.getElementById('box'), wasOpen = false;

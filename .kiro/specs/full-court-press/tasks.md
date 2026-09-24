@@ -58,6 +58,10 @@ Tier: Spike. No tests, no pinning, no sync scripts, no README inside `spike/`, n
 ## Block 1: Static UI from mock data (Tier: Working. Disposition: promote)
 Tier: Working. Happy path + known edges only. No backend, no AWS calls.
 
+- [ ] 1.0 Team colors
+  - `design/team-colors.md` is the source for the spot color table. Lift it verbatim into the product.
+  - Three teams (GS, POR, TOR) are marked UNVERIFIED. Until the owner confirms them, those teams fall
+    back to `--spot`. Do not invent a value and do not fetch one from an unofficial source.
 - [ ] 1.1 Extract the design from the approved mockup
   - `design/full-court-press-mockup.html` is the design source of truth. Lift the CSS custom properties, type scale, spacing, component styles, print rules and section order from it into `static/styles.css` and `static/print.css`. Self-host the two fonts from `static/fonts/`.
   - Do NOT redesign, do not add colors or fonts, do not use `design/reference.html` (superseded).
@@ -87,6 +91,21 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
 - [ ] 2.4 `facts.py` (games + player_stats -> facts sheet, quarters included), `game_of_night.py` + `gotn_rules.json`. `runs.py` is a STUB comment only unless Block 0 showed the plays endpoint is available.
 - [ ] 2.5 Tests for facts, quarters, game_of_night (design.md Testing)
 - [ ] 2.6 Render golden games with a mock voice to `./out/`
+- [ ] 2.6b Derived statistics from play-by-play (Requirement 3b)
+  - `zine/pbp_stats.py` per design.md. Points, FGM, FTM, rebounds, assists, steals, blocks, turnovers.
+    Exact roster name matching, no fuzzy matching. No minutes, plus-minus, percentages or attempts.
+  - First, print the distinct `type` values across the 5 golden games before writing the classifier.
+    Do not guess the vocabulary. Report the list.
+  - The reconciliation gate is the acceptance test: for each of the 5 golden games, derived player points
+    per team must equal that team's final score. Report the pass rate across the golden set.
+  - If a game fails, `scoring_lines` is absent and the dependent sections are omitted. Verify that path
+    with a deliberately broken fixture, not only with the happy path.
+  - Report how many of the 5 golden games reconciled. **Owner cut rule: fewer than 4 of 5 reconcile and
+    derived scoring is dropped entirely, back to runs and standings.** Do not tune the matcher to hit
+    the number; report what it does.
+- [ ] 2.6c Runs and standings (promoted from STUB)
+  - `zine/runs.py` per design.md. A run never crosses a period boundary.
+  - Standings line per team from `/wnba/v1/standings`: wins, losses, playoff seed. Nothing else.
 - [ ] 2.7 CHECKPOINT 2
   - Facts for all 5 golden games match their raw JSON (Kiro compares scores, leaders and one player line per team against the raw file and shows the comparison)
   - Tests pass. No odds, props or injury data anywhere in the output (grep). The API key appears in no log, no fixture and no task summary (grep)

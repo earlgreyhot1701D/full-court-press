@@ -37,8 +37,45 @@ Labels: MUST (build), STUB (not built, comment left), NEVER (behavior must not e
 1. WHEN a raw summary is processed THE SYSTEM SHALL produce a facts sheet with the fields defined in design.md, using only values present in the raw JSON or computed from them by code.
 2. WHEN a required field is missing from the raw JSON THE SYSTEM SHALL omit the dependent section and log which field was missing, and SHALL NOT substitute a guessed value.
 3. WHEN the facts sheet is built THE SYSTEM SHALL include `allowed_numbers` (every number any section may display, including derived values such as margin and percentages as displayed) and `allowed_names` (every player and team name in the game).
-4. WHEN per-quarter scores are present THE SYSTEM SHALL include them (game flow is quarter by quarter). Scoring runs from play-by-play are a STUB: the plays endpoint needs the GOAT tier, and a run must never cross a period boundary when it is built.
+4. WHEN per-quarter scores are present THE SYSTEM SHALL include them (game flow is quarter by quarter). Scoring runs ARE built from play-by-play (ALL-STAR tier, confirmed Sep 23), and a run SHALL never cross a period boundary.
 5. WHEN a game went to overtime THE SYSTEM SHALL record the number of overtime periods.
+
+### Requirement 3b: Statistics counted from the play-by-play (MUST, decided Sep 23)
+**User story:** As a fan, I want the stat line, because the stat line is how fans argue.
+
+WNBA `player_stats` is GOAT-tier only. The play-by-play feed is on our tier and carries typed events
+naming the player, so per-player statistics are counted from it by deterministic code.
+
+- THE SYSTEM SHALL derive, per player: points, made field goals, made free throws, rebounds (offensive
+  and defensive), assists, steals, blocks and turnovers, by walking `plays` in order and classifying on
+  the play's `type` field
+- THE SYSTEM SHALL NOT derive minutes, plus-minus, shooting percentages, or any attempted-shot count.
+  Attempts and minutes are not present as typed events, and a percentage without a verified denominator
+  is a fabricated number. These SHALL be absent, never estimated
+- Player attribution SHALL be by exact match against the game's roster from the `players` endpoint. No
+  fuzzy matching, no nicknames, no initials. An event naming nobody on either roster is unattributed
+- **Points reconciliation (hard gate):** each team's derived player points SHALL equal that team's final
+  score from the games endpoint. IF a team fails to reconcile THEN every derived figure for that game
+  SHALL be omitted and the issue SHALL publish without them. Points are the only category with an
+  independent source of truth, so failing this gate discredits the whole count
+- **Per-category gates:** a category SHALL be omitted, for that game only, if any event in it is
+  unattributed, or if it fails its own sanity check:
+  - assists per team SHALL NOT exceed that team's made field goals
+  - blocks per team SHALL NOT exceed the opponent's missed field goal events
+  - steals per team SHALL NOT exceed the opponent's turnovers
+  - a failing category is dropped alone; the rest of the line still publishes
+- THE SYSTEM SHALL record, per game and per category, the attributed and unattributed event counts, so
+  the owner can see how often a category is dropped. These counts SHALL NOT be shown to a visitor
+- THE SYSTEM SHALL label the stat line as counted from the play-by-play, SHALL NEVER call it a box score,
+  and SHALL NEVER present it as official
+- Derived values enter `allowed_numbers` like any other fact and are subject to the fact lock
+- Double-double and triple-double claims are permitted only when every category they depend on survived
+  its gate for that game
+- A model SHALL NEVER perform the counting or the attribution. This is deterministic code
+
+**Honest limitation, stated on the About page and in the submission post:** the points total is verified
+against the final score. The other categories are counted, not verified, because nothing independent
+exists to check them against. An event the feed omits is an event we miss silently.
 
 ### Requirement 4: Game of the Night (MUST)
 **User Story:** As a fan, I want the best game of the night on top, so that I know where to start.
@@ -156,6 +193,7 @@ come from, and who made it, so I can decide whether to trust it.
 1. `league_config.py` SHALL contain an `nba` entry with `enabled: False` and a STUB comment: flip to True and add `nba` to `LEAGUES` when the NBA regular season starts (late Oct 2026); the BALLDONTLIE path swaps wnba for nba, same shapes.
 
 ### Requirement 14: Other STUBs
+- Full player statistics (rebounds, assists, shooting splits, minutes, plus-minus). GOAT tier only for WNBA, $39.99/mo, above the budget ceiling. Revisit only if the ceiling changes.
 - Support or tip link on the About page. Deferred until after judging. See LEDGER.md for the reasoning.
 1. Voices `insider` and `big_picture`, email/RSS per team, downloadable PDF, fantasy playoffs zine: STUB comments only.
 

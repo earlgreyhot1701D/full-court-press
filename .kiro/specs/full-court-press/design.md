@@ -65,19 +65,61 @@ game_id, league, date_local, season_type, tip_time_utc, status
 home: {team, abbrev, score}, away: {team, abbrev, score}
 winner_abbrev, final_margin, overtime_periods
 leaders: [{player, team_abbrev, category, value}]
-player_lines: [{player, team_abbrev, min, pts, reb, ast, stl, blk, to, fg, fg3, ft, plus_minus}]
-team_stats: {abbrev: {fg_pct, fg3_pct, ft_pct, reb, to}}
+player_lines: [{player, team_abbrev, pts, fgm, ftm, oreb, dreb, reb, ast, stl, blk, to,
+                source: "play_by_play"}]
+                                     // Counted by code from plays. No min, no plus_minus, no percentages,
+                                     // no attempts. A category that failed its gate is absent, not zero.
+                                     // The whole block is absent if points did not reconcile.
+reconciled: bool                     // false -> every derived-scoring section is omitted
 quarters: {home: [q1..q4, ot...], away: [...]}   // from the games endpoint
-runs: [...]                          // STUB until the tier includes plays
-notable: [{type, player, detail}]    # 30+ pts, double-double, triple-double, 10+ ast, 5+ blk
+runs: [...]                          // built from plays (ALL-STAR tier, confirmed Sep 23)
+standings_line: {abbrev: {wins, losses, playoff_seed}}   // from the standings endpoint
+notable: [{type, player, detail}]    # points-based only now: 20+ pts, 30+ pts, game high.
+                                     # Double-double and triple-double are impossible without rebounds
+                                     # and assists, and are NEVER inferred.
 numbers: {key: value}                # every displayable number, named, e.g. "home_score", "margin", "lead_pts_A_Wilson"
 allowed_numbers: [str]               # every numbers value as it would be displayed, plus FG strings "9-17" split to 9 and 17
 allowed_names: [str]                 # full names, last names, team names, team abbrevs, city names
 ```
 Missing required field -> that key is absent and `missing: [field]` lists it. Never a default guess.
 
-### runs.py (pure) STUB until the plays endpoint is in the tier
+### runs.py (pure)
 Walk `plays` in order, track score, emit runs of 8+ unanswered points. **A run never crosses a period boundary**: reset at each period start. Found Sep 20 while computing runs on the real DAL/PHX game with a naive walk, which merged a second-quarter run into the third.
+
+### pbp_stats.py (pure) . derived scoring, added Sep 23
+One responsibility: turn `plays` into per-player points. Nothing else.
+
+```
+count(plays, home_score, away_score) -> (scoring_lines, reconciled: bool, discrepancy: dict|None)
+```
+- Walk `plays` in order once. Classify each play on its `type` field into a category (scoring, rebound,
+  assist, steal, block, turnover). For scoring plays add `score_value` to the scorer.
+- The scorer is resolved from the play's structured fields where present, and from the play text only by
+  exact match against the game's roster names from the `players` endpoint. No fuzzy matching, no
+  nicknames, no initials. An unmatched scoring play is counted as unattributed.
+- Free throws vs field goals: `score_value` of 1 counts as a made free throw, 2 or 3 as a made field goal.
+- **Points reconciliation (hard gate):** sum each team's player points and compare to that team's final
+  score. Any unattributed points, or any mismatch, sets `reconciled = False` and the entire block is
+  dropped. Points are the only category with an independent check, so a points failure discredits all of it.
+- **Per-category gates:** each non-points category is dropped on its own if it has any unattributed event,
+  or if it fails its sanity check: assists <= team made field goals, blocks <= opponent missed field goal
+  events, steals <= opponent turnovers. A dropped category is absent from `player_lines`, never zero.
+- `reconciled = False` means `scoring_lines` is dropped from the facts sheet entirely and the spotlight,
+  the scoring line panel and any points-based Number are omitted from the issue. The issue still
+  publishes: final score, quarters, runs, standings line and the voices.
+- The discrepancy (expected, derived, unattributed count) is logged and surfaced in the run state so the
+  owner can see how often it happens. It is never shown to a visitor as a number.
+- This module never calls a model and never calls the network.
+
+**Why the gates matter, and what they do not cover.** The fact lock proves the model only used numbers we
+gave it. It cannot prove we counted right. Points reconcile against an independently sourced final score,
+so a missed basket is caught by arithmetic. Rebounds, assists, steals, blocks and turnovers have no such
+source: the sanity checks catch impossible values, not missing ones. An event the feed omits is an event
+we miss silently, and the About page says so. That is the honest cost of not buying the box score.
+
+**How it is labeled.** Every rendered derived figure carries "counted from the play-by-play" in the panel
+heading or a footnote. The words "box score" never appear in the product. The About page explains the
+method and says plainly that full statistics are behind a tier this project does not buy.
 
 ### game_of_night.py (pure)
 Reads `gotn_rules.json`:
