@@ -139,3 +139,13 @@ Lost (not reconstructed): spike/trust.json and spike/ssm-kms.json (the throwaway
 Cost:         ~10 min recovery. No cloud resource involved (fcp-spike-bdl still deployed, held).
 Disposition:  spike/ committed on master. Process fixed by the new guardrail.
 Changes PRD?: no.
+
+### 2026-09-24 . Block 0 . player_stats 401 diagnosis (route vs tier)
+Question:     Is player_stats 401 caused by a wrong WNBA path or by a tier/entitlement denial?
+Answer:       TIER/ENTITLEMENT denial, not a wrong path. Probe against game 25072 on the held fcp-spike-bdl:
+              games 200 (1408B); player_stats 401 body exactly "Unauthorized" (12B); stats 404 (27B); box_scores 404 (27B); box_scores/live 404 (27B); players?team_ids[]=5 200 (8092B).
+              The 404s (27-byte body) are unknown routes: stats/box_scores/box_scores/live do NOT exist for WNBA. player_stats returns 401, not 404, so the route DOES exist and is recognized; it is refused for this key. So player_stats is the correct WNBA path and the block is authorization, not a bad URL.
+              Contradiction to resolve on the provider side: this key gets 200 on GOAT-tier standings and plays but 401 on ALL-STAR-tier player_stats. That is not a tier ladder. Most likely a GOAT trial is active while the player_stats entitlement is not attached to this key, or the ALL-STAR line did not apply. AWS/SSM is not the cause: SSM parameter is still Version 1 (unchanged), so the key value never changed.
+Cost:         ~15 min. Used the held fcp-spike-bdl (code updated to a routes probe, still tagged Project=full-court-press). No key change, no SSM change, nothing deleted.
+Disposition:  Owner to check BALLDONTLIE plan/entitlements for the WNBA key (is player_stats included and active). Teardown of fcp-spike-bdl stays deferred until player_stats returns 200.
+Changes PRD?: no yet. If player_stats cannot be enabled, the spotlight/box score/The Number decision from the ALL-STAR entry reopens.

@@ -57,3 +57,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: spike/ recovered and committed as a kept artifact, not product code. Lost and not reconstructed: trust.json, ssm-kms.json, the Pillow build zip, the OFL TTF, and the Polly mp3/text/meta (numeric findings survive in the logs).
 - Resources: none. fcp-spike-bdl still deployed and held.
 - Evidence: commits b46bb9c (spike artifacts + guardrail); dangling commit ac908b1 for THROWAWAY.
+
+## 2026-09-24 . probe . WNBA player_stats route vs tier
+- Tier: Spike
+- Did: updated the held fcp-spike-bdl to a routes probe; against game 25072 tried player_stats, stats, box_scores, box_scores/live, and players; captured one full 401 body.
+- Result: player_stats returns 401 "Unauthorized" (route exists, key refused). stats/box_scores/box_scores/live return 404 (routes do not exist for WNBA). players returns 200. Conclusion: correct path, tier/entitlement denial, not a bad URL. Contradiction: GOAT standings/plays 200 but ALL-STAR player_stats 401. Owner to check the BALLDONTLIE plan. No key/SSM change, nothing deleted.
+- Resources: fcp-spike-bdl still deployed and held (code now the routes probe). Tagged Project=full-court-press.
+- Evidence: spike/routes_out.json; SSM parameter still Version 1.
