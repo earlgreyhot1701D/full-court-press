@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Full Court Press{% endblock %}</title>
+  {% block head_extra %}{% endblock %}
+  <link rel="stylesheet" href="{{ static_prefix }}styles.css">
+  <link rel="stylesheet" href="{{ static_prefix }}print.css">
+  {# team spot color: applied server-side when known; JS may refine it. #}
+  {% if spot_color %}<style>:root{ --spot: {{ spot_color }}; }</style>{% endif %}
+</head>
+<body{% if low_contrast %} data-lowc="1"{% endif %}>
+  {% block body %}{% endblock %}
+
+  {#
+    Footer: disclaimer (guardrails) + data attribution (Req 10c/Attribution),
+    on every page, server-rendered, present with JavaScript off. print.css hides
+    the "back to index" nav but keeps the disclaimer.
+  #}
+  <footer class="sitefoot">
+    <div class="wrap">
+      <p class="disclaimer">Unofficial fan zine. Not affiliated with the WNBA, the NBA, any team, or our data provider.</p>
+      <p class="attribution">Data from <a href="https://www.balldontlie.io" rel="noopener">BALLDONTLIE</a>.</p>
+      <p class="footlinks screen-only">
+        <a href="{{ root_prefix }}index.html">All games</a> .
+        <a href="{{ root_prefix }}about/index.html">About</a> .
+        <a href="{{ root_prefix }}archive/index.html">Archive</a>
+      </p>
+    </div>
+  </footer>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

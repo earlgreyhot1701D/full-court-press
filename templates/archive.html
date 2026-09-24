@@ -1,0 +1,29 @@
+{% extends "_base.html" %}
+{#
+  Archive (Req 10.4): all dates with issues, newest first. Carries the
+  home-link masthead (Req 10d).
+#}
+{% block title %}Archive . Full Court Press{% endblock %}
+
+{% block body %}
+<div class="backbar screen-only"><div class="wrap"><a href="{{ root_prefix }}index.html">&larr; All of last night&rsquo;s games</a></div></div>
+
+<header class="top">
+  <div class="wrap">
+    <span class="kick spot-surface">WNBA . Archive</span>
+    <a class="homelink" href="{{ root_prefix }}index.html" aria-label="All of last night&rsquo;s games"><h1 class="slab mast">Full Court Press</h1></a>
+    <p class="sub">past issues by date, newest first</p>
+  </div>
+</header>
+
+<div class="wrap">
+  {% if not dates %}
+  <div class="nogame">No issues here yet. Check back after the next game.</div>
+  {% endif %}
+  {% for d in dates %}
+  <article class="card">
+    <div class="meta"><span>{{ d.date_local }}</span><a class="go" href="{{ d.url }}">{{ d.count }} issue{{ "s" if d.count != 1 else "" }} &rarr;</a></div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}

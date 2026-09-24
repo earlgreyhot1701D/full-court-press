@@ -1,0 +1,54 @@
+{
+  "game_id": "mock-category-gate-fail",
+  "league": "wnba",
+  "date_local": "2026-09-19",
+  "season_type": "regular",
+  "tip_time_utc": "2026-09-20T03:00:00Z",
+  "status": "Final",
+  "home": { "team": "Minnesota Lynx", "abbrev": "MIN", "score": 79 },
+  "away": { "team": "Seattle Storm", "abbrev": "SEA", "score": 74 },
+  "winner_abbrev": "MIN",
+  "final_margin": 5,
+  "overtime_periods": 0,
+  "leaders": [
+    { "player": "Napheesa Collier", "team_abbrev": "MIN", "category": "points", "value": 29 },
+    { "player": "Nneka Ogwumike", "team_abbrev": "SEA", "category": "points", "value": 22 }
+  ],
+  "reconciled": true,
+  "dropped_categories": ["ast"],
+  "dropped_categories_note": "Assists failed the per-category gate for this game (an assist event named a player not on either roster), so the assist column is omitted, not zeroed. Points still reconcile against the final score, so the rest of the stat line publishes.",
+  "player_lines": [
+    { "player": "Napheesa Collier", "team_abbrev": "MIN", "pts": 29, "fgm": 11, "ftm": 5, "oreb": 1, "dreb": 7, "reb": 8, "stl": 2, "blk": 1, "to": 3, "source": "play_by_play" },
+    { "player": "Kayla McBride",     "team_abbrev": "MIN", "pts": 17, "fgm": 6,  "ftm": 2, "oreb": 0, "dreb": 2, "reb": 2, "stl": 1, "blk": 0, "to": 1, "source": "play_by_play" },
+    { "player": "Alanna Smith",      "team_abbrev": "MIN", "pts": 12, "fgm": 5,  "ftm": 0, "oreb": 1, "dreb": 5, "reb": 6, "stl": 0, "blk": 2, "to": 2, "source": "play_by_play" },
+    { "player": "Nneka Ogwumike",    "team_abbrev": "SEA", "pts": 22, "fgm": 9,  "ftm": 4, "oreb": 2, "dreb": 6, "reb": 8, "stl": 1, "blk": 0, "to": 2, "source": "play_by_play" },
+    { "player": "Skylar Diggins",    "team_abbrev": "SEA", "pts": 18, "fgm": 7,  "ftm": 3, "oreb": 0, "dreb": 3, "reb": 3, "stl": 2, "blk": 0, "to": 4, "source": "play_by_play" }
+  ],
+  "quarters": {
+    "home": [20, 18, 22, 19],
+    "away": [18, 21, 17, 18]
+  },
+  "runs": [
+    { "quarter": 4, "team_abbrev": "MIN", "points": 10, "detail": "10-2 to close" }
+  ],
+  "standings_line": {
+    "MIN": { "wins": 27, "losses": 5, "playoff_seed": 1 },
+    "SEA": { "wins": 16, "losses": 16, "playoff_seed": 7 }
+  },
+  "notable": [
+    { "type": "20plus", "player": "Napheesa Collier", "detail": "29 points" },
+    { "type": "20plus", "player": "Nneka Ogwumike", "detail": "22 points" }
+  ],
+  "numbers": {
+    "home_score": 79, "away_score": 74, "margin": 5,
+    "collier_pts": 29, "ogwumike_pts": 22, "run_min_q4": 10
+  },
+  "the_number_key": "run_min_q4",
+  "allowed_numbers": ["79", "74", "5", "29", "22", "10", "2", "20", "18", "17", "19", "21", "8", "6", "3", "12", "11", "7", "1"],
+  "allowed_names": [
+    "Minnesota Lynx", "Minnesota", "Lynx", "MIN",
+    "Seattle Storm", "Seattle", "Storm", "SEA",
+    "Napheesa Collier", "Collier", "Kayla McBride", "McBride",
+    "Alanna Smith", "Smith", "Nneka Ogwumike", "Ogwumike", "Skylar Diggins", "Diggins"
+  ]
+}

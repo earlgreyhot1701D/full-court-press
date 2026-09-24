@@ -1,0 +1,237 @@
+{% extends "_base.html" %}
+{#
+  Issue page. Structure and section order lifted from
+  design/full-court-press-mockup.html and Requirement 7.1 (approved Sep 23):
+  cover, audio, recap+voices+edition toggle, spotlight, stat line (collapsed),
+  game flow (runs inside), Around the League, footer.
+  `f` is the facts sheet; `edition` is the team abbrev this edition is written
+  for; `voice` is the rendered voice block (or None when the voice was dropped).
+#}
+{% block title %}{{ f.home.team }} {{ f.home.score }}, {{ f.away.team }} {{ f.away.score }} . Full Court Press{% endblock %}
+
+{% block head_extra %}
+  {# og:image points at this edition's share card (Req 8.4) #}
+  <meta property="og:title" content="Full Court Press . {{ f.home.abbrev }} {{ f.home.score }}, {{ f.away.abbrev }} {{ f.away.score }}">
+  <meta property="og:image" content="{{ card_url }}">
+{% endblock %}
+
+{% block body %}
+{% set winner = f.home if f.winner_abbrev == f.home.abbrev else f.away %}
+{% set loser  = f.away if f.winner_abbrev == f.home.abbrev else f.home %}
+
+{# back bar + home link (Req 10d), hidden in print #}
+<div class="backbar screen-only"><div class="wrap"><a href="{{ root_prefix }}index.html">&larr; All of last night&rsquo;s games</a></div></div>
+
+<nav class="teams screen-only" aria-label="Pick your team">
+  <div class="row" id="teamrow">
+    <a href="{{ root_prefix }}index.html">All</a>
+  </div>
+</nav>
+
+<div class="sheet">
+
+  <!-- PANEL 1: COVER -->
+  <header class="pnl p1 cover">
+    <div class="wrap">
+      <div class="toprow">
+        <span class="kick spot-surface">{{ f.league|upper }} . {{ f.date_local }}</span>
+        {% if is_game_of_night %}<div class="gotn" aria-label="Game of the Night">Game<br>of the<br>Night</div>{% endif %}
+      </div>
+      <a class="homelink" href="{{ root_prefix }}index.html" aria-label="All of last night&rsquo;s games"><h1 class="slab mast">Full Court Press</h1></a>
+      <p class="tagline">the morning zine for women&rsquo;s pro basketball</p>
+      <p class="date">{{ winner.team }} {{ winner.score }} . {{ loser.team }} {{ loser.score }} . final{% if f.overtime_periods %} / OT{% endif %}</p>
+      <div class="scorerow">
+        <div class="score slab" aria-label="Final score">
+          <div class="r"><span>{{ winner.team }}</span><b>{{ winner.score }}</b></div>
+          <div class="r lose"><span>{{ loser.team }}</span><b>{{ loser.score }}</b></div>
+          <span class="ot">Final{% if f.overtime_periods %} / OT{% endif %}</span>
+        </div>
+        {% if the_number %}
+        <div class="num screen-only">
+          <span class="lbl">The Number</span>
+          <div class="slab n"><span>{{ the_number.value }}</span></div>
+          <p>{{ the_number.caption }}</p>
+        </div>
+        {% endif %}
+      </div>
+      {% if voice and voice.headline %}
+      <div class="slab headline spot-surface" id="headline">{{ voice.headline }}</div>
+      {% else %}
+      <div class="slab headline spot-surface" id="headline">{{ winner.team }} {{ winner.score }}, {{ loser.team }} {{ loser.score }}</div>
+      {% endif %}
+    </div>
+  </header>
+
+  <!-- PANEL 2: THE NUMBER (print only; on screen it lives in the cover) -->
+  {% if the_number %}
+  <section class="pnl p2 print-only" aria-hidden="true">
+    <span class="lbl">The Number</span>
+    <div class="bign">{{ the_number.value }}</div>
+    <p class="cap">{{ the_number.caption }}</p>
+    <span class="folio">1</span>
+  </section>
+  {% endif %}
+
+  <main class="contents">
+  <!-- PANEL 3: RECAP + AUDIO -->
+  <section class="pnl p3">
+    <div class="wrap">
+      {% if audio %}
+      <div class="audio screen-only">
+        <div>
+          <div class="t">10-second recap</div>
+          <div class="s">Amazon Polly neural . never autoplays</div>
+        </div>
+        <audio controls preload="none" src="{{ audio.url }}"></audio>
+      </div>
+      {% if audio.transcript %}<p class="transcript screen-only"><b>Transcript:</b> <span>{{ audio.transcript }}</span></p>{% endif %}
+      {% endif %}
+
+      <div class="fold screen-only">fold</div>
+      <span class="lbl">The recap</span>
+      <h2 class="slab misreg">Last night</h2>
+
+      {# edition toggle: direct links to each team's edition, server-rendered (Req 10.1b-i) #}
+      <div class="voices screen-only" role="group" aria-label="Edition">
+        <a href="{{ edition_urls[f.home.abbrev] }}" {% if edition == f.home.abbrev %}aria-current="page"{% endif %}>{{ f.home.team }} edition</a>
+        <a href="{{ edition_urls[f.away.abbrev] }}" {% if edition == f.away.abbrev %}aria-current="page"{% endif %}>{{ f.away.team }} edition</a>
+      </div>
+
+      {% if voice %}
+      <p class="recap">{{ voice.recap }}</p>
+      <span class="byline">by {{ voice.label }}</span>
+      {% else %}
+      <p class="recap writersroom">The writers&rsquo; room passed on this one.</p>
+      {% endif %}
+      <span class="folio print-only">2</span>
+    </div>
+  </section>
+
+  <!-- PANEL 4: SPOTLIGHT -->
+  {% if voice and voice.spotlight %}
+  <section class="pnl p4">
+    <div class="wrap">
+      <div class="fold screen-only">fold</div>
+      <span class="lbl">Spotlight</span>
+      <div class="clip" style="margin-top:14px">
+        <span class="tape" aria-hidden="true"></span>
+        <div class="who">
+          <div class="ava" aria-hidden="true">{{ voice.spotlight.initials }}</div>
+          <div><div class="slab nm">{{ voice.spotlight.player }}</div><div class="tm">{{ voice.spotlight.team }}</div></div>
+        </div>
+        {% if voice.spotlight.stats %}
+        <div class="stats">
+          {% for s in voice.spotlight.stats %}<div><b>{{ s.value }}</b><span>{{ s.label }}</span></div>{% endfor %}
+        </div>
+        {% endif %}
+        <p>{{ voice.spotlight.text }}</p>
+      </div>
+      <span class="folio print-only">3</span>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- PANEL 5: STAT LINE (counted from the play-by-play; never a box score) -->
+  {% if f.reconciled and f.player_lines %}
+  {% set dropped = f.dropped_categories or [] %}
+  <section class="pnl p5">
+    <div class="wrap">
+      <div class="fold screen-only">fold</div>
+      <span class="lbl">Stat line . counted from the play-by-play</span>
+      <h2 class="slab misreg">The sheet</h2>
+      <details class="box">
+        <summary>Show the stat line</summary>
+        <div class="tbls">
+          {% for team in [f.home, f.away] %}
+          <table>
+            <thead><tr>
+              <th>{{ team.team }}</th><th>PTS</th>
+              {% if 'reb' not in dropped %}<th>REB</th>{% endif %}
+              {% if 'ast' not in dropped %}<th>AST</th>{% endif %}
+              {% if 'stl' not in dropped %}<th>STL</th>{% endif %}
+              {% if 'blk' not in dropped %}<th>BLK</th>{% endif %}
+              {% if 'to' not in dropped %}<th>TO</th>{% endif %}
+            </tr></thead>
+            <tbody>
+              {% for p in f.player_lines if p.team_abbrev == team.abbrev %}
+              <tr>
+                <td>{{ p.player }}</td><td>{{ p.pts }}</td>
+                {% if 'reb' not in dropped %}<td>{{ p.reb if p.reb is defined else "" }}</td>{% endif %}
+                {% if 'ast' not in dropped %}<td>{{ p.ast if p.ast is defined else "" }}</td>{% endif %}
+                {% if 'stl' not in dropped %}<td>{{ p.stl if p.stl is defined else "" }}</td>{% endif %}
+                {% if 'blk' not in dropped %}<td>{{ p.blk if p.blk is defined else "" }}</td>{% endif %}
+                {% if 'to' not in dropped %}<td>{{ p.to if p.to is defined else "" }}</td>{% endif %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% endfor %}
+        </div>
+        {% if dropped %}<p class="samplenote2">Some columns are not shown for this game: a category is left out entirely when its count cannot be trusted, rather than shown as zero.</p>{% endif %}
+      </details>
+      <span class="folio print-only">4</span>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- PANEL 6: GAME FLOW (scoring runs render inside, per Req 7.1a-i) -->
+  <section class="pnl p6">
+    <div class="wrap">
+      <div class="fold screen-only">fold</div>
+      <span class="lbl">Game flow</span>
+      <h2 class="slab misreg">By quarter</h2>
+      <div class="runs">
+        {% for i in range(f.quarters.home|length) %}
+        {% set h = f.quarters.home[i] %}{% set a = f.quarters.away[i] %}
+        {% set qlabel = ("OT" if i >= 4 else "Q" ~ (i + 1)) %}
+        {% set qwin = f.home.abbrev if h >= a else f.away.abbrev %}
+        {% set total = (h + a) if (h + a) > 0 else 1 %}
+        <div class="run">
+          <span class="q">{{ qlabel }} . {{ [h, a]|max }} to {{ [h, a]|min }}</span>
+          <div class="bar"><i style="width:{{ (100 * [h, a]|max / total)|round|int }}%"></i></div>
+          <b>{{ qwin }}</b>
+        </div>
+        {# scoring runs that belong to this quarter render within its row #}
+        {% for r in f.runs if r.quarter == (i + 1) %}
+        <div class="run runline"><span class="q">run</span><div class="bar"><i style="width:100%"></i></div><b>{{ r.team_abbrev }} {{ r.points }}</b></div>
+        {% endfor %}
+        {% endfor %}
+      </div>
+      <span class="folio print-only">5</span>
+    </div>
+  </section>
+
+  <!-- PANEL 7: AROUND THE LEAGUE -->
+  <section class="pnl p7">
+    <div class="wrap">
+      <div class="fold screen-only">fold</div>
+      <span class="lbl">Around the League</span>
+      <h2 class="slab misreg">Last night</h2>
+      <div>
+        {% for g in slate %}
+        <div class="strip{% if g.game_id == f.game_id %} g spot-surface{% endif %}"><span>{{ g.winner_team }} {{ g.winner_score }} . {{ g.loser_team }} {{ g.loser_score }}</span><span>F{% if g.overtime %}/OT{% endif %}</span></div>
+        {% endfor %}
+      </div>
+      {% if standings_movers %}<p class="movers"><b>Standings movers:</b> {{ standings_movers }}</p>{% endif %}
+      <span class="folio print-only">6</span>
+    </div>
+  </section>
+  </main>
+
+  <!-- BACK COVER: how it's made + print button -->
+  <footer class="pnl p8">
+    <div class="wrap">
+      <h2 class="slab misreg">How this is made</h2>
+      <p>The stats are counted from the play-by-play by code, never by the AI. Each team&rsquo;s points are checked against the final score before anything prints. The voice is AI, and every number and name it writes is checked against those same facts. Anything that fails gets cut.</p>
+      <button type="button" class="printbtn screen-only" onclick="window.print()">Print this issue <small>folds into an 8-page pocket zine</small></button>
+      <p class="colo">The name is a hand-me-down from an old courthouse newsletter. <i>Unofficial fan zine.</i></p>
+      <span class="folio print-only">7</span>
+    </div>
+  </footer>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ static_prefix }}app.js" defer></script>
+{% endblock %}

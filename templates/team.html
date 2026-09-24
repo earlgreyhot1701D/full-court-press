@@ -1,0 +1,44 @@
+{% extends "_base.html" %}
+{#
+  Team page (Req 10.2): that team's most recent issue first, older below.
+  Carries the home-link masthead (Req 10d). If the team did not play last
+  night, shows "No game last night." above its most recent issue (Req 10.2b).
+#}
+{% block title %}{{ team.team }} . Full Court Press{% endblock %}
+
+{% block body %}
+<div class="backbar screen-only"><div class="wrap"><a href="{{ root_prefix }}index.html">&larr; All of last night&rsquo;s games</a></div></div>
+
+<header class="top"{% if team.spot %} style="--spot:{{ team.spot }}"{% endif %}>
+  <div class="wrap">
+    <span class="kick spot-surface">WNBA . {{ team.team }}</span>
+    <a class="homelink" href="{{ root_prefix }}index.html" aria-label="All of last night&rsquo;s games"><h1 class="slab mast">Full Court Press</h1></a>
+    <p class="sub">{{ team.team }} issues, newest first</p>
+  </div>
+</header>
+
+<div class="wrap">
+  {% if no_game_last_night %}<div class="nogame">No game last night.</div>{% endif %}
+
+  {% if not issues %}
+  <div class="nogame">No issues here yet. Check back after the next game.</div>
+  {% endif %}
+
+  {% for g in issues %}
+  <article class="card"{% if team.spot %} style="--spot:{{ team.spot }}"{% endif %}>
+    <a class="row {{ 'win' if g.winner_abbrev == g.home.abbrev else 'lose' }}" href="{{ g.edition_urls[g.home.abbrev] }}">
+      <span class="chip" style="background:{{ g.home.spot }}"></span>
+      <span class="nm">{{ g.home.team }}</span><span class="sc">{{ g.home.score }}</span>
+    </a>
+    <a class="row {{ 'win' if g.winner_abbrev == g.away.abbrev else 'lose' }}" href="{{ g.edition_urls[g.away.abbrev] }}">
+      <span class="chip" style="background:{{ g.away.spot }}"></span>
+      <span class="nm">{{ g.away.team }}</span><span class="sc">{{ g.away.score }}</span>
+    </a>
+    <div class="meta">
+      <span>{{ g.date_local }} . Final{% if g.overtime %} / OT{% endif %}</span>
+      <a class="go" href="{{ g.read_url }}">Read the issue &rarr;</a>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}

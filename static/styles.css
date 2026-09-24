@@ -203,3 +203,37 @@ nav.teams.index .sw { width:11px; height:11px; border:1px solid var(--ink); }
 .indexfooter { margin:26px 0 40px; padding-top:14px; border-top:3px solid var(--ink); font:400 12.5px 'Archivo'; color:var(--mut); }
 .indexfooter a { color:var(--ink); }
 .nogame { background:var(--card); border:3px dashed var(--ink); padding:12px 14px; margin:16px 0; font:800 12px 'Archivo'; letter-spacing:.1em; text-transform:uppercase; }
+
+/* =========================================================================
+   Spec-required elements not covered by the mockups. Styled with existing
+   tokens only (no new palette, no new fonts). Kept minimal on purpose.
+   ========================================================================= */
+
+/* site-wide footer: disclaimer + data attribution on every page (Req 7.4, 10c).
+   Distinct from the issue's "How this is made" back-cover panel. */
+.sitefoot { border-top:3px solid var(--ink); margin-top:32px; padding:16px 0 40px; }
+.sitefoot .disclaimer { font:600 12.5px 'Archivo'; color:var(--mut); }
+.sitefoot .attribution { font:600 12.5px 'Archivo'; color:var(--mut); margin-top:4px; }
+.sitefoot .attribution a, .sitefoot .footlinks a { color:var(--ink); }
+.sitefoot .footlinks { font:800 11px 'Archivo'; letter-spacing:.1em; text-transform:uppercase; margin-top:10px; }
+@media print { .sitefoot .footlinks { display:none !important; } }
+
+/* dropped-voice state (Req 7.3) */
+.recap.writersroom { font-style:italic; color:var(--mut); }
+.recap.writersroom::first-letter { font-family:inherit; float:none; font-size:inherit; margin:0; text-shadow:none; }
+
+/* a scoring run rendered inside the game-flow panel (Req 7.1a-i) */
+.run.runline .q { color:var(--spot-text); }
+.run.runline .bar i { background:var(--ink); }
+
+/* edition toggle links (issue recap panel) reuse the .voices button look */
+.voices a { font:800 11px 'Archivo'; letter-spacing:.08em; text-transform:uppercase; padding:7px 12px; border:2px solid var(--ink); background:var(--card); color:var(--ink); text-decoration:none; transform:rotate(-1deg); display:inline-block; min-height:40px; }
+.voices a[aria-current="page"] { background:var(--ink); color:var(--paper); }
+
+/* About page blocks */
+.about .aboutblock { margin:22px 0; }
+.about .aboutblock h2 { font-size:26px; margin-bottom:8px; }
+.about blockquote { margin:0 0 12px; padding-left:14px; border-left:4px solid var(--spot); }
+.about blockquote p { font-size:16.5px; font-weight:600; line-height:1.7; margin-bottom:8px; }
+.about > .aboutblock > p { font-size:15px; line-height:1.7; margin-top:8px; }
+.about a { color:var(--ink); }

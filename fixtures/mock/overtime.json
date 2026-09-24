@@ -1,0 +1,54 @@
+{
+  "game_id": "mock-overtime",
+  "league": "wnba",
+  "date_local": "2026-09-19",
+  "season_type": "regular",
+  "tip_time_utc": "2026-09-20T02:30:00Z",
+  "status": "Final / OT",
+  "home": { "team": "New York Liberty", "abbrev": "NY", "score": 98 },
+  "away": { "team": "Las Vegas Aces", "abbrev": "LV", "score": 94 },
+  "winner_abbrev": "NY",
+  "final_margin": 4,
+  "overtime_periods": 1,
+  "leaders": [
+    { "player": "Sabrina Ionescu", "team_abbrev": "NY", "category": "points", "value": 31 },
+    { "player": "Jackie Young", "team_abbrev": "LV", "category": "points", "value": 28 }
+  ],
+  "reconciled": true,
+  "player_lines": [
+    { "player": "Sabrina Ionescu",  "team_abbrev": "NY", "pts": 31, "fgm": 11, "ftm": 4, "oreb": 0, "dreb": 5, "reb": 5, "ast": 7, "stl": 1, "blk": 0, "to": 3, "source": "play_by_play" },
+    { "player": "Jonquel Jones",    "team_abbrev": "NY", "pts": 20, "fgm": 9,  "ftm": 2, "oreb": 4, "dreb": 8, "reb": 12, "ast": 2, "stl": 0, "blk": 2, "to": 1, "source": "play_by_play" },
+    { "player": "Leonie Fiebich",   "team_abbrev": "NY", "pts": 12, "fgm": 4,  "ftm": 0, "oreb": 1, "dreb": 3, "reb": 4, "ast": 3, "stl": 2, "blk": 0, "to": 0, "source": "play_by_play" },
+    { "player": "Jackie Young",     "team_abbrev": "LV", "pts": 28, "fgm": 10, "ftm": 6, "oreb": 1, "dreb": 3, "reb": 4, "ast": 5, "stl": 1, "blk": 0, "to": 2, "source": "play_by_play" },
+    { "player": "A'ja Wilson",      "team_abbrev": "LV", "pts": 27, "fgm": 11, "ftm": 5, "oreb": 3, "dreb": 9, "reb": 12, "ast": 3, "stl": 1, "blk": 3, "to": 4, "source": "play_by_play" }
+  ],
+  "quarters": {
+    "home": [22, 20, 24, 21, 11],
+    "away": [24, 19, 22, 22, 7]
+  },
+  "runs": [
+    { "quarter": 4, "team_abbrev": "NY", "points": 9,  "detail": "9-0 to force overtime" },
+    { "quarter": 5, "team_abbrev": "NY", "points": 8,  "detail": "8-2 in overtime" }
+  ],
+  "standings_line": {
+    "NY": { "wins": 25, "losses": 7, "playoff_seed": 1 },
+    "LV": { "wins": 22, "losses": 10, "playoff_seed": 3 }
+  },
+  "notable": [
+    { "type": "30plus", "player": "Sabrina Ionescu", "detail": "31 points" },
+    { "type": "20plus", "player": "Jackie Young", "detail": "28 points" }
+  ],
+  "numbers": {
+    "home_score": 98, "away_score": 94, "margin": 4, "overtime_periods": 1,
+    "ionescu_pts": 31, "young_pts": 28, "wilson_pts": 27, "wilson_reb": 12,
+    "jones_reb": 12, "run_ny_q4": 9
+  },
+  "the_number_key": "run_ny_q4",
+  "allowed_numbers": ["98", "94", "4", "1", "31", "28", "27", "12", "9", "8", "2", "22", "20", "24", "21", "11", "19", "7", "5", "3"],
+  "allowed_names": [
+    "New York Liberty", "New York", "Liberty", "NY",
+    "Las Vegas Aces", "Las Vegas", "Aces", "LV",
+    "Sabrina Ionescu", "Ionescu", "Jonquel Jones", "Jones",
+    "Leonie Fiebich", "Fiebich", "Jackie Young", "Young", "A'ja Wilson", "Wilson"
+  ]
+}

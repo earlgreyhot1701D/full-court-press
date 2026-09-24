@@ -1,0 +1,67 @@
+{% extends "_base.html" %}
+{#
+  About page (Requirement 10c). The four <!-- OWNER --> blocks are dropped in
+  verbatim from OWNER-COPY.md and are NOT rewritten. Everything else here is
+  spec-driven per Req 10c. No payment/donation/tip/ad/tracking/third-party embed.
+  Carries the home-link masthead (Req 10d).
+#}
+{% block title %}About . Full Court Press{% endblock %}
+
+{% block body %}
+<div class="backbar screen-only"><div class="wrap"><a href="{{ root_prefix }}index.html">&larr; All of last night&rsquo;s games</a></div></div>
+
+<header class="top">
+  <div class="wrap">
+    <span class="kick spot-surface">WNBA . About</span>
+    <a class="homelink" href="{{ root_prefix }}index.html" aria-label="All of last night&rsquo;s games"><h1 class="slab mast">Full Court Press</h1></a>
+    <p class="sub">what this is, where the numbers come from, who made it</p>
+  </div>
+</header>
+
+<div class="wrap about">
+
+  <section class="aboutblock">
+    <h2 class="slab">What this is</h2>
+    <!-- OWNER: what-this-is -->
+    <blockquote>
+      <p>Fanzines were self-published, non-commercial, and gloriously niche. Photocopied, stapled, made by fans who cared more than anyone was paying them to. I wanted one for the WNBA, where the morning after a game most teams get no recap at all unless they were the marquee matchup.</p>
+      <p>Full Court Press publishes one every morning. Every finished game gets an issue, written in your team&rsquo;s voice, not the winner&rsquo;s. There&rsquo;s a ten-second audio recap, and a print button that lays the whole issue out as an eight-panel sheet you fold into a pocket zine.</p>
+    </blockquote>
+    <!-- /OWNER -->
+  </section>
+
+  <section class="aboutblock">
+    <h2 class="slab">Who it&rsquo;s for</h2>
+    <!-- OWNER: who-its-for -->
+    <blockquote>
+      <p>For the fan who checks the score before they check anything else. For the one whose team plays at 7pm Pacific and gets three sentences in a roundup the next morning, if that. This is the recap your team would have written.</p>
+    </blockquote>
+    <!-- /OWNER -->
+  </section>
+
+  <section class="aboutblock">
+    <h2 class="slab">Why you can trust the numbers</h2>
+    <!-- OWNER: why-trust -->
+    <blockquote>
+      <p>The old zines got things wrong all the time, by hand, with love. This one tries not to. The stats are counted from the play-by-play by code, never by the AI. Every team&rsquo;s points are checked against the final score before anything publishes. The AI writes the voice, and every number and name it writes is checked against those same facts. Anything that fails gets cut, and you&rsquo;ll see where.</p>
+    </blockquote>
+    <!-- /OWNER -->
+    {# spec-driven explanation of the method and the fact lock (Req 10c) #}
+    <p>In plain terms: the structure and every number on the page are produced by code. The voice, the sentences you read, is written by a model. Before anything publishes, a fact lock checks every number and name the model wrote against the facts sheet the code built. If a section fails the check, it is dropped rather than shown. When a whole voice section is dropped, you will see &ldquo;The writers&rsquo; room passed on this one.&rdquo; in its place, and the deterministic parts of the issue still publish.</p>
+    <p>An honest limit: points are verified against the final score, which comes from a separate source. The other counted categories (rebounds, assists, steals, blocks, turnovers) have no independent check, so a category is dropped for a game when its count cannot be trusted, and full player statistics sit behind a data tier this project does not buy. The NBA edition is stubbed and off until later.</p>
+  </section>
+
+  <section class="aboutblock">
+    <h2 class="slab">Who made it</h2>
+    <!-- OWNER: byline -->
+    <blockquote>
+      <p>Built by La Shara Cordero. AI assisted. Human approved. Powered by NLP.<br>
+      <a href="https://clewlabs.org" rel="noopener">clewlabs.org</a></p>
+    </blockquote>
+    <!-- /OWNER -->
+    {# spec-driven: non-commercial + data credit + non-affiliation (Req 10c) #}
+    <p>This project is non-commercial. Data comes from <a href="https://www.balldontlie.io" rel="noopener">BALLDONTLIE</a>; we do not resell or redistribute their raw data. Full Court Press is not affiliated with, endorsed by, or associated with the WNBA, any team, or BALLDONTLIE.</p>
+  </section>
+
+</div>
+{% endblock %}

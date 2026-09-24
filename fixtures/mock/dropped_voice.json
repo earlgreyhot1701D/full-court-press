@@ -1,0 +1,54 @@
+{
+  "game_id": "mock-dropped-voice",
+  "league": "wnba",
+  "date_local": "2026-09-19",
+  "season_type": "regular",
+  "tip_time_utc": "2026-09-20T01:00:00Z",
+  "status": "Final",
+  "home": { "team": "Atlanta Dream", "abbrev": "ATL", "score": 106 },
+  "away": { "team": "Chicago Sky", "abbrev": "CHI", "score": 81 },
+  "winner_abbrev": "ATL",
+  "final_margin": 25,
+  "overtime_periods": 0,
+  "leaders": [
+    { "player": "Rhyne Howard", "team_abbrev": "ATL", "category": "points", "value": 24 },
+    { "player": "Angel Reese", "team_abbrev": "CHI", "category": "rebounds", "value": 13 }
+  ],
+  "reconciled": true,
+  "voice_dropped": true,
+  "voice_dropped_message": "The writers' room passed on this one.",
+  "player_lines": [
+    { "player": "Rhyne Howard",   "team_abbrev": "ATL", "pts": 24, "fgm": 9, "ftm": 2, "oreb": 0, "dreb": 4, "reb": 4, "ast": 6, "stl": 3, "blk": 0, "to": 2, "source": "play_by_play" },
+    { "player": "Allisha Gray",   "team_abbrev": "ATL", "pts": 20, "fgm": 8, "ftm": 2, "oreb": 1, "dreb": 3, "reb": 4, "ast": 4, "stl": 1, "blk": 0, "to": 1, "source": "play_by_play" },
+    { "player": "Brittney Griner","team_abbrev": "ATL", "pts": 16, "fgm": 7, "ftm": 2, "oreb": 2, "dreb": 6, "reb": 8, "ast": 1, "stl": 0, "blk": 3, "to": 2, "source": "play_by_play" },
+    { "player": "Angel Reese",    "team_abbrev": "CHI", "pts": 14, "fgm": 6, "ftm": 2, "oreb": 5, "dreb": 8, "reb": 13, "ast": 2, "stl": 1, "blk": 1, "to": 3, "source": "play_by_play" },
+    { "player": "Kamilla Cardoso","team_abbrev": "CHI", "pts": 13, "fgm": 6, "ftm": 1, "oreb": 3, "dreb": 5, "reb": 8, "ast": 1, "stl": 0, "blk": 2, "to": 2, "source": "play_by_play" }
+  ],
+  "quarters": {
+    "home": [28, 26, 30, 22],
+    "away": [19, 20, 21, 21]
+  },
+  "runs": [
+    { "quarter": 3, "team_abbrev": "ATL", "points": 14, "detail": "14-2 in the third" }
+  ],
+  "standings_line": {
+    "ATL": { "wins": 19, "losses": 13, "playoff_seed": 5 },
+    "CHI": { "wins": 12, "losses": 20, "playoff_seed": 10 }
+  },
+  "notable": [
+    { "type": "20plus", "player": "Rhyne Howard", "detail": "24 points" },
+    { "type": "20plus", "player": "Allisha Gray", "detail": "20 points" }
+  ],
+  "numbers": {
+    "home_score": 106, "away_score": 81, "margin": 25,
+    "howard_pts": 24, "gray_pts": 20, "reese_reb": 13, "run_atl_q3": 14
+  },
+  "the_number_key": "run_atl_q3",
+  "allowed_numbers": ["106", "81", "25", "24", "20", "13", "14", "2", "28", "26", "30", "22", "19", "21", "8", "16", "6", "5", "3", "1"],
+  "allowed_names": [
+    "Atlanta Dream", "Atlanta", "Dream", "ATL",
+    "Chicago Sky", "Chicago", "Sky", "CHI",
+    "Rhyne Howard", "Howard", "Allisha Gray", "Gray",
+    "Brittney Griner", "Griner", "Angel Reese", "Reese", "Kamilla Cardoso", "Cardoso"
+  ]
+}
