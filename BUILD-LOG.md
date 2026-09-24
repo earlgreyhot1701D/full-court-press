@@ -92,3 +92,24 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS. Glyph-coverage check (tests/test_font_glyph_coverage.py) confirms all 43 distinct characters in every team name and abbreviation resolve in BOTH fonts, so nothing falls back to a system font. pytest: 2 passed.
 - Resources: none.
 - Evidence: static/fonts/ (AlfaSlabOne-Regular.ttf, Archivo-VariableFont_wdth_wght.ttf, AlfaSlabOne-OFL.txt, Archivo-OFL.txt), static/styles.css, static/print.css, tests/test_font_glyph_coverage.py, out/font-check.html (gitignored render).
+
+## 2026-09-24 . 1.2 . Mock facts
+- Tier: Working
+- Did: wrote four hand-written facts fixtures in fixtures/mock/ matching the design.md schema: a normal game, an overtime game, a dropped-voice game, and a game where points reconcile but one category (assists) fails its gate so that column is omitted (not zeroed).
+- Result: PASS. All four are valid JSON; the category-gate fixture omits the ast key from player_lines entirely.
+- Resources: none.
+- Evidence: fixtures/mock/{normal,overtime,dropped_voice,category_gate_fail}.json.
+
+## 2026-09-24 . 1.3 / 1.3b . Templates and About
+- Tier: Working
+- Did: built _base, issue, today (index), team, archive and about templates plus static/app.js. Issue page follows the approved section order with runs inside game flow, the edition toggle as direct server-rendered links, the stat line omitting a dropped category's column, and the "writers' room passed" state. Index has no recap/stat/model output and its masthead does not self-link. About drops the four OWNER-COPY.md blocks in verbatim with the spec-driven method, non-affiliation and non-commercial text, and no payment/donation/embed.
+- Result: PASS. Owner blocks render verbatim with no double-escaping; category column correctly absent; dropped-voice shows the line and no spotlight/byline.
+- Resources: none.
+- Evidence: templates/*.html, static/app.js, static/styles.css (footer/about/edition-toggle additions).
+
+## 2026-09-24 . 1.4 . Local render
+- Tier: Working
+- Did: added src/zine/render.py (Jinja2, autoescape on) and a Block 1 dev render script that builds view models from the fixtures and writes 10 pages to ./out/ (8 issue editions, index, about). Checked the no-JS baseline, the home link on every page, the viewport meta, the print fold order, and CSS/font path resolution by inspecting the rendered HTML.
+- Result: PASS on the machine-checkable items. Visual checks (375px no-scroll, cover within first screen, actual printed fold) need the owner's eyes in a browser.
+- Resources: none. Installed jinja2 3.1.6 (an allowed dependency per tech.md).
+- Evidence: out/ renders (gitignored), font glyph test still green (2 passed).

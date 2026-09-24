@@ -226,3 +226,10 @@ Answer:       Downloaded both from the Google Fonts GitHub repo (OFL) into stati
 Cost:         ~20 min. One extra API lookup to find the variable-font filename in the repo.
 Disposition:  promote. Task 4.1 now only verifies the fonts and licences are present.
 Changes PRD?: no.
+
+### 2026-09-24 . Block 1 . Site footer is required by spec but not in the mockups
+Question:     The mockups have no site-wide footer, yet Req 7.4/10c require a disclaimer and "Data from BALLDONTLIE" on every page. Build it or stop?
+Answer:       Built a minimal site footer (_base.html) using only existing design tokens, no new palette or fonts: the guardrails disclaimer, the BALLDONTLIE attribution link (rel=noopener), and screen-only nav links. This is a spec requirement the mockups do not cover, not a redesign. Same reasoning for the small "writers' room passed" state, the run-inside-game-flow line, the edition-toggle link styling, and the About page blocks. jinja2 3.1.6 installed (named in tech.md, so in scope).
+Cost:         ~30 min for all templates. No cloud resource.
+Disposition:  promote (templates/, render.py, app.js, styles.css additions). requirements.txt still not created/pinned: Block 1 is Working tier and tech.md pins only when a Full-tier block says so.
+Changes PRD?: no.
