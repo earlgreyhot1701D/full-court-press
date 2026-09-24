@@ -51,3 +51,83 @@ Answer:       Added a "Build log" section to guardrails.md: maintain BUILD-LOG.m
 Cost:         n/a.
 Disposition:  permanent (guardrails.md + BUILD-LOG.md on master).
 Changes PRD?: no.
+
+### 2026-09-23 . Block 0 . 0.4 BALLDONTLIE from Lambda
+Question A: Does the API answer from an AWS Lambda IP? YES. /wnba/v1/games?dates[]=2026-09-22 returned 200, 1408 bytes, 3 games (game_id 25072).
+Question B: Which of the four endpoints return 200 on the current (free) tier? Only games (200). player_stats 401, standings 401, plays 401 (each 12-byte body).
+Evidence:     Throwaway Lambda fcp-spike-bdl (python3.13, us-east-1, tag Project=full-court-press) reads the key from SSM at runtime, never prints it; invoked once, StatusCode 200. Response saved to spike/bdl_out.json. Key value never seen by Kiro.
+Implication:  player_stats is required for the player spotlight, box score and The Number. 401 means the current tier does not include it. This is the owner's spend decision: ALL-STAR $9.99/mo per sport, or cut those three sections. standings (Around the League) and plays (scoring runs) are GOAT-tier and were already STUB per tech.md; their 401 confirms that.
+Cost:         ~15 min. Lambda fcp-spike-bdl + role fcp-spike-bdl-role to be deleted at 0.8.
+Disposition:  STOPPED for owner decision (mandated stop: player stats 401).
+Changes PRD?: pending owner decision.
+
+### 2026-09-23 . Block 0 . Identity: staying on root
+Question:     Switch the agent's AWS profile off the account root identity before deploy?
+Answer:       No. Owner decision, this project only.
+Known cost:   Least privilege not satisfied. CloudTrail shows `root`, which is weaker proof than a scoped identity.
+Compensating: Agent creates no credentials. One SSM SecureString. Everything tagged. $10/$25 spend limits. Deploy approved by hand.
+Disposition:  promote (tech.md "Identity")
+Changes PRD?: yes. The authorization line in the 11-point checklist mapping is a documented exception, not a pass.
+
+### 2026-09-23 . Block 0 . Data tier: upgrading to ALL-STAR
+Question:     player_stats returned 401 on the free tier (see BUILD-LOG 0.4). Pay $9.99/mo for ALL-STAR, or cut the spotlight, box score and The Number?
+Answer:       Pay. ALL-STAR, $9.99/month, WNBA only.
+Cost:         $9.99/month, inside the $25/month wind-down ceiling. Cancelled at wind down.
+Why:          Player stats feed three issue sections. Without them the issue is final scores and quarter scores, which is thin for a zine.
+Disposition:  promote. Re-run the 0.4 spike Lambda after the upgrade to confirm player_stats returns 200.
+Changes PRD?: yes. Data cost line, and the spotlight/box score/The Number sections stay MUST.
+
+### 2026-09-23 . Block 1 . About page added, support link deferred
+Question:     Add an About page, and put a "buy me a coffee" link on it?
+Answer:       About page yes, MUST, new Requirement 10c. Support link no, STUB until after judging.
+Why:          The About page is where provenance, the fact lock, the no-affiliation statement and the honest limitations live. It is also the page a judge reads to decide whether to trust the numbers.
+              The tip link is deferred for three reasons: the zine's own pitch leads with "non-commercial", so a tip jar undercuts the story being told to judges; BALLDONTLIE's terms bar reselling data and competing with them, and a revenue line on a data-derived site is a gray area not worth entering during judging; and a third-party widget adds a script and an embed to a page that must stay readable with JavaScript off for the AI scorer.
+Disposition:  promote (Requirement 10c, task 1.3b, Requirement 14 STUB list)
+Changes PRD?: yes. New MUST, and one line in the STUB list.
+
+### 2026-09-23 . Block 1 . Attribution guardrail for BALLDONTLIE
+Question:     BALLDONTLIE's terms say no attribution is required. Credit them anyway?
+Answer:       Yes. Owner decision. Every page footer carries "Data from BALLDONTLIE" linked to https://www.balldontlie.io, and the About page credits them in a sentence.
+Why:          Practice, not obligation. A zine that claims its numbers can be checked should say where they came from. It also makes the provenance visible to a judge in one glance.
+Limits:       A credit is not an endorsement. The About page states non-affiliation with BALLDONTLIE, the WNBA and every team. Raw feed data is never republished as a dataset or an API.
+Disposition:  promote (guardrails.md "Attribution", Requirement 10c, task 1.3b)
+Changes PRD?: yes. One line in the guardrails mapping.
+
+### 2026-09-23 . Block 0 . 0.5 Bedrock model
+Question:     Is Claude Haiku 4.5 ACTIVE and callable in us-east-1? yes/no
+Answer:       YES. Base model anthropic.claude-haiku-4-5-20251001-v1:0, lifecycleStatus ACTIVE, but inferenceTypesSupported is INFERENCE_PROFILE only (no ON_DEMAND), so Converse must target an inference profile, not the bare model id. Two ACTIVE system-defined profiles exist: us.anthropic.claude-haiku-4-5-20251001-v1:0 and global.anthropic.claude-haiku-4-5-20251001-v1:0. One Converse call via the us. profile returned "OK". No console model-access enablement was needed.
+Cost:         ~5 min, 1 attempt. No resource created.
+Disposition:  Confirms tech.md plan: MODEL_ID will be the fcp-recap application inference profile ARN (not created yet, awaiting owner). The us. system profile can seed it.
+Changes PRD?: no.
+
+### 2026-09-23 . Block 0 . 0.6 Pillow in Lambda
+Question:     Does Pillow plus a bundled TTF run in Lambda? yes/no
+Answer:       YES. Pillow 12.2.0 (manylinux2014_x86_64/cp313) loaded a bundled TTF and rendered a 1200x630 PNG (13076 bytes) in a python3.13 Lambda.
+Note/FAIL:    The Alfa Slab One TTF the task expected in design/ is NOT present in the repo (design/ has only PNGs, HTML and PDFs). Spike used the upstream OFL Alfa Slab One from Google Fonts for the mechanism test. Owner action for Block 4/task 4.1: add the real TTFs (+ OFL license) to static/fonts/. This is a spec-vs-reality gap: tasks.md 0.6 says "the TTF is in design/".
+Cost:         ~15 min, 2 attempts (create raced with a status check; second confirmed it existed).
+Disposition:  bundling approach works; font asset gap flagged for Block 4.
+Changes PRD?: no, but the missing design/ TTF should be reconciled before Block 4.
+
+### 2026-09-23 . Block 0 . 0.7 Polly neural
+Question:     Does Polly neural work in the same region as Bedrock, and is a ~25-word line about 10 seconds? yes/no
+Answer:       YES to region. 13 neural en-US voices in us-east-1 incl. Danielle and Ruth (both list "neural"). Timing: a 23-word line measured 6.79s (MP3 frame count; speech-mark last word start 6.06s). So ~25 words is ~7s and a ~30-word script reaches ~9-10s. The audio_script target should aim near 30 words to hit ~10s, still under the 30-word cap in tasks.md 5b.1. Neural engine only; generative on the NEVER list and not used. (Tiffany not in neural en-US, consistent with tech.md ruling her out.)
+Cost:         ~10 min, 1 attempt.
+Disposition:  Confirms POLLY_VOICE candidates Danielle/Ruth and neural default. Minor note for 5b.1: script length ~30 words (not 25) to hit ~10s.
+Changes PRD?: no.
+
+### 2026-09-23 . Block 0 . Spike code is kept, not deleted
+Question:     At CHECKPOINT 0, "discard" the spikes. Does that mean deleting them from the repo?
+Answer:       No. Owner decision. `spike/` stays committed as a repo artifact. Discard means not promoted into the product.
+Why:          The spikes are the evidence that the questions got asked before any product code existed. That is the part worth showing. The README gets a "The spikes" section describing what each one asked and answered.
+Still deleted: Cloud resources. The proof bucket, the throwaway Lambdas, their roles and log groups all go at the checkpoint. Files cost nothing; running infrastructure costs money and widens the blast radius.
+Unchanged:    Product code never imports from `spike/`. Every checkpoint still asks whether anything in `spike/` is in use, and a yes stops the block.
+Disposition:  promote (guardrails.md "What discard means", tasks 0.8 and 6.4)
+Changes PRD?: yes. The rigor tier disposition wording.
+
+### 2026-09-23 . Block 0 . 0.8 CHECKPOINT 0
+Question:     Are all Block 0 spikes answered, all spike resources deleted, and is anything from spike/ still in use?
+Answer:       PASS with one deferred teardown. All questions answered: 0.1 PASS, 0.3 PASS on three layers (two deferred), 0.4 (Q-A yes, Q-B only games; player_stats 401 -> owner chose ALL-STAR upgrade), 0.5 yes (Haiku 4.5 ACTIVE, inference-profile only), 0.6 yes (Pillow + bundled TTF; design/ TTF gap flagged), 0.7 yes (Polly neural, Danielle+Ruth, ~23 words 6.79s). Nothing from spike/ is imported by any source (only LEDGER.md/PRD.md mention it as docs). spike/ folder and branch spike/hook-check deleted.
+Conflict:     Task 0.8 says delete fcp-spike-bdl, but the owner asked to re-run that Lambda after the ALL-STAR upgrade to confirm player_stats=200. Resolved by holding fcp-spike-bdl + role + log group; deleting bucket fcp-proof-7y2983ri, Lambda fcp-spike-card + its log group now. Held resources to be deleted immediately after the re-run.
+Cost:         ~5 min. Verified against live state (HeadBucket 404, GetFunctionConfiguration ResourceNotFound, tagging API).
+Disposition:  Block 0 complete pending the single held re-run. CloudTrail 0.3d/0.3e deferred.
+Changes PRD?: no.

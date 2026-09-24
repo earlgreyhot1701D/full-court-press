@@ -114,6 +114,27 @@ Labels: MUST (build), STUB (not built, comment left), NEVER (behavior must not e
 4. WHEN a visitor opens the archive THE SYSTEM SHALL list all dates with issues, newest first.
 5. WHEN a page's data file fails to load THE SYSTEM SHALL show "No issues here yet. Check back after the next game." and never a blank page.
 
+### Requirement 10c: About page (MUST, added Sep 23)
+**User story:** As a visitor or a judge, I want one page that tells me what this is, where the numbers
+come from, and who made it, so I can decide whether to trust it.
+
+- WHEN a visitor opens `/about/` THEN the system SHALL serve a server-rendered page, readable with
+  JavaScript off, linked from the footer of every page
+- The page SHALL state: what the zine is and how often it publishes; that the structure and every number
+  are produced by code and the voice is written by a model; how the fact lock works, in plain language;
+  that a section can be dropped and what "the writers' room passed" means
+- The page SHALL credit BALLDONTLIE as the data provider in a sentence, with `BALLDONTLIE` hyperlinked to
+  `https://www.balldontlie.io` (`rel="noopener"`), SHALL state that the site is not affiliated with,
+  endorsed by, or associated with the WNBA, any team, or BALLDONTLIE, and SHALL NOT resell or redistribute
+  raw provider data
+- Every page on the site SHALL carry "Data from BALLDONTLIE" in the footer, with the same link,
+  server-rendered and present with JavaScript off
+- The page SHALL state the project's limitations honestly, including what is stubbed
+- The page SHALL carry the owner's byline and a link to her site, and SHALL state that the project is
+  non-commercial
+- The page SHALL NOT contain a payment link, donation link, tip jar, advertising, tracking script, or any
+  third-party embed. A support link is a STUB, deferred until after judging (Requirement 14)
+
 ### Requirement 11: Golden set (MUST)
 **User Story:** As a judge, I want the demo to work whenever I look, so that I can evaluate it.
 #### Acceptance Criteria
@@ -135,6 +156,7 @@ Labels: MUST (build), STUB (not built, comment left), NEVER (behavior must not e
 1. `league_config.py` SHALL contain an `nba` entry with `enabled: False` and a STUB comment: flip to True and add `nba` to `LEAGUES` when the NBA regular season starts (late Oct 2026); the BALLDONTLIE path swaps wnba for nba, same shapes.
 
 ### Requirement 14: Other STUBs
+- Support or tip link on the About page. Deferred until after judging. See LEDGER.md for the reasoning.
 1. Voices `insider` and `big_picture`, email/RSS per team, downloadable PDF, fantasy playoffs zine: STUB comments only.
 
 ### Requirement 15: Wind down (MUST, executed after judging)

@@ -21,6 +21,13 @@ Use the **Agent Toolkit for AWS** (`https://github.com/aws/agent-toolkit-for-aws
 - The toolkit adds its own AWS rules to `.kiro/steering/`. Those are additional, not a replacement: `guardrails.md` still wins on any conflict, and if they conflict, stop and report.
 - If the toolkit cannot be installed, fall back to an IAM user named `fcp-kiro-agent` with console access disabled and an access key (see OWNER-SETUP.md), and record the fallback in LEDGER.md.
 
+## Identity
+Owner decision, Sep 23 2026: this project runs on the account root identity. No IAM Identity Center
+switch, for this project only. Accepted consequences, recorded in LEDGER.md: least privilege (item 1 of
+the 11-point pre-deploy checklist) is not satisfied, and CloudTrail evidence shows `root` rather than a
+scoped agent identity. Kiro does not raise this again and never creates IAM users, roles for itself,
+access keys, or any other credential.
+
 ## Dependencies
 Only: `boto3` (provided by Lambda, do not bundle unless Block 0 finds a reason), `jinja2`, `Pillow`. Anything else needs the owner's approval first. No vendored modules.
 

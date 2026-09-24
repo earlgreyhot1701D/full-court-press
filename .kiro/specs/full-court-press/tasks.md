@@ -7,7 +7,7 @@ Blocks run in order. Each block ends with a CHECKPOINT task. Every task in the n
 Every checkpoint also answers: is anything from `spike/` still in use? If yes, stop and report.
 
 ## Block 0: Spikes (Tier: Spike. Disposition: discard, findings to LEDGER.md)
-Tier: Spike. No tests, no pinning, no sync scripts, no README, no abstractions, nothing outside `spike/`. Answer the question, record it, stop.
+Tier: Spike. No tests, no pinning, no sync scripts, no README inside `spike/`, no abstractions, nothing outside `spike/`. Answer the question, record it, stop. The code is kept in the repo afterwards; "discard" means not promoted, not deleted.
 
 - [ ] 0.1 Repo walls
   - `git init`, commit steering + spec + PRD as "kickoff"
@@ -44,7 +44,14 @@ Tier: Spike. No tests, no pinning, no sync scripts, no README, no abstractions, 
   - `aws polly describe-voices --engine neural --language-code en-US` in the chosen region; record which voices are available. One `synthesize-speech` call with a 25-word test line, record the MP3 duration.
   - Question: does Polly neural work in the same region as Bedrock, and is a 25-word line about 10 seconds? yes/no
 - [ ] 0.8 CHECKPOINT 0
-  - PASS when 0.3 to 0.7 each have a recorded answer in LEDGER.md (0.2 already recorded) and all spike cloud resources are deleted
+  - PASS when 0.3 to 0.7 each have a recorded answer in LEDGER.md (0.2 already recorded), every task in this block has a BUILD-LOG.md entry, and all spike **cloud resources** are deleted
+  - **Spike code is kept, not deleted.** `spike/` stays committed as a repo artifact: the throwaway
+    scripts, `spike/THROWAWAY`, and whatever raw output was captured. "Discard" in the rigor tiers means
+    not promoted into the product, never removed from the repo. Nothing in `spike/` is imported by
+    product code, and the checkpoint still asks whether anything from `spike/` is in use.
+  - Delete the cloud resources only: the proof bucket, `fcp-spike-bdl`, its role, and any log groups.
+    List what was deleted in BUILD-LOG.md. Cloud resources cost money and widen the blast radius; files
+    in git do neither.
   - Any "no": stop. Owner updates PRD.md and this spec before Block 1
   - _Requirements: 2, 5, 8_
 
@@ -60,6 +67,13 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
 - [ ] 1.3 Templates
   - `_base.html`, `issue.html` (per the mockup), `today.html` (index of last night's slate, game cards, no recap text), `team.html`, `archive.html`, footer disclaimer, `og:image` tag pointing at that edition's card
   - `static/print.css`, `static/app.js` (team picker, voice switcher, try/catch on every fetch, `textContent` only)
+- [ ] 1.3b About page
+  - `templates/about.html` and a footer link on every page. Static copy, no data, no JS.
+  - Content per Requirement 10c. Owner writes the byline line and the "what this is" paragraph; leave
+    `<!-- OWNER -->` markers where her words go and do not invent them.
+  - No payment link, no donation link, no third-party embed, no tracking.
+  - Footer partial, used by every template: "Data from BALLDONTLIE" with BALLDONTLIE linked to
+    https://www.balldontlie.io, rel="noopener", plus the About link. Server-rendered, no JS.
 - [ ] 1.4 Local render
   - `render.py` + a dev script that renders mock fixtures to `./out/`
 - [ ] 1.5 CHECKPOINT 1
@@ -129,7 +143,10 @@ Cut rule: if CHECKPOINT 5 is not passed by end of day Sep 29, skip this block an
 - [ ] 6.1 Walk the 11-point checklist (PRD Gate H), record each item PASS / N/A / deferred with reason
 - [ ] 6.2 Planted-bad-number test against the deployed Lambda (doctored facts, invoked once), rejection visible in CloudWatch
 - [ ] 6.3 Judge view: live site on a phone size and a laptop size, cold browser, golden link works, print works
-- [ ] 6.4 README: what it is, how it's made, limitations (unofficial data feed, two voices, WNBA only), STUB list and NBA reactivation condition, sign-off
+- [ ] 6.4 README: what it is, how it's made, limitations (unofficial data feed, two voices, WNBA only), STUB list and NBA reactivation condition, data credit with the BALLDONTLIE link, sign-off
+  - Include a section titled "The spikes" covering `spike/`: what each throwaway script asked, what it
+    answered, and that none of it is used by the product. Link the matching LEDGER.md entries. The point
+    is that a reader can see the questions that got asked before any product code existed.
 - [ ] 6.5 CHECKPOINT 6
   - Everything in 6.1 to 6.4 recorded with evidence
   - _Requirements: 12, 15_

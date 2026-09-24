@@ -59,7 +59,36 @@ Good enough is the PASS line. The first result that meets it wins. Do not polish
 - No code is deleted before its `LEDGER.md` entry exists.
 - Deploy (`sam deploy`) only in tasks that say so, after owner approval.
 
+## What "discard" means
+- Disposition `discard` means the code is not promoted into the product. It is **not** deleted from the
+  repo. `spike/` stays committed as an artifact of how the project was built, and the README has a
+  section describing it.
+- Cloud resources created by a spike ARE deleted at the block's checkpoint. Files cost nothing; running
+  infrastructure costs money and widens the blast radius.
+- Product code never imports from `spike/`. Every checkpoint still asks whether anything in `spike/` is
+  in use, and a yes stops the block.
+
+## Attribution
+- Every page credits the data provider in the footer: the words "Data from BALLDONTLIE" with
+  `BALLDONTLIE` linked to `https://www.balldontlie.io`, `rel="noopener"`. Same on the About page, in
+  a sentence rather than a footer line.
+- The credit renders server-side, is in the HTML with JavaScript off, and is never inside a collapsed
+  or hidden element.
+- BALLDONTLIE's terms do not require attribution. We do it anyway, as a matter of practice. Do not
+  remove it to save space, and do not treat it as optional in any template.
+- The credit is a credit, never an endorsement. Never write or imply that BALLDONTLIE, the WNBA, or
+  any team sponsors, endorses, partners with, or is associated with this site. The About page states
+  the non-affiliation explicitly.
+- Never present raw provider data as a downloadable dataset or an API of our own. The site publishes
+  derived issues, not the feed.
+
 ## Build log
+- `BUILD-LOG.md` is the running record of the work. `LEDGER.md` is the record of decisions and spike
+  answers with their cost. They do not repeat each other. If an entry is going in both, it belongs in
+  the build log, and the ledger gets only the question, the answer, the disposition and what it changed.
+  Never copy the Did, Resources or Evidence lines into the ledger; reference the task id instead.
+- Not every task earns a ledger entry. A ledger entry exists only for: a spike question, a decision that
+  cost something or closed off an option, a rejected approach, and any code discarded.
 - Maintain `BUILD-LOG.md` at the repo root. Append one entry at the end of every task, before reporting to the owner.
 - Never rewrite or edit earlier entries. Append only.
 - `BUILD-LOG.md` is public. It must never contain the AWS account id, any ARN that carries the account id, secrets, the BALLDONTLIE API key, prompts, or model output text.
