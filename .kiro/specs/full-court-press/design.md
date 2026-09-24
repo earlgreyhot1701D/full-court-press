@@ -94,9 +94,16 @@ count(plays, home_score, away_score) -> (scoring_lines, reconciled: bool, discre
 ```
 - Walk `plays` in order once. Classify each play on its `type` field into a category (scoring, rebound,
   assist, steal, block, turnover). For scoring plays add `score_value` to the scorer.
-- The scorer is resolved from the play's structured fields where present, and from the play text only by
-  exact match against the game's roster names from the `players` endpoint. No fuzzy matching, no
-  nicknames, no initials. An unmatched scoring play is counted as unattributed.
+- **A play carries no player field.** Confirmed Sep 23 against the OpenAPI spec: a play object is
+  `id, game_id, order, type, text, home_score, away_score, period, clock, scoring_play, score_value,
+  team`. There is no player id and no player object. Attribution is therefore TEXT-ONLY.
+- The scorer is resolved by exact match of roster names (from `/wnba/v1/players?team_ids[]=`) against the
+  play's `text`. No fuzzy matching, no nicknames, no initials, no partial surnames unless that surname is
+  unique across both rosters for that game. An unmatched scoring play is unattributed, and unattributed
+  points fail reconciliation by definition.
+- `type` is NOT enumerated in the OpenAPI spec, so the category vocabulary must be discovered from real
+  data before the classifier is written. Task 2.6b requires printing the distinct `type` values across
+  the golden games first. Do not guess it.
 - Free throws vs field goals: `score_value` of 1 counts as a made free throw, 2 or 3 as a made field goal.
 - **Points reconciliation (hard gate):** sum each team's player points and compare to that team's final
   score. Any unattributed points, or any mismatch, sets `reconciled = False` and the entire block is

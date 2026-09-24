@@ -32,6 +32,11 @@ access keys, or any other credential.
 Only: `boto3` (provided by Lambda, do not bundle unless Block 0 finds a reason), `jinja2`, `Pillow`. Anything else needs the owner's approval first. No vendored modules.
 
 ## Data source: BALLDONTLIE
+**Authoritative contract: the OpenAPI spec at `https://www.balldontlie.io/openapi/wnba.yml`.**
+Read it before writing or changing any client code. The endpoint list below was originally hand-written
+from the NBA documentation, which is how the tier table came to be wrong (see LEDGER Sep 23). When the
+spec and this file disagree, the spec wins and this file gets corrected.
+
 Chosen Sep 20 2026 after the compliance gate ruled out ESPN (see LEDGER.md). BALLDONTLIE's terms Section 6 expressly permit caching, publishing, derivative works and AI outputs, with no attribution required.
 - Base: `https://api.balldontlie.io`. Auth header on every request: `Authorization: <api key>` (no "Bearer").
 - Games (schedule + final scores + per-quarter scores): `GET /wnba/v1/games?dates[]=YYYY-MM-DD`

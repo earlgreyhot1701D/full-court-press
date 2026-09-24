@@ -233,3 +233,12 @@ Answer:       Built a minimal site footer (_base.html) using only existing desig
 Cost:         ~30 min for all templates. No cloud resource.
 Disposition:  promote (templates/, render.py, app.js, styles.css additions). requirements.txt still not created/pinned: Block 1 is Working tier and tech.md pins only when a Full-tier block says so.
 Changes PRD?: no.
+
+### 2026-09-23 . Block 2 . The OpenAPI spec existed and we were not using it
+Question:     BALLDONTLIE publishes a machine-readable OpenAPI spec at https://www.balldontlie.io/openapi/wnba.yml. Were we using it?
+Answer:       No. The endpoint list in tech.md was hand-written from the NBA documentation, which is the same shortcut that produced the wrong tier table. The spec is now named in tech.md as the authoritative contract: when it and tech.md disagree, the spec wins.
+Finding 1, significant: **a play object has no player field.** Its fields are id, game_id, order, type, text, home_score, away_score, period, clock, scoring_play, score_value, team. design.md had said the scorer would be resolved "from the play's structured fields where present"; there are none. Attribution for every derived statistic is text-only, matched against the roster from the players endpoint. That raises the risk on Requirement 3b and makes the points reconciliation gate load-bearing rather than belt-and-braces.
+Finding 2: the spec does not enumerate the values of `type`, so the category vocabulary still has to be discovered from real data. Task 2.6b already required printing the distinct values first, and that step is now mandatory rather than cautious.
+Finding 3: `/wnba/v1/plays` takes `game_id` only, required, with no pagination. Consistent with the 407-play single response observed in the 0.4 spike.
+Disposition:  promote (tech.md authoritative-source note, design.md pbp_stats.py attribution section)
+Changes PRD?: no, but the derived-statistics risk is higher than when the scope change was approved.
