@@ -43,7 +43,11 @@ VOICES = {
     # and add to VOICE_ORDER. Costs 2 more model calls per game. "What I'm hearing" style lines
     # need a rumor-free framing first: SHARED_BANNED blocks "sources" and "reportedly".
 }
-VOICE_ORDER = ["the_call", "film_room"]
+VOICE_ORDER = ["the_call", "film_room"]  # the_call first: the owner's pick, and the voice a page opens on
+
+# STUB(full-court-press, post-MVP): voice tuning. For MVP the voice definitions above are final
+# (owner, Sep 25). Past MVP: run each voice over the golden set on the real model, have the owner
+# score them, adjust traits and rhythm, and track how often each section is dropped by the lock.
 
 SHARED_BANNED = [
     # betting (design.md lists odds, spread, cover, parlay, lock; "spread", "cover" and "lock" alone

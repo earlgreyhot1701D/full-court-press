@@ -132,7 +132,7 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
 - [ ] 3.2 `voice_client.py` (Converse, `MODEL_ID` env, no prompt/response logging)
 - [ ] 3.3 `fact_lock.py` + retry-once-then-drop flow . fact_lock.py DONE Sep 25 (Claude); retry flow DONE Sep 25 in voice_run.py (model call injected)
 - [x] 3.4 Tests for fact_lock and output_schema (design.md Testing) . DONE Sep 25 (Claude), tests/test_fact_lock.py
-- [ ] 3.5 Run golden set x 2 editions x 2 voices locally against Bedrock, render to `./out/`
+- [ ] 3.5 Run golden set x 2 editions x 2 voices locally against Bedrock, render to `./out/`. Voice switcher opens on The Call (owner, Sep 25). Voice tuning is post-MVP STUB
 - [ ] 3.6 CHECKPOINT 3
   - 20 voice results (5 games x 2 editions x 2 voices): every rendered section passed the lock; losing editions follow the tone rule (owner reads 2); dropped sections show the "writers' room passed" state
   - Planted wrong number is rejected (test and one live call with a doctored facts sheet)

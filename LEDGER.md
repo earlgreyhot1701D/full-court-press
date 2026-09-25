@@ -355,3 +355,8 @@ Found, 3: The Number could point at a key with no caption (quarter scores, field
 Samples: design/voice-samples-25071.md, hand-written by Claude as stand-ins, not Haiku output, all four passing the real checks. Owner judges the voices from them.
 Disposition:  promote (116 tests passing)
 Changes PRD?: The Film Room trait wording, pending owner.
+
+### 2026-09-25 . Block 3 . Voices locked for MVP (owner)
+Decided: the voice definitions are final for MVP. Tuning them on real model output is a post-MVP STUB in voices.py, not Block 3 work.
+Decided: The Call is the owner's favorite and the voice a page opens on; The Film Room is the second option. VOICE_ORDER already puts it first; the voice switcher (Block 3.5 render) must default to it.
+Decided: The Film Room change stands (no coverages or schemes, because FACTS has none).
