@@ -322,3 +322,18 @@ Found, 3: Caveat has no arrow glyphs, so the arrows would have fallen back to an
 Found, 4: a tied quarter was labeled with the away team. It now reads TIED.
 Disposition:  promote (55 tests passing; 25071 rendered at 390px, no horizontal scroll, no page errors)
 Changes PRD?: no
+
+### 2026-09-25 . Block 3 . 3.1 (schema) and 3.3 (fact lock), pure parts
+Question:     Can a check with no model in it stop a voice from publishing a number or a name that is not in the facts sheet?
+Answer:       Yes, for what it claims. `output_schema.py` rejects any response that is not exactly headline, recap, spotlight {player, text}, the_number_key, with the length limits; extra keys anywhere are invalid. `fact_lock.py` checks each section on its own: digits against `allowed_numbers`, spelled-out numbers, capitalized names against `allowed_names`, spotlight player, the_number_key. A planted 33 for Kahleah Copper's 31 fails the recap and leaves the headline standing.
+Deviation, 1: design.md said names "not at sentence start" are checked. Read literally, "Diana Taurasi watched from the stands." would pass, because the name starts the sentence. Every capitalized word is now checked; the first word of a sentence is excused only if it is an ordinary word on a fixed list (`SENTENCE_STARTERS`). Tested.
+Deviation, 2: single capitalized words are checked too, not only runs of 2+. A lone "Stewart" from another team would otherwise pass. Tested.
+Deviation, 3: `spotlight.player` must be a full name from this game's stat line, not anything in `allowed_names`, which also holds team names and surnames. "Phoenix Mercury" as the spotlight player now fails.
+Deviation, 4: "thousand" added to the spelled-number list.
+Decided: a failure reason carries the offending token so the one retry can tell the model what to fix. The token is a piece of model output, so it never goes to a log: `log_safe()` strips it and is the only form that may be logged. `retry_note()` builds the retry message.
+Found, 1: the golden-set name test caught a false reject on its first run: Te-Hina Paopao (25014). Hyphenated and apostrophe names now stay one word. Every player on all five golden stat lines passes by full name.
+Found, 2: Title Case headlines fail ("Mercury Survive Wings In Thriller" reads as one long unknown name). The voice prompt must ask for sentence case. Documented in a test, not loosened.
+Found, 3, for the owner: facts.py takes the last word of a name as the surname. For Li Yueru, "Li" is the family name, so the lock rejects "Li" and allows "Yueru". Nothing false gets published, but the allowed short form is the wrong one. Proposed fix: a small surname override in league_config, owner to approve.
+What a pass does not prove (also in the module docstring): that a number is attached to the right claim ("Copper had 12 rebounds" passes if 12 is anywhere in the game, and 0 to 12 almost always are); that a spelled ordinal like "third quarter" is right; that we counted right.
+Disposition:  promote (93 tests passing)
+Changes PRD?: no

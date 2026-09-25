@@ -187,3 +187,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS. pytest 55 passed. 25071 in a headless browser at 390px: fold tab visible, all three notes render in Caveat, scroll width 390, no page errors.
 - Resources: none.
 - Evidence: LEDGER entry of the same date.
+
+## 2026-09-25 . 3.1 (schema), 3.3 (lock, pure part), 3.4 . Output schema and fact lock (Claude, on disk)
+- Tier: Working
+- Did: `src/zine/output_schema.py`, `src/zine/fact_lock.py` (check, log_safe, retry_note), `tests/test_fact_lock.py` on the real 25071 facts sheet and all five golden games. voices.py, voice_client.py and the retry-once-then-drop flow are not built yet.
+- Result: PASS. pytest 93 passed. Design.md Testing list covered: clean passes, planted wrong number fails, "twenty-six" fails, unknown name fails, bad the_number_key fails, extra key rejected.
+- Resources: none.
+- Evidence: LEDGER entry of the same date.
