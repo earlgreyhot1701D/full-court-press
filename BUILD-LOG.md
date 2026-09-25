@@ -127,3 +127,17 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS. Re-rendered with the existing dev renderer, pytest 5 passed, and all five page types checked in a headless browser at 390px: zero tap targets under 24px, correct data-on-spot on each page, no horizontal scroll, no page errors.
 - Resources: none (local only).
 - Evidence: design/DESIGN-PASS-SEP23.md items 11 to 13.
+
+## 2026-09-24 . backfill . Claude's earlier on-disk work, Sep 23 (logged late)
+- Tier: Working (design and spec; no product code, no AWS)
+- Note: these changes were made directly on disk by Claude during the Sep 23 session and were committed by Kiro inside its own commits, so until now the log did not say who did them. Logged here late rather than inserted above, to keep the log append-only.
+- Did, design:
+  - `design/full-court-press-index-mockup.html` built and rendered, so the index had a binding design before Block 1
+  - `design/team-colors.md` written after all 15 mockup colours were found wrong against public record; mockup table and default patched; the three expansion colours added with a sourcing caveat
+  - First design pass on the Block 1 render: six CSS fixes in `static/styles.css` (the `.gotn` selector collision, the footer selector collision, run-line layout, focus states, reduced motion, and the `--on-spot` hooks), plus `design/RENDER-CONTRAST.md` and `design/DESIGN-PASS-SEP23.md`
+  - Issue mockup: home link and back bar (Requirement 10d); every "box score" removed; `reference.html` moved to `design/_superseded/`
+  - `OWNER-COPY.md` drafted from the owner's own zine origin story, for her to edit
+- Did, spec (each recorded as a decision in LEDGER.md): Requirement 3b (statistics from play-by-play and its gates), 10b-i and 10b-ii (index cards), 10c (About), 10d (getting back); guardrails Attribution, What discard means, Build log split, Who works on this repo; tech.md Identity, corrected WNBA tier table, OpenAPI spec as the authoritative contract; design.md `pbp_stats.py`
+- Result: all of the above verified by rendering in a headless browser at 390px or by re-reading the committed files
+- Resources: none
+- Evidence: commits by Kiro on Sep 23 and 24 that carried these files; LEDGER.md entries of the same dates
