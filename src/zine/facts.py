@@ -14,7 +14,7 @@ import re
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
-from zine.league_config import complete_team
+from zine.league_config import complete_team, surname
 from zine.league_strip import standings_line
 from zine.pbp_stats import count
 from zine.quarters import period_scores
@@ -198,10 +198,10 @@ def build_facts(game, plays, roster_lists, standings_rows, league="wnba"):
         names += [n for n in (t["full_name"], t.get("city"), t["name"], t["abbreviation"]) if (n or "").strip()]
     surnames = {}
     for l in lines:
-        surnames.setdefault(l["player"].split()[-1], []).append(l["player"])
+        surnames.setdefault(surname(l["player"]), []).append(l["player"])
     for l in lines:
         names.append(l["player"])
-        last = l["player"].split()[-1]
+        last = surname(l["player"])
         if len(surnames[last]) == 1:
             names.append(last)
     f["allowed_names"] = list(dict.fromkeys(names))

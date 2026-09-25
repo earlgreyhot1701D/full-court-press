@@ -337,3 +337,7 @@ Found, 3, for the owner: facts.py takes the last word of a name as the surname. 
 What a pass does not prove (also in the module docstring): that a number is attached to the right claim ("Copper had 12 rebounds" passes if 12 is anywhere in the game, and 0 to 12 almost always are); that a spelled ordinal like "third quarter" is right; that we counted right.
 Disposition:  promote (93 tests passing)
 Changes PRD?: no
+
+### 2026-09-25 . Block 3 . Family-name-first surnames (owner approved)
+Answer:       `league_config.SURNAME` overrides the short form for players whose family name comes first in the feed: Li Yueru -> "Li" (25071), Han Xu -> "Han" (25066). Found on the golden set, not guessed. The full name is always allowed; only the short form changes. Rule: add a player only when the order is confirmed.
+Disposition:  promote (95 tests passing)

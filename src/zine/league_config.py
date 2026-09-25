@@ -25,6 +25,19 @@ TEAM_FILL = {
     },
 }
 
+# Surname = last word of the name, except where the family name comes first. The feed gives these
+# players in family-name-first order, so the last word is the given name. Only the short form the
+# voice may use changes; the full name is always allowed as printed. Owner approved Sep 25.
+# Add a player here only when the order is confirmed, never by guessing from how a name looks.
+SURNAME = {
+    "Li Yueru": "Li",
+    "Han Xu": "Han",
+}
+
+
+def surname(player):
+    return SURNAME.get(player, player.split()[-1])
+
 
 def complete_team(team, league="wnba"):
     """Returns a copy of a provider team dict with blank city / full_name filled from TEAM_FILL.

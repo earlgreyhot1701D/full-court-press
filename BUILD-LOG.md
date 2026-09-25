@@ -194,3 +194,8 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS. pytest 93 passed. Design.md Testing list covered: clean passes, planted wrong number fails, "twenty-six" fails, unknown name fails, bad the_number_key fails, extra key rejected.
 - Resources: none.
 - Evidence: LEDGER entry of the same date.
+
+## 2026-09-25 . 3.3 follow-up . Surname override (Claude, on disk)
+- Did: `SURNAME` + `surname()` in league_config.py, used by facts.py for allowed_names; test for Li Yueru and Han Xu.
+- Result: PASS. pytest 95 passed.
+- Resources: none.

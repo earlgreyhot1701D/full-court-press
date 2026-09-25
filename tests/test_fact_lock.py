@@ -196,3 +196,10 @@ def test_retry_note_names_section_and_token(f71):
     note = fact_lock.retry_note(res)
     assert "recap" in note and "33" in note and "headline" not in note
     assert fact_lock.retry_note(fact_lock.check(CLEAN, f71)) == ""
+
+
+@needs_golden
+@pytest.mark.parametrize("gid, short, wrong", [("25071", "Li", "Yueru"), ("25066", "Han", "Xu")])
+def test_family_name_first_players_use_family_name(facts_all, gid, short, wrong):
+    names = facts_all[gid]["allowed_names"]
+    assert short in names and wrong not in names
