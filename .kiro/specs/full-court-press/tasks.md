@@ -121,7 +121,7 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
 - [x] 2.6c Runs and standings (promoted from STUB) . PASS Sep 24 (Claude): runs, quarters from plays, standings place
   - `zine/runs.py` per design.md. A run never crosses a period boundary.
   - Standings line per team from `/wnba/v1/standings`: wins, losses, place in conference. Nothing else. Never "seed".
-- [ ] 2.7 CHECKPOINT 2
+- [x] 2.7 CHECKPOINT 2 . PASS Sep 24. Owner spot check: MATCH on all three lines checked
   - Updated Sep 24: there is no player_stats raw file to compare against (GOAT tier). The code-side checks are the points reconciliation (5 of 5), quarters adding up in true game order, and overtime agreeing between the game record and the plays, all tested.
   - OWNER: independent spot check by eye in a browser against Basketball Reference, recorded MATCH or MISMATCH. Start with Alyssa Thomas in 25071 (15 pts, 11 reb, 12 ast: the triple-double built on counted categories), then one line from 25014 (the OT game).
   - Tests pass. No odds, props or injury data anywhere in the output (grep). The API key appears in no log, no fixture and no task summary (grep)

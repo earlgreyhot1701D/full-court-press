@@ -175,3 +175,8 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Did: `src/zine/bdl_client.py`, `src/zine/api_key.py`, `tests/test_bdl_client.py` (network, clock and SSM faked; no real calls). structure.md and tasks.md updated, CHECKPOINT 2 criteria rewritten to match the data that exists.
 - Result: PASS. pytest 54 passed. Key-leak sweep over fixtures, tools, logs and docs found nothing.
 - Resources: none.
+
+## 2026-09-24 . 2.7 . CHECKPOINT 2 (owner)
+- Did: owner compared three counted stat lines by eye against Basketball Reference in a browser.
+- Result: PASS, MATCH on all three, including Alyssa Thomas's triple-double in 25071.
+- Resources: none.

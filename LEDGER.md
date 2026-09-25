@@ -302,3 +302,10 @@ Answer:       `bdl_client.py` enforces the rules from tech.md itself rather than
 Deviation:    structure.md named the key reader `secrets.py`. That shadows Python's standard `secrets` module and can break unrelated imports in ways that are hard to trace. Renamed `api_key.py`; structure.md updated.
 Checkpoint 2 criteria updated: there is no player_stats file to compare against, so the code-side evidence is the tested reconciliation, and the independent check is the owner's, by eye, starting with Alyssa Thomas's triple-double in 25071.
 Disposition:  promote (54 tests passing)
+
+### 2026-09-24 . Block 2 . CHECKPOINT 2 PASS
+Question:     Do the counted stats hold up against an independent source?
+Answer:       Yes. The owner checked by eye, in a browser, against Basketball Reference, and reported MATCH on every line checked: Alyssa Thomas in 25071 (15 points, 11 rebounds, 12 assists, the triple-double built on counted categories), the second 25071 line, and Allisha Gray in the overtime game 25014 (32 points, 7 rebounds, 5 assists). No Basketball Reference content was fetched, pasted, or given to any agent.
+Code-side evidence: 5 of 5 golden games reconcile on points; quarters add up in true game order; overtime agrees between the game record and the plays; nothing from odds, props or injuries in any facts sheet; key-leak sweep clean; 54 tests passing.
+What it means: rebounds and assists are still counted, not verified, on any given night. This check shows the counting method gets a real triple-double right, which is the evidence for letting counted categories carry a headline. The About page limitation stays as written.
+Disposition:  Block 2 closed. Block 3 (voices and fact lock) is next.
