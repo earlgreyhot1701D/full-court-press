@@ -179,6 +179,10 @@ Cut rule: if CHECKPOINT 5 is not passed by end of day Sep 29, skip this block an
 - [ ] 6.2 Planted-bad-number test against the deployed Lambda (doctored facts, invoked once), rejection visible in CloudWatch
 - [ ] 6.3 Judge view: live site on a phone size and a laptop size, cold browser, golden link works, print works
 - [ ] 6.4 README: what it is, how it's made, limitations (unofficial data feed, two voices, WNBA only), STUB list and NBA reactivation condition, data credit with the BALLDONTLIE link, sign-off
+  - Include, in the section on how the numbers are checked, the owner's spot check and this line in her
+    words: "A human checking an agent's counting against an outside source is the best proof of the whole
+    approach." Say what was checked (three counted lines against Basketball Reference, by eye, Sep 24,
+    all MATCH) and what it does not prove (rebounds and assists are still counted, not verified, nightly).
   - Include a section titled "The spikes" covering `spike/`: what each throwaway script asked, what it
     answered, and that none of it is used by the product. Link the matching LEDGER.md entries. The point
     is that a reader can see the questions that got asked before any product code existed.
