@@ -1,0 +1,1208 @@
+{
+ "data": [
+  {
+   "id": 126,
+   "first_name": "Lauren",
+   "last_name": "Jackson",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 127,
+   "first_name": "Sue",
+   "last_name": "Bird",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 128,
+   "first_name": "Tanisha",
+   "last_name": "Wright",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 129,
+   "first_name": "Yolanda",
+   "last_name": "Griffith",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 130,
+   "first_name": "Sheryl",
+   "last_name": "Swoopes",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 131,
+   "first_name": "Swin",
+   "last_name": "Cash",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 132,
+   "first_name": "Shyra",
+   "last_name": "Ely-Gash",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 133,
+   "first_name": "Kelly",
+   "last_name": "Santos",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 134,
+   "first_name": "Ashley",
+   "last_name": "Robinson",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 135,
+   "first_name": "Katie",
+   "last_name": "Gearlds",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 136,
+   "first_name": "Kimberly",
+   "last_name": "Beck",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 137,
+   "first_name": "Florina",
+   "last_name": "Pascalau",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 200,
+   "first_name": "Kristen",
+   "last_name": "O'Neill",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 224,
+   "first_name": "Ashley",
+   "last_name": "Walker",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 225,
+   "first_name": "Suzy",
+   "last_name": "Batkovic",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 226,
+   "first_name": "Janell",
+   "last_name": "Burse",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 270,
+   "first_name": "Abby",
+   "last_name": "Bishop",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 271,
+   "first_name": "Alison",
+   "last_name": "Lacey",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 272,
+   "first_name": "Jana",
+   "last_name": "Vesela",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 279,
+   "first_name": "Ify",
+   "last_name": "Ibekwe",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 280,
+   "first_name": "Krystal",
+   "last_name": "Thomas",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 304,
+   "first_name": "Ewelina",
+   "last_name": "Kobryn",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 312,
+   "first_name": "Shekinna",
+   "last_name": "Stricklen",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 342,
+   "first_name": "Cierra",
+   "last_name": "Bravard",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "14",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 343,
+   "first_name": "Tianna",
+   "last_name": "Hawkins",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "21",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 369,
+   "first_name": "Joslyn",
+   "last_name": "Tinkle",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "31",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 383,
+   "first_name": "Stefanie",
+   "last_name": "Dolson",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 5\"",
+   "weight": "UConn",
+   "jersey_number": "31",
+   "college": null,
+   "age": 34,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 395,
+   "first_name": "Angel",
+   "last_name": "Robinson",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "8",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 402,
+   "first_name": "Waltiea",
+   "last_name": "Rolle",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "99",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 438,
+   "first_name": "Ramu",
+   "last_name": "Tokashiki",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "7",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 439,
+   "first_name": "Kaleena",
+   "last_name": "Mosqueda-Lewis",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "23",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 453,
+   "first_name": "Tiffany",
+   "last_name": "Mitchell",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 9\"",
+   "weight": "169 lbs",
+   "jersey_number": "25",
+   "college": "South Carolina",
+   "age": 31,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 469,
+   "first_name": "Blake",
+   "last_name": "Dietrick",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "11",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 482,
+   "first_name": "Lanay",
+   "last_name": "Montgomery",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "11",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 484,
+   "first_name": "Alexis",
+   "last_name": "Peterson",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "2",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 539,
+   "first_name": "Lexie",
+   "last_name": "Brown",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 9\"",
+   "weight": "162 lbs",
+   "jersey_number": "8",
+   "college": "Duke",
+   "age": 31,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 548,
+   "first_name": "Teana",
+   "last_name": "Muldrow",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "12",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 559,
+   "first_name": "Anriel",
+   "last_name": "Howard",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "5",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 571,
+   "first_name": "Katie",
+   "last_name": "Lou Samuelson",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "UConn",
+   "jersey_number": "33",
+   "college": null,
+   "age": 29,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 580,
+   "first_name": "Natisha",
+   "last_name": "Hiedeman",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "Marquette",
+   "jersey_number": "2",
+   "college": null,
+   "age": 29,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 590,
+   "first_name": "Ezi",
+   "last_name": "Magbegor",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "--",
+   "jersey_number": "13",
+   "college": null,
+   "age": 27,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 594,
+   "first_name": "Joyner",
+   "last_name": "Holmes",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "210 lbs",
+   "jersey_number": "8",
+   "college": "Texas",
+   "age": 28,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 597,
+   "first_name": "Beatrice",
+   "last_name": "Mompremier",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "190 lbs",
+   "jersey_number": null,
+   "college": "Miami",
+   "age": 29,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 617,
+   "first_name": "Rennia",
+   "last_name": "Davis",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 1\"",
+   "weight": "170 lbs",
+   "jersey_number": null,
+   "college": "Tennessee",
+   "age": 27,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 635,
+   "first_name": "N'Dea",
+   "last_name": "Jones",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "31",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 664,
+   "first_name": "Raina",
+   "last_name": "Perez",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "2",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 686,
+   "first_name": "Jordan",
+   "last_name": "Horston",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "Tennessee",
+   "jersey_number": "23",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 687,
+   "first_name": "Jade",
+   "last_name": "Melbourne",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "--",
+   "jersey_number": "5",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 688,
+   "first_name": "Ivana",
+   "last_name": "Dojkic",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "18",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 695,
+   "first_name": "Zia",
+   "last_name": "Cooke",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 9\"",
+   "weight": "South Carolina",
+   "jersey_number": "7",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 722,
+   "first_name": "Jaelyn",
+   "last_name": "Brown",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 1\"",
+   "weight": "170 lbs",
+   "jersey_number": null,
+   "college": "California",
+   "age": 27,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 730,
+   "first_name": "Jaylyn",
+   "last_name": "Sherrod",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 7\"",
+   "weight": "Colorado",
+   "jersey_number": "00",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 734,
+   "first_name": "Taylor",
+   "last_name": "Thierry",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 1\"",
+   "weight": "Ohio State",
+   "jersey_number": "3",
+   "college": null,
+   "age": 23,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 758,
+   "first_name": "Dominique",
+   "last_name": "Malonga",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 6\"",
+   "weight": "--",
+   "jersey_number": "14",
+   "college": null,
+   "age": 20,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 776,
+   "first_name": "Mackenzie",
+   "last_name": "Holmes",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "Indiana",
+   "jersey_number": "54",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 67076,
+   "first_name": "Awa",
+   "last_name": "Fam",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 4\"",
+   "weight": "--",
+   "jersey_number": "11",
+   "college": null,
+   "age": 20,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 67080,
+   "first_name": "Flau'jae",
+   "last_name": "Johnson",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "LSU",
+   "jersey_number": "4",
+   "college": null,
+   "age": 22,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 67082,
+   "first_name": "Taina",
+   "last_name": "Mair",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 9\"",
+   "weight": "Duke",
+   "jersey_number": "22",
+   "college": null,
+   "age": 22,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 77687,
+   "first_name": "Jalyn",
+   "last_name": "Brown",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 1\"",
+   "weight": "--",
+   "jersey_number": null,
+   "college": "Michigan State",
+   "age": 22,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  },
+  {
+   "id": 77696,
+   "first_name": "Elle",
+   "last_name": "Ladine",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "--",
+   "jersey_number": null,
+   "college": "Washington",
+   "age": 21,
+   "team": {
+    "id": 9,
+    "conference": "Western Conference",
+    "city": "Seattle",
+    "name": "Storm",
+    "full_name": "Seattle Storm",
+    "abbreviation": "SEA"
+   }
+  }
+ ],
+ "meta": {
+  "pages": 1,
+  "source": "players?team_ids[]=9"
+ }
+}

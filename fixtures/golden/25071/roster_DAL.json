@@ -1,0 +1,1408 @@
+{
+ "data": [
+  {
+   "id": 14,
+   "first_name": "Cheryl",
+   "last_name": "Ford",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 15,
+   "first_name": "Kara",
+   "last_name": "Braxton",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 16,
+   "first_name": "Katie",
+   "last_name": "Smith",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 17,
+   "first_name": "Deanna",
+   "last_name": "Nolan",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 18,
+   "first_name": "Elaine",
+   "last_name": "Powell",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 19,
+   "first_name": "Sheri",
+   "last_name": "Sam",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 20,
+   "first_name": "Plenette",
+   "last_name": "Pierson",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 21,
+   "first_name": "Alexis",
+   "last_name": "Hornbuckle",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 22,
+   "first_name": "LaToya",
+   "last_name": "Thomas",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 23,
+   "first_name": "Chrissy",
+   "last_name": "Givens",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 24,
+   "first_name": "Tasha",
+   "last_name": "Humphrey",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 25,
+   "first_name": "Olayinka",
+   "last_name": "Sanni",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 204,
+   "first_name": "Nancy",
+   "last_name": "Lieberman",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 205,
+   "first_name": "Kelly",
+   "last_name": "Schumacher",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 221,
+   "first_name": "Shavonte",
+   "last_name": "Zellous",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 248,
+   "first_name": "Tanae",
+   "last_name": "Davis-Cain",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 260,
+   "first_name": "Amanda",
+   "last_name": "Thompson",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 261,
+   "first_name": "Natasha",
+   "last_name": "Lacy",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 262,
+   "first_name": "Marion",
+   "last_name": "Jones",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 289,
+   "first_name": "Kayla",
+   "last_name": "Pedersen",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 290,
+   "first_name": "Liz",
+   "last_name": "Cambage",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 291,
+   "first_name": "Miranda",
+   "last_name": "Ayim",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 292,
+   "first_name": "Chastity",
+   "last_name": "Reed",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 311,
+   "first_name": "Alysha",
+   "last_name": "Clark",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "5' 11\"",
+   "weight": "Middle Tennessee",
+   "jersey_number": "7",
+   "college": null,
+   "age": 39,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 320,
+   "first_name": "Riquna",
+   "last_name": "Williams",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 321,
+   "first_name": "Lynetta",
+   "last_name": "Kizer",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 322,
+   "first_name": "Glory",
+   "last_name": "Johnson",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 347,
+   "first_name": "Angel",
+   "last_name": "Goodrich",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "10",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 391,
+   "first_name": "Vicki",
+   "last_name": "Baugh",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "22",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 392,
+   "first_name": "Jordan",
+   "last_name": "Hooper",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "35",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 393,
+   "first_name": "Odyssey",
+   "last_name": "Sims",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "Baylor",
+   "jersey_number": "1",
+   "college": null,
+   "age": 34,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 394,
+   "first_name": "Theresa",
+   "last_name": "Plaisance",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "55",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 430,
+   "first_name": "Amanda",
+   "last_name": "Zahui B.",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "32",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 431,
+   "first_name": "Brianna",
+   "last_name": "Kiesel",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "1",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 451,
+   "first_name": "Ruth",
+   "last_name": "Hamblin",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "44",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 499,
+   "first_name": "Kaela",
+   "last_name": "Davis",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "10",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 500,
+   "first_name": "Saniya",
+   "last_name": "Chong",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "12",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 501,
+   "first_name": "Breanna",
+   "last_name": "Lewis",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "22",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 519,
+   "first_name": "Evelyn",
+   "last_name": "Akhator",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "9",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 521,
+   "first_name": "Lindsay",
+   "last_name": "Allen",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "145 lbs",
+   "jersey_number": "15",
+   "college": "Notre Dame",
+   "age": 31,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 549,
+   "first_name": "Leticia",
+   "last_name": "Romero",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "10",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 552,
+   "first_name": "Arike",
+   "last_name": "Ogunbowale",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "Notre Dame",
+   "jersey_number": "24",
+   "college": null,
+   "age": 29,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 553,
+   "first_name": "Brooke",
+   "last_name": "McCarty-Williams",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "1",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 556,
+   "first_name": "Alanna",
+   "last_name": "Smith",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "Stanford",
+   "jersey_number": "8",
+   "college": null,
+   "age": 30,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 574,
+   "first_name": "Jessica",
+   "last_name": "Shepard",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "Notre Dame",
+   "jersey_number": "32",
+   "college": null,
+   "age": 30,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 603,
+   "first_name": "Bella",
+   "last_name": "Alarie",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "32",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 610,
+   "first_name": "Sug",
+   "last_name": "Sutton",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "Texas",
+   "jersey_number": "0",
+   "college": null,
+   "age": 27,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 618,
+   "first_name": "Charli",
+   "last_name": "Collier",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "35",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 619,
+   "first_name": "Chelsea",
+   "last_name": "Dungee",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "33",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 621,
+   "first_name": "Awak",
+   "last_name": "Kuier",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 6\"",
+   "weight": "--",
+   "jersey_number": "34",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 660,
+   "first_name": "Jasmine",
+   "last_name": "Dickey",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "23",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 668,
+   "first_name": "Li",
+   "last_name": "Yueru",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 7\"",
+   "weight": "--",
+   "jersey_number": "28",
+   "college": null,
+   "age": 27,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 678,
+   "first_name": "Grace",
+   "last_name": "Berger",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "160 lbs",
+   "jersey_number": "9",
+   "college": "Indiana",
+   "age": 26,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 685,
+   "first_name": "Dulcy",
+   "last_name": "Fankam Mendjiadeu",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "204 lbs",
+   "jersey_number": "12",
+   "college": "South Florida",
+   "age": 26,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 689,
+   "first_name": "Haley",
+   "last_name": "Jones",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 1\"",
+   "weight": "Stanford",
+   "jersey_number": "30",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 691,
+   "first_name": "Maddy",
+   "last_name": "Siegrist",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "Villanova",
+   "jersey_number": "20",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 692,
+   "first_name": "Ashley",
+   "last_name": "Joens",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "1",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 696,
+   "first_name": "Lou",
+   "last_name": "Lopez Senechal",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "8",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 707,
+   "first_name": "Christyn",
+   "last_name": "Williams",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "UConn",
+   "jersey_number": "31",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 724,
+   "first_name": "Stephanie",
+   "last_name": "Soares",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "10",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 741,
+   "first_name": "Paige",
+   "last_name": "Bueckers",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 0\"",
+   "weight": "UConn",
+   "jersey_number": "5",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 742,
+   "first_name": "Aziaha",
+   "last_name": "James",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "NC State",
+   "jersey_number": "10",
+   "college": null,
+   "age": 23,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 743,
+   "first_name": "JJ",
+   "last_name": "Quinerly",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "--",
+   "jersey_number": "11",
+   "college": "West Virginia",
+   "age": 23,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 767,
+   "first_name": "Kitija",
+   "last_name": "Laksa",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 1\"",
+   "weight": "South Florida",
+   "jersey_number": "33",
+   "college": null,
+   "age": 30,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 784,
+   "first_name": "Serena",
+   "last_name": "Sundell",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "4",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 785,
+   "first_name": "Ajae",
+   "last_name": "Petty",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "--",
+   "jersey_number": null,
+   "college": "Ohio State",
+   "age": 23,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 67109,
+   "first_name": "Azzi",
+   "last_name": "Fudd",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "UConn",
+   "jersey_number": "35",
+   "college": null,
+   "age": 23,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 67122,
+   "first_name": "Lazaria",
+   "last_name": "Spearman",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "--",
+   "jersey_number": null,
+   "college": "Tennessee",
+   "age": 22,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 67123,
+   "first_name": "Costanza",
+   "last_name": "Verona",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 6\"",
+   "weight": "--",
+   "jersey_number": "6",
+   "college": null,
+   "age": 27,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  },
+  {
+   "id": 272223,
+   "first_name": "Deja",
+   "last_name": "Kelly",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "Oregon",
+   "jersey_number": "2",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 11,
+    "conference": "Western Conference",
+    "city": "Dallas",
+    "name": "Wings",
+    "full_name": "Dallas Wings",
+    "abbreviation": "DAL"
+   }
+  }
+ ],
+ "meta": {
+  "pages": 1,
+  "source": "players?team_ids[]=11"
+ }
+}

@@ -106,7 +106,7 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
 - [ ] 2.4 `facts.py` (games + player_stats -> facts sheet, quarters included), `game_of_night.py` + `gotn_rules.json`. `runs.py` is a STUB comment only unless Block 0 showed the plays endpoint is available.
 - [ ] 2.5 Tests for facts, quarters, game_of_night (design.md Testing)
 - [ ] 2.6 Render golden games with a mock voice to `./out/`
-- [ ] 2.6b Derived statistics from play-by-play (Requirement 3b)
+- [x] 2.6b Derived statistics from play-by-play (Requirement 3b) . PASS Sep 24, 5 of 5 reconciled (Claude)
   - `zine/pbp_stats.py` per design.md. Points, FGM, FTM, rebounds, assists, steals, blocks, turnovers.
     Exact roster name matching, no fuzzy matching. No minutes, plus-minus, percentages or attempts.
   - First, print the distinct `type` values across the 5 golden games before writing the classifier.

@@ -148,3 +148,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: scripts parse; fetch not yet run. Owner runs it next.
 - Resources: none.
 - Evidence: LEDGER entry of the same date.
+
+## 2026-09-24 . 2.6b . Statistics from play-by-play (Claude, on disk)
+- Tier: Working
+- Did: owner ran `tools/fetch_golden.ps1` (21 requests, all 200); generated `fixtures/golden/PLAY_TYPES.md` (69 types, 2,104 plays); wrote `src/zine/pbp_stats.py` against that vocabulary; wrote `tests/test_pbp_stats.py` covering the golden set and seven failure paths.
+- Result: PASS. 5 of 5 golden games reconcile on points, zero unattributed events, every embedded assist, steal and block credited exactly once, overtime from the plays agrees with the game object. pytest 18 passed.
+- Resources: none (BALLDONTLIE calls were the owner's, from her machine).
+- Evidence: LEDGER entry of the same date; fixtures/golden/FETCH-REPORT.txt.

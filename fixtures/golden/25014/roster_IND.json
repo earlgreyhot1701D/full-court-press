@@ -1,0 +1,1288 @@
+{
+ "data": [
+  {
+   "id": 65,
+   "first_name": "Ebony",
+   "last_name": "Hoffman",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 66,
+   "first_name": "Tammy",
+   "last_name": "Sutton-Brown",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 67,
+   "first_name": "Tully",
+   "last_name": "Bevilaqua",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 68,
+   "first_name": "Katie",
+   "last_name": "Douglas",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 69,
+   "first_name": "Tan",
+   "last_name": "White",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 70,
+   "first_name": "Tamika",
+   "last_name": "Catchings",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 71,
+   "first_name": "Allison",
+   "last_name": "Feaster",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 72,
+   "first_name": "Laine",
+   "last_name": "Selwyn",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 73,
+   "first_name": "LaToya",
+   "last_name": "Bond",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 74,
+   "first_name": "Kasha",
+   "last_name": "Terry",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 75,
+   "first_name": "Alison",
+   "last_name": "Bales",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 76,
+   "first_name": "Khadijah",
+   "last_name": "Whittington",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 191,
+   "first_name": "Bernadette",
+   "last_name": "Ngoyisa",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 192,
+   "first_name": "Sherill",
+   "last_name": "Baker",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 207,
+   "first_name": "Doneeka",
+   "last_name": "Lewis",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 216,
+   "first_name": "Briann",
+   "last_name": "January",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 217,
+   "first_name": "Christina",
+   "last_name": "Wirth",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 256,
+   "first_name": "Jene",
+   "last_name": "Morris",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 276,
+   "first_name": "Joy",
+   "last_name": "Cheek",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 287,
+   "first_name": "Jeanette",
+   "last_name": "Pohlen-Mavunga",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 303,
+   "first_name": "Sydney",
+   "last_name": "Colson",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "137 lbs",
+   "jersey_number": "51",
+   "college": "Texas A&M",
+   "age": 36,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 315,
+   "first_name": "Sasha",
+   "last_name": "Goodlett",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 335,
+   "first_name": "Jasmine",
+   "last_name": "Hassell",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "12",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 336,
+   "first_name": "Layshia",
+   "last_name": "Clarendon",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "5",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 379,
+   "first_name": "Damiris",
+   "last_name": "Dantas",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 4\"",
+   "weight": "--",
+   "jersey_number": "12",
+   "college": null,
+   "age": 33,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 386,
+   "first_name": "Maggie",
+   "last_name": "Lucas",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "8",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 417,
+   "first_name": "Natalie",
+   "last_name": "Achonwa",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "11",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 452,
+   "first_name": "Aerial",
+   "last_name": "Powers",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "170 lbs",
+   "jersey_number": "23",
+   "college": "Michigan State",
+   "age": 32,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 454,
+   "first_name": "Brene",
+   "last_name": "Moseley",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "30",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 512,
+   "first_name": "Erica",
+   "last_name": "McCall",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "22",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 531,
+   "first_name": "Stephanie",
+   "last_name": "Mavunga",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "23",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 532,
+   "first_name": "Hind",
+   "last_name": "Ben Abdelkader",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "8",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 533,
+   "first_name": "Kelsey",
+   "last_name": "Mitchell",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "Ohio State",
+   "jersey_number": "0",
+   "college": null,
+   "age": 30,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 534,
+   "first_name": "Victoria",
+   "last_name": "Vivians",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "35",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 540,
+   "first_name": "Monique",
+   "last_name": "Billings",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "UCLA",
+   "jersey_number": "25",
+   "college": null,
+   "age": 30,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 543,
+   "first_name": "Myisha",
+   "last_name": "Hines-Allen",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "Louisville",
+   "jersey_number": "2",
+   "college": null,
+   "age": 31,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 545,
+   "first_name": "Mercedes",
+   "last_name": "Russell",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 6\"",
+   "weight": "Tennessee",
+   "jersey_number": "5",
+   "college": null,
+   "age": 31,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 558,
+   "first_name": "Sophie",
+   "last_name": "Cunningham",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 1\"",
+   "weight": "Missouri",
+   "jersey_number": "8",
+   "college": null,
+   "age": 30,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 565,
+   "first_name": "Paris",
+   "last_name": "Kea",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "7",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 588,
+   "first_name": "Lauren",
+   "last_name": "Cox",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "13",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 589,
+   "first_name": "Kathleen",
+   "last_name": "Doyle",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "2",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 604,
+   "first_name": "Tyasha",
+   "last_name": "Harris",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "South Carolina",
+   "jersey_number": "52",
+   "college": null,
+   "age": 28,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 609,
+   "first_name": "Alisia",
+   "last_name": "Jenkins",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "24",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 612,
+   "first_name": "Chelsey",
+   "last_name": "Perry",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "10",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 613,
+   "first_name": "Kysre",
+   "last_name": "Gondrezick",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "4",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 614,
+   "first_name": "Aaliyah",
+   "last_name": "Wilson",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "1",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 632,
+   "first_name": "Bernadett",
+   "last_name": "Hatar",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "44",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 646,
+   "first_name": "Queen",
+   "last_name": "Egbo",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "4",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 647,
+   "first_name": "Destanni",
+   "last_name": "Henderson",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "33",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 649,
+   "first_name": "Lexie",
+   "last_name": "Hull",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 2\"",
+   "weight": "Stanford",
+   "jersey_number": "10",
+   "college": null,
+   "age": 27,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 670,
+   "first_name": "Khayla",
+   "last_name": "Pointer",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "13",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 676,
+   "first_name": "Aliyah",
+   "last_name": "Boston",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 5\"",
+   "weight": "South Carolina",
+   "jersey_number": "7",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 677,
+   "first_name": "Victaria",
+   "last_name": "Saxton",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "5",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 704,
+   "first_name": "Kayana",
+   "last_name": "Traylor",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 9\"",
+   "weight": "155 lbs",
+   "jersey_number": "4",
+   "college": "Virginia Tech",
+   "age": 26,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 708,
+   "first_name": "Caitlin",
+   "last_name": "Clark",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 0\"",
+   "weight": "Iowa",
+   "jersey_number": "22",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 709,
+   "first_name": "Celeste",
+   "last_name": "Taylor",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "6",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 753,
+   "first_name": "Makayla",
+   "last_name": "Timpson",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "Florida State",
+   "jersey_number": "21",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 771,
+   "first_name": "Megan",
+   "last_name": "McConnell",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 7\"",
+   "weight": "--",
+   "jersey_number": "16",
+   "college": "Duquesne",
+   "age": 24,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 777,
+   "first_name": "Bree",
+   "last_name": "Hall",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 1\"",
+   "weight": "South Carolina",
+   "jersey_number": "23",
+   "college": null,
+   "age": 23,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 782,
+   "first_name": "Kyra",
+   "last_name": "Lambert",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "15",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 66969,
+   "first_name": "Raven",
+   "last_name": "Johnson",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "South Carolina",
+   "jersey_number": "3",
+   "college": null,
+   "age": 23,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 66976,
+   "first_name": "Jessica",
+   "last_name": "Timmons",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "--",
+   "jersey_number": "23",
+   "college": "Alabama",
+   "age": 23,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 67088,
+   "first_name": "Grace",
+   "last_name": "VanSlooten",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "Michigan State",
+   "jersey_number": "14",
+   "college": null,
+   "age": 22,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  },
+  {
+   "id": 74559,
+   "first_name": "Michelle",
+   "last_name": "Onyiah",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 3\"",
+   "weight": "California",
+   "jersey_number": "1",
+   "college": null,
+   "age": 23,
+   "team": {
+    "id": 3,
+    "conference": "Eastern Conference",
+    "city": "Indiana",
+    "name": "Fever",
+    "full_name": "Indiana Fever",
+    "abbreviation": "IND"
+   }
+  }
+ ],
+ "meta": {
+  "pages": 1,
+  "source": "players?team_ids[]=3"
+ }
+}

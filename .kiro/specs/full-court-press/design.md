@@ -92,7 +92,10 @@ Walk `plays` in order, track score, emit runs of 8+ unanswered points. **A run n
 One responsibility: turn `plays` into per-player points. Nothing else.
 
 ```
-count(plays, home_score, away_score) -> (scoring_lines, reconciled: bool, discrepancy: dict|None)
+count(plays, home, away, roster_lists) -> dict
+    home / away: {"abbrev", "score"} from the games endpoint; roster_lists: {abbr: [players]}
+    returns reconciled, player_lines, categories, team_points, discrepancy, unattributed,
+    overtime_periods, roster_conflicts. Implemented Sep 24 in src/zine/pbp_stats.py.
 ```
 - Walk `plays` in order once. Classify each play on its `type` field into a category (scoring, rebound,
   assist, steal, block, turnover). For scoring plays add `score_value` to the scorer.
@@ -103,6 +106,14 @@ count(plays, home_score, away_score) -> (scoring_lines, reconciled: bool, discre
   play's `text`. No fuzzy matching, no nicknames, no initials, no partial surnames unless that surname is
   unique across both rosters for that game. An unmatched scoring play is unattributed, and unattributed
   points fail reconciliation by definition.
+- **Roster, as built (Sep 24):** the players endpoint returns who is on a team NOW. A player who has
+  since moved is missing from the game she played in (Jaylyn Sherrod, game 25014). So a game's roster is
+  the current roster plus every name in that game's own "X enters the game for Y" lines, with the team
+  taken from the substitution play. Still exact matching; a name claimed by both teams is left out.
+- **Where the other stats live (Sep 24, from PLAY_TYPES.md):** rebounds and turnovers have play types.
+  Assists, steals and blocks do not; they are embedded in other plays' text. `team` on a play is the
+  shooter's or ball-handler's team, so the assister is on the same team and the blocker and stealer on
+  the other. A blocked shot's text never says "misses", so it is counted as a miss explicitly.
 - `type` is NOT enumerated in the OpenAPI spec, so the category vocabulary must be discovered from real
   data before the classifier is written. Task 2.6b requires printing the distinct `type` values across
   the golden games first. Do not guess it.

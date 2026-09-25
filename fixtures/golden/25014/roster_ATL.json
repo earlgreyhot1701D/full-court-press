@@ -1,0 +1,1228 @@
+{
+ "data": [
+  {
+   "id": 101,
+   "first_name": "Jennifer",
+   "last_name": "Lacy",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 102,
+   "first_name": "Betty",
+   "last_name": "Lennox",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 103,
+   "first_name": "Iziane",
+   "last_name": "Castro",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 104,
+   "first_name": "Stacey",
+   "last_name": "Lovelace",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 105,
+   "first_name": "Kristin",
+   "last_name": "Haynie",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 106,
+   "first_name": "Kristen",
+   "last_name": "Mann",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 107,
+   "first_name": "Camille",
+   "last_name": "Little",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 108,
+   "first_name": "Tamera",
+   "last_name": "Young",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 109,
+   "first_name": "Ivory",
+   "last_name": "Latta",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 110,
+   "first_name": "Katie",
+   "last_name": "Feenstra",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 111,
+   "first_name": "Ann",
+   "last_name": "Strother",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 112,
+   "first_name": "Chioma",
+   "last_name": "Nnamaka",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 190,
+   "first_name": "Erika",
+   "last_name": "de Souza",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 210,
+   "first_name": "Nikki",
+   "last_name": "Teasley",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 218,
+   "first_name": "Chamique",
+   "last_name": "Holdsclaw",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 219,
+   "first_name": "Angel",
+   "last_name": "McCoughtry",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 220,
+   "first_name": "Shalee",
+   "last_name": "Lehning",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 242,
+   "first_name": "DeWanna",
+   "last_name": "Bonner",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "Auburn",
+   "jersey_number": "24",
+   "college": null,
+   "age": 39,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 266,
+   "first_name": "Brittainey",
+   "last_name": "Raven",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 273,
+   "first_name": "Yelena",
+   "last_name": "Leuchanka",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 313,
+   "first_name": "Aneika",
+   "last_name": "Henry-Morello",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 334,
+   "first_name": "Erika",
+   "last_name": "Desouza",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": "14",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 348,
+   "first_name": "Courtney",
+   "last_name": "Clements",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "54",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 349,
+   "first_name": "Alex",
+   "last_name": "Bentley",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "2",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 350,
+   "first_name": "Anne",
+   "last_name": "Marie Armstrong",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "3",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 376,
+   "first_name": "Shoni",
+   "last_name": "Schimmel",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "23",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 377,
+   "first_name": "Nadia",
+   "last_name": "Colhado",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "31",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 378,
+   "first_name": "Inga",
+   "last_name": "Orekhova",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "3",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 400,
+   "first_name": "Celine",
+   "last_name": "Dumerc",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "9",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 426,
+   "first_name": "Samantha",
+   "last_name": "Logic",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "22",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 442,
+   "first_name": "Cierra",
+   "last_name": "Burdick",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "11",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 450,
+   "first_name": "Carla",
+   "last_name": "Cortijo",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "8",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 473,
+   "first_name": "Rachel",
+   "last_name": "Hollivay",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "14",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 474,
+   "first_name": "Meighan",
+   "last_name": "Simmons",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "0",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 475,
+   "first_name": "Bria",
+   "last_name": "Holmes",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "32",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 493,
+   "first_name": "Shatori",
+   "last_name": "Walker-Kimbrough",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 9\"",
+   "weight": "Maryland",
+   "jersey_number": "33",
+   "college": null,
+   "age": 31,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 495,
+   "first_name": "Brionna",
+   "last_name": "Jones",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "Maryland",
+   "jersey_number": "42",
+   "college": null,
+   "age": 30,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 498,
+   "first_name": "Allisha",
+   "last_name": "Gray",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 0\"",
+   "weight": "South Carolina",
+   "jersey_number": "15",
+   "college": null,
+   "age": 31,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 547,
+   "first_name": "Jordin",
+   "last_name": "Canada",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 6\"",
+   "weight": "UCLA",
+   "jersey_number": "3",
+   "college": null,
+   "age": 31,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 551,
+   "first_name": "Adaora",
+   "last_name": "Elonu",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "2",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 554,
+   "first_name": "Maite",
+   "last_name": "Cazorla",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "155 lbs",
+   "jersey_number": "5",
+   "college": "Oregon",
+   "age": 28,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 606,
+   "first_name": "Jaylyn",
+   "last_name": "Agnew",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "5",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 607,
+   "first_name": "Brittany",
+   "last_name": "Brewer",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "20",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 624,
+   "first_name": "Stephanie",
+   "last_name": "Jones",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "185 lbs",
+   "jersey_number": "24",
+   "college": "Maryland",
+   "age": 27,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 657,
+   "first_name": "Rhyne",
+   "last_name": "Howard",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 2\"",
+   "weight": "Kentucky",
+   "jersey_number": "10",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 658,
+   "first_name": "Naz",
+   "last_name": "Hillmon",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "Michigan",
+   "jersey_number": "00",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 682,
+   "first_name": "Sika",
+   "last_name": "Kone",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "--",
+   "jersey_number": "23",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 698,
+   "first_name": "Taylor",
+   "last_name": "Mikesell",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "24",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 721,
+   "first_name": "Angel",
+   "last_name": "Reese",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "LSU",
+   "jersey_number": "5",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 732,
+   "first_name": "Ezinne",
+   "last_name": "Kalu",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "1",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 733,
+   "first_name": "Te-Hina",
+   "last_name": "Paopao",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 9\"",
+   "weight": "South Carolina",
+   "jersey_number": "2",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 66980,
+   "first_name": "Isobel",
+   "last_name": "Borlase",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "--",
+   "jersey_number": "20",
+   "college": null,
+   "age": 22,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 66983,
+   "first_name": "Bella",
+   "last_name": "Fontleroy",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 0\"",
+   "weight": "--",
+   "jersey_number": "22",
+   "college": "Baylor",
+   "age": 22,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 66990,
+   "first_name": "Indya",
+   "last_name": "Nivar",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "North Carolina",
+   "jersey_number": "21",
+   "college": null,
+   "age": 22,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 66991,
+   "first_name": "Madina",
+   "last_name": "Okot",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 6\"",
+   "weight": "South Carolina",
+   "jersey_number": "11",
+   "college": null,
+   "age": 22,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 66993,
+   "first_name": "Laila",
+   "last_name": "Phelia",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 0\"",
+   "weight": "--",
+   "jersey_number": "6",
+   "college": "Syracuse",
+   "age": 23,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 66994,
+   "first_name": "Kejia",
+   "last_name": "Ran",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "--",
+   "jersey_number": null,
+   "college": "--",
+   "age": 19,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 66996,
+   "first_name": "Paige",
+   "last_name": "Robinson",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "--",
+   "jersey_number": "0",
+   "college": "Illinois State",
+   "age": 25,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 66998,
+   "first_name": "Sacha",
+   "last_name": "Washington",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "--",
+   "jersey_number": "35",
+   "college": "Vanderbilt",
+   "age": 23,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 269348,
+   "first_name": "Matilde",
+   "last_name": "Villa",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 7\"",
+   "weight": "--",
+   "jersey_number": "0",
+   "college": null,
+   "age": 21,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  },
+  {
+   "id": 270867,
+   "first_name": "Matilde",
+   "last_name": "Villa",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 7\"",
+   "weight": "--",
+   "jersey_number": "0",
+   "college": null,
+   "age": 21,
+   "team": {
+    "id": 4,
+    "conference": "Eastern Conference",
+    "city": "Atlanta",
+    "name": "Dream",
+    "full_name": "Atlanta Dream",
+    "abbreviation": "ATL"
+   }
+  }
+ ],
+ "meta": {
+  "pages": 1,
+  "source": "players?team_ids[]=4"
+ }
+}

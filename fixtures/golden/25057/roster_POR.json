@@ -1,0 +1,408 @@
+{
+ "data": [
+  {
+   "id": 541,
+   "first_name": "Karlie",
+   "last_name": "Samuelson",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 0\"",
+   "weight": "Stanford",
+   "jersey_number": "44",
+   "college": null,
+   "age": 31,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 562,
+   "first_name": "Bridget",
+   "last_name": "Carleton",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "Iowa State",
+   "jersey_number": "6",
+   "college": null,
+   "age": 29,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 579,
+   "first_name": "Megan",
+   "last_name": "DiLeo",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 4\"",
+   "weight": "Iowa",
+   "jersey_number": "17",
+   "college": null,
+   "age": 29,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 611,
+   "first_name": "Kamiah",
+   "last_name": "Smalls",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "5' 10\"",
+   "weight": "161 lbs",
+   "jersey_number": "8",
+   "college": "James Madison",
+   "age": 28,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 648,
+   "first_name": "Emily",
+   "last_name": "Engstler",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 1\"",
+   "weight": "Louisville",
+   "jersey_number": "21",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 718,
+   "first_name": "Nika",
+   "last_name": "Muhl",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 0\"",
+   "weight": "156 lbs",
+   "jersey_number": null,
+   "college": "UConn",
+   "age": 25,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 727,
+   "first_name": "Charisma",
+   "last_name": "Osborne",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 9\"",
+   "weight": "UCLA",
+   "jersey_number": "24",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 744,
+   "first_name": "Luisa",
+   "last_name": "Geiselsoder",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 4\"",
+   "weight": "--",
+   "jersey_number": "15",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 745,
+   "first_name": "Sarah",
+   "last_name": "Ashlee Barker",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 0\"",
+   "weight": "Alabama",
+   "jersey_number": "3",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 746,
+   "first_name": "Sania",
+   "last_name": "Feagin",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "South Carolina",
+   "jersey_number": "1",
+   "college": null,
+   "age": 23,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 748,
+   "first_name": "Carla",
+   "last_name": "Leite",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 9\"",
+   "weight": "--",
+   "jersey_number": "0",
+   "college": null,
+   "age": 22,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 783,
+   "first_name": "Amy",
+   "last_name": "Okonkwo",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "TCU",
+   "jersey_number": "8",
+   "college": null,
+   "age": 30,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 61828,
+   "first_name": "Nyadiew",
+   "last_name": "Puoch",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "--",
+   "jersey_number": "13",
+   "college": null,
+   "age": 22,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 66999,
+   "first_name": "Holly",
+   "last_name": "Winterburn",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "Oregon",
+   "jersey_number": "77",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 67186,
+   "first_name": "Frieda",
+   "last_name": "Buhner",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 1\"",
+   "weight": "Florida",
+   "jersey_number": "20",
+   "college": null,
+   "age": 22,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 67194,
+   "first_name": "Iyana",
+   "last_name": "Martin",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 9\"",
+   "weight": "--",
+   "jersey_number": null,
+   "college": "--",
+   "age": 20,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 67200,
+   "first_name": "Serah",
+   "last_name": "Williams",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 4\"",
+   "weight": "UConn",
+   "jersey_number": "25",
+   "college": null,
+   "age": 22,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 75085,
+   "first_name": "Jordan",
+   "last_name": "Harrison",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 6\"",
+   "weight": "West Virginia",
+   "jersey_number": "2",
+   "college": null,
+   "age": 22,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 75090,
+   "first_name": "Teja",
+   "last_name": "Oblak",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "--",
+   "jersey_number": "7",
+   "college": null,
+   "age": 35,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  },
+  {
+   "id": 101929,
+   "first_name": "Teja",
+   "last_name": "Oblak",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "7",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 31,
+    "conference": null,
+    "city": "",
+    "name": "Fire",
+    "full_name": "Fire",
+    "abbreviation": "POR"
+   }
+  }
+ ],
+ "meta": {
+  "pages": 1,
+  "source": "players?team_ids[]=31"
+ }
+}

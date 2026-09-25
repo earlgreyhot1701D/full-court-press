@@ -1,0 +1,408 @@
+{
+ "data": [
+  {
+   "id": 314,
+   "first_name": "Tiffany",
+   "last_name": "Hayes",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "UConn",
+   "jersey_number": "15",
+   "college": null,
+   "age": 37,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 406,
+   "first_name": "Kayla",
+   "last_name": "Thornton",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 1\"",
+   "weight": "UTEP",
+   "jersey_number": "5",
+   "college": null,
+   "age": 33,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 422,
+   "first_name": "Kiah",
+   "last_name": "Stokes",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 3\"",
+   "weight": "UConn",
+   "jersey_number": "41",
+   "college": null,
+   "age": 33,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 524,
+   "first_name": "Cecilia",
+   "last_name": "Zandalasini",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "--",
+   "jersey_number": "24",
+   "college": null,
+   "age": 30,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 528,
+   "first_name": "Gabby",
+   "last_name": "Williams",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "5' 11\"",
+   "weight": "UConn",
+   "jersey_number": "1",
+   "college": null,
+   "age": 30,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 598,
+   "first_name": "Kaila",
+   "last_name": "Charles",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 1\"",
+   "weight": "Maryland",
+   "jersey_number": "6",
+   "college": null,
+   "age": 28,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 659,
+   "first_name": "Veronica",
+   "last_name": "Burton",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 9\"",
+   "weight": "Northwestern",
+   "jersey_number": "22",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 672,
+   "first_name": "Iliana",
+   "last_name": "Rupert",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 4\"",
+   "weight": "--",
+   "jersey_number": "12",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 690,
+   "first_name": "Laeticia",
+   "last_name": "Amihere",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "South Carolina",
+   "jersey_number": "3",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 770,
+   "first_name": "Janelle",
+   "last_name": "Salaun",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "--",
+   "jersey_number": "13",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 775,
+   "first_name": "Kaitlyn",
+   "last_name": "Chen",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 9\"",
+   "weight": "UConn",
+   "jersey_number": "2",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 67144,
+   "first_name": "Caroline",
+   "last_name": "Ducharme",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 2\"",
+   "weight": "--",
+   "jersey_number": "33",
+   "college": "UConn",
+   "age": 24,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 67148,
+   "first_name": "Juste",
+   "last_name": "Jocyte",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 0\"",
+   "weight": "--",
+   "jersey_number": "4",
+   "college": null,
+   "age": 20,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 67150,
+   "first_name": "Bailey",
+   "last_name": "Maupin",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "--",
+   "jersey_number": "23",
+   "college": "Texas Tech",
+   "age": null,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 67152,
+   "first_name": "Cate",
+   "last_name": "Reese",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "--",
+   "jersey_number": "35",
+   "college": "Arizona",
+   "age": 26,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 67155,
+   "first_name": "Miela",
+   "last_name": "Sowah",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "Duke",
+   "jersey_number": "7",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 67158,
+   "first_name": "Kokoro",
+   "last_name": "Tanaka",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "--",
+   "jersey_number": "0",
+   "college": "--",
+   "age": 20,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 74886,
+   "first_name": "Ashten",
+   "last_name": "Prechtel",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 5\"",
+   "weight": "Stanford",
+   "jersey_number": "11",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 140035,
+   "first_name": "Nadia",
+   "last_name": "Fingall",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 4\"",
+   "weight": "Stanford",
+   "jersey_number": "45",
+   "college": null,
+   "age": 28,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  },
+  {
+   "id": 267772,
+   "first_name": "Aminata",
+   "last_name": "Gueye",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 4\"",
+   "weight": "--",
+   "jersey_number": "31",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 13,
+    "conference": "Western Conference",
+    "city": "Golden State",
+    "name": "Valkyries",
+    "full_name": "Golden State Valkyries",
+    "abbreviation": "GS"
+   }
+  }
+ ],
+ "meta": {
+  "pages": 1,
+  "source": "players?team_ids[]=13"
+ }
+}

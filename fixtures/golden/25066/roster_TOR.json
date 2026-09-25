@@ -1,0 +1,548 @@
+{
+ "data": [
+  {
+   "id": 337,
+   "first_name": "Kayla",
+   "last_name": "Alexander",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 4\"",
+   "weight": "Syracuse",
+   "jersey_number": "40",
+   "college": null,
+   "age": 35,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 455,
+   "first_name": "Isabelle",
+   "last_name": "Harrison",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 5\"",
+   "weight": "Tennessee",
+   "jersey_number": "21",
+   "college": null,
+   "age": 32,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 494,
+   "first_name": "Brittney",
+   "last_name": "Sykes",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "Syracuse",
+   "jersey_number": "20",
+   "college": null,
+   "age": 32,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 496,
+   "first_name": "Temi",
+   "last_name": "Fagbenle",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 5\"",
+   "weight": "USC",
+   "jersey_number": "14",
+   "college": null,
+   "age": 34,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 546,
+   "first_name": "Kia",
+   "last_name": "Nurse",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 1\"",
+   "weight": "UConn",
+   "jersey_number": "11",
+   "college": null,
+   "age": 30,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 569,
+   "first_name": "Marina",
+   "last_name": "Mabrey",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 1\"",
+   "weight": "Notre Dame",
+   "jersey_number": "3",
+   "college": null,
+   "age": 30,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 587,
+   "first_name": "Julie",
+   "last_name": "Allemand",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "--",
+   "jersey_number": "22",
+   "college": null,
+   "age": 30,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 631,
+   "first_name": "Kiana",
+   "last_name": "Williams",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "Stanford",
+   "jersey_number": null,
+   "college": null,
+   "age": 27,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 652,
+   "first_name": "Nikolina",
+   "last_name": "Milic",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "181 lbs",
+   "jersey_number": "31",
+   "college": "--",
+   "age": 32,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 656,
+   "first_name": "Kristy",
+   "last_name": "Wallace",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "157 lbs",
+   "jersey_number": "5",
+   "college": "Baylor",
+   "age": 30,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 697,
+   "first_name": "Nyara",
+   "last_name": "Sabally",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 5\"",
+   "weight": "Oregon",
+   "jersey_number": "8",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 757,
+   "first_name": "Aneesah",
+   "last_name": "Morrow",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 1\"",
+   "weight": "LSU",
+   "jersey_number": "24",
+   "college": null,
+   "age": 23,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 61809,
+   "first_name": "Maria",
+   "last_name": "Conde",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "Florida State",
+   "jersey_number": "10",
+   "college": null,
+   "age": 29,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 61811,
+   "first_name": "Adja",
+   "last_name": "Kane",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "--",
+   "jersey_number": null,
+   "college": "--",
+   "age": 21,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 67145,
+   "first_name": "Mariella",
+   "last_name": "Fasoula",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 5\"",
+   "weight": "--",
+   "jersey_number": "34",
+   "college": "Vanderbilt",
+   "age": 28,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 67165,
+   "first_name": "Charlise",
+   "last_name": "Dunn",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "--",
+   "jersey_number": null,
+   "college": "Davidson",
+   "age": 22,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 67169,
+   "first_name": "Laura",
+   "last_name": "Juskaite",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "--",
+   "jersey_number": "2",
+   "college": null,
+   "age": 29,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 67171,
+   "first_name": "Teonni",
+   "last_name": "Key",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 5\"",
+   "weight": "Kentucky",
+   "jersey_number": "7",
+   "college": null,
+   "age": 23,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 67178,
+   "first_name": "Kiki",
+   "last_name": "Rice",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "UCLA",
+   "jersey_number": "1",
+   "college": null,
+   "age": 22,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 67179,
+   "first_name": "Maddison",
+   "last_name": "Rocci",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 7\"",
+   "weight": "--",
+   "jersey_number": "9",
+   "college": "--",
+   "age": 27,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 67181,
+   "first_name": "Saffron",
+   "last_name": "Shiels",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 2\"",
+   "weight": "--",
+   "jersey_number": null,
+   "college": "--",
+   "age": 20,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 77900,
+   "first_name": "Dara",
+   "last_name": "Mabrey",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 7\"",
+   "weight": "--",
+   "jersey_number": "15",
+   "college": "Notre Dame",
+   "age": 26,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 125856,
+   "first_name": "Tima",
+   "last_name": "Pouye",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "--",
+   "jersey_number": "32",
+   "college": null,
+   "age": 27,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 165049,
+   "first_name": "Ornella",
+   "last_name": "Bankole",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "--",
+   "jersey_number": "33",
+   "college": null,
+   "age": 29,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 218289,
+   "first_name": "Zaay",
+   "last_name": "Green",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 2\"",
+   "weight": "Alabama",
+   "jersey_number": "00",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 266905,
+   "first_name": "Kamila",
+   "last_name": "Borkowska",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 7\"",
+   "weight": "--",
+   "jersey_number": "11",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  },
+  {
+   "id": 266908,
+   "first_name": "Maria",
+   "last_name": "Gakdeng",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "North Carolina",
+   "jersey_number": "6",
+   "college": null,
+   "age": 23,
+   "team": {
+    "id": 30,
+    "conference": null,
+    "city": "",
+    "name": "Tempo",
+    "full_name": "Tempo",
+    "abbreviation": "TOR"
+   }
+  }
+ ],
+ "meta": {
+  "pages": 1,
+  "source": "players?team_ids[]=30"
+ }
+}

@@ -1,0 +1,1288 @@
+{
+ "data": [
+  {
+   "id": 138,
+   "first_name": "Shameka",
+   "last_name": "Christon",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 139,
+   "first_name": "Cathrine",
+   "last_name": "Kraayeveld",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 140,
+   "first_name": "Janel",
+   "last_name": "McCarville",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 141,
+   "first_name": "Erin",
+   "last_name": "Thorn",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 142,
+   "first_name": "Loree",
+   "last_name": "Moore",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 143,
+   "first_name": "Tiffany",
+   "last_name": "Jackson-Jones",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 144,
+   "first_name": "Essence",
+   "last_name": "Carson",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 145,
+   "first_name": "Erlana",
+   "last_name": "Larkins",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 146,
+   "first_name": "Jessica",
+   "last_name": "Davenport",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 147,
+   "first_name": "Leilani",
+   "last_name": "Mitchell",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 148,
+   "first_name": "Ashley",
+   "last_name": "Battle",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 149,
+   "first_name": "Lisa",
+   "last_name": "Willis",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 150,
+   "first_name": "Megan",
+   "last_name": "Duffy",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 243,
+   "first_name": "Kia",
+   "last_name": "Vaughn",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 269,
+   "first_name": "Kalana",
+   "last_name": "Greene",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 301,
+   "first_name": "Jessica",
+   "last_name": "Breland",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 302,
+   "first_name": "Alex",
+   "last_name": "Montgomery",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 306,
+   "first_name": "Felicia",
+   "last_name": "Chester",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 308,
+   "first_name": "Kelley",
+   "last_name": "Cain",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 329,
+   "first_name": "Katelan",
+   "last_name": "Redmon",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 352,
+   "first_name": "Emma",
+   "last_name": "Meesseman",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 4\"",
+   "weight": "191 lbs",
+   "jersey_number": "33",
+   "college": "--",
+   "age": 32,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 357,
+   "first_name": "Toni",
+   "last_name": "Young",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "15",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 358,
+   "first_name": "Kelsey",
+   "last_name": "Bone",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "3",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 359,
+   "first_name": "Kamiko",
+   "last_name": "Williams",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "4",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 367,
+   "first_name": "Chucky",
+   "last_name": "Jeffery",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "99",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 371,
+   "first_name": "Anna",
+   "last_name": "Cruz",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "51",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 399,
+   "first_name": "Shanece",
+   "last_name": "McKinney",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "24",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 423,
+   "first_name": "Brittany",
+   "last_name": "Boyd-Jones",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "15",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 424,
+   "first_name": "Rebecca",
+   "last_name": "Allen",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 2\"",
+   "weight": "--",
+   "jersey_number": "9",
+   "college": null,
+   "age": 33,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 460,
+   "first_name": "Ameryst",
+   "last_name": "Alston",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "22",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 461,
+   "first_name": "Adut",
+   "last_name": "Bulgak",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "2",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 465,
+   "first_name": "Jonquel",
+   "last_name": "Jones",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 6\"",
+   "weight": "George Washington",
+   "jersey_number": "35",
+   "college": null,
+   "age": 32,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 468,
+   "first_name": "Breanna",
+   "last_name": "Stewart",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "UConn",
+   "jersey_number": "30",
+   "college": null,
+   "age": 32,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 489,
+   "first_name": "Nayo",
+   "last_name": "Raincock-Ekunwe",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "4",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 566,
+   "first_name": "Han",
+   "last_name": "Xu",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 11\"",
+   "weight": "--",
+   "jersey_number": "21",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 567,
+   "first_name": "AD",
+   "last_name": "Durr",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "25",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 582,
+   "first_name": "Marine",
+   "last_name": "Johannes",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "--",
+   "jersey_number": "23",
+   "college": null,
+   "age": 31,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 591,
+   "first_name": "Sabrina",
+   "last_name": "Ionescu",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "Oregon",
+   "jersey_number": "20",
+   "college": null,
+   "age": 28,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 592,
+   "first_name": "Leaonna",
+   "last_name": "Odom",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "0",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 593,
+   "first_name": "Kylee",
+   "last_name": "Shook",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "24",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 595,
+   "first_name": "Jocelyn",
+   "last_name": "Willoughby",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "13",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 596,
+   "first_name": "Jazmine",
+   "last_name": "Jones",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "4",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 602,
+   "first_name": "Satou",
+   "last_name": "Sabally",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "Oregon",
+   "jersey_number": "0",
+   "college": null,
+   "age": 28,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 608,
+   "first_name": "Megan",
+   "last_name": "Walker",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "3",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 616,
+   "first_name": "DiDi",
+   "last_name": "Richards",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 2\"",
+   "weight": "164 lbs",
+   "jersey_number": "12",
+   "college": "Baylor",
+   "age": 27,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 642,
+   "first_name": "Anneli",
+   "last_name": "Maley",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 1\"",
+   "weight": "TCU",
+   "jersey_number": "24",
+   "college": null,
+   "age": 28,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 655,
+   "first_name": "Lorela",
+   "last_name": "Cubaj",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "18",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 663,
+   "first_name": "Rebekah",
+   "last_name": "Gardner",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 1\"",
+   "weight": "UCLA",
+   "jersey_number": "7",
+   "college": null,
+   "age": 36,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 712,
+   "first_name": "Leonie",
+   "last_name": "Fiebich",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "--",
+   "jersey_number": "13",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 713,
+   "first_name": "Marquesha",
+   "last_name": "Davis",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "1",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 715,
+   "first_name": "Julie",
+   "last_name": "Vanloo",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "--",
+   "jersey_number": "53",
+   "college": "Iowa State",
+   "age": 33,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 778,
+   "first_name": "Annika",
+   "last_name": "Soltau",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "--",
+   "jersey_number": "0",
+   "college": "--",
+   "age": 21,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 781,
+   "first_name": "Madison",
+   "last_name": "Scott",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 2\"",
+   "weight": "Ole Miss",
+   "jersey_number": "10",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 66925,
+   "first_name": "Pauline",
+   "last_name": "Astier",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "--",
+   "jersey_number": "18",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 66926,
+   "first_name": "Raquel",
+   "last_name": "Carrera",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "--",
+   "jersey_number": "14",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 66936,
+   "first_name": "Ashley",
+   "last_name": "Owusu",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 0\"",
+   "weight": "210 lbs",
+   "jersey_number": "33",
+   "college": "Penn State",
+   "age": 25,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 66937,
+   "first_name": "Manuela",
+   "last_name": "Puoch",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 0\"",
+   "weight": "--",
+   "jersey_number": null,
+   "college": "--",
+   "age": 19,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 67044,
+   "first_name": "Aubrey",
+   "last_name": "Griffin",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 1\"",
+   "weight": "--",
+   "jersey_number": "22",
+   "college": "UConn",
+   "age": 24,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 67163,
+   "first_name": "Elizabeth",
+   "last_name": "Balogun",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 2\"",
+   "weight": "Duke",
+   "jersey_number": "5",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 74550,
+   "first_name": "Derin",
+   "last_name": "Erdogan",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 7\"",
+   "weight": "--",
+   "jersey_number": "17",
+   "college": "Northeastern",
+   "age": 23,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 74551,
+   "first_name": "Marine",
+   "last_name": "Fauthoux",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 9\"",
+   "weight": "--",
+   "jersey_number": "4",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 74553,
+   "first_name": "Alex",
+   "last_name": "Fowler",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "--",
+   "jersey_number": "12",
+   "college": "Portland",
+   "age": 24,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 74561,
+   "first_name": "Ny'Ceara",
+   "last_name": "Pryor",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 3\"",
+   "weight": "--",
+   "jersey_number": "1",
+   "college": "Texas A&M",
+   "age": 21,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  },
+  {
+   "id": 97493,
+   "first_name": "Seehia",
+   "last_name": "Ridard",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "--",
+   "jersey_number": "0",
+   "college": "--",
+   "age": 23,
+   "team": {
+    "id": 1,
+    "conference": "Eastern Conference",
+    "city": "New York",
+    "name": "Liberty",
+    "full_name": "New York Liberty",
+    "abbreviation": "NY"
+   }
+  }
+ ],
+ "meta": {
+  "pages": 1,
+  "source": "players?team_ids[]=1"
+ }
+}

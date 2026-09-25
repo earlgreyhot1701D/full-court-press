@@ -1,0 +1,1388 @@
+{
+ "data": [
+  {
+   "id": 39,
+   "first_name": "Tangela",
+   "last_name": "Smith",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 40,
+   "first_name": "Kelly",
+   "last_name": "Miller",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 41,
+   "first_name": "Diana",
+   "last_name": "Taurasi",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 42,
+   "first_name": "Cappie",
+   "last_name": "Pondexter",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 43,
+   "first_name": "Willnett",
+   "last_name": "Crockett",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 44,
+   "first_name": "Yuko",
+   "last_name": "Oga",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 45,
+   "first_name": "Barbara",
+   "last_name": "Farris",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 46,
+   "first_name": "Le'coe",
+   "last_name": "Willingham",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 47,
+   "first_name": "LaToya",
+   "last_name": "Sanders",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 48,
+   "first_name": "Allie",
+   "last_name": "Quigley",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 49,
+   "first_name": "Kelly",
+   "last_name": "Mazzante",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 50,
+   "first_name": "Jennifer",
+   "last_name": "Derevjanik",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 51,
+   "first_name": "Brooke",
+   "last_name": "Smith",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 209,
+   "first_name": "Olympia",
+   "last_name": "Scott",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 245,
+   "first_name": "Penny",
+   "last_name": "Taylor",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 265,
+   "first_name": "Taylor",
+   "last_name": "Lilley",
+   "position": "Not Available",
+   "position_abbreviation": "NA",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 278,
+   "first_name": "Alexis",
+   "last_name": "Gray-Lawson",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 323,
+   "first_name": "Samantha",
+   "last_name": "Prahalis",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 324,
+   "first_name": "Zane",
+   "last_name": "Tamane",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 325,
+   "first_name": "Avery",
+   "last_name": "Warley-Talbert",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 331,
+   "first_name": "Dymond",
+   "last_name": "Simon",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 333,
+   "first_name": "Briana",
+   "last_name": "Butler",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": null,
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 365,
+   "first_name": "Jasmine",
+   "last_name": "James",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "10",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 373,
+   "first_name": "Alyssa",
+   "last_name": "Thomas",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "Maryland",
+   "jersey_number": "25",
+   "college": null,
+   "age": 34,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 396,
+   "first_name": "Tiffany",
+   "last_name": "Bias",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "23",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 413,
+   "first_name": "Cayla",
+   "last_name": "George",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "22",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 414,
+   "first_name": "Alex",
+   "last_name": "Harden",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "12",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 415,
+   "first_name": "Tess",
+   "last_name": "Madgen",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "9",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 416,
+   "first_name": "Marta",
+   "last_name": "Xargay",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "10",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 448,
+   "first_name": "Valeriane",
+   "last_name": "Ayayi",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 1\"",
+   "weight": "--",
+   "jersey_number": "11",
+   "college": null,
+   "age": 32,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 457,
+   "first_name": "Nirra",
+   "last_name": "Fields",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "21",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 462,
+   "first_name": "Kahleah",
+   "last_name": "Copper",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 1\"",
+   "weight": "Rutgers",
+   "jersey_number": "2",
+   "college": null,
+   "age": 32,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 483,
+   "first_name": "Sami",
+   "last_name": "Whitcomb",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "Washington",
+   "jersey_number": "33",
+   "college": null,
+   "age": 38,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 488,
+   "first_name": "Kelsey",
+   "last_name": "Plum",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 8\"",
+   "weight": "Washington",
+   "jersey_number": "0",
+   "college": null,
+   "age": 32,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 504,
+   "first_name": "Alexis",
+   "last_name": "Prince",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "15",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 505,
+   "first_name": "Yvonne",
+   "last_name": "Turner",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "6",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 506,
+   "first_name": "Sophie",
+   "last_name": "Brunner",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "25",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 526,
+   "first_name": "Marie",
+   "last_name": "Guelich",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "21",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 527,
+   "first_name": "Imani",
+   "last_name": "Wright",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "1",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 538,
+   "first_name": "Jaime",
+   "last_name": "Nared",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 2\"",
+   "weight": "160 lbs",
+   "jersey_number": "14",
+   "college": "Tennessee",
+   "age": 30,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 557,
+   "first_name": "Arica",
+   "last_name": "Carter",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "1",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 583,
+   "first_name": "Jillian",
+   "last_name": "Alleyne",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "193 lbs",
+   "jersey_number": "28",
+   "college": "Oregon",
+   "age": 31,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 633,
+   "first_name": "Natasha",
+   "last_name": "Mack",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "Oklahoma State",
+   "jersey_number": "4",
+   "college": null,
+   "age": 28,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 634,
+   "first_name": "Haley",
+   "last_name": "Gorecki",
+   "position": "Guard",
+   "position_abbreviation": "G",
+   "height": null,
+   "weight": null,
+   "jersey_number": "20",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 637,
+   "first_name": "Aisha",
+   "last_name": "Sheppard",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 9\"",
+   "weight": "145 lbs",
+   "jersey_number": "17",
+   "college": "Virginia Tech",
+   "age": 27,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 638,
+   "first_name": "Sam",
+   "last_name": "Thomas",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "14",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 693,
+   "first_name": "Liz",
+   "last_name": "Dixon",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "20",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 694,
+   "first_name": "Kadi",
+   "last_name": "Sissoko",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "30",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 706,
+   "first_name": "Madi",
+   "last_name": "Williams",
+   "position": "Forward",
+   "position_abbreviation": "F",
+   "height": null,
+   "weight": null,
+   "jersey_number": "25",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 747,
+   "first_name": "Kyara",
+   "last_name": "Linskens",
+   "position": "C",
+   "position_abbreviation": "C",
+   "height": "6' 4\"",
+   "weight": "--",
+   "jersey_number": "31",
+   "college": null,
+   "age": 29,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 751,
+   "first_name": "Maddy",
+   "last_name": "Westbeld",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "Notre Dame",
+   "jersey_number": "21",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 764,
+   "first_name": "Kathryn",
+   "last_name": "Westbeld",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "--",
+   "jersey_number": "9",
+   "college": "Notre Dame",
+   "age": 30,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 766,
+   "first_name": "Lexi",
+   "last_name": "Held",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "DePaul",
+   "jersey_number": "10",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 769,
+   "first_name": "Murjanatu",
+   "last_name": "Musa",
+   "position": "Center",
+   "position_abbreviation": "C",
+   "height": null,
+   "weight": null,
+   "jersey_number": "20",
+   "college": null,
+   "age": null,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 67054,
+   "first_name": "Saylor",
+   "last_name": "Poffenbarger",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 2\"",
+   "weight": "Maryland",
+   "jersey_number": "6",
+   "college": null,
+   "age": 23,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 67092,
+   "first_name": "Noemie",
+   "last_name": "Brochant",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "5' 11\"",
+   "weight": "--",
+   "jersey_number": "1",
+   "college": null,
+   "age": 26,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 67094,
+   "first_name": "Shay",
+   "last_name": "Ciezki",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 7\"",
+   "weight": "Indiana",
+   "jersey_number": "5",
+   "college": null,
+   "age": 22,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 67096,
+   "first_name": "Kara",
+   "last_name": "Dunn",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "USC",
+   "jersey_number": "12",
+   "college": null,
+   "age": 22,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 67097,
+   "first_name": "Yarden",
+   "last_name": "Garzon",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 3\"",
+   "weight": "--",
+   "jersey_number": "55",
+   "college": "Maryland",
+   "age": 22,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 67098,
+   "first_name": "Lee-Seul",
+   "last_name": "Kang",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 11\"",
+   "weight": "154 lbs",
+   "jersey_number": "3",
+   "college": "--",
+   "age": 32,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 67100,
+   "first_name": "Ines",
+   "last_name": "Pitarch-Granel",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "--",
+   "jersey_number": null,
+   "college": "--",
+   "age": 20,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 67101,
+   "first_name": "Eszter",
+   "last_name": "Ratkai",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "--",
+   "jersey_number": "0",
+   "college": "--",
+   "age": 19,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 67157,
+   "first_name": "Marta",
+   "last_name": "Suarez",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 3\"",
+   "weight": "TCU",
+   "jersey_number": "77",
+   "college": null,
+   "age": 24,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 74872,
+   "first_name": "Quionche",
+   "last_name": "Carter",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 0\"",
+   "weight": "Florida Gulf Coast",
+   "jersey_number": "20",
+   "college": null,
+   "age": 25,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 74875,
+   "first_name": "Maggie",
+   "last_name": "Doogan",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 2\"",
+   "weight": "--",
+   "jersey_number": "44",
+   "college": "Richmond",
+   "age": 22,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 74878,
+   "first_name": "Lauren",
+   "last_name": "Jensen",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "5' 10\"",
+   "weight": "--",
+   "jersey_number": "15",
+   "college": "Creighton",
+   "age": 24,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 74884,
+   "first_name": "Jovana",
+   "last_name": "Nogic",
+   "position": "G",
+   "position_abbreviation": "G",
+   "height": "6' 0\"",
+   "weight": "Providence",
+   "jersey_number": "29",
+   "college": null,
+   "age": 28,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 75095,
+   "first_name": "Peyton",
+   "last_name": "Williams",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 4\"",
+   "weight": "--",
+   "jersey_number": "22",
+   "college": "Kansas State",
+   "age": 28,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  },
+  {
+   "id": 80580,
+   "first_name": "Quionche",
+   "last_name": "Carter",
+   "position": "F",
+   "position_abbreviation": "F",
+   "height": "6' 0\"",
+   "weight": "--",
+   "jersey_number": "20",
+   "college": "--",
+   "age": 25,
+   "team": {
+    "id": 10,
+    "conference": "Western Conference",
+    "city": "Phoenix",
+    "name": "Mercury",
+    "full_name": "Phoenix Mercury",
+    "abbreviation": "PHX"
+   }
+  }
+ ],
+ "meta": {
+  "pages": 1,
+  "source": "players?team_ids[]=10"
+ }
+}

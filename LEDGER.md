@@ -261,3 +261,17 @@ Process:      The fetch runs on the owner's machine through `tools/fetch_golden.
 Guardrails added: never print the caller identity unmasked (the first discovery command printed the full account id); read long-running results from a file, after the script finishes, never from stdout.
 Disposition:  promote (tools/, design.md overtime_periods, guardrails.md two new rules)
 Changes PRD?: no
+
+### 2026-09-24 . Block 2 . 2.6b PASS: 5 of 5 golden games reconcile
+Question:     Can per-player statistics be counted from the play-by-play accurately enough to publish? Cut rule: fewer than 4 of 5 golden games reconciling on points drops derived stats entirely.
+Answer:       PASS, 5 of 5. Each team's derived points equal its final score exactly in all five games, including the overtime game 25014. Zero unattributed events in any category. No category dropped. Every assist, steal and block mentioned anywhere in the play text is credited exactly once (checked against a raw count of mentions).
+Found while building:
+  - The vocabulary: 69 play types across 2,104 plays. Rebounds and turnovers have types; assists, steals and blocks do not, they are embedded in other plays' text. The classifier would have been wrong if written from a guess.
+  - The roster gap: the players endpoint returns current rosters. Jaylyn Sherrod assisted for Atlanta in 25014 and is on neither roster. 1 name in 748 credited events, zero points. Closed exactly, not fuzzily: a game's roster now includes the names in that game's substitution lines.
+  - Team events: "Fever defensive team rebound" and "shot clock turnover" belong to a team, not a player, and do not count as unattributed.
+  - A bug caught before commit: blocked shots never say "misses", so 8 to 11 misses per game were invisible to the blocks sanity check. It still passed, but against a smaller bound than intended. Fixed, with a test.
+  - A weak test caught before commit: one of Claude's own tests ended in `or True` and could not fail. Rewritten.
+Honest limit, unchanged: points are verified; the other categories are counted. The sanity checks catch impossible values, not missing ones.
+Cost:         One fetch run by the owner (21 requests), no Kiro credits.
+Disposition:  promote (src/zine/pbp_stats.py, tests/test_pbp_stats.py, 18 tests passing; design.md updated)
+Changes PRD?: no. Requirement 3b holds as written.
