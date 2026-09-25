@@ -101,7 +101,7 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
 
 ## Block 2: Facts from real data (Tier: Working. Disposition: promote)
 - [x] 2.1 `league_config.py` with NBA STUB entry . DONE Sep 24 (Claude), plus TEAM_FILL for the expansion teams' blank names
-- [ ] 2.2 `bdl_client.py` + `secrets.py` per design (auth header, spacing, per-run cap, 429 backoff, 401 handling, timeout, key never logged)
+- [x] 2.2 `bdl_client.py` + `api_key.py` (renamed from secrets.py, which shadows the standard library) . DONE Sep 24 (Claude): auth header, spacing, per-run cap, 429 backoff, 401 not retried, timeout, NEVER-list endpoints refused before any request, key never logged
 - [x] 2.3 Golden set . DONE Sep 24: 5 games (game, plays, both rosters) + standings, fetched by the owner via tools/fetch_golden.ps1. player_stats is GOAT-only and never called. OT game included (25014).
 - [x] 2.4 `facts.py` (game + plays + rosters + standings -> facts sheet), `game_of_night.py` + `gotn_rules.json` . DONE Sep 24 (Claude). Runs are built, not stubbed.
 - [x] 2.5 Tests for facts, quarters, game_of_night . DONE Sep 24 (Claude), 43 passing across the suite
@@ -122,7 +122,8 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
   - `zine/runs.py` per design.md. A run never crosses a period boundary.
   - Standings line per team from `/wnba/v1/standings`: wins, losses, place in conference. Nothing else. Never "seed".
 - [ ] 2.7 CHECKPOINT 2
-  - Facts for all 5 golden games match their raw JSON (Kiro compares scores, leaders and one player line per team against the raw file and shows the comparison)
+  - Updated Sep 24: there is no player_stats raw file to compare against (GOAT tier). The code-side checks are the points reconciliation (5 of 5), quarters adding up in true game order, and overtime agreeing between the game record and the plays, all tested.
+  - OWNER: independent spot check by eye in a browser against Basketball Reference, recorded MATCH or MISMATCH. Start with Alyssa Thomas in 25071 (15 pts, 11 reb, 12 ast: the triple-double built on counted categories), then one line from 25014 (the OT game).
   - Tests pass. No odds, props or injury data anywhere in the output (grep). The API key appears in no log, no fixture and no task summary (grep)
   - _Requirements: 2, 3, 4, 11, 13_
 

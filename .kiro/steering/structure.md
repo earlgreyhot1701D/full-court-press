@@ -14,9 +14,13 @@ full-court-press/
   src/zine/
     league_config.py        league keys, BALLDONTLIE path segments, enabled flags (NBA disabled, STUB)
     bdl_client.py           HTTP only: auth header, rate limit, 429 backoff, timeout, try/except, returns dicts
-    secrets.py              reads the API key from SSM (or BDL_API_KEY locally), caches in memory
+    api_key.py              reads the API key from SSM (or BDL_API_KEY locally), caches in memory.
+                            (Was secrets.py: that name shadows the standard library module.)
     cache.py                read/write raw/ and facts/ in S3 or ./out in dry run
     facts.py                raw summary -> facts sheet (pure function)
+    timeline.py             plays -> true game order (the feed logs some events late)
+    quarters.py             plays -> points per period, must add up to the final
+    pbp_stats.py            plays + rosters -> per-player stat line, with the reconciliation gates
     runs.py                 play-by-play -> scoring runs (pure function)
     game_of_night.py        interest score (pure function, rules from gotn_rules.json)
     voices.py               voice definitions (traits, banned phrases, rhythm)

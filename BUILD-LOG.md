@@ -169,3 +169,9 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS. pytest 43 passed. All five pages render in a headless browser at 390px: no horizontal scroll, no page errors, correct contrast attribute, voices shown as passed (deliberately), no "box score" or "seed" text.
 - Resources: none.
 - Evidence: LEDGER entry of the same date.
+
+## 2026-09-24 . 2.2 . API client and key reader (Claude, on disk)
+- Tier: Working
+- Did: `src/zine/bdl_client.py`, `src/zine/api_key.py`, `tests/test_bdl_client.py` (network, clock and SSM faked; no real calls). structure.md and tasks.md updated, CHECKPOINT 2 criteria rewritten to match the data that exists.
+- Result: PASS. pytest 54 passed. Key-leak sweep over fixtures, tools, logs and docs found nothing.
+- Resources: none.

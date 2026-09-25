@@ -296,3 +296,9 @@ Decided: no mock voice on real games. Block 1's mock copy was invented sentences
 Flag for the owner's CHECKPOINT 2 spot check: Alyssa Thomas's triple-double in 25071 (15 points, 11 rebounds, 12 assists) is the most headline-worthy claim the zine makes on counted, unverified categories. Check that line against Basketball Reference first.
 Disposition:  promote (facts.py, game_of_night.py, gotn_rules.json, league_config.py, dev_render_golden.py; 43 tests)
 Changes PRD?: no
+
+### 2026-09-24 . Block 2 . 2.2 client, and a module renamed
+Answer:       `bdl_client.py` enforces the rules from tech.md itself rather than trusting callers: bare-key auth header, one second spacing, per-run cap, 429 backoff with Retry-After, no retry on 401, 10 second timeout, and the NEVER-list endpoints (odds, props, injuries, player_stats) refused before any request is made. `api_key.py` reads the env var or SSM and never lets the key into an error message, tested with a deliberately leaky fake.
+Deviation:    structure.md named the key reader `secrets.py`. That shadows Python's standard `secrets` module and can break unrelated imports in ways that are hard to trace. Renamed `api_key.py`; structure.md updated.
+Checkpoint 2 criteria updated: there is no player_stats file to compare against, so the code-side evidence is the tested reconciliation, and the independent check is the owner's, by eye, starting with Alyssa Thomas's triple-double in 25071.
+Disposition:  promote (54 tests passing)
