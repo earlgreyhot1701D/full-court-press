@@ -285,3 +285,14 @@ Found, 3: the standings endpoint returns every season since 2008 unless asked fo
 Why it matters: the sum check was a real check and it was not enough. A check that proves totals cannot prove order.
 Disposition:  promote (timeline.py, quarters.py, runs.py, league_strip.py; 12 new tests, 30 passing; design.md and tasks.md updated)
 Changes PRD?: no
+
+### 2026-09-24 . Block 2 . Facts sheet and Game of the Night on real games
+Question:     Do the pieces assemble into one facts sheet per real game that the templates can render?
+Answer:       Yes. All five golden games build with nothing missing, render at 390px with no errors, no "box score", no "seed", nothing from odds, props or injuries (tested). Game of the Night picks 25071 (one-point game, two 30-point scorers, a triple-double) over 25014 on the tie rule, later tip.
+Found, 1: dates. A 7pm Pacific tip is 02:00 UTC the next day (25057), so the UTC date files West Coast night games under the wrong morning's issue. `date_local` is the US Eastern calendar day.
+Found, 2: the provider has the two 2026 expansion teams with a blank city and a full name of just "Fire" and "Tempo", and the empty city had reached allowed_names. `league_config.TEAM_FILL` fills blanks only, never overrides, with sources.
+Found, 3: The Number's caption had been guessed from the shape of a key name. The facts sheet now says what each number means (`number_labels`), built from facts only.
+Decided: no mock voice on real games. Block 1's mock copy was invented sentences about invented numbers; the same thing on real games is invented sentences about real players. Voices render as "The writers' room passed on this one." until Block 3. The Spotlight panel is absent for the same reason: its text is the voice's. Its player and stat boxes are deterministic and could render without the voice; decide in Block 3.
+Flag for the owner's CHECKPOINT 2 spot check: Alyssa Thomas's triple-double in 25071 (15 points, 11 rebounds, 12 assists) is the most headline-worthy claim the zine makes on counted, unverified categories. Check that line against Basketball Reference first.
+Disposition:  promote (facts.py, game_of_night.py, gotn_rules.json, league_config.py, dev_render_golden.py; 43 tests)
+Changes PRD?: no

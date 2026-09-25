@@ -59,7 +59,9 @@ Chosen Sep 20 2026. ESPN was ruled out by the compliance gate: the Disney/ESPN t
 - The key comes from `secrets.py` (SSM SecureString `/full-court-press/bdl-api-key`, or `BDL_API_KEY` locally) and is never logged.
 
 ### facts.py (pure)
-Input: the game dict plus its player_stats rows. Output: facts sheet dict:
+Input: the raw game object, its plays, the two rosters, the standings rows. Output: facts sheet dict.
+Dates: `date_local` is the US Eastern calendar day (a 7pm Pacific tip is the next day in UTC).
+Teams pass through `league_config.complete_team` first (the expansion teams arrive with blank names).
 ```
 game_id, league, date_local, season_type, tip_time_utc, status
 home: {team, abbrev, score}, away: {team, abbrev, score}
@@ -81,9 +83,12 @@ standings_line: {abbrev: {wins, losses, conference, conference_rank, place}}
                                      // filtered to the game's season. The API's `playoff_seed` is
                                      // conference rank for every team, so it is published as a place
                                      // ("6th in the East"), never as a seed. zine.league_strip.
-notable: [{type, player, detail}]    # points-based only now: 20+ pts, 30+ pts, game high.
-                                     # Double-double and triple-double are impossible without rebounds
-                                     # and assists, and are NEVER inferred.
+notable: [{type, player, detail}]    # 20plus, 30plus, game_high, double_double, triple_double.
+                                     # A double or triple double only when every category it rests on
+                                     # survived its gate for that game (Requirement 3b).
+number_labels: {key: text}           # plain words for each candidate Number, built from facts only
+winner_max_deficit: int              # largest deficit the winner overcame, true game order
+missing: [field]                     # anything that could not be trusted; never a guess
 numbers: {key: value}                # every displayable number, named, e.g. "home_score", "margin", "lead_pts_A_Wilson"
 allowed_numbers: [str]               # every numbers value as it would be displayed, plus FG strings "9-17" split to 9 and 17
 allowed_names: [str]                 # full names, last names, team names, team abbrevs, city names

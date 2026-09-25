@@ -162,3 +162,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS. Golden set: quarters add up and include overtime, zero score drops in true game order, no run crosses a period, standings filtered to 2026 and published as conference place. pytest 30 passed; dev render still builds every page.
 - Resources: none.
 - Evidence: LEDGER entry of the same date.
+
+## 2026-09-24 . 2.1, 2.4, 2.5, 2.6 . Facts sheet, Game of the Night, golden render (Claude, on disk)
+- Tier: Working
+- Did: `src/zine/facts.py`, `game_of_night.py`, `gotn_rules.json`, `league_config.py` (NBA STUB, expansion-team name fill), `dev_render_golden.py`; `tests/test_facts_gotn.py`. Rendered the five golden games, both editions each, plus an index, to `out-golden/` (gitignored).
+- Result: PASS. pytest 43 passed. All five pages render in a headless browser at 390px: no horizontal scroll, no page errors, correct contrast attribute, voices shown as passed (deliberately), no "box score" or "seed" text.
+- Resources: none.
+- Evidence: LEDGER entry of the same date.

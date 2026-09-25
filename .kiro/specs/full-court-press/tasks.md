@@ -100,12 +100,12 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
   - _Requirements: 7, 9, 10_
 
 ## Block 2: Facts from real data (Tier: Working. Disposition: promote)
-- [ ] 2.1 `league_config.py` with NBA STUB entry
+- [x] 2.1 `league_config.py` with NBA STUB entry . DONE Sep 24 (Claude), plus TEAM_FILL for the expansion teams' blank names
 - [ ] 2.2 `bdl_client.py` + `secrets.py` per design (auth header, spacing, per-run cap, 429 backoff, 401 handling, timeout, key never logged)
-- [ ] 2.3 Golden set: fetch and save 5 WNBA 2026 games (game + player_stats each) to `fixtures/golden/` (include an OT game if one exists; owner approves the list). Also commit `team_colors.json` for the 15 teams.
-- [ ] 2.4 `facts.py` (games + player_stats -> facts sheet, quarters included), `game_of_night.py` + `gotn_rules.json`. `runs.py` is a STUB comment only unless Block 0 showed the plays endpoint is available.
-- [ ] 2.5 Tests for facts, quarters, game_of_night (design.md Testing)
-- [ ] 2.6 Render golden games with a mock voice to `./out/`
+- [x] 2.3 Golden set . DONE Sep 24: 5 games (game, plays, both rosters) + standings, fetched by the owner via tools/fetch_golden.ps1. player_stats is GOAT-only and never called. OT game included (25014).
+- [x] 2.4 `facts.py` (game + plays + rosters + standings -> facts sheet), `game_of_night.py` + `gotn_rules.json` . DONE Sep 24 (Claude). Runs are built, not stubbed.
+- [x] 2.5 Tests for facts, quarters, game_of_night . DONE Sep 24 (Claude), 43 passing across the suite
+- [x] 2.6 Render golden games to `./out-golden/` . DONE Sep 24 (Claude). NO mock voice on real games: invented sentences about real players is what the fact lock exists to stop, so voices show "The writers' room passed on this one." until Block 3
 - [x] 2.6b Derived statistics from play-by-play (Requirement 3b) . PASS Sep 24, 5 of 5 reconciled (Claude)
   - `zine/pbp_stats.py` per design.md. Points, FGM, FTM, rebounds, assists, steals, blocks, turnovers.
     Exact roster name matching, no fuzzy matching. No minutes, plus-minus, percentages or attempts.

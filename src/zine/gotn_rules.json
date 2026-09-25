@@ -1,0 +1,9 @@
+{
+  "close_margin_max": 5,
+  "close_margin_pts": 3,
+  "overtime_pts": 3,
+  "thirty_pt_game_pts": 2,
+  "triple_double_pts": 3,
+  "comeback_min": 15,
+  "comeback_pts": 2
+}
