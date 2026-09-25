@@ -118,9 +118,9 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
   - Report how many of the 5 golden games reconciled. **Owner cut rule: fewer than 4 of 5 reconcile and
     derived scoring is dropped entirely, back to runs and standings.** Do not tune the matcher to hit
     the number; report what it does.
-- [ ] 2.6c Runs and standings (promoted from STUB)
+- [x] 2.6c Runs and standings (promoted from STUB) . PASS Sep 24 (Claude): runs, quarters from plays, standings place
   - `zine/runs.py` per design.md. A run never crosses a period boundary.
-  - Standings line per team from `/wnba/v1/standings`: wins, losses, playoff seed. Nothing else.
+  - Standings line per team from `/wnba/v1/standings`: wins, losses, place in conference. Nothing else. Never "seed".
 - [ ] 2.7 CHECKPOINT 2
   - Facts for all 5 golden games match their raw JSON (Kiro compares scores, leaders and one player line per team against the raw file and shows the comparison)
   - Tests pass. No odds, props or injury data anywhere in the output (grep). The API key appears in no log, no fixture and no task summary (grep)

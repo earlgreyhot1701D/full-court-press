@@ -275,3 +275,13 @@ Honest limit, unchanged: points are verified; the other categories are counted. 
 Cost:         One fetch run by the owner (21 requests), no Kiro credits.
 Disposition:  promote (src/zine/pbp_stats.py, tests/test_pbp_stats.py, 18 tests passing; design.md updated)
 Changes PRD?: no. Requirement 3b holds as written.
+
+### 2026-09-24 . Block 2 . 2.6c PASS, and three things the real feed does that the spec did not expect
+Question:     Can runs, quarter scores and a standings line be built from the golden fetch?
+Answer:       PASS. All five games: quarters add up to the final, overtime shows as a fifth period, runs are real stretches of unanswered points inside one period, and standings filter to 2026.
+Found, 1: the games endpoint carries only the final score. design.md said quarters came from it. They come from the running score on the plays instead.
+Found, 2, the serious one: the feed logs some events late. 19 records across 4 of 5 games sit out of sequence, some filed under an earlier period, each carrying the scoreboard of its own moment. Read in list order the score appears to drop and jump back. It produced a phantom 8-0 run lasting zero seconds (25057), and it made Portland's first quarter read 20-20 instead of 26-20 while every total still matched, so the add-up check passed on wrong numbers. DAL at PHX was wrong the same way and nobody had noticed. Fix: `zine.timeline` sorts plays into true game order (period, then clock counting down). In that order the score never drops, in any of the five games, which is the evidence the sort is right. Quarters also return None now if the score ever drops. These late records are real events, not duplicates, so the stat counter's totals were never affected.
+Found, 3: the standings endpoint returns every season since 2008 unless asked for one (235 rows), and its `playoff_seed` is conference rank for every team, down to Seattle at 8-36. Printed as a seed it would tell a fan her team made the playoffs. Published as a place instead: "6th in the East". Mock fixtures reshaped to match; no template rendered it yet, so the change was cheap now.
+Why it matters: the sum check was a real check and it was not enough. A check that proves totals cannot prove order.
+Disposition:  promote (timeline.py, quarters.py, runs.py, league_strip.py; 12 new tests, 30 passing; design.md and tasks.md updated)
+Changes PRD?: no

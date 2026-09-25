@@ -5,50 +5,222 @@
   "season_type": "regular",
   "tip_time_utc": "2026-09-20T00:00:00Z",
   "status": "Final",
-  "home": { "team": "Dallas Wings", "abbrev": "DAL", "score": 87 },
-  "away": { "team": "Phoenix Mercury", "abbrev": "PHX", "score": 82 },
+  "home": {
+    "team": "Dallas Wings",
+    "abbrev": "DAL",
+    "score": 87
+  },
+  "away": {
+    "team": "Phoenix Mercury",
+    "abbrev": "PHX",
+    "score": 82
+  },
   "winner_abbrev": "DAL",
   "final_margin": 5,
   "overtime_periods": 0,
   "leaders": [
-    { "player": "Paige Bueckers", "team_abbrev": "DAL", "category": "points", "value": 26 },
-    { "player": "Alyssa Thomas", "team_abbrev": "PHX", "category": "assists", "value": 11 }
+    {
+      "player": "Paige Bueckers",
+      "team_abbrev": "DAL",
+      "category": "points",
+      "value": 26
+    },
+    {
+      "player": "Alyssa Thomas",
+      "team_abbrev": "PHX",
+      "category": "assists",
+      "value": 11
+    }
   ],
   "reconciled": true,
   "player_lines": [
-    { "player": "Paige Bueckers",   "team_abbrev": "DAL", "pts": 26, "fgm": 10, "ftm": 1, "oreb": 1, "dreb": 3, "reb": 4, "ast": 5, "stl": 1, "blk": 0, "to": 2, "source": "play_by_play" },
-    { "player": "Arike Ogunbowale", "team_abbrev": "DAL", "pts": 22, "fgm": 8,  "ftm": 2, "oreb": 0, "dreb": 2, "reb": 2, "ast": 6, "stl": 2, "blk": 0, "to": 3, "source": "play_by_play" },
-    { "player": "Awak Kuier",       "team_abbrev": "DAL", "pts": 11, "fgm": 4,  "ftm": 3, "oreb": 2, "dreb": 3, "reb": 5, "ast": 2, "stl": 0, "blk": 1, "to": 1, "source": "play_by_play" },
-    { "player": "Leila Lacan",      "team_abbrev": "PHX", "pts": 21, "fgm": 7,  "ftm": 5, "oreb": 0, "dreb": 2, "reb": 2, "ast": 3, "stl": 1, "blk": 0, "to": 2, "source": "play_by_play" },
-    { "player": "Alyssa Thomas",    "team_abbrev": "PHX", "pts": 19, "fgm": 8,  "ftm": 3, "oreb": 3, "dreb": 7, "reb": 10, "ast": 11, "stl": 2, "blk": 1, "to": 4, "source": "play_by_play" }
+    {
+      "player": "Paige Bueckers",
+      "team_abbrev": "DAL",
+      "pts": 26,
+      "fgm": 10,
+      "ftm": 1,
+      "oreb": 1,
+      "dreb": 3,
+      "reb": 4,
+      "ast": 5,
+      "stl": 1,
+      "blk": 0,
+      "to": 2,
+      "source": "play_by_play"
+    },
+    {
+      "player": "Arike Ogunbowale",
+      "team_abbrev": "DAL",
+      "pts": 22,
+      "fgm": 8,
+      "ftm": 2,
+      "oreb": 0,
+      "dreb": 2,
+      "reb": 2,
+      "ast": 6,
+      "stl": 2,
+      "blk": 0,
+      "to": 3,
+      "source": "play_by_play"
+    },
+    {
+      "player": "Awak Kuier",
+      "team_abbrev": "DAL",
+      "pts": 11,
+      "fgm": 4,
+      "ftm": 3,
+      "oreb": 2,
+      "dreb": 3,
+      "reb": 5,
+      "ast": 2,
+      "stl": 0,
+      "blk": 1,
+      "to": 1,
+      "source": "play_by_play"
+    },
+    {
+      "player": "Leila Lacan",
+      "team_abbrev": "PHX",
+      "pts": 21,
+      "fgm": 7,
+      "ftm": 5,
+      "oreb": 0,
+      "dreb": 2,
+      "reb": 2,
+      "ast": 3,
+      "stl": 1,
+      "blk": 0,
+      "to": 2,
+      "source": "play_by_play"
+    },
+    {
+      "player": "Alyssa Thomas",
+      "team_abbrev": "PHX",
+      "pts": 19,
+      "fgm": 8,
+      "ftm": 3,
+      "oreb": 3,
+      "dreb": 7,
+      "reb": 10,
+      "ast": 11,
+      "stl": 2,
+      "blk": 1,
+      "to": 4,
+      "source": "play_by_play"
+    }
   ],
   "quarters": {
-    "home": [18, 37, 12, 20],
-    "away": [24, 25, 15, 18]
+    "home": [
+      18,
+      37,
+      12,
+      20
+    ],
+    "away": [
+      24,
+      25,
+      15,
+      18
+    ]
   },
   "runs": [
-    { "quarter": 1, "team_abbrev": "PHX", "points": 8,  "detail": "8-0 to open" },
-    { "quarter": 2, "team_abbrev": "DAL", "points": 12, "detail": "12-2 midway" }
+    {
+      "quarter": 1,
+      "team_abbrev": "PHX",
+      "points": 8,
+      "detail": "8-0 to open"
+    },
+    {
+      "quarter": 2,
+      "team_abbrev": "DAL",
+      "points": 12,
+      "detail": "12-2 midway"
+    }
   ],
   "standings_line": {
-    "DAL": { "wins": 20, "losses": 12, "playoff_seed": 4 },
-    "PHX": { "wins": 18, "losses": 14, "playoff_seed": 6 }
+    "DAL": {
+      "wins": 20,
+      "losses": 12,
+      "conference": "West",
+      "conference_rank": 4,
+      "place": "4th in the West"
+    },
+    "PHX": {
+      "wins": 18,
+      "losses": 14,
+      "conference": "West",
+      "conference_rank": 6,
+      "place": "6th in the West"
+    }
   },
   "notable": [
-    { "type": "20plus", "player": "Paige Bueckers", "detail": "26 points" },
-    { "type": "game_high", "player": "Paige Bueckers", "detail": "game high 26" }
+    {
+      "type": "20plus",
+      "player": "Paige Bueckers",
+      "detail": "26 points"
+    },
+    {
+      "type": "game_high",
+      "player": "Paige Bueckers",
+      "detail": "game high 26"
+    }
   ],
   "numbers": {
-    "home_score": 87, "away_score": 82, "margin": 5,
-    "bueckers_pts": 26, "ogunbowale_pts": 22, "ogunbowale_ast": 6,
-    "thomas_ast": 11, "thomas_reb": 10, "run_dal_q2": 12
+    "home_score": 87,
+    "away_score": 82,
+    "margin": 5,
+    "bueckers_pts": 26,
+    "ogunbowale_pts": 22,
+    "ogunbowale_ast": 6,
+    "thomas_ast": 11,
+    "thomas_reb": 10,
+    "run_dal_q2": 12
   },
   "the_number_key": "run_dal_q2",
-  "allowed_numbers": ["87", "82", "5", "26", "22", "6", "11", "10", "12", "2", "18", "37", "20", "24", "25", "15", "19", "4", "8", "1", "3", "5", "7"],
+  "allowed_numbers": [
+    "87",
+    "82",
+    "5",
+    "26",
+    "22",
+    "6",
+    "11",
+    "10",
+    "12",
+    "2",
+    "18",
+    "37",
+    "20",
+    "24",
+    "25",
+    "15",
+    "19",
+    "4",
+    "8",
+    "1",
+    "3",
+    "5",
+    "7"
+  ],
   "allowed_names": [
-    "Dallas Wings", "Dallas", "Wings", "DAL",
-    "Phoenix Mercury", "Phoenix", "Mercury", "PHX",
-    "Paige Bueckers", "Bueckers", "Arike Ogunbowale", "Ogunbowale",
-    "Awak Kuier", "Kuier", "Leila Lacan", "Lacan", "Alyssa Thomas", "Thomas"
+    "Dallas Wings",
+    "Dallas",
+    "Wings",
+    "DAL",
+    "Phoenix Mercury",
+    "Phoenix",
+    "Mercury",
+    "PHX",
+    "Paige Bueckers",
+    "Bueckers",
+    "Arike Ogunbowale",
+    "Ogunbowale",
+    "Awak Kuier",
+    "Kuier",
+    "Leila Lacan",
+    "Lacan",
+    "Alyssa Thomas",
+    "Thomas"
   ]
 }

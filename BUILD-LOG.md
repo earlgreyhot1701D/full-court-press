@@ -155,3 +155,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS. 5 of 5 golden games reconcile on points, zero unattributed events, every embedded assist, steal and block credited exactly once, overtime from the plays agrees with the game object. pytest 18 passed.
 - Resources: none (BALLDONTLIE calls were the owner's, from her machine).
 - Evidence: LEDGER entry of the same date; fixtures/golden/FETCH-REPORT.txt.
+
+## 2026-09-24 . 2.6c . Runs, quarters, standings line (Claude, on disk)
+- Tier: Working
+- Did: wrote `src/zine/timeline.py`, `quarters.py`, `runs.py`, `league_strip.py`; reshaped `standings_line` in the four mock fixtures; `tests/test_runs_quarters_standings.py` with 12 tests.
+- Result: PASS. Golden set: quarters add up and include overtime, zero score drops in true game order, no run crosses a period, standings filtered to 2026 and published as conference place. pytest 30 passed; dev render still builds every page.
+- Resources: none.
+- Evidence: LEDGER entry of the same date.

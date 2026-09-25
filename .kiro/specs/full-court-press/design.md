@@ -73,9 +73,14 @@ player_lines: [{player, team_abbrev, pts, fgm, ftm, oreb, dreb, reb, ast, stl, b
                                      // no attempts. A category that failed its gate is absent, not zero.
                                      // The whole block is absent if points did not reconcile.
 reconciled: bool                     // false -> every derived-scoring section is omitted
-quarters: {home: [q1..q4, ot...], away: [...]}   // from the games endpoint
+quarters: {home: [q1..q4, ot...], away: [...]}   // from the PLAYS, not the games endpoint, which
+                                     // carries only the final (Sep 24). zine.quarters, walked in true
+                                     // game order; must add up to the final, and None if not.
 runs: [...]                          // built from plays (ALL-STAR tier, confirmed Sep 23)
-standings_line: {abbrev: {wins, losses, playoff_seed}}   // from the standings endpoint
+standings_line: {abbrev: {wins, losses, conference, conference_rank, place}}
+                                     // filtered to the game's season. The API's `playoff_seed` is
+                                     // conference rank for every team, so it is published as a place
+                                     // ("6th in the East"), never as a seed. zine.league_strip.
 notable: [{type, player, detail}]    # points-based only now: 20+ pts, 30+ pts, game high.
                                      # Double-double and triple-double are impossible without rebounds
                                      # and assists, and are NEVER inferred.
@@ -85,8 +90,14 @@ allowed_names: [str]                 # full names, last names, team names, team 
 ```
 Missing required field -> that key is absent and `missing: [field]` lists it. Never a default guess.
 
+### timeline.py (pure) . added Sep 24
+The feed logs some events late (19 records across 4 of 5 golden games), filed out of sequence and
+sometimes under an earlier period, carrying the scoreboard of their moment. Anything that walks the game
+in sequence (runs, quarters) sorts plays into true game order first: period, then clock descending.
+Counting stats does not need it; totals do not depend on order.
+
 ### runs.py (pure)
-Walk `plays` in order, track score, emit runs of 8+ unanswered points. **A run never crosses a period boundary**: reset at each period start. Found Sep 20 while computing runs on the real DAL/PHX game with a naive walk, which merged a second-quarter run into the third.
+Walk `plays` in TRUE GAME ORDER (timeline.py), track score, emit runs of 8+ unanswered points. **A run never crosses a period boundary**: reset at each period start. Found Sep 20 while computing runs on the real DAL/PHX game with a naive walk, which merged a second-quarter run into the third.
 
 ### pbp_stats.py (pure) . derived scoring, added Sep 23
 One responsibility: turn `plays` into per-player points. Nothing else.
