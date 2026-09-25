@@ -63,7 +63,9 @@ Input: the game dict plus its player_stats rows. Output: facts sheet dict:
 ```
 game_id, league, date_local, season_type, tip_time_utc, status
 home: {team, abbrev, score}, away: {team, abbrev, score}
-winner_abbrev, final_margin, overtime_periods
+winner_abbrev, final_margin, overtime_periods   // = game.period - 4 when period > 4. Confirmed Sep 24
+                                     // on game 25014 (period 5). Cross-check: max play period must agree;
+                                     // if the two disagree, omit overtime_periods and log both values.
 leaders: [{player, team_abbrev, category, value}]
 player_lines: [{player, team_abbrev, pts, fgm, ftm, oreb, dreb, reb, ast, stl, blk, to,
                 source: "play_by_play"}]

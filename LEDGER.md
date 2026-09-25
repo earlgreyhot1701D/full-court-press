@@ -250,3 +250,14 @@ Note:         RENDER-CONTRAST.md lists default pink ink-on-pink at 4.3:1; the st
 Cost:         ~40 min. No cloud resource. Owner's six CSS fixes left intact, re-rendered on top.
 Disposition:  promote (contrast.py, test_contrast.py, template + style updates).
 Changes PRD?: no.
+
+### 2026-09-24 . Block 2 . Golden set chosen, and an overtime game that was there all along
+Question:     Does an overtime game exist in the available data, for the golden set?
+Answer:       Yes: game 25014, Indiana 95 at Atlanta 91, Aug 16 2026, game object `period: 5`.
+What happened: Kiro's widened discovery scan found it and wrote it to `_golden_candidates.json` (62 games, 1 OT). Kiro then read that file back through a command whose stdout was swallowed or stale, saw "total 44, ot 0" from the earlier and smaller scan, and reported to the owner that no overtime game existed. The file on disk contradicted the report. Found by Claude reading the file directly.
+Also settled: Kiro had concluded that the game object's `period` "won't reveal OT" because a regulation game showed 4. That was not evidence either way, and game 25014 disproves it: the game object shows period 5. Design: `overtime_periods = game.period - 4`, cross-checked against the max play period; if the two disagree, omit it and log both.
+Golden set: 25014 (overtime), 25071 PHX/DAL (margin 1), 25057 POR/PHX (margin 3), 25066 TOR/NY (margin 37), 25064 GS/SEA (margin 13). Covers all three expansion teams, whose colours are still unverified. 25072 dropped to make room for the OT game.
+Process:      The fetch runs on the owner's machine through `tools/fetch_golden.ps1`, not through an agent, to save Kiro credits; the key goes SSM to an environment variable for one process and is never printed or written. `tools/play_types.py` then builds PLAY_TYPES.md offline. Kiro's discovery scratch moved to `spike/golden-discovery/` under the discard rule.
+Guardrails added: never print the caller identity unmasked (the first discovery command printed the full account id); read long-running results from a file, after the script finishes, never from stdout.
+Disposition:  promote (tools/, design.md overtime_periods, guardrails.md two new rules)
+Changes PRD?: no

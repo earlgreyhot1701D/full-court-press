@@ -106,6 +106,14 @@ Good enough is the PASS line. The first result that meets it wins. Do not polish
 - Spike files are committed at the end of each spike task, not at the checkpoint. An uncommitted
   spike file is one `rm` away from gone, and the findings are only half the artifact.
 
+- Never print the caller identity unmasked. `aws sts get-caller-identity` returns the account id in the
+  ARN; use `--query Account` and mask all but the last four digits, or skip the check when a following
+  SSM or S3 call already proves the session is live. An account id that reaches a transcript has reached
+  a place it can be copied from.
+- Read results from a file, not from stdout, whenever a command runs longer than a few seconds or prints
+  more than a screen. Swallowed and truncated stdout has already produced one wrong conclusion (LEDGER,
+  Sep 24): read the file the script wrote, and read it after the script has finished.
+
 ## Who works on this repo
 Two agents commit here. Kiro builds and owns everything that touches AWS: deploys, Bedrock, Polly, SSM,
 SAM, and any command that needs the `fcp` profile. Claude (in Cowork, on the same folder) takes work that

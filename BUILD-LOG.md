@@ -141,3 +141,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: all of the above verified by rendering in a headless browser at 390px or by re-reading the committed files
 - Resources: none
 - Evidence: commits by Kiro on Sep 23 and 24 that carried these files; LEDGER.md entries of the same dates
+
+## 2026-09-24 . 2.0 . Golden set prep (Claude, on disk)
+- Tier: Working
+- Did: wrote `tools/fetch_golden.py` (stdlib only, about 25 requests, one second apart, raw JSON to `fixtures/golden/<id>/`, report to `FETCH-REPORT.txt`, key never printed or written) and `tools/fetch_golden.ps1` (SSM to env var for one process, removed afterwards); wrote `tools/play_types.py` (offline vocabulary report); found the overtime game Kiro's scan had recorded but misreported; moved Kiro's discovery scratch into `spike/golden-discovery/`; design.md and guardrails.md updated.
+- Result: scripts parse; fetch not yet run. Owner runs it next.
+- Resources: none.
+- Evidence: LEDGER entry of the same date.
