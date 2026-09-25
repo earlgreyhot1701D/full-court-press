@@ -10,14 +10,14 @@ Rules, from design.md:
 1. Numbers. Every run of digits in a text field must be in `allowed_numbers`. "9-17" and "45%"
    split into their digits by the regex, so each part is checked on its own.
 2. Spelled numbers. A fixed list of number words rejects the section. "one" is allowed only
-   inside "one of", "no one", "one more".
+   as a pronoun, inside the phrases in _ONE_OK ("one of", "this one", "the one", ...).
 3. Names. Every capitalized word must be covered by a name in `allowed_names` or a phrase in
    COMMON_CAPS. Runs of capitalized words are matched longest-first, so "Alyssa Thomas" is
    checked as one name. The first word of a sentence is capitalized for grammar, so it is also
    covered if it is an ordinary word in SENTENCE_STARTERS. Nothing else is skipped: a name at
    the start of a sentence is checked like any other.
 4. `spotlight.player` must be a full name from this game's stat line (not a team, not a surname).
-5. `the_number_key` must be a key in `numbers`.
+5. `the_number_key` must be a key in `numbers` and in `number_labels` (no caption, no Number).
 
 What the lock does NOT prove, stated so nobody reads more into a pass than is there:
 - That a number is attached to the right claim. "Copper had 12 rebounds" passes if 12 is any
@@ -40,7 +40,9 @@ SPELLED = ("zero one two three four five six seven eight nine ten eleven twelve 
            "fourteen fifteen sixteen seventeen eighteen nineteen twenty thirty forty fifty "
            "sixty seventy eighty ninety hundred thousand dozen").split()
 _SPELLED = re.compile(r"\b(%s)\b" % "|".join(SPELLED), re.IGNORECASE)
-_ONE_OK = re.compile(r"\b(one of|no one|one more)\b", re.IGNORECASE)
+# "one" as a pronoun, not a count. The last five were added Sep 25 after the lock rejected
+# natural sample prose ("Dallas had this one", "that last one was the game").
+_ONE_OK = re.compile(r"\b(one of|no one|one more|this one|that one|last one|the one|each one)\b", re.IGNORECASE)
 
 # Capitalized words a voice may use that are not names from the game.
 COMMON_CAPS = {
@@ -156,7 +158,8 @@ def check(out, facts):
         sections["spotlight"] = {"rule": "spotlight_player", "token": sp["player"]}
     else:
         sections["spotlight"] = _check_text(sp["text"], allowed_numbers, phrases)
-    if out["the_number_key"] in facts.get("numbers", {}):
+    # a Number with no caption would print as a bare value, so the key needs a label too
+    if out["the_number_key"] in facts.get("numbers", {}) and out["the_number_key"] in facts.get("number_labels", {}):
         sections["the_number"] = "ok"
     else:
         sections["the_number"] = {"rule": "the_number_key", "token": out["the_number_key"]}
@@ -174,7 +177,8 @@ _RULE_WORDS = {
     "spelled_number": "\"%s\" is a spelled-out number; write numbers as digits from FACTS",
     "name": "\"%s\" is not a name in FACTS; start sentences with an ordinary word or a name from FACTS",
     "spotlight_player": "spotlight.player \"%s\" is not a player's full name in FACTS",
-    "the_number_key": "the_number_key \"%s\" is not a key in FACTS numbers",
+    "the_number_key": "the_number_key \"%s\" is not a key in FACTS number_labels",
+    "banned": "\"%s\" is on the NEVER list",
 }
 
 
@@ -189,5 +193,5 @@ def retry_note(result):
         if v["rule"] == "schema":
             return "Your answer did not match the required JSON shape. Return exactly the keys asked for."
         parts.append("%s: %s" % (s, _RULE_WORDS[v["rule"]] % v["token"]))
-    return ("Your answer used things that are not in FACTS. " + "; ".join(parts) +
-            ". Use only numbers and names that appear in FACTS.") if parts else ""
+    return ("Your answer broke these rules. " + "; ".join(parts) +
+            ". Use only numbers and names that appear in FACTS, and follow the NEVER list.") if parts else ""

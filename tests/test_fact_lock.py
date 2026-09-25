@@ -123,6 +123,7 @@ def test_lone_surname_not_in_game_fails(f71, text):
     "The Mercury won the West matchup on a Sunday.",
     "It was no one's night but Copper's.",
     "Phoenix got one more stop.",
+    "Dallas had this one, and that last one hurt.",
 ])
 def test_ordinary_sentences_pass(f71, text):
     assert fact_lock.check(with_("recap", text), f71)["ok"]
@@ -134,6 +135,7 @@ def test_ordinary_sentences_pass(f71, text):
     ("Copper hit the go-ahead shot with 4:07 left.", "number", "07"),
     ("Dallas shot 45% from the floor.", "number", "45"),
     ("A dozen lead changes.", "spelled_number", "dozen"),
+    ("Copper hit one late.", "spelled_number", "one"),
 ])
 def test_edges_fail(f71, text, rule, token):
     assert failed(fact_lock.check(with_("recap", text), f71), "recap") == (rule, token)
@@ -203,3 +205,11 @@ def test_retry_note_names_section_and_token(f71):
 def test_family_name_first_players_use_family_name(facts_all, gid, short, wrong):
     names = facts_all[gid]["allowed_names"]
     assert short in names and wrong not in names
+
+
+@needs_golden
+def test_the_number_needs_a_caption(f71):
+    assert "phx_wins" in f71["numbers"] and "phx_wins" not in f71["number_labels"]
+    assert failed(fact_lock.check(with_("the_number_key", "phx_wins"), f71), "the_number")[0] == "the_number_key"
+    assert f71["number_labels"]["q4_home"] == "Mercury points in the 4th quarter"
+    assert fact_lock.check(with_("the_number_key", "q4_home"), f71)["ok"]

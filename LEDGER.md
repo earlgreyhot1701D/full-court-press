@@ -341,3 +341,17 @@ Changes PRD?: no
 ### 2026-09-25 . Block 3 . Family-name-first surnames (owner approved)
 Answer:       `league_config.SURNAME` overrides the short form for players whose family name comes first in the feed: Li Yueru -> "Li" (25071), Han Xu -> "Han" (25066). Found on the golden set, not guessed. The full name is always allowed; only the short form changes. Rule: add a player only when the order is confirmed.
 Disposition:  promote (95 tests passing)
+
+### 2026-09-25 . Block 3 . 3.1 voices, 3.3 retry flow, stand-in samples
+Question:     Do the two voices, the banned list and the retry-once-then-drop flow hold up against a fake model that plants bad output?
+Answer:       Yes. `voices.py` holds both voices, the shared NEVER list, the banned-word check and the exact prompts. `voice_run.py` runs write, check, retry once, keep or drop per section, with the model call passed in, so it runs offline. A fake model that plants 33 for Copper's 31 is caught and retried; planted twice, only the recap drops. Broken JSON, a crash, an extra key: each counts as a failure and retries. Attempts are never mixed. Logs carry rules and error types only.
+Deviation, 1: prompts are built in voices.py (pure, tested), not voice_client. Kiro's voice_client now only sends them and parses JSON.
+Deviation, 2: the PRD gave The Film Room "coverages and actions". FACTS has no coverages, sets or play calls, so the voice would invent them and the lock cannot see invented tactics. Kept the whiteboard energy, pointed it at runs, quarters and the stat line, and banned scheme words for that voice. Owner to confirm.
+Deviation, 3: design.md bans "spread", "cover" and "lock" alone. Those are everyday basketball words ("spread the floor", "lockdown"). Banned the betting phrases instead ("the spread", "point spread", "a lock").
+Added to the banned list: words for specific moments and shot types FACTS does not contain (dagger, buzzer-beater, dunk, three-pointers). The lock checks numbers and names; these words claim a moment nobody can check.
+Found, 1: Claude's own stand-in prose failed the lock three times on "this one" and "that last one". Pronoun uses of "one" added to the allowlist (this one, that one, last one, the one, each one). "Copper hit one late" still fails.
+Found, 2: two false sentences passed the lock. "Dallas won the 1st, 2nd and 3rd" (Phoenix won the 2nd) and Claude's own "Copper split her 31 right down the middle: 10 field goals, 10 free throws" (10 field goals is at least 20). Both are the model doing its own math. Added a NEVER line against it. A prompt rule, not a guarantee.
+Found, 3: The Number could point at a key with no caption (quarter scores, field goals, standings), which would print a bare value. Quarter, field goal and free throw labels added; the lock now requires a label.
+Samples: design/voice-samples-25071.md, hand-written by Claude as stand-ins, not Haiku output, all four passing the real checks. Owner judges the voices from them.
+Disposition:  promote (116 tests passing)
+Changes PRD?: The Film Room trait wording, pending owner.

@@ -199,3 +199,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Did: `SURNAME` + `surname()` in league_config.py, used by facts.py for allowed_names; test for Li Yueru and Han Xu.
 - Result: PASS. pytest 95 passed.
 - Resources: none.
+
+## 2026-09-25 . 3.1, 3.3 . Voices, retry flow, stand-in samples (Claude, on disk)
+- Tier: Working
+- Did: `src/zine/voices.py`, `src/zine/voice_run.py`, `tests/test_voices.py`; facts.py labels for quarters, field goals, free throws; fact_lock pronoun "one" allowlist and label rule; `design/voice-samples-25071.md` + `design/voice_samples_check.py`. voice_client.py (Bedrock) not built: Kiro.
+- Result: PASS. pytest 116 passed. Golden render still builds.
+- Resources: none. No model called.
+- Evidence: LEDGER entry of the same date.

@@ -172,8 +172,11 @@ def build_facts(game, plays, roster_lists, standings_rows, league="wnba"):
     for r in f["runs"]:
         key = "run_%s_q%d_%s" % (r["team_abbrev"].lower(), r["quarter"], _slug(r["start_clock"]))
         labels[key] = "point run for the %s in %s" % (team_name[r["team_abbrev"]], period_word(r["quarter"]))
+    for side, t in (("home", home), ("away", away)):
+        for i, pts in enumerate(f.get("quarters", {}).get(side, []), 1):
+            labels["q%d_%s" % (i, side)] = "%s points in %s" % (team_name[t["abbrev"]], period_word(i))
     for l in lines:
-        for stat, word in _STAT_WORDS.items():
+        for stat, word in list(_STAT_WORDS.items()) + [("fgm", "field goals"), ("ftm", "free throws")]:
             if stat in l:
                 labels["%s_%s" % (_slug(l["player"]), stat)] = "%s for %s" % (word, l["player"])
     if f.get("winner_max_deficit"):
