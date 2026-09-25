@@ -120,3 +120,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS. Re-rendered out/. DAL text=paper, NY text=ink, all 15 teams clear 4.5:1; dates human; run widths proportional (e.g. 67% vs 100%); the gate-fail editions now say "Assists aren't shown for this game...". Tests: 5 passed.
 - Resources: none.
 - Evidence: src/zine/contrast.py, tests/test_contrast.py, templates/{_base,issue,today}.html, static/styles.css (.droppednote appended), out/ renders (gitignored).
+
+## 2026-09-24 . 1.4b . Design pass follow-through (done by Claude on disk, not Kiro)
+- Tier: Working
+- Did: tap targets raised to the WCAG 2.2 24px minimum (styles.css); Around the League heading renamed "The rest of the slate" so an issue page no longer carries two "Last night" h2s; stat line eyebrow shortened to "Counted from the play-by-play" so it no longer wraps mid-phrase at 390px; RENDER-CONTRAST.md default-pink figure corrected to 5.6:1; added .gitattributes (eol=lf) which cleared three line-ending-only phantom diffs; *.bak gitignored.
+- Result: PASS. Re-rendered with the existing dev renderer, pytest 5 passed, and all five page types checked in a headless browser at 390px: zero tap targets under 24px, correct data-on-spot on each page, no horizontal scroll, no page errors.
+- Resources: none (local only).
+- Evidence: design/DESIGN-PASS-SEP23.md items 11 to 13.

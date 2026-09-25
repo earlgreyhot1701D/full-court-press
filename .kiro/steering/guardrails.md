@@ -105,3 +105,11 @@ Good enough is the PASS line. The first result that meets it wins. Do not polish
 ## What discard means
 - Spike files are committed at the end of each spike task, not at the checkpoint. An uncommitted
   spike file is one `rm` away from gone, and the findings are only half the artifact.
+
+## Who works on this repo
+Two agents commit here. Kiro builds and owns everything that touches AWS: deploys, Bedrock, Polly, SSM,
+SAM, and any command that needs the `fcp` profile. Claude (in Cowork, on the same folder) takes work that
+is local and in scope: templates, CSS, copy, docs, spec edits, pure-Python modules with tests, local
+renders, and design review. Both follow these guardrails, both append to BUILD-LOG.md, and each marks its
+own entries. Before starting a task, `git log` and read the latest BUILD-LOG entries: the other agent may
+have moved things since your last session. Never revert the other agent's commit without the owner.

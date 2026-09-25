@@ -65,3 +65,36 @@ its heading says "THE SHEET". Pick one name and use it everywhere, including the
 - The footer carries the BALLDONTLIE credit and the non-affiliation line
 - Both team names on an index card link to that team's edition
 - 390px: no horizontal scroll, cover block within the first screen
+
+
+---
+
+# Second pass, after the render-time fixes
+
+All four render-time items verified working in a real browser: contrast attribute correct on every page,
+run bars scaled with real arithmetic (DAL's 8 and 12 point runs render at 67% and 100%), human dates, and
+the dropped-category note present and in the right voice. No page errors, no horizontal scroll at 390px.
+
+**Correction to `RENDER-CONTRAST.md`:** the default-pink figure in that file said 4.3:1. The correct WCAG
+value is 5.56:1. The agent was right to keep the computed value rather than reverse-engineer the number
+in the doc, and the doc has been fixed. The decision was identical either way.
+
+## Fixed here (in `static/styles.css`)
+
+**11. Tap targets below the WCAG 2.2 minimum.** "Read the issue", the primary action on the index, was
+14px tall. Footer links were 12px, the back bar 15px. SC 2.5.8 asks for 24x24 CSS px. The voice switcher
+already carried `min-height:40px`, so the pattern existed and had not been generalised. Fixed with
+padding rather than type size, so nothing in the type scale moves, and reset inside `@media print`.
+
+## Still open, for the renderer or the copy
+
+**12. Three headings all reading "Last night".** On an issue page the recap section and the Around the
+League section carry the same `h2`, and the index uses it a third time. Someone navigating by heading
+hears the same label twice on one page with different content beneath it, and it is editorially muddy:
+"last night" is both this game and the whole slate. Keep "Last night" for the recap, which is the voice
+section and has earned the phrase, and give Around the League its own: "The rest of the slate", or
+"Everything else". One word change in the template.
+
+**13. The stat line eyebrow wraps mid-phrase** at 390px, breaking after "play-by-". Either shorten it to
+"Counted from the play-by-play" without the "Stat line ." prefix, since the heading below already says
+"The stat line", or allow it two lines deliberately with a tighter measure.

@@ -137,7 +137,7 @@
   <section class="pnl p5">
     <div class="wrap">
       <div class="fold screen-only">fold</div>
-      <span class="lbl">The stat line . counted from the play-by-play</span>
+      <span class="lbl">Counted from the play-by-play</span>
       <h2 class="slab misreg">The stat line</h2>
       {# A dropped category must be visible, not silent: the About page promises
          the reader sees where something was cut (design pass Sep 23, item 9). #}
@@ -212,7 +212,7 @@
     <div class="wrap">
       <div class="fold screen-only">fold</div>
       <span class="lbl">Around the League</span>
-      <h2 class="slab misreg">Last night</h2>
+      <h2 class="slab misreg">The rest of the slate</h2>
       <div>
         {% for g in slate %}
         <div class="strip{% if g.game_id == f.game_id %} g spot-surface{% endif %}"><span>{{ g.winner_team }} {{ g.winner_score }} . {{ g.loser_team }} {{ g.loser_score }}</span><span>F{% if g.overtime %}/OT{% endif %}</span></div>

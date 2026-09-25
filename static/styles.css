@@ -296,3 +296,27 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
    dropped-voice line; the About page promises the reader sees where a count was
    cut (design pass Sep 23, item 9). Not decorative: this is the honesty. */
 .droppednote { font:600 13px 'Archivo'; color:var(--mut); background:var(--paper); border-left:4px solid var(--spot); padding:8px 12px; margin:8px 0 12px; }
+
+/* (f) Tap targets, Sep 23. WCAG 2.2 SC 2.5.8 asks for 24x24 CSS px minimum, and this
+   is a phone-first zine: "Read the issue" is the primary action on the index and it
+   was 14px tall. The voice switcher already used min-height:40px, so this generalises
+   the pattern the rest of the site was missing. Padding, not font size, so nothing
+   about the type scale changes. */
+.meta .go,
+.sitefoot .attribution a,
+.sitefoot .footlinks a,
+.backbar a,
+nav.teams a,
+.about a {
+  display: inline-block;
+  min-height: 24px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.meta .go { min-height: 28px; padding-left: 2px; padding-right: 2px; }
+/* Row links on an index card already span the row; make the hit area explicit. */
+.card .row { min-height: 40px; }
+@media print {
+  .meta .go, .sitefoot a, .backbar a, nav.teams a { min-height: 0; padding-top: 0; padding-bottom: 0; }
+}
+nav.teams a, nav.teams button { min-width: 44px; text-align: center; }

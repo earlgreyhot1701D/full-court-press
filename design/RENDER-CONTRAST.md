@@ -41,7 +41,7 @@ Verified against the mockup's own reporting:
 | GS | `#B896D4` | ink | 6.8:1 |
 | LV | `#BA0C2F` | paper | 5.7:1 |
 | CHI | `#418FDE` | ink | 5.1:1 |
-| default pink | `#FF48B0` | ink | 4.3:1 |
+| default pink | `#FF48B0` | ink | 5.6:1 |
 
 The default in CSS is ink, which suits the pink. Every team page must set the attribute explicitly
 rather than relying on that default.
