@@ -309,3 +309,16 @@ Answer:       Yes. The owner checked by eye, in a browser, against Basketball Re
 Code-side evidence: 5 of 5 golden games reconcile on points; quarters add up in true game order; overtime agrees between the game record and the plays; nothing from odds, props or injuries in any facts sheet; key-leak sweep clean; 54 tests passing.
 What it means: rebounds and assists are still counted, not verified, on any given night. This check shows the counting method gets a real triple-double right, which is the evidence for letting counted categories carry a headline. The About page limitation stays as written.
 Disposition:  Block 2 closed. Block 3 (voices and fact lock) is next.
+
+### 2026-09-24 . Design . Zine energy layer (owner approved)
+Question:     The pages read like a tidy dashboard. Can they feel like a fanzine without breaking contrast, print, or the fact rules?
+Answer:       Yes. `static/zine-energy.css` adds a pink halftone behind the cover, masking tape on the score and The Number, a rubber-stamp FINAL, torn-paper fold edges, and handwritten margin notes. Owner reviewed a preview and approved.
+Decided, 1: a third font, Caveat (OFL, license shipped beside it), for margin notes only.
+Decided, 2: the fold line keeps its meaning. Owner asked that readers still know what it is for, so each fold carries a paper tab reading "fold here when you print".
+Decided, 3: margin notes are fixed phrases shown only when a fact is true: "game of the night!" only on the picked game, "counted from every single play" only when player lines exist, "biggest run of the game" only on the first run of the largest size. The notes are aria-hidden decoration; the facts they point at are already in the page.
+Found, 1: the halftone disappeared on dark team colors, so it is a fixed pink (#FF48B0), not the team color.
+Found, 2: the draft note said "biggest run of the night", which is a claim about every game on the slate. It is only true of this game, so it now says "of the game" and sits on that run's row.
+Found, 3: Caveat has no arrow glyphs, so the arrows would have fallen back to another font. Arrows are inline SVG, and a test checks every margin-note character exists in Caveat.
+Found, 4: a tied quarter was labeled with the away team. It now reads TIED.
+Disposition:  promote (55 tests passing; 25071 rendered at 390px, no horizontal scroll, no page errors)
+Changes PRD?: no

@@ -121,3 +121,20 @@ if __name__ == "__main__":
     print(f"missing in Alfa: {ma}")
     print(f"missing in Archivo: {mr}")
     print("PASS" if not ma and not mr else "FAIL")
+
+
+CAVEAT = os.path.join(FONTS, "Caveat-VariableFont_wght.ttf")
+
+
+def test_margin_notes_only_use_characters_caveat_has():
+    """Zine-energy margin notes (approved Sep 24). Every character of every note's text must be in
+    Caveat, or it silently falls back to another font. Arrows are inline SVG for that reason."""
+    import re
+    tpl = open(os.path.join(ROOT, "templates", "issue.html"), encoding="utf-8").read()
+    notes = re.findall(r'class="scribble[^"]*"[^>]*>(.*?)</(?:span|div)>\s*(?:<div class="gotn"|{%|$|\n)', tpl, re.S)
+    texts = [re.sub(r"<svg.*?</svg>", "", n, flags=re.S) for n in notes]
+    texts = [re.sub(r"<[^>]+>|&[a-z]+;", "", n).strip() for n in texts]
+    assert texts, "no margin notes found in the template"
+    have = _read_cmap_codepoints(CAVEAT)
+    missing = sorted({c for s in texts for c in s if ord(c) not in have and not c.isspace()})
+    assert not missing, missing

@@ -33,9 +33,9 @@
   <!-- PANEL 1: COVER -->
   <header class="pnl p1 cover">
     <div class="wrap">
-      <div class="toprow">
+      <div class="toprow" style="position:relative">
         <span class="kick spot-surface">{{ f.league|upper }} . {{ date_display }}</span>
-        {% if is_game_of_night %}<div class="gotn" aria-label="Game of the Night">Game<br>of the<br>Night</div>{% endif %}
+        {% if is_game_of_night %}<span class="scribble note-gotn" aria-hidden="true">game of the night! <svg class="arrow" viewBox="0 0 30 26" aria-hidden="true" focusable="false"><path d="M3 5 C13 1 23 7 24 19" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M17 15 L24 20 L28 12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="gotn" aria-label="Game of the Night">Game<br>of the<br>Night</div>{% endif %}
       </div>
       <a class="homelink" href="{{ root_prefix }}index.html" aria-label="All of last night&rsquo;s games"><h1 class="slab mast">Full Court Press</h1></a>
       <p class="tagline">the morning zine for women&rsquo;s pro basketball</p>
@@ -87,7 +87,7 @@
       {% if audio.transcript %}<p class="transcript screen-only"><b>Transcript:</b> <span>{{ audio.transcript }}</span></p>{% endif %}
       {% endif %}
 
-      <div class="fold screen-only">fold</div>
+      <div class="fold screen-only"><span>fold here when you print</span></div>
       <span class="lbl">The recap</span>
       <h2 class="slab misreg">Last night</h2>
 
@@ -111,7 +111,7 @@
   {% if voice and voice.spotlight %}
   <section class="pnl p4">
     <div class="wrap">
-      <div class="fold screen-only">fold</div>
+      <div class="fold screen-only"><span>fold here when you print</span></div>
       <span class="lbl">Spotlight</span>
       <div class="clip" style="margin-top:14px">
         <span class="tape" aria-hidden="true"></span>
@@ -136,7 +136,7 @@
   {% set dropped = f.dropped_categories or [] %}
   <section class="pnl p5">
     <div class="wrap">
-      <div class="fold screen-only">fold</div>
+      <div class="fold screen-only"><span>fold here when you print</span></div>
       <span class="lbl">Counted from the play-by-play</span>
       <h2 class="slab misreg">The stat line</h2>
       {# A dropped category must be visible, not silent: the About page promises
@@ -144,6 +144,7 @@
       {% if dropped_labels %}
       <p class="droppednote">{{ dropped_labels }} aren&rsquo;t shown for this game. The count didn&rsquo;t add up, so we left them out.</p>
       {% endif %}
+      {% if f.player_lines %}<div class="scribble note-counted" aria-hidden="true">counted from every single play</div>{% endif %}
       <details class="box">
         <summary>Show the stat line</summary>
         <div class="tbls">
@@ -181,14 +182,15 @@
   <!-- PANEL 6: GAME FLOW (scoring runs render inside, per Req 7.1a-i) -->
   <section class="pnl p6">
     <div class="wrap">
-      <div class="fold screen-only">fold</div>
+      <div class="fold screen-only"><span>fold here when you print</span></div>
       <span class="lbl">Game flow</span>
       <h2 class="slab misreg">By quarter</h2>
+      {% set ns = namespace(run_noted=false) %}
       <div class="runs">
         {% for i in range(f.quarters.home|length) %}
         {% set h = f.quarters.home[i] %}{% set a = f.quarters.away[i] %}
         {% set qlabel = ("OT" if i >= 4 else "Q" ~ (i + 1)) %}
-        {% set qwin = f.home.abbrev if h >= a else f.away.abbrev %}
+        {% set qwin = "TIED" if h == a else (f.home.abbrev if h > a else f.away.abbrev) %}
         {% set total = (h + a) if (h + a) > 0 else 1 %}
         <div class="run">
           <span class="q">{{ qlabel }} . {{ [h, a]|max }} to {{ [h, a]|min }}</span>
@@ -200,6 +202,8 @@
            with a visible minimum so a small run still shows. #}
         {% for r in f.runs if r.quarter == (i + 1) %}
         <div class="run runline"><span class="q">run</span><div class="bar"><i style="width:{{ [ (100 * r.points / max_run)|round|int, 12 ]|max }}%"></i></div><b>{{ r.team_abbrev }} {{ r.points }}</b></div>
+        {# margin note on the first run of the largest size in THIS game; never "of the night" #}
+        {% if r.points == max_run and not ns.run_noted %}{% set ns.run_noted = true %}<div class="scribble note-run" aria-hidden="true"><svg class="arrow" viewBox="0 0 30 26" aria-hidden="true" focusable="false"><path d="M4 22 C6 11 13 5 25 5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M18 1 L25 5 L19 11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> biggest run of the game</div>{% endif %}
         {% endfor %}
         {% endfor %}
       </div>
@@ -210,7 +214,7 @@
   <!-- PANEL 7: AROUND THE LEAGUE -->
   <section class="pnl p7">
     <div class="wrap">
-      <div class="fold screen-only">fold</div>
+      <div class="fold screen-only"><span>fold here when you print</span></div>
       <span class="lbl">Around the League</span>
       <h2 class="slab misreg">The rest of the slate</h2>
       <div>

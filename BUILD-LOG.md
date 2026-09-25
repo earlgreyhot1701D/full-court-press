@@ -180,3 +180,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Did: owner compared three counted stat lines by eye against Basketball Reference in a browser.
 - Result: PASS, MATCH on all three, including Alyssa Thomas's triple-double in 25071.
 - Resources: none.
+
+## 2026-09-24 . Design . Zine energy layer (Claude, on disk)
+- Tier: Working
+- Did: `static/zine-energy.css`, `static/fonts/Caveat-VariableFont_wght.ttf` + `Caveat-OFL.txt`; linked in `templates/_base.html`; `templates/issue.html` fold labels, fact-gated margin notes with SVG arrows, TIED quarter label; glyph test for margin notes. Removed the `design/zine-energy/` proposal folder and its preview page once the owner approved.
+- Result: PASS. pytest 55 passed. 25071 in a headless browser at 390px: fold tab visible, all three notes render in Caveat, scroll width 390, no page errors.
+- Resources: none.
+- Evidence: LEDGER entry of the same date.
