@@ -16,7 +16,7 @@ VOICES = {
     "the_call": {
         "label": "The Call",
         "traits": [
-            "warm and precise, like the best play-by-play voice you ever fell asleep to",
+            "warm and precise, like a late-night radio call you'd stay up to hear",
             "builds to the turn of the game, then lands the final score like the last line of a poem",
             "affection for both teams; the loser still played a real game",
         ],

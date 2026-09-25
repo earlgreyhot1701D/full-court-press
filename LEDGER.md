@@ -360,3 +360,6 @@ Changes PRD?: The Film Room trait wording, pending owner.
 Decided: the voice definitions are final for MVP. Tuning them on real model output is a post-MVP STUB in voices.py, not Block 3 work.
 Decided: The Call is the owner's favorite and the voice a page opens on; The Film Room is the second option. VOICE_ORDER already puts it first; the voice switcher (Block 3.5 render) must default to it.
 Decided: The Film Room change stands (no coverages or schemes, because FACTS has none).
+
+### 2026-09-25 . Block 3 . The Call trait wording (owner)
+Changed: "like the best play-by-play voice you ever fell asleep to" -> "like a late-night radio call you'd stay up to hear". The old line could read to a model as soft or sleepy, and "the best play-by-play voice" pointed at real broadcasters.
