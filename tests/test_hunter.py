@@ -6,7 +6,7 @@ import pytest
 
 from zine import hunter, state
 from zine.store import LocalStore
-from fake_feed import FakeBDL
+from zine.fixture_feed import FakeBDL
 from test_fact_lock import CLEAN
 from test_facts_gotn import needs_golden
 

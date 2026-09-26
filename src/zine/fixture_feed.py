@@ -1,4 +1,5 @@
-"""A fake BALLDONTLIE client that serves the golden fixtures, for offline hunter runs.
+"""A fake BALLDONTLIE client that serves the golden fixtures, for offline hunter runs (tests and
+the local --dry-run, Req 1.6). Never used by the deployed handler.
 It answers the games-by-date query using the UTC date of each game, so the hunter's
 ask-for-two-dates-and-filter logic is exercised for the West Coast game (25057)."""
 import glob
@@ -6,7 +7,9 @@ import json
 import os
 import re
 
-GOLDEN = os.path.join(os.path.dirname(__file__), "..", "fixtures", "golden")
+from zine.paths import ROOT
+
+GOLDEN = os.path.join(ROOT, "fixtures", "golden")
 
 
 class FakeBDL:

@@ -21,3 +21,6 @@ venv/
 Thumbs.db
 *.bak
 out-golden/
+out-dry/
+build/
+.aws-sam/

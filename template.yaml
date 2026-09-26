@@ -1,0 +1,250 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Full Court Press: a morning-after WNBA fan zine. One scheduled Lambda (the hunter) writes a
+  static site to a private S3 bucket; CloudFront serves it. Bedrock for the voices, Polly neural
+  for audio. Drafted by Claude on disk (Sep 26); Kiro validates and deploys. Owner approves the deploy.
+
+# Before deploy:  python tools/build_lambda.py        (Linux wheels; do not run `sam build`)
+# Deploy:         sam deploy --guided --stack-name full-court-press --tags Project=full-court-press
+#                 --capabilities CAPABILITY_IAM
+
+Parameters:
+  AlertEmail:
+    Type: String
+    Description: Email for the budget alerts (owner's).
+  BdlKeyParam:
+    Type: String
+    Default: /full-court-press/bdl-api-key
+    Description: SSM SecureString holding the BALLDONTLIE key. The value is never in this template.
+  PollyVoice:
+    Type: String
+    Default: Danielle
+    AllowedValues: [Danielle, Ruth]
+  HaikuSystemProfile:
+    Type: String
+    Default: us.anthropic.claude-haiku-4-5-20251001-v1:0
+    Description: System-defined inference profile confirmed ACTIVE in Block 0; the tagged profile copies it.
+  HaikuModelId:
+    Type: String
+    Default: anthropic.claude-haiku-4-5-20251001-v1:0
+
+Globals:
+  Function:
+    Tags:
+      Project: full-court-press
+
+Resources:
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      VersioningConfiguration: { Status: Enabled }          # Req 12.5 rollback
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: { SSEAlgorithm: AES256 }
+      OwnershipControls:
+        Rules: [{ ObjectOwnership: BucketOwnerEnforced }]
+      LifecycleConfiguration:
+        Rules:
+          - Id: expire-old-versions
+            Status: Enabled
+            NoncurrentVersionExpiration: { NoncurrentDays: 30 }
+      Tags: [{ Key: Project, Value: full-court-press }]
+
+  SiteOAC:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: fcp-site-oac
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  SiteHeaders:
+    Type: AWS::CloudFront::ResponseHeadersPolicy
+    Properties:
+      ResponseHeadersPolicyConfig:
+        Name: fcp-site-headers
+        SecurityHeadersConfig:
+          ContentSecurityPolicy:
+            # fonts are self-hosted, so no outside font host. style-src-attr allows the per-team
+            # color and bar-width style attributes the templates render; no inline <style> or <script>.
+            ContentSecurityPolicy: "default-src 'self'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'"
+            Override: true
+          StrictTransportSecurity: { AccessControlMaxAgeSec: 31536000, IncludeSubdomains: true, Override: true }
+          ContentTypeOptions: { Override: true }
+          FrameOptions: { FrameOption: DENY, Override: true }
+          ReferrerPolicy: { ReferrerPolicy: strict-origin-when-cross-origin, Override: true }
+
+  SiteDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: Full Court Press
+        DefaultRootObject: index.html
+        HttpVersion: http2and3
+        PriceClass: PriceClass_100
+        Origins:
+          - Id: site
+            DomainName: !GetAtt SiteBucket.RegionalDomainName
+            OriginPath: /site                                  # only site/ is ever served
+            OriginAccessControlId: !Ref SiteOAC
+            S3OriginConfig: { OriginAccessIdentity: "" }
+        DefaultCacheBehavior:
+          TargetOriginId: site
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD]
+          Compress: true
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6  # managed CachingOptimized (honors Cache-Control)
+          ResponseHeadersPolicyId: !Ref SiteHeaders
+      Tags: [{ Key: Project, Value: full-court-press }]
+
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument:
+        Statement:
+          - Sid: CloudFrontReadsSiteOnly
+            Effect: Allow
+            Principal: { Service: cloudfront.amazonaws.com }
+            Action: s3:GetObject
+            Resource: !Sub "${SiteBucket.Arn}/site/*"
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${SiteDistribution}"
+
+  RecapProfile:
+    Type: AWS::Bedrock::ApplicationInferenceProfile
+    Properties:
+      InferenceProfileName: fcp-recap
+      Description: Full Court Press voices, tagged so model spend is attributed to the project (Req 12.3b)
+      ModelSource:
+        CopyFrom: !Sub "arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/${HaikuSystemProfile}"
+      Tags: [{ Key: Project, Value: full-court-press }]
+
+  HunterLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /aws/lambda/fcp-hunter
+      RetentionInDays: 30
+      Tags: [{ Key: Project, Value: full-court-press }]
+
+  Hunter:
+    Type: AWS::Serverless::Function
+    DependsOn: HunterLogs
+    Properties:
+      FunctionName: fcp-hunter
+      CodeUri: build/lambda
+      Handler: zine.hunter.handler
+      Runtime: python3.13
+      Architectures: [x86_64]
+      MemorySize: 1024
+      Timeout: 300                        # Req 12.3
+      ReservedConcurrentExecutions: 1     # never two runs at once
+      Environment:
+        Variables:
+          BUCKET: !Ref SiteBucket
+          SITE_URL: !Sub "https://${SiteDistribution.DomainName}/"
+          MODEL_ID: !GetAtt RecapProfile.InferenceProfileArn
+          BDL_KEY_PARAM: !Ref BdlKeyParam
+          LEAGUES: wnba
+          MAX_REQUESTS_PER_RUN: "60"
+          MAX_MODEL_CALLS_PER_RUN: "60"
+          MAX_AUDIO_PER_RUN: "30"
+          POLLY_VOICE: !Ref PollyVoice
+          POLLY_ENGINE: neural
+          LOG_LEVEL: INFO
+      Policies:
+        - Statement:
+            - Sid: SiteAndState
+              Effect: Allow
+              Action: [s3:GetObject, s3:PutObject]
+              Resource:
+                - !Sub "${SiteBucket.Arn}/site/*"
+                - !Sub "${SiteBucket.Arn}/state/*"
+                - !Sub "${SiteBucket.Arn}/cache/*"
+            - Sid: ListOwnPrefixes
+              Effect: Allow
+              Action: s3:ListBucket
+              Resource: !GetAtt SiteBucket.Arn
+              Condition:
+                StringLike: { "s3:prefix": ["state/*", "cache/*"] }
+            - Sid: ReadTheOneKey
+              Effect: Allow
+              Action: ssm:GetParameter
+              Resource: !Sub "arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter${BdlKeyParam}"
+            - Sid: DecryptViaSsmOnly
+              Effect: Allow
+              Action: kms:Decrypt
+              Resource: "*"
+              Condition:
+                StringEquals: { "kms:ViaService": !Sub "ssm.${AWS::Region}.amazonaws.com" }
+            - Sid: VoicesThroughTheTaggedProfile
+              Effect: Allow
+              Action: bedrock:InvokeModel
+              Resource:
+                - !GetAtt RecapProfile.InferenceProfileArn
+                - !Sub "arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/${HaikuSystemProfile}"
+                - !Sub "arn:aws:bedrock:*::foundation-model/${HaikuModelId}"   # the us. profile routes across US regions
+            - Sid: NeuralAudio
+              Effect: Allow
+              Action: polly:SynthesizeSpeech
+              Resource: "*"                  # Polly does not support resource-level scoping for this action
+      Events:
+        Morning:
+          Type: ScheduleV2
+          Properties:
+            Name: fcp-morning
+            ScheduleExpression: cron(15 6 * * ? *)          # 6:15am Pacific: every US game is final
+            ScheduleExpressionTimezone: America/Los_Angeles
+            RetryPolicy: { MaximumRetryAttempts: 0 }        # a retry could double model spend; next morning catches up
+
+  ProjectBudget:
+    Type: AWS::Budgets::Budget
+    Properties:
+      Budget:
+        BudgetName: fcp-project
+        BudgetType: COST
+        TimeUnit: MONTHLY
+        BudgetLimit: { Amount: 10, Unit: USD }
+        CostFilters:
+          TagKeyValue: ["user:Project$full-court-press"]   # needs the Project tag activated in Billing (owner)
+      NotificationsWithSubscribers:
+        - Notification: { NotificationType: ACTUAL, ComparisonOperator: GREATER_THAN, Threshold: 50 }
+          Subscribers: [{ SubscriptionType: EMAIL, Address: !Ref AlertEmail }]
+        - Notification: { NotificationType: ACTUAL, ComparisonOperator: GREATER_THAN, Threshold: 100 }
+          Subscribers: [{ SubscriptionType: EMAIL, Address: !Ref AlertEmail }]
+        - Notification: { NotificationType: FORECASTED, ComparisonOperator: GREATER_THAN, Threshold: 100 }
+          Subscribers: [{ SubscriptionType: EMAIL, Address: !Ref AlertEmail }]
+
+  PollyBudget:
+    # Polly calls cannot carry a tag, so the Polly service line gets its own small budget (design.md).
+    Type: AWS::Budgets::Budget
+    Properties:
+      Budget:
+        BudgetName: fcp-polly
+        BudgetType: COST
+        TimeUnit: MONTHLY
+        BudgetLimit: { Amount: 2, Unit: USD }
+        CostFilters:
+          Service: ["Amazon Polly"]
+      NotificationsWithSubscribers:
+        - Notification: { NotificationType: ACTUAL, ComparisonOperator: GREATER_THAN, Threshold: 100 }
+          Subscribers: [{ SubscriptionType: EMAIL, Address: !Ref AlertEmail }]
+
+Outputs:
+  SiteUrl:
+    Value: !Sub "https://${SiteDistribution.DomainName}/"
+  BucketName:
+    Value: !Ref SiteBucket
+  HunterName:
+    Value: !Ref Hunter
+  RecapProfileArn:
+    Value: !GetAtt RecapProfile.InferenceProfileArn

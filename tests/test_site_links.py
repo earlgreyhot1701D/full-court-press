@@ -27,3 +27,17 @@ def test_no_broken_links(tmp_path, monkeypatch):
             if not os.path.exists(os.path.normpath(os.path.join(here, u))):
                 bad.append((path, u))
     assert n > 300 and not bad, bad[:5]
+
+
+@needs_golden
+def test_pages_need_nothing_the_csp_blocks():
+    """template.yaml's CSP: no inline <style> or <script>, no outside hosts for assets."""
+    import re as _re
+    files, _ = dev_render_golden.golden_files(dev_render_golden.standin_result)
+    for path, (body, ctype) in files.items():
+        if ctype.startswith("text/html"):
+            html = body.decode("utf-8")
+            assert "<style" not in html, path
+            assert not _re.search(r"<script(?![^>]*\bsrc=)", html), path
+            assert not _re.search(r'src="https?://', html), path                   # nothing loaded from outside
+            assert not _re.search(r'<link[^>]*href="https?://', html), path       # no outside stylesheets

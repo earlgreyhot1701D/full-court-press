@@ -2,7 +2,7 @@
 {# data-on-spot / data-lowc are chosen at render time (design/RENDER-CONTRAST.md),
    never in JS, so the no-JS baseline reads correctly. Default text on the spot
    colour is ink (see styles.css). #}
-<html lang="en" data-on-spot="{{ on_spot_text|default('ink') }}"{% if low_contrast %} data-lowc="1"{% endif %}>
+<html lang="en" data-on-spot="{{ on_spot_text|default('ink') }}"{% if low_contrast %} data-lowc="1"{% endif %}{% if spot_color %} style="--spot: {{ spot_color }}"{% endif %}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="{{ static_prefix }}zine-energy.css">
   <link rel="stylesheet" href="{{ static_prefix }}print.css">
   {# team spot color: applied server-side when known; JS may refine it. #}
-  {% if spot_color %}<style>:root{ --spot: {{ spot_color }}; }</style>{% endif %}
+  {# team color is a style attribute on <html>, not a <style> tag, so the CSP needs no inline styles #}
 </head>
 <body>
   {% block body %}{% endblock %}

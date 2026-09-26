@@ -418,3 +418,17 @@ Proof:   headless browser at 1280, 760 and 390: no horizontal scroll, no page er
 
 ### 2026-09-26 . Design . Zine look stretch goal (owner)
 Decided: the owner finds the zine look still a little weak. Logged as Block 5c, a stretch after CHECKPOINT 5, timeboxed about 2 hours, CSS and templates only, with a cut rule (items 1 to 4 only if short on time; skip entirely if CHECKPOINT 5 is late). Deploy stays the critical path because the audio cut-off is end of Sep 29.
+
+### 2026-09-26 . Block 5 . Run pieces, template draft, deploy runbook (Claude, on disk)
+Answer:       everything that runs each morning is built and tested offline: `site_build.py` (every page, card, audio and data file as a file map, used by the hunter, the local golden render and the golden publish, so golden goes through the same pipeline, Req 11.3), `store.py` (local folder or S3), `state.py`, `cache.py`, `audio_script.py`, `audio_client.py`, `hunter.py`, `dry_run.py` (Req 1.6), `publish_golden.py`, `tools/build_lambda.py`, `template.yaml`, DEPLOY.md, KIRO-DEPLOY-PROMPT.md. Pages now use the real layout `<league>/<date>/<game_id>/<team>/`.
+Decisions:
+- Each night asks the API for that date and the next, then keeps games by US Eastern date. The spec could not be read this session (fetch not approved), so this works whether the API filters by UTC or US date, at one extra request per night. Verify on the first deployed run.
+- A night is rebuilt as a whole when it gets a new Final, reusing cached feed data and cached voices, so a rerun makes no new model calls (tested).
+- The bundle is built with Linux wheels by `tools/build_lambda.py`; `sam build` on Windows would ship Windows Pillow.
+- Two budgets: `fcp-project` ($10, Project tag) and `fcp-polly` ($2, Amazon Polly service), because Polly calls cannot be tagged and one budget with both filters would match nothing.
+- Schedule 6:15am Pacific, no retries (a retry could double model spend; the next morning catches up). Reserved concurrency 1.
+- CSP has no outside hosts (fonts are self-hosted) and allows style attributes only (`style-src-attr`), for the per-team colors.
+Found, 1: the team color was set by an inline `<style>` tag, which that CSP would block on every page. Moved to a style attribute on `<html>`; a test now fails any page with an inline `<style>` or `<script>`.
+Found, 2: the local golden render had no About/Archive pages and the footer's golden link pointed nowhere locally. A link test now checks every relative link and asset on the built site (532, 0 broken).
+Not proven until deploy: the bundle importing on Python 3.13 in Lambda (this machine runs 3.10), Bedrock through the tagged profile, and the date query. DEPLOY.md step 4 checks all three.
+Disposition:  promote (166 tests passing)

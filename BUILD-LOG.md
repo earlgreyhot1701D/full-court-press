@@ -238,3 +238,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: run 2: 74 of 80 kept, 4 clearly false among the kept (run 1: 7). Fixes in place; pytest 152 passed.
 - Resources: 34 model calls (owner's account).
 - Evidence: LEDGER entry of the same date.
+
+## 2026-09-26 . 5.1 (draft), 5.2, 5.3 (tool), 5b.1, 5b.2, 5b.4 . Run pieces and deploy prep (Claude, on disk)
+- Tier: Working (Full-tier checklist applies at deploy, Block 6)
+- Did: site_build.py, store.py, state.py, cache.py, audio_script.py, audio_client.py, hunter.py, dry_run.py, publish_golden.py, fixture_feed.py, paths.py, pagekit.py; voice_view moved to the deploy layout; tools/build_lambda.py; template.yaml; DEPLOY.md; KIRO-DEPLOY-PROMPT.md; tests for hunter, audio, links, CSP.
+- Result: PASS offline. pytest 166 passed. Dry run builds 25071 and the front pages; golden publish to a folder writes 60 files; bundle 25.9 MB.
+- Resources: none. No AWS, no model.
+- Evidence: LEDGER entry of the same date.

@@ -148,9 +148,9 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
 
 ## Block 5: Ship it (Tier: Full. Disposition: promote)
 Full tier: the 11-point checklist applies to everything this block touches.
-- [ ] 5.1 `template.yaml`: bucket (private, versioning), CloudFront + OAC + headers policy, hunter Lambda (timeout, env vars, least-privilege role incl. `ssm:GetParameter` on the one key parameter and `kms:Decrypt`), EventBridge Scheduler (morning, America/Los_Angeles), Budgets budget $10/month filtered to `Project=full-court-press` + Polly (alerts 50%/100% actual, 100% forecast), Bedrock application inference profile `fcp-recap` tagged and used as `MODEL_ID`, `Project` tag on every resource
-- [ ] 5.2 `cache.py`, `publish.py`, `state.py`, `league_strip.py`, `hunter.py` (handler only orchestrates)
-- [ ] 5.3 Publish golden set to `site/golden/`
+- [~] 5.1 (DRAFTED Sep 26, Claude; Kiro validates and deploys per DEPLOY.md) `template.yaml`: bucket (private, versioning), CloudFront + OAC + headers policy, hunter Lambda (timeout, env vars, least-privilege role incl. `ssm:GetParameter` on the one key parameter and `kms:Decrypt`), EventBridge Scheduler (morning, America/Los_Angeles), Budgets budget $10/month filtered to `Project=full-court-press` + Polly (alerts 50%/100% actual, 100% forecast), Bedrock application inference profile `fcp-recap` tagged and used as `MODEL_ID`, `Project` tag on every resource
+- [x] 5.2 (DONE Sep 26, Claude) `cache.py`, `store.py` (publish), `state.py`, `site_build.py`, `hunter.py` (handler only orchestrates); `league_strip.py` was done in Block 2
+- [~] 5.3 Publish golden set to `site/golden/`: `python -m zine.publish_golden --bucket ...` built and tested locally (Claude); Kiro runs it after deploy
 - [ ] 5.4 `sam deploy` (owner approves before running)
 - [ ] 5.5 CHECKPOINT 5 (proven on the deployed stack)
   - A scheduled run, with nobody touching it, publishes last night's games to the public URL
@@ -164,10 +164,10 @@ Full tier: the 11-point checklist applies to everything this block touches.
 
 ## Block 5b: Audio recap (Tier: Full, it touches the live stack. Disposition: promote)
 Cut rule: if CHECKPOINT 5 is not passed by end of day Sep 29, skip this block and mark Req 16 STUB. The site ships without audio.
-- [ ] 5b.1 `audio_script.py` + test (script under 30 words, digits only from facts, overtime phrase only when OT)
-- [ ] 5b.2 `audio_client.py` (neural only, try/except, no text in logs)
-- [ ] 5b.3 Add `polly:SynthesizeSpeech` to the Lambda role in `template.yaml` (nothing broader), plus `POLLY_VOICE`, `POLLY_ENGINE`, `MAX_AUDIO_PER_RUN`
-- [ ] 5b.4 Player + visible transcript in `issue.html`, `preload="none"`, no autoplay
+- [x] 5b.1 (DONE Sep 26, Claude) `audio_script.py` + test (script under 30 words, digits only from facts, overtime phrase only when OT)
+- [x] 5b.2 (DONE Sep 26, Claude) `audio_client.py` (neural only, try/except, no text in logs)
+- [~] 5b.3 (in the template draft) Add `polly:SynthesizeSpeech` to the Lambda role in `template.yaml` (nothing broader), plus `POLLY_VOICE`, `POLLY_ENGINE`, `MAX_AUDIO_PER_RUN`
+- [x] 5b.4 (template already had it; site_build wires it, Sep 26) Player + visible transcript in `issue.html`, `preload="none"`, no autoplay
 - [ ] 5b.5 CHECKPOINT 5b
   - Deployed run produced MP3s for last night's games and the golden set; owner listens to 2 and approves the voice
   - Transcript on the live page matches the script exactly
