@@ -69,6 +69,7 @@ $env:PYTHONPATH="src"; python -m zine.publish_golden --bucket <BucketName>
 - [ ] `curl -I <SiteUrl>` shows CSP, HSTS, X-Content-Type-Options, X-Frame-Options, Referrer-Policy
 - [ ] The morning schedule `fcp-morning` exists (6:15am Pacific)
 - [ ] Budgets `fcp-project` and `fcp-polly` exist, OK state
+- [ ] Cost allocation tag `Project` shows Active (step 0), with the date it was activated noted in LEDGER
 - [ ] CloudWatch: ids, counts and lock rules only
 - [ ] Next morning: the scheduled run published with nobody touching it
 
