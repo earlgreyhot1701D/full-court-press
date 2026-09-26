@@ -18,9 +18,10 @@ from datetime import date
 from PIL import Image, ImageDraw, ImageFont
 
 from zine import contrast
+from zine.paths import STATIC
 
 W, H = 1200, 630
-FONTS = os.path.join(os.path.dirname(__file__), "..", "..", "static", "fonts")
+FONTS = os.path.join(STATIC, "fonts")
 SLAB = os.path.join(FONTS, "AlfaSlabOne-Regular.ttf")
 SANS = os.path.join(FONTS, "Archivo-VariableFont_wdth_wght.ttf")
 

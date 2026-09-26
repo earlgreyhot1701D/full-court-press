@@ -14,16 +14,11 @@ def f71():
 
 
 def page(f, result, voice="the_call", edition="PHX"):
-    v = voice_view.build(result, f)
-    ctx = {"f": f, "edition": edition, "voice": v,
-           "the_number": voice_view.the_number(f, v and v["number_key"]),
-           "voice_links": voice_view.voice_links(f, edition, voice),
-           "edition_urls": voice_view.edition_urls(f, voice), "is_game_of_night": False,
-           "audio": None, "card_url": "card.png", "slate": [], "standings_movers": None,
-           "spot_color": "#201747", "on_spot_text": "#FFFFFF", "low_contrast": False,
-           "date_display": "x", "max_run": max([r["points"] for r in f["runs"]] or [1]), "dropped_labels": "", "dropped_count": 0,
-           "root_prefix": voice_view.root_prefix(voice), "static_prefix": "static/"}
-    return render.render("issue.html", ctx)
+    from zine import site_build
+    rows = [site_build.slate_row(f, f["game_id"])]
+    results = {(edition, voice): result}
+    files = site_build.issue_files(f, results, f["game_id"], rows)
+    return files[voice_view.issue_path(f, edition, voice)][0].decode("utf-8")
 
 
 def run(f, *answers, voice="the_call"):
@@ -33,11 +28,12 @@ def run(f, *answers, voice="the_call"):
 
 @needs_golden
 def test_urls_default_voice_is_the_call(f71):
-    assert voice_view.page_path(25071, "PHX", "the_call") == "game/25071/PHX/index.html"
-    assert voice_view.page_path(25071, "PHX", "film_room") == "game/25071/PHX/film-room/index.html"
+    assert voice_view.issue_path(f71, "PHX", "the_call") == "wnba/2026-09-21/25071/PHX/index.html"
+    assert voice_view.issue_path(f71, "PHX", "film_room") == "wnba/2026-09-21/25071/PHX/film-room/index.html"
+    assert voice_view.issue_path(f71, "PHX", prefix="golden/") == "golden/wnba/2026-09-21/25071/PHX/index.html"
     links = voice_view.voice_links(f71, "PHX", "film_room")
     assert [l["label"] for l in links] == ["The Call", "The Film Room"]
-    assert links[0]["url"] == "../../../../game/25071/PHX/index.html" and links[1]["current"]
+    assert links[0]["url"] == "../../../../../wnba/2026-09-21/25071/PHX/index.html" and links[1]["current"]
 
 
 @needs_golden

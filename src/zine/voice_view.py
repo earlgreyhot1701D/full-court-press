@@ -10,31 +10,32 @@ Dropped sections, one at a time:
 - spotlight-> panel omitted
 - the_number -> the deterministic default from the facts sheet
 """
+from zine.paths import rel_root
 from zine.voices import VOICE_ORDER, VOICES
 
 VOICE_SLUG = {"the_call": "", "film_room": "film-room/"}  # the_call is the default page
 
 
-def page_path(game_id, edition, voice):
-    return "game/%s/%s/%sindex.html" % (game_id, edition, VOICE_SLUG[voice])
+def issue_dir(f, edition, prefix=""):
+    """Site-root-relative folder of one edition: <prefix><league>/<date>/<game_id>/<team>/"""
+    return "%s%s/%s/%s/%s/" % (prefix, f.get("league", "wnba"), f["date_local"], f["game_id"], edition)
 
 
-def root_prefix(voice):
-    """Relative path from a voice page back to the site root."""
-    return "../../../" + ("../" if VOICE_SLUG[voice] else "")
+def issue_path(f, edition, voice="the_call", prefix=""):
+    return issue_dir(f, edition, prefix) + VOICE_SLUG[voice] + "index.html"
 
 
-def voice_links(f, edition, voice):
-    """[{label, url, current}] for the voice switcher on one page, in VOICE_ORDER."""
-    pre = root_prefix(voice)
-    return [{"label": VOICES[v]["label"], "url": pre + page_path(f["game_id"], edition, v),
+def voice_links(f, edition, voice, prefix=""):
+    """[{label, url, current}] for the voice switcher, relative to the current page."""
+    up = rel_root(issue_path(f, edition, voice, prefix))
+    return [{"label": VOICES[v]["label"], "url": up + issue_path(f, edition, v, prefix),
              "current": v == voice} for v in VOICE_ORDER]
 
 
-def edition_urls(f, voice):
-    """The other edition in the same voice."""
-    pre = root_prefix(voice)
-    return {t["abbrev"]: pre + page_path(f["game_id"], t["abbrev"], voice) for t in (f["home"], f["away"])}
+def edition_urls(f, voice, prefix=""):
+    """Both editions in the same voice, relative to a page of that voice."""
+    up = rel_root(issue_path(f, f["home"]["abbrev"], voice, prefix))
+    return {t["abbrev"]: up + issue_path(f, t["abbrev"], voice, prefix) for t in (f["home"], f["away"])}
 
 
 def the_number(f, key=None):

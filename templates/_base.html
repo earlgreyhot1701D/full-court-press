@@ -29,7 +29,8 @@
       <p class="footlinks screen-only">
         <a href="{{ root_prefix }}index.html">All games</a> .
         <a href="{{ root_prefix }}about/index.html">About</a> .
-        <a href="{{ root_prefix }}archive/index.html">Archive</a>
+        <a href="{{ root_prefix }}archive/index.html">Archive</a>{% if golden_url is defined %} .
+        <a href="{{ golden_url }}">Golden set</a>{% endif %}
       </p>
     </div>
   </footer>

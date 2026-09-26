@@ -1,0 +1,220 @@
+"""The morning job (Req 1). The handler only orchestrates; every outside service is passed in, so
+`run` works offline in tests with fakes and a LocalStore.
+
+    run(store, bdl, write, speak, today) -> summary
+
+store  store.LocalStore or store.S3Store
+bdl    bdl_client.Client (or a fake with .get / .get_all)
+write  voice_client.write (or a fake)            model calls, capped by MAX_MODEL_CALLS_PER_RUN
+speak  audio_client.speak (or a fake), or None    audio, capped by MAX_AUDIO_PER_RUN
+today  the Pacific calendar date of this run
+
+Dates: from the day after the marker through yesterday (Pacific), at most LOOKBACK_DAYS back.
+The API's date filter is not documented as UTC or US time, so each night asks for that date and
+the next, then keeps games whose US Eastern date matches (facts.date_local). One extra request per
+night, correct either way. Unverified against the spec (fetch not approved in session); see LEDGER.
+
+A night is rebuilt as a whole when it has a new Final, so Game of the Night and Around the League
+stay consistent. Games already built reuse the cached feed and the cached voices: no new calls.
+A game that fails is logged by id and error type and the marker does not pass its night (Req 1.5).
+Logs carry ids, counts and lock rules only: never feed bodies, prompts, model text or keys.
+"""
+import json
+import logging
+import os
+from datetime import date, datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
+
+from zine import audio_script, cache, site_build, state, voice_run
+from zine.facts import LEAGUE_TZ, build_facts
+from zine.game_of_night import pick
+from zine.league_config import LEAGUES
+from zine.store import publish
+from zine.voices import VOICE_ORDER
+
+log = logging.getLogger("fcp.hunter")
+PACIFIC = ZoneInfo("America/Los_Angeles")
+LOOKBACK_DAYS = 6
+
+
+def dates_to_check(marker_date, today):
+    yesterday = today - timedelta(days=1)
+    start = yesterday if not marker_date else date.fromisoformat(marker_date) + timedelta(days=1)
+    start = max(start, yesterday - timedelta(days=LOOKBACK_DAYS))
+    out, d = [], start
+    while d <= yesterday:
+        out.append(d)
+        d += timedelta(days=1)
+    return out
+
+
+def local_date(game):
+    tip = datetime.strptime(game["date"][:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
+    return tip.astimezone(LEAGUE_TZ).date().isoformat()
+
+
+def is_final(game):
+    return (game.get("status_state") or "").lower() == "final" or (game.get("status") or "").lower() == "final"
+
+
+def games_for_night(bdl, league, night):
+    """-> (finals, pending_count) for games whose US Eastern date is `night`."""
+    seen = {}
+    for d in (night, night + timedelta(days=1)):
+        status, rows = bdl.get_all("/%s/v1/games?dates[]=%s&per_page=100" % (league, d.isoformat()))
+        if status != 200:
+            raise RuntimeError("games request failed: %s" % status)
+        for g in rows:
+            seen[g["id"]] = g
+    mine = [g for g in seen.values() if local_date(g) == night.isoformat()]
+    return [g for g in mine if is_final(g)], sum(1 for g in mine if not is_final(g))
+
+
+def game_inputs(store, bdl, league, game):
+    """Feed data for one game: cached if present, else fetched and cached."""
+    gid = game["id"]
+    plays = cache.get_raw(store, league, gid, "plays")
+    if plays is None:
+        status, rows = bdl.get_all("/%s/v1/plays?game_id=%d&per_page=100" % (league, gid), max_pages=10)
+        if status != 200:
+            raise RuntimeError("plays request failed: %s" % status)
+        plays = rows
+        cache.put_raw(store, league, gid, "plays", plays)
+    rosters = {}
+    for side in ("home_team", "visitor_team"):
+        t = game[side]
+        rl = cache.get_raw(store, league, gid, "roster_" + t["abbreviation"])
+        if rl is None:
+            status, rl = bdl.get_all("/%s/v1/players?team_ids[]=%d&per_page=100" % (league, t["id"]))
+            if status != 200:
+                raise RuntimeError("roster request failed: %s" % status)
+            cache.put_raw(store, league, gid, "roster_" + t["abbreviation"], rl)
+        rosters[t["abbreviation"]] = rl
+    cache.put_raw(store, league, gid, "game", game)
+    return plays, rosters
+
+
+def movers_line(prev, now_rows, names):
+    """'Liberty up 1 to 4th in the East' style, deterministic, only when a previous snapshot exists."""
+    if not prev:
+        return None
+    moves = []
+    for ab, st in now_rows.items():
+        before = prev.get(ab)
+        if before and before != st["conference_rank"]:
+            d = before - st["conference_rank"]
+            moves.append("%s %s %d to %s" % (names.get(ab, ab), "up" if d > 0 else "down", abs(d), st["place"]))
+    return "; ".join(moves) or None
+
+
+def voices_for(store, write, f, budget):
+    league, gid = f.get("league", "wnba"), f["game_id"]
+    results = cache.get_voices(store, league, gid) or {}
+    for t in (f["home"], f["away"]):
+        for v in VOICE_ORDER:
+            if results.get((t["abbrev"], v)) is None:
+                r = voice_run.run(write, f, v, t["abbrev"], budget)
+                results[(t["abbrev"], v)] = r if r["calls"] else None  # budget-skipped: retry next run
+    cache.put_voices(store, league, gid, results)
+    return results
+
+
+def run(store, bdl, write, speak, today, env=None):
+    env = env if env is not None else os.environ
+    budget = voice_run.CallBudget(int(env.get("MAX_MODEL_CALLS_PER_RUN", 60)))
+    audio_left = int(env.get("MAX_AUDIO_PER_RUN", 30))
+    base_url = env.get("SITE_URL", "")
+    leagues = [l for l in env.get("LEAGUES", "wnba").split(",") if LEAGUES.get(l, {}).get("enabled")]
+    marker = state.read_marker(store)
+    summary = {"built": [], "failed": [], "pending_nights": [], "model_calls": 0, "audio": 0, "marker": {}}
+
+    for league in leagues:
+        st_status, st_rows = bdl.get_all("/%s/v1/standings" % league)
+        standings = st_rows if st_status == 200 else []  # 401 or failure: scores-only strip (Req 9.3)
+        prev_ranks = state.read_standings(store, league)
+        new_ranks = {}
+        advance_to = marker.get(league)
+        blocked = False
+        for night in dates_to_check(marker.get(league), today):
+            ok_night = True
+            try:
+                finals, pending = games_for_night(bdl, league, night)
+            except Exception as e:
+                summary["failed"].append({"night": night.isoformat(), "error": type(e).__name__})
+                blocked = True
+                continue
+            if pending:
+                summary["pending_nights"].append(night.isoformat())
+                ok_night = False
+            built = {r["game_id"] for r in state.load_night(store, league, night.isoformat())}
+            if finals and any(g["id"] not in built for g in finals):
+                facts_list = []
+                for g in finals:
+                    try:
+                        plays, rosters = game_inputs(store, bdl, league, g)
+                        f = build_facts(g, plays, rosters, standings, league)
+                        facts_list.append(f)
+                    except Exception as e:
+                        summary["failed"].append({"game_id": g["id"], "error": type(e).__name__})
+                        ok_night = False
+                if facts_list:
+                    gotn = pick(facts_list)
+                    rows = [site_build.slate_row(f, gotn) for f in facts_list]
+                    for f in facts_list:
+                        for ab, s in f.get("standings_line", {}).items():
+                            new_ranks[ab] = s["conference_rank"]
+                    for f in facts_list:
+                        try:
+                            results = voices_for(store, write, f, budget)
+                            audio = {}
+                            for t in (f["home"], f["away"]):
+                                if speak and audio_left > 0:
+                                    head = ((results.get((t["abbrev"], VOICE_ORDER[0])) or {}).get("sections") or {}).get("headline")
+                                    script = audio_script.build(f, head)
+                                    mp3 = speak(script)
+                                    audio_left -= 1
+                                    if mp3:
+                                        audio[t["abbrev"]] = {"script": script, "mp3": mp3}
+                                        summary["audio"] += 1
+                            names = {f["home"]["abbrev"]: f["home"]["team"], f["away"]["abbrev"]: f["away"]["team"]}
+                            movers = movers_line(prev_ranks, {ab: s for ab, s in f.get("standings_line", {}).items()}, names)
+                            files = site_build.issue_files(f, results, gotn, rows, audio=audio, movers=movers, base_url=base_url)
+                            publish(store, files)
+                            summary["built"].append(f["game_id"])
+                            for (ed, v), r in results.items():
+                                if r:
+                                    log.info(json.dumps({"game_id": f["game_id"], "edition": ed, "voice": v,
+                                                         "calls": r["calls"], "lock": r["log"]}))
+                        except Exception as e:
+                            summary["failed"].append({"game_id": f["game_id"], "error": type(e).__name__})
+                            ok_night = False
+                    state.save_night(store, league, night.isoformat(), rows)
+            if ok_night and not blocked:
+                advance_to = night.isoformat()
+            else:
+                blocked = True
+        if new_ranks:
+            state.write_standings(store, league, new_ranks)
+        publish(store, site_build.front_files(state.nights(store, league)))
+        publish(store, site_build.static_files())
+        if advance_to:
+            marker[league] = advance_to
+        summary["marker"][league] = marker.get(league)
+    state.write_marker(store, marker)
+    summary["model_calls"] = int(env.get("MAX_MODEL_CALLS_PER_RUN", 60)) - budget.left
+    log.info(json.dumps(summary))
+    return summary
+
+
+def handler(event, context):
+    """Lambda entry point. The only place that builds the real clients."""
+    for noisy in ("boto3", "botocore", "urllib3"):
+        logging.getLogger(noisy).setLevel(logging.WARNING)
+    logging.getLogger().setLevel(os.environ.get("LOG_LEVEL", "INFO"))
+    from zine import api_key, audio_client, voice_client
+    from zine.bdl_client import Client
+    from zine.store import S3Store
+    store = S3Store(os.environ["BUCKET"])
+    bdl = Client(api_key.get_key())
+    today = datetime.now(PACIFIC).date()
+    return run(store, bdl, voice_client.write, audio_client.speak, today)
