@@ -257,3 +257,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Did: hunter.local_date handles bare and midnight dates; UnmatchedGames holds the marker; per-night diagnostics in the summary; forced nights via the event; tools/probe_game_dates.py; 4 new tests (midnight dates, unmatched hold, forced nights, date formats).
 - Result: PASS. pytest 170 passed.
 - Resources: none.
+
+## 2026-09-26 . 5.4 . Deploy live, four nights recovered, golden published, CHECKPOINT 5 evidence (Kiro)
+- Tier: Full (deploy)
+- Did: after three date-logic redeploys (see LEDGER), rebuilt and redeployed with Claude's slate-bug fix. Re-invoked the forced-night handler for Eastern Sep 24, 23, 22, 21, one at a time. Published the golden set. Gathered CHECKPOINT 5 evidence.
+- Result: all four nights clean (failed=[], stray=0): Sep24 built [25079,25080,25081,25082,25083]; Sep23 [25077,25078]; Sep22 [25072,25073,25074,25075,25076]; Sep21 [25070,25071]. Golden publish: 60 files under site/golden/, Game of the Night 25071, 74 voice sections kept. Evidence: SiteUrl 200; golden/index.html 200; direct S3 object URL 403; all five response headers present (CSP with frame-ancestors none + form-action none, HSTS 1yr+includeSubDomains, X-Content-Type-Options nosniff, X-Frame-Options DENY, Referrer-Policy); schedule fcp-morning ENABLED cron(15 6 * * ? *) America/Los_Angeles; budgets fcp-project $10 and fcp-polly $2 exist; Project cost tag Active (step 0, 2026-09-26); CloudWatch scan of 215 lines found 0 key/auth, 0 model-prose, 0 account-id.
+- Resources: S3 site + golden objects written; ~69 model calls total across the four nights (under caps); Polly audio for each built game.
+- Evidence: SiteUrl https://dfph64wiizg5i.cloudfront.net/ ; CloudWatch /aws/lambda/fcp-hunter run summaries.
