@@ -69,6 +69,8 @@ SHARED_BANNED = [
     "dunk", "dunked", "and-one", "fadeaway", "logo", "half-court", "halfcourt", "alley-oop",
     "three-pointer", "three-pointers", "threes", "from deep", "beyond the arc", "3-pointer",
     "3-pointers",
+    # shooting efficiency: FACTS has made shots only, never attempts
+    "efficient", "efficiently", "percent", "percentage", "perfect from",
     # punctuation: no em dashes, and no dash stand-ins
     "—", "–", "--",
 ]
@@ -89,11 +91,18 @@ def _patterns(voice):
     return _COMPILED[voice]
 
 
+# shooting splits like "10 for 10", "7-of-9", "3 of 5": FACTS has no attempts, so any split is invented
+_SPLIT = re.compile(r"\b\d+\s*(?:-\s*)?(?:for|of)(?:\s*-)?\s*\d+\b", re.IGNORECASE)
+
+
 def banned_hit(text, voice):
     """The first banned term found in `text`, or None."""
     for term, pat in _patterns(voice):
         if pat.search(text):
             return term
+    m = _SPLIT.search(text)
+    if m:
+        return m.group()
     return None
 
 
@@ -107,6 +116,8 @@ NEVER = [
     "Never describe standings movement (climbing, falling, passing, clinching). FACTS has only today's place and record.",
     "Never say who assisted whom, and never describe passes, cuts or defense on a specific player.",
     "Never blame a player for turnovers, misses or fouls.",
+    "FACTS has made shots only, no attempts. Never write shooting splits like '10 for 10', percentages, or 'efficient'.",
+    "Who led a team, and who had the game high, is in plain_facts. Never say someone led unless plain_facts says so.",
     "Never describe a specific play, shot type or moment that FACTS does not contain. No clock times, no three-pointers, no dunks, no buzzer-beaters.",
     "Never mention injuries, health, betting, odds or rumors.",
     "Never describe anyone's body or appearance.",

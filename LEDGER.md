@@ -404,3 +404,10 @@ Pattern:      the model working out who won a quarter, what a run meant, or what
 Fix:          structure is deterministic, flavor is AI. facts.py now writes `plain_facts`: true sentences built by code for each quarter's winner and score, halftime and after-three scores, each team run, the comeback size, and today's standings place. Their numbers join `numbers`, so the lock allows them. Six new NEVER lines: quarter results and in-game scores only from plain_facts; runs belong to teams; no timing of a lead; no standings movement; no who-assisted-whom or play description; no blaming a player.
 Next:         owner reruns with --fresh; Claude audits run 2 the same way.
 Disposition:  promote (145 tests passing). The audit itself is CHECKPOINT 3 evidence: the lock caught 9 sections, a human caught 7 more.
+
+### 2026-09-26 . Block 3 . 3.5 live run 2 and the audit
+Run:          after plain_facts. 74 of 80 sections kept (run 1: 71). 34 model calls. No errors.
+Audit:        clearly false among the kept went from 7 to 4, and quarter-winner and standings errors went to 0. Still through: "Charles led all scorers with 16" (Johnson had 17); Stewart "shot 10 for 10 ... 7 for 7" (no attempts in the facts); "Jessica Shepard led Dallas with 17 points" (Bueckers had 30); "built a 14-point lead and held it through 3 quarters" (the lead after 3 was 7). Softer: timing claims ("fell behind early", "down the stretch"), "improve to 2nd", "efficient shooting".
+Fix:          plain_facts now also say who led each team in points, rebounds and assists, and who had the game high. The banned check now blocks shooting splits ("10 for 10", "7-of-9", "3 of 5") and "efficient", "percent". Two more NEVER lines. About page gains a second honest limit: the lock checks numbers and names, not whether a sentence uses them correctly.
+Decided:      MVP, not prod (owner). No third run required before deploy; the deployed run writes fresh voices under the new rules, and the owner reads two issues there for CHECKPOINT 3.
+Disposition:  promote (152 tests passing)

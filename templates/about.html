@@ -49,6 +49,7 @@
     {# spec-driven explanation of the method and the fact lock (Req 10c) #}
     <p>In plain terms: the structure and every number on the page are produced by code. The voice, the sentences you read, is written by a model. Before anything publishes, a fact lock checks every number and name the model wrote against the facts sheet the code built. If a section fails the check, it is dropped rather than shown. When a whole voice section is dropped, you will see &ldquo;The writers&rsquo; room passed on this one.&rdquo; in its place, and the deterministic parts of the issue still publish.</p>
     <p>An honest limit: points are verified against the final score, which comes from a separate source. The other counted categories (rebounds, assists, steals, blocks, turnovers) have no independent check, so a category is dropped for a game when its count cannot be trusted, and full player statistics sit behind a data tier this project does not buy. The NBA edition is stubbed and off until later.</p>
+    <p>A second honest limit: the fact lock checks that every number and name came from the facts. It can&rsquo;t check that a sentence uses them the right way, so a voice can still get a claim wrong, like saying a team led when it didn&rsquo;t. To keep that rare, code writes the claims a model gets wrong most often (who won each quarter, the score at halftime, who led each team, where the standings sit) as plain sentences the voice can use, so it never has to work them out.</p>
   </section>
 
   <section class="aboutblock">

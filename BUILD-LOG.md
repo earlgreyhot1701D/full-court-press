@@ -233,3 +233,8 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: run 1: 71 of 80 kept, 7 false-or-rule-breaking among the kept. Fix in place; pytest 145 passed.
 - Resources: about 33 model calls (owner's account).
 - Evidence: LEDGER entry of the same date.
+
+## 2026-09-26 . 3.5 . Live run 2 audit, leaders in plain_facts, shooting-split ban (owner ran, Claude audited and fixed)
+- Result: run 2: 74 of 80 kept, 4 clearly false among the kept (run 1: 7). Fixes in place; pytest 152 passed.
+- Resources: 34 model calls (owner's account).
+- Evidence: LEDGER entry of the same date.

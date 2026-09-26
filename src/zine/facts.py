@@ -224,6 +224,13 @@ def build_facts(game, plays, roster_lists, standings_rows, league="wnba"):
         plain.append("%s went on %s %s run in %s." % (nick[r["team_abbrev"]], art, r["detail"], pname(r["quarter"])))
     if f.get("winner_max_deficit"):
         plain.append("%s trailed by as many as %d and still won." % (nick[f["winner_abbrev"]], f["winner_max_deficit"]))
+    word = {"points": "points", "rebounds": "rebounds", "assists": "assists"}
+    for ld in f.get("leaders", []):
+        if ld["category"] in word:
+            plain.append("%s led %s with %d %s." % (ld["player"], nick[ld["team_abbrev"]], ld["value"], word[ld["category"]]))
+    for n in f.get("notable", []):
+        if n["type"] == "game_high":
+            plain.append("%s had the game high with %s." % (n["player"], n["detail"]))
     for ab, st in f["standings_line"].items():
         plain.append("%s are %s at %d-%d." % (nick[ab], st["place"], st["wins"], st["losses"]))
     f["plain_facts"] = [p_[0].upper() + p_[1:] for p_ in plain]

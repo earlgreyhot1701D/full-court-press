@@ -154,6 +154,9 @@ def test_plain_facts_state_quarter_winners_and_their_numbers_are_allowed():
     assert "At halftime the Dream led 44-40." in f["plain_facts"]
     assert "The Fever went on an 8-0 run in overtime." in f["plain_facts"]
     assert "The Dream are 1st in the East at 30-14." in f["plain_facts"]
+    assert "Allisha Gray had the game high with 32 points." in f["plain_facts"]
+    g = golden_facts()["25071"]
+    assert "Paige Bueckers led the Wings with 30 points." in g["plain_facts"]
     for n in ("44", "40", "72", "64"):
         assert n in f["allowed_numbers"]
 

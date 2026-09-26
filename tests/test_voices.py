@@ -147,3 +147,14 @@ def test_banned_is_whole_word():
     assert voices.banned_hit("A body of work.", "the_call") == "body"
     assert voices.banned_hit("Wings — gone.", "the_call") == "—"
     assert voices.banned_hit("the 3-pointers fell", "the_call") == "3-pointers"
+
+
+
+@pytest.mark.parametrize("text", ["She shot 10 for 10 from the field.", "went 7-of-9", "3 of 5 from the line", "an efficient night"])
+def test_shooting_splits_are_banned(text):
+    assert voices.banned_hit(text, "the_call") is not None
+
+
+@pytest.mark.parametrize("text", ["The Liberty won all 4 quarters.", "an 8-0 run", "won 87-86"])
+def test_ordinary_numbers_are_not_splits(text):
+    assert voices.banned_hit(text, "the_call") is None
