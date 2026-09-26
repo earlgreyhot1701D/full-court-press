@@ -442,3 +442,11 @@ Answer:       It existed as a UserDefined tag but was Inactive (LastUsedDate 202
 Cost:         none. Reversible (flip back to Inactive the same way).
 Disposition:  CHECKPOINT 5 tag item satisfied; recheck tomorrow that tagged spend appears.
 Changes PRD?: no.
+
+### 2026-09-26 . Block 5 . A new account's Lambda concurrency is 10, so no reserved concurrency (Kiro)
+Question:     The first sam deploy rolled back. Why, and what is the fix?
+Answer:       The Hunter function set ReservedConcurrentExecutions: 1. Lambda rejected it: "Specified ReservedConcurrentExecutions ... decreases account's UnreservedConcurrentExecution below its minimum value of [10]." A new/unincreased account has a total concurrency limit of 10, and AWS keeps a floor of 10 unreserved, so reserving even 1 is impossible. This is an account-quota conflict, not a template or bundle bug. The failed stack went to ROLLBACK_COMPLETE (unusable, must be deleted before redeploy).
+Fix:          Removed ReservedConcurrentExecutions from Hunter (owner's decision, option 1 over a quota-increase request). The one-run-at-a-time guard is now a STUB: implement post-MVP as an S3 lock object in state/ that the hunter takes at start and releases at end, not reserved concurrency. The hunter runs once each morning on a schedule, so the practical risk of overlap is low.
+Cost:         one failed create + rollback, no lasting resources. Rebuild bundle, delete stack, redeploy.
+Disposition:  promote (template.yaml Hunter STUB comment). Stack to be deleted and redeployed on owner go.
+Changes PRD?: no, but Req 12's "never two runs at once" is now a documented stub until the S3 lock is built.

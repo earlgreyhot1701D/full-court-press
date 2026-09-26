@@ -147,7 +147,10 @@ Resources:
       Architectures: [x86_64]
       MemorySize: 1024
       Timeout: 300                        # Req 12.3
-      ReservedConcurrentExecutions: 1     # never two runs at once
+      # STUB(full-court-press): one-run-at-a-time guard. ReservedConcurrentExecutions:1 was rejected
+      # because a new account's total Lambda concurrency is 10 and AWS keeps 10 unreserved (Sep 26,
+      # see LEDGER). Implement later as an S3 lock object in state/ that the hunter takes at start and
+      # releases at end, rather than reserved concurrency.
       Environment:
         Variables:
           BUCKET: !Ref SiteBucket

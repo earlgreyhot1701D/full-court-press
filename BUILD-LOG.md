@@ -245,3 +245,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS offline. pytest 166 passed. Dry run builds 25071 and the front pages; golden publish to a folder writes 60 files; bundle 25.9 MB.
 - Resources: none. No AWS, no model.
 - Evidence: LEDGER entry of the same date.
+
+## 2026-09-26 . 5.4 . First deploy rolled back on Lambda concurrency; fixed and rebuilt (Kiro)
+- Tier: Full (deploy)
+- Did: ran DEPLOY.md steps 0-2 (activated the Project cost tag; built the bundle; fixed one sam validate --lint finding on RecapProfile Description). Owner ran sam deploy; it rolled back because Hunter's ReservedConcurrentExecutions:1 exceeds a new account's concurrency headroom (total 10, 10 kept unreserved). Removed that property (STUB: one-run-at-a-time becomes a post-MVP S3 lock), re-validated, deleted the ROLLBACK_COMPLETE stack, and rebuilt build/lambda.
+- Result: template valid; bundle rebuilt. Ready for the owner's go on a second sam deploy.
+- Resources: activated Project cost allocation tag (Active, 2026-09-26). First stack create failed and rolled back (no lasting resources); deleted before redeploy.
+- Evidence: LEDGER entries 2026-09-26; sam validate --lint clean; build/lambda size reported below at rebuild.
