@@ -174,6 +174,17 @@ Cut rule: if CHECKPOINT 5 is not passed by end of day Sep 29, skip this block an
   - CloudWatch shows no script text
   - _Requirements: 16_
 
+## Block 5c: Zine design stretch (Tier: Working. STRETCH. Owner asked Sep 26: "the zine look is still a little weak")
+Runs only after CHECKPOINT 5 passes. Timebox about 2 hours. Cut rule: if time is short, do items 1 to 4 only; if CHECKPOINT 5 is late, skip the block and leave this list in the README STUB section. CSS and templates only: no pipeline change.
+- [ ] 5c.1 Photocopy grain over the page (subtle xerox noise), all pages
+- [ ] 5c.2 Cards pasted crooked: small per-card rotation, index and issue
+- [ ] 5c.3 Cut-out masthead letters (mixed scale and weight, some on pink tape)
+- [ ] 5c.4 Rubber-stamp FINAL / F/OT on index cards
+- [ ] 5c.5 Marker underline under the winning score
+- [ ] 5c.6 Staple marks at the fold lines; torn edges on the spotlight clipping
+- [ ] 5c.7 Off-register pink on big headlines
+- [ ] 5c.8 CHECKPOINT 5c: contrast tests pass, no-JS works, print sheet clean, 390px no horizontal scroll, owner approves by eye
+
 ## Block 6: Harden and package (Tier: Full. Disposition: promote)
 - [ ] 6.1 Walk the 11-point checklist (PRD Gate H), record each item PASS / N/A / deferred with reason
 - [ ] 6.2 Planted-bad-number test against the deployed Lambda (doctored facts, invoked once), rejection visible in CloudWatch

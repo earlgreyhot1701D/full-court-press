@@ -415,3 +415,6 @@ Disposition:  promote (152 tests passing)
 ### 2026-09-26 . UI . Index slate as a grid (owner)
 Changed: the index game cards are a grid on wider screens so the whole slate is visible without scrolling: 3 columns from 980px (Game of the Night spans 2, so 5 games fill 2 rows), 2 columns from 640px (Game of the Night spans the row), 1 column on phones as before. Index content width 1040px; issue pages stay 720px.
 Proof:   headless browser at 1280, 760 and 390: no horizontal scroll, no page errors.
+
+### 2026-09-26 . Design . Zine look stretch goal (owner)
+Decided: the owner finds the zine look still a little weak. Logged as Block 5c, a stretch after CHECKPOINT 5, timeboxed about 2 hours, CSS and templates only, with a cut rule (items 1 to 4 only if short on time; skip entirely if CHECKPOINT 5 is late). Deploy stays the critical path because the audio cut-off is end of Sep 29.
