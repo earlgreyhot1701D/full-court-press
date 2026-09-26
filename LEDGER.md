@@ -450,3 +450,13 @@ Fix:          Removed ReservedConcurrentExecutions from Hunter (owner's decision
 Cost:         one failed create + rollback, no lasting resources. Rebuild bundle, delete stack, redeploy.
 Disposition:  promote (template.yaml Hunter STUB comment). Stack to be deleted and redeployed on owner go.
 Changes PRD?: no, but Req 12's "never two runs at once" is now a documented stub until the S3 lock is built.
+
+### 2026-09-26 . Block 5 . First deployed run built nothing (Kiro found, Claude diagnosed)
+Found (Kiro): the Lambda imports and runs clean (init 336 ms, 3.6 s), the log holds only the summary, but it built 0 games for Sep 25 while the API has 3 finals that night (Kiro's read-only date check). Marker moved to 2026-09-25.
+Diagnosis (Claude): not the marker. With no marker the hunter checks exactly yesterday (Sep 25), and 3.6 s at 1 request per second is standings + Sep 25 + Sep 26, so it did ask. The marker moved to Sep 25 because the night matched zero games: the date-matching step filed all 3 somewhere else. Leading suspect, unconfirmed: the games LIST reports `date` differently from the single-game endpoint the golden set came from (for example the API's calendar date at midnight UTC, which converts to the evening before in US Eastern time). Claude's code, Claude's bug: the "ask for two dates and filter" design was written without seeing the list's date format (the spec fetch was not approved in session).
+Fix, three parts, whatever the exact cause:
+1. `local_date` takes a bare date or a midnight-UTC date as the API's own calendar date instead of converting it.
+2. A night where the API returned games but none matched is now a failure (`UnmatchedGames`) that holds the marker, instead of a silent empty night.
+3. Each run's summary carries per-night counts (`asked`, `matched`, `finals`), and the handler accepts `{"nights": ["YYYY-MM-DD"]}` to rebuild chosen nights without moving the marker back. Sep 25 is recovered that way.
+Probe: `tools/probe_game_dates.py` prints id, raw `date`, status for four dates, to confirm the cause on the real API.
+Disposition:  promote (170 tests passing). Redeploy, then invoke one forced night at a time (a 4-game night can use up to 32 model calls).

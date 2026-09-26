@@ -252,3 +252,8 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: template valid; bundle rebuilt. Ready for the owner's go on a second sam deploy.
 - Resources: activated Project cost allocation tag (Active, 2026-09-26). First stack create failed and rolled back (no lasting resources); deleted before redeploy.
 - Evidence: LEDGER entries 2026-09-26; sam validate --lint clean; build/lambda size reported below at rebuild.
+
+## 2026-09-26 . 5.4 follow-up . Date matching fix after the first deployed run (Claude, on disk)
+- Did: hunter.local_date handles bare and midnight dates; UnmatchedGames holds the marker; per-night diagnostics in the summary; forced nights via the event; tools/probe_game_dates.py; 4 new tests (midnight dates, unmatched hold, forced nights, date formats).
+- Result: PASS. pytest 170 passed.
+- Resources: none.

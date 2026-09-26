@@ -91,3 +91,34 @@ def test_logs_carry_no_model_text(tmp_path, caplog):
     hunter.run(store, FakeBDL(), lambda s, m: dict(planted), None, date(2026, 9, 22), ENV)
     text = caplog.text
     assert "33 points" not in text and "Mercury hold on" not in text and "Copper" not in text
+
+
+def test_local_date_formats():
+    assert hunter.local_date({"date": "2026-09-22T02:00:00.000Z"}) == "2026-09-21"   # real tip time, West Coast
+    assert hunter.local_date({"date": "2026-09-25T23:00:00.000Z"}) == "2026-09-25"
+    assert hunter.local_date({"date": "2026-09-25T00:00:00.000Z"}) == "2026-09-25"   # API's calendar date at midnight
+    assert hunter.local_date({"date": "2026-09-25"}) == "2026-09-25"
+
+
+@needs_golden
+def test_midnight_dates_still_build_the_right_night(tmp_path):
+    store = LocalStore(str(tmp_path))
+    s = hunter.run(store, FakeBDL(midnight_dates=True), fake_write, None, date(2026, 9, 22), ENV)
+    assert 25071 in s["built"] and s["nights"]["2026-09-21"]["matched"] == 1
+
+
+@needs_golden
+def test_unmatched_games_hold_the_marker(tmp_path, monkeypatch):
+    store = LocalStore(str(tmp_path))
+    monkeypatch.setattr(hunter, "local_date", lambda g: "1999-01-01")  # simulate the Sep 26 bug
+    s = hunter.run(store, FakeBDL(), fake_write, None, date(2026, 9, 23), ENV)   # night 2026-09-22 has games by UTC day
+    assert {"night": "2026-09-22", "error": "UnmatchedGames"} in s["failed"]
+    assert s["marker"]["wnba"] is None
+
+
+@needs_golden
+def test_forced_nights_rebuild_without_moving_the_marker_back(tmp_path):
+    store = LocalStore(str(tmp_path))
+    state.write_marker(store, {"wnba": "2026-09-25"})
+    s = hunter.run(store, FakeBDL(), fake_write, None, date(2026, 9, 26), ENV, nights=["2026-09-21"])
+    assert 25071 in s["built"] and s["marker"]["wnba"] == "2026-09-25"

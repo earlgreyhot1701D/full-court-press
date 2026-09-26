@@ -49,7 +49,13 @@ def dates_to_check(marker_date, today):
 
 
 def local_date(game):
-    tip = datetime.strptime(game["date"][:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
+    """US Eastern calendar date of a game. A bare date, or a date at exactly midnight UTC, is a
+    calendar date the API already assigned, not a tip time, so it is taken as is (converting
+    midnight UTC to Eastern would file every game on the evening before)."""
+    raw = game.get("date") or ""
+    if len(raw) <= 10 or raw[10:19] in ("T00:00:00", " 00:00:00"):
+        return raw[:10]
+    tip = datetime.strptime(raw[:19].replace(" ", "T"), "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
     return tip.astimezone(LEAGUE_TZ).date().isoformat()
 
 
@@ -58,16 +64,20 @@ def is_final(game):
 
 
 def games_for_night(bdl, league, night):
-    """-> (finals, pending_count) for games whose US Eastern date is `night`."""
-    seen = {}
-    for d in (night, night + timedelta(days=1)):
+    """-> (finals, pending_count, diag) for games whose US Eastern date is `night`.
+    diag = {"asked": rows returned for this night's own date, "matched": games kept, "finals": n}."""
+    seen, asked = {}, 0
+    for i, d in enumerate((night, night + timedelta(days=1))):
         status, rows = bdl.get_all("/%s/v1/games?dates[]=%s&per_page=100" % (league, d.isoformat()))
         if status != 200:
             raise RuntimeError("games request failed: %s" % status)
+        if i == 0:
+            asked = len(rows)
         for g in rows:
             seen[g["id"]] = g
     mine = [g for g in seen.values() if local_date(g) == night.isoformat()]
-    return [g for g in mine if is_final(g)], sum(1 for g in mine if not is_final(g))
+    finals = [g for g in mine if is_final(g)]
+    return finals, sum(1 for g in mine if not is_final(g)), {"asked": asked, "matched": len(mine), "finals": len(finals)}
 
 
 def game_inputs(store, bdl, league, game):
@@ -119,14 +129,16 @@ def voices_for(store, write, f, budget):
     return results
 
 
-def run(store, bdl, write, speak, today, env=None):
+def run(store, bdl, write, speak, today, env=None, nights=None):
+    """nights: optional list of YYYY-MM-DD to (re)build regardless of the marker (recovery and
+    verification). A forced run never moves the marker backwards."""
     env = env if env is not None else os.environ
     budget = voice_run.CallBudget(int(env.get("MAX_MODEL_CALLS_PER_RUN", 60)))
     audio_left = int(env.get("MAX_AUDIO_PER_RUN", 30))
     base_url = env.get("SITE_URL", "")
     leagues = [l for l in env.get("LEAGUES", "wnba").split(",") if LEAGUES.get(l, {}).get("enabled")]
     marker = state.read_marker(store)
-    summary = {"built": [], "failed": [], "pending_nights": [], "model_calls": 0, "audio": 0, "marker": {}}
+    summary = {"built": [], "failed": [], "pending_nights": [], "nights": {}, "model_calls": 0, "audio": 0, "marker": {}}
 
     for league in leagues:
         st_status, st_rows = bdl.get_all("/%s/v1/standings" % league)
@@ -135,14 +147,21 @@ def run(store, bdl, write, speak, today, env=None):
         new_ranks = {}
         advance_to = marker.get(league)
         blocked = False
-        for night in dates_to_check(marker.get(league), today):
+        forced = [date.fromisoformat(n) for n in (nights or [])]
+        for night in forced or dates_to_check(marker.get(league), today):
             ok_night = True
             try:
-                finals, pending = games_for_night(bdl, league, night)
+                finals, pending, diag = games_for_night(bdl, league, night)
             except Exception as e:
                 summary["failed"].append({"night": night.isoformat(), "error": type(e).__name__})
                 blocked = True
                 continue
+            summary["nights"][night.isoformat()] = diag
+            if diag["asked"] and not diag["matched"]:
+                # the API returned games for this date and none matched: a date-logic problem,
+                # not an off night. Hold the marker so the night is not skipped for good.
+                summary["failed"].append({"night": night.isoformat(), "error": "UnmatchedGames"})
+                ok_night = False
             if pending:
                 summary["pending_nights"].append(night.isoformat())
                 ok_night = False
@@ -189,7 +208,7 @@ def run(store, bdl, write, speak, today, env=None):
                             summary["failed"].append({"game_id": f["game_id"], "error": type(e).__name__})
                             ok_night = False
                     state.save_night(store, league, night.isoformat(), rows)
-            if ok_night and not blocked:
+            if ok_night and not blocked and not forced:
                 advance_to = night.isoformat()
             else:
                 blocked = True
@@ -217,4 +236,5 @@ def handler(event, context):
     store = S3Store(os.environ["BUCKET"])
     bdl = Client(api_key.get_key())
     today = datetime.now(PACIFIC).date()
-    return run(store, bdl, voice_client.write, audio_client.speak, today)
+    nights = (event or {}).get("nights") if isinstance(event, dict) else None  # {"nights": ["2026-09-25"]}
+    return run(store, bdl, voice_client.write, audio_client.speak, today, nights=nights)
