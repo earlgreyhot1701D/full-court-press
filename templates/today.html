@@ -31,7 +31,7 @@
 </div>
 {% endif %}
 
-<div class="wrap">
+<div class="wrap wide">
   <div class="slatehead">
     <h2 class="slab">Last night</h2>
     <span class="date">{{ date_display }}</span>
@@ -41,6 +41,8 @@
   <div class="nogame">No issues here yet. Check back after the next game.</div>
   {% endif %}
 
+  {# grid on wider screens so the whole slate fits without scrolling (owner, Sep 26); one column on phones #}
+  <div class="slate">
   {% for g in slate %}
   <article class="card{% if g.is_game_of_night %} gotn{% endif %}" data-teams="{{ g.home.abbrev }} {{ g.away.abbrev }}"{% if g.spot %} style="--spot:{{ g.spot }}"{% endif %}>
     {% if g.is_game_of_night %}<div class="badge">Game of the Night</div>{% endif %}
@@ -61,6 +63,7 @@
     </div>
   </article>
   {% endfor %}
+  </div>
   <p class="hint screen-only">Tap a team name for that team&rsquo;s edition, or &ldquo;Read the issue&rdquo; for the winner&rsquo;s.</p>
 </div>
 {% endblock %}

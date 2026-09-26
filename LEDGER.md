@@ -411,3 +411,7 @@ Audit:        clearly false among the kept went from 7 to 4, and quarter-winner 
 Fix:          plain_facts now also say who led each team in points, rebounds and assists, and who had the game high. The banned check now blocks shooting splits ("10 for 10", "7-of-9", "3 of 5") and "efficient", "percent". Two more NEVER lines. About page gains a second honest limit: the lock checks numbers and names, not whether a sentence uses them correctly.
 Decided:      MVP, not prod (owner). No third run required before deploy; the deployed run writes fresh voices under the new rules, and the owner reads two issues there for CHECKPOINT 3.
 Disposition:  promote (152 tests passing)
+
+### 2026-09-26 . UI . Index slate as a grid (owner)
+Changed: the index game cards are a grid on wider screens so the whole slate is visible without scrolling: 3 columns from 980px (Game of the Night spans 2, so 5 games fill 2 rows), 2 columns from 640px (Game of the Night spans the row), 1 column on phones as before. Index content width 1040px; issue pages stay 720px.
+Proof:   headless browser at 1280, 760 and 390: no horizontal scroll, no page errors.
