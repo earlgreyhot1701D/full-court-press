@@ -24,3 +24,4 @@ out-golden/
 out-dry/
 build/
 .aws-sam/
+out-live-cache/
