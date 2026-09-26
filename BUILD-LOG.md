@@ -206,3 +206,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS. pytest 116 passed. Golden render still builds.
 - Resources: none. No model called.
 - Evidence: LEDGER entry of the same date.
+
+## 2026-09-26 . 3.5 prep . Voice pages, switcher, section drops (Claude, on disk)
+- Tier: Working
+- Did: `src/zine/voice_view.py`, issue.html voice switcher and per-section fallbacks, `.voices .grp` labels, dev_render_golden renders both voices per edition, `fixtures/voice_standins/25071.json`, `tests/test_voice_view.py`.
+- Result: PASS. pytest 123 passed. Browser check at 390px on four pages.
+- Resources: none. No model called.
+- Evidence: LEDGER entry of the same date.

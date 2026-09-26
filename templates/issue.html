@@ -5,7 +5,8 @@
   cover, audio, recap+voices+edition toggle, spotlight, stat line (collapsed),
   game flow (runs inside), Around the League, footer.
   `f` is the facts sheet; `edition` is the team abbrev this edition is written
-  for; `voice` is the rendered voice block (or None when the voice was dropped).
+  for; `voice` is voice_view.build() (None when the whole voice was dropped; any one
+  section can also be None); `voice_links` is voice_view.voice_links().
 #}
 {% block title %}{{ f.home.team }} {{ f.home.score }}, {{ f.away.team }} {{ f.away.score }} . Full Court Press{% endblock %}
 
@@ -93,11 +94,20 @@
 
       {# edition toggle: direct links to each team's edition, server-rendered (Req 10.1b-i) #}
       <div class="voices screen-only" role="group" aria-label="Edition">
+        <span class="grp" aria-hidden="true">Edition</span>
         <a href="{{ edition_urls[f.home.abbrev] }}" {% if edition == f.home.abbrev %}aria-current="page"{% endif %}>{{ f.home.team }} edition</a>
         <a href="{{ edition_urls[f.away.abbrev] }}" {% if edition == f.away.abbrev %}aria-current="page"{% endif %}>{{ f.away.team }} edition</a>
       </div>
 
-      {% if voice %}
+      {# voice switcher: one page per voice, server-rendered links, opens on The Call (owner, Sep 25) #}
+      {% if voice_links %}
+      <div class="voices screen-only" role="group" aria-label="Voice">
+        <span class="grp" aria-hidden="true">Voice</span>
+        {% for v in voice_links %}<a href="{{ v.url }}" {% if v.current %}aria-current="page"{% endif %}>{{ v.label }}</a>{% endfor %}
+      </div>
+      {% endif %}
+
+      {% if voice and voice.recap %}
       <p class="recap">{{ voice.recap }}</p>
       <span class="byline">by {{ voice.label }}</span>
       {% else %}

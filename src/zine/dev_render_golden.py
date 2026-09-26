@@ -1,9 +1,10 @@
 """Block 2 dev render (task 2.6): the five golden games, from real facts, to ./out-golden/.
 
-No voice. Block 1's mock copy was invented sentences about invented numbers; on real games an
-invented sentence would be about a real player, which is what the fact lock exists to stop. So
-every voice section renders as "The writers' room passed on this one." until Block 3 wires the
-model and the fact lock. Everything else on the page is deterministic and real.
+Voices: every golden game renders both voice pages per edition. Game 25071 runs Claude's
+hand-written stand-ins (fixtures/voice_standins/25071.json) through the real voice_run flow and
+fact lock, with a fake in place of the model. Every other game has no stand-in, so its voice
+sections show "The writers' room passed on this one." Local dev only; out-golden/ is gitignored
+and never published. The real model replaces the fake in task 3.5.
 
 Run: PYTHONPATH=src python -m zine.dev_render_golden
 """
@@ -11,7 +12,8 @@ import glob
 import json
 import os
 
-from zine import contrast, render
+from zine import contrast, render, voice_run, voice_view
+from zine.voices import VOICE_ORDER
 from zine.dev_render_block1 import (dropped_labels, edition_urls, human_date, load_colors,
                                     max_run, read_url, spot_for, winner_loser)
 from zine.facts import build_facts
@@ -20,6 +22,18 @@ from zine.game_of_night import pick
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 GOLDEN = os.path.join(ROOT, "fixtures", "golden")
 OUT = os.path.join(ROOT, "out-golden")
+STANDINS = os.path.join(ROOT, "fixtures", "voice_standins")
+
+
+def standin_result(f, edition, voice):
+    """Run the stand-in through the real flow with a fake model, or None if there is none."""
+    p = os.path.join(STANDINS, "%s.json" % f["game_id"])
+    if not os.path.exists(p):
+        return None
+    answer = json.load(open(p, encoding="utf-8")).get(edition, {}).get(voice)
+    if answer is None:
+        return None
+    return voice_run.run(lambda system, messages: dict(answer), f, voice, edition)
 
 
 def the_number(f):
@@ -56,20 +70,25 @@ def main():
             spot = spot_for(colors, team["abbrev"])
             on_text, _ratio, low = contrast.on_spot(spot)
             dl_text, dl_count = dropped_labels(f)
-            ctx = {"f": f, "edition": team["abbrev"], "voice": None, "the_number": the_number(f),
-                   "is_game_of_night": f["game_id"] == gotn,
-                   "audio": {"url": "#", "transcript": "Audio arrives in Block 5b."},
-                   "edition_urls": edition_urls(f, "../../../"), "card_url": "card.png",
-                   "slate": slate, "standings_movers": None, "spot_color": spot,
-                   "on_spot_text": on_text, "low_contrast": low,
-                   "date_display": human_date(f["date_local"]), "max_run": max_run(f),
-                   "dropped_labels": dl_text, "dropped_count": dl_count,
-                   "root_prefix": "../../../", "static_prefix": "../../../../static/"}
-            d = os.path.join(OUT, "game", str(f["game_id"]), team["abbrev"])
-            os.makedirs(d, exist_ok=True)
-            p = os.path.join(d, "index.html")
-            open(p, "w", encoding="utf-8").write(render.render("issue.html", ctx))
-            written.append(p)
+            for voice in VOICE_ORDER:
+                v = voice_view.build(standin_result(f, team["abbrev"], voice), f)
+                pre = voice_view.root_prefix(voice)
+                ctx = {"f": f, "edition": team["abbrev"], "voice": v,
+                       "the_number": voice_view.the_number(f, v and v["number_key"]),
+                       "voice_links": voice_view.voice_links(f, team["abbrev"], voice),
+                       "is_game_of_night": f["game_id"] == gotn,
+                       "audio": {"url": "#", "transcript": "Audio arrives in Block 5b."},
+                       "edition_urls": voice_view.edition_urls(f, voice),
+                       "card_url": ("../" if voice != VOICE_ORDER[0] else "") + "card.png",
+                       "slate": slate, "standings_movers": None, "spot_color": spot,
+                       "on_spot_text": on_text, "low_contrast": low,
+                       "date_display": human_date(f["date_local"]), "max_run": max_run(f),
+                       "dropped_labels": dl_text, "dropped_count": dl_count,
+                       "root_prefix": pre, "static_prefix": pre + "../static/"}
+                p = os.path.join(OUT, *voice_view.page_path(f["game_id"], team["abbrev"], voice).split("/"))
+                os.makedirs(os.path.dirname(p), exist_ok=True)
+                open(p, "w", encoding="utf-8").write(render.render("issue.html", ctx))
+                written.append(p)
     idx = []
     for f in sorted(facts, key=lambda f: (f["game_id"] != gotn, f["tip_time_utc"])):
         home = dict(f["home"], spot=spot_for(colors, f["home"]["abbrev"]))

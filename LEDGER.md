@@ -363,3 +363,10 @@ Decided: The Film Room change stands (no coverages or schemes, because FACTS has
 
 ### 2026-09-25 . Block 3 . The Call trait wording (owner)
 Changed: "like the best play-by-play voice you ever fell asleep to" -> "like a late-night radio call you'd stay up to hear". The old line could read to a model as soft or sleepy, and "the best play-by-play voice" pointed at real broadcasters.
+
+### 2026-09-26 . Block 3 . 3.5 prep: voices on the page
+Answer:       Each edition now has one page per voice: `game/<id>/<team>/` is The Call (the default, owner Sep 25) and `game/<id>/<team>/film-room/` is The Film Room. The headline, recap, spotlight and The Number on a page always come from one voice's one answer. Dropped sections, one at a time: headline falls back to the score line, recap shows "The writers' room passed on this one.", spotlight panel is omitted, The Number falls back to the facts sheet default. Spotlight stat boxes come from the facts sheet, never the model.
+Deviation:    design.md called for two JavaScript `<button>`s with aria-pressed. Switched to server-rendered links, the same pattern as the approved edition toggle (Req 10.1b-i): works with no JavaScript, prints only the active voice with no extra CSS, and never mixes one voice's headline with the other's recap. Owner can veto.
+Proof:        25071 renders Claude's stand-ins (fixtures/voice_standins/25071.json, labeled, local dev only) through the real voice_run flow; the other four games render the passed state. Headless browser at 390px: switcher marks the current voice, tap targets 41px, no horizontal scroll, no page errors.
+Noted:        a score like "26-18" can break across lines at the hyphen in the recap. Cosmetic; left for the polish pass.
+Disposition:  promote (123 tests passing)

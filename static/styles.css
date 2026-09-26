@@ -320,3 +320,7 @@ nav.teams a,
   .meta .go, .sitefoot a, .backbar a, nav.teams a { min-height: 0; padding-top: 0; padding-bottom: 0; }
 }
 nav.teams a, nav.teams button { min-width: 44px; text-align: center; }
+
+/* group label in front of the edition and voice link rows */
+.voices { align-items:center; flex-wrap:wrap; }
+.voices .grp { font:800 10px 'Archivo',sans-serif; letter-spacing:.18em; text-transform:uppercase; color:var(--ink); opacity:.7; min-width:58px; }
