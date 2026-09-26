@@ -113,6 +113,20 @@ def main(result_fn=None):
     p = os.path.join(OUT, "index.html")
     open(p, "w", encoding="utf-8").write(render.render("today.html", ctx))
     written.append(p)
+    # about and archive, so every nav link on the local site goes somewhere
+    base = {"root_prefix": "../", "static_prefix": "../../static/", "spot_color": None,
+            "on_spot_text": on_text, "low_contrast": low}
+    by_date = {}
+    for f in facts:
+        by_date.setdefault(f["date_local"], 0)
+        by_date[f["date_local"]] += 1
+    dates = [{"date_local": d, "count": n, "url": "../index.html"} for d, n in sorted(by_date.items(), reverse=True)]
+    for name, extra in (("about", {}), ("archive", {"dates": dates})):
+        d = os.path.join(OUT, name)
+        os.makedirs(d, exist_ok=True)
+        p = os.path.join(d, "index.html")
+        open(p, "w", encoding="utf-8").write(render.render("%s.html" % name, dict(base, **extra)))
+        written.append(p)
     print("Game of the Night:", gotn)
     for w in written:
         print(" ", os.path.relpath(w, ROOT))
