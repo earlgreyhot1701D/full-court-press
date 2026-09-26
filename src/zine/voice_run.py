@@ -106,3 +106,26 @@ def run(write, facts, voice, edition, budget=None):
         sections = _sections(best[1], best[2])
     return {"voice": voice, "edition": edition, "sections": sections,
             "calls": len(attempts), "log": log}
+
+
+def recheck(result, facts):
+    """Re-apply today's rules to a saved result, section by section, with no model call. A section
+    that breaks a rule added after it was written is dropped. Used at every render, so a rule change
+    reaches pages already published the next time they are rebuilt."""
+    if not result:
+        return result
+    voice, s = result["voice"], dict(result["sections"])
+    allowed = set(facts.get("allowed_numbers", []))
+    phrases = set(facts.get("allowed_names", [])) | fact_lock.COMMON_CAPS
+    players = {l["player"] for l in facts.get("player_lines", [])}
+    for key in ("headline", "recap"):
+        if s.get(key) and (fact_lock._check_text(s[key], allowed, phrases) != "ok" or voices.banned_hit(s[key], voice)):
+            s[key] = None
+    sp = s.get("spotlight")
+    if sp and (sp.get("player") not in players or fact_lock._check_text(sp.get("text", ""), allowed, phrases) != "ok"
+               or voices.banned_hit(sp.get("text", ""), voice)):
+        s["spotlight"] = None
+    if s.get("the_number") and (s["the_number"] not in facts.get("numbers", {})
+                                or s["the_number"] not in facts.get("number_labels", {})):
+        s["the_number"] = None
+    return dict(result, sections=s)

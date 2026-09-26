@@ -69,6 +69,10 @@ SHARED_BANNED = [
     "dunk", "dunked", "and-one", "fadeaway", "logo", "half-court", "halfcourt", "alley-oop",
     "three-pointer", "three-pointers", "threes", "from deep", "beyond the arc", "3-pointer",
     "3-pointers",
+    # found in the live audit, Sep 26: invented records, standings movement, roles, moments
+    "perfect", "unbeaten", "undefeated", "streak", "historic", "record-setting", "bench", "starter",
+    "starters", "improve to", "improved to", "improves to", "fell to", "falls to", "drop to", "dropped to",
+    "climb", "climbs", "climbed", "leapfrog", "final possession", "last possession", "wire-to-wire",
     # shooting efficiency: FACTS has made shots only, never attempts
     "efficient", "efficiently", "percent", "percentage", "perfect from",
     # punctuation: no em dashes, and no dash stand-ins
@@ -114,6 +118,7 @@ NEVER = [
     "A run belongs to a team. Never credit a run to one player.",
     "A comeback in plain_facts says how big the deficit got, not when. Never say when a lead or deficit happened.",
     "Never describe standings movement (climbing, falling, passing, clinching). FACTS has only today's place and record.",
+    "Never claim a record, streak or first (perfect, unbeaten, historic), or who came off the bench. FACTS has none of that.",
     "Never say who assisted whom, and never describe passes, cuts or defense on a specific player.",
     "Never blame a player for turnovers, misses or fouls.",
     "FACTS has made shots only, no attempts. Never write shooting splits like '10 for 10', percentages, or 'efficient'.",

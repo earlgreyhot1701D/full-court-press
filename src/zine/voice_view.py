@@ -59,7 +59,10 @@ def _spotlight(sp, f):
 
 
 def build(result, f):
-    """None when every section was dropped (the whole voice passed)."""
+    """None when every section was dropped (the whole voice passed). Saved results are re-checked
+    against today's rules first (voice_run.recheck), with no model call."""
+    from zine.voice_run import recheck
+    result = recheck(result, f)
     s = result["sections"] if result else {}
     if not any(s.values()):
         return None

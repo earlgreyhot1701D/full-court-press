@@ -490,3 +490,11 @@ Golden:   60 files under site/golden/, Game of the Night 25071, 74 voice section
 Evidence (Kiro): site and golden 200; direct S3 object 403; CSP, HSTS, nosniff, DENY, Referrer-Policy present; fcp-morning ENABLED 6:15am Pacific; budgets fcp-project $10 and fcp-polly $2 exist; Project cost tag Active from 2026-09-26; CloudWatch 215 lines, 0 key, 0 model prose, 0 account id.
 Open:     owner confirms the budget alert email subscription; the unattended scheduled run is checked the next morning (first real game night is the playoffs, Sep 27, so Sep 28's run is the one that publishes on its own).
 Process:  four stops on deploy day, one real bug (see "The rules were too tight" in the article).
+
+### 2026-09-26 . Block 6 . Live voice audit (14 games, 56 voice results)
+Audit (Claude, from the bucket's cache synced by the owner): the lock kept 207 of 224 sections. Claude read every kept text section against the facts: 13 clearly false claims, about 8 softer overreaches.
+Patterns: (1) invented records ("stay perfect in East" at 30-14; "perfect at home"; "the only player who touched the ball that often"); (2) standings movement and roles ("improve to 3rd", "fell to 4th", "off the bench"); (3) real numbers on the wrong claim ("held Phoenix to just 12 in the 3rd" when Phoenix won it 24-12; "trailed by 16 after 3 quarters" when it was 9; halftime leader flipped in three Sun-Mystics recaps).
+Fix: banned words for (1) and (2) and the soft ones (perfect, unbeaten, streak, historic, bench, improve to, fell to, climb, final possession, wire-to-wire), a NEVER line, and `voice_run.recheck`: every render re-applies today's rules to saved sections, so a new rule reaches published pages on the next rebuild with no model call.
+Effect on the live cache: 151 -> 141 text sections kept; 6 of the 13 false claims removed plus 3 soft ones; 1 fine recap lost to "climb out". The other 7 are pattern 3, the lock's stated limit.
+Page copy: a dropped voice section now says why ("Our AI writer's draft didn't match this game's facts, so we cut it instead of publishing something wrong. Every number on this page is counted by code.") with a link to the About page's "how we check" (owner asked, Sep 26).
+Disposition:  promote (181 tests passing)

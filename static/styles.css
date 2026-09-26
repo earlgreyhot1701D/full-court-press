@@ -337,3 +337,7 @@ nav.teams a, nav.teams button { min-width: 44px; text-align: center; }
   .slate { grid-template-columns:repeat(3, minmax(0, 1fr)); }
   .slate .card.gotn { grid-column:span 2; }
 }
+
+/* why a voice section is missing (owner, Sep 26) */
+.whypassed { font-size:14px; line-height:1.5; color:var(--mut); margin:6px 0 10px; max-width:60ch; }
+.whypassed a { color:var(--ink); }

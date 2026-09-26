@@ -158,3 +158,19 @@ def test_shooting_splits_are_banned(text):
 @pytest.mark.parametrize("text", ["The Liberty won all 4 quarters.", "an 8-0 run", "won 87-86"])
 def test_ordinary_numbers_are_not_splits(text):
     assert voices.banned_hit(text, "the_call") is None
+
+
+@pytest.mark.parametrize("text", ["Dream stay perfect in East", "Aces stay perfect at home",
+                                  "a historic comeback", "15 points off the bench", "to improve to 3rd in the West",
+                                  "the Liberty fell to 4th", "came down to the final possession"])
+def test_live_audit_phrases_are_banned(text):
+    assert voices.banned_hit(text, "the_call") is not None
+
+
+@needs_golden
+def test_recheck_drops_saved_sections_that_break_new_rules(f71):
+    from zine import voice_run
+    saved = voice_run.run(lambda s, m: dict(CLEAN, headline="Mercury stay perfect at home"), f71, "the_call", "PHX")
+    saved["sections"]["headline"] = "Mercury stay perfect at home"   # as if written before the rule existed
+    again = voice_run.recheck(saved, f71)
+    assert again["sections"]["headline"] is None and again["sections"]["recap"] == CLEAN["recap"]
