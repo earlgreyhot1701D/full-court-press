@@ -77,3 +77,9 @@ $env:PYTHONPATH="src"; python -m zine.publish_golden --bucket <BucketName>
 - Bad publish: S3 versioning is on; restore the previous version of the affected keys.
 - Bad code: redeploy the previous commit's bundle.
 - Runaway spend: disable the schedule `fcp-morning` (console or `aws scheduler update-schedule ... --state DISABLED`).
+
+## Operational notes (Kiro, Sep 26 deploy)
+- `sam deploy` can run past a 10-minute foreground command timeout (CloudFront). Run it in the background and poll the stack status.
+- `aws lambda invoke` can leave a stale `response.json`. The reliable run summary is the log line:
+  `aws logs filter-log-events --log-group-name /aws/lambda/fcp-hunter --filter-pattern '"built"'`
+- Rebuild a night without moving the marker: invoke with `{"nights": ["YYYY-MM-DD"]}` (US Eastern date).

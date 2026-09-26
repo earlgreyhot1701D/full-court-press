@@ -482,3 +482,11 @@ Found (Kiro): the Sep 24 re-invoke built nothing. The night's slate listed 25079
 Fix: a forced night always rebuilds (cached voices mean no new model calls for games already written; Polly audio is re-synthesized, pennies); the slate records only games that actually published. Test covers both.
 Process note: KIRO-FIX prompts told Kiro to stop on any mismatch with Claude's expected counts, and Claude's counts were wrong twice. Prompt 4 stops only on real errors.
 Disposition:  promote
+
+### 2026-09-26 . Block 5 . CHECKPOINT 5 PASS (live)
+Site:     https://dfph64wiizg5i.cloudfront.net/  (owner checked on a phone: looks right)
+Nights:   Eastern Sep 21 (2 games), 22 (5), 23 (2), 24 (5) rebuilt, all failed [] and stray 0. 25079 builds with the quarters note.
+Golden:   60 files under site/golden/, Game of the Night 25071, 74 voice sections kept.
+Evidence (Kiro): site and golden 200; direct S3 object 403; CSP, HSTS, nosniff, DENY, Referrer-Policy present; fcp-morning ENABLED 6:15am Pacific; budgets fcp-project $10 and fcp-polly $2 exist; Project cost tag Active from 2026-09-26; CloudWatch 215 lines, 0 key, 0 model prose, 0 account id.
+Open:     owner confirms the budget alert email subscription; the unattended scheduled run is checked the next morning (first real game night is the playoffs, Sep 27, so Sep 28's run is the one that publishes on its own).
+Process:  four stops on deploy day, one real bug (see "The rules were too tight" in the article).
