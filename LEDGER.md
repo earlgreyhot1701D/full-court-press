@@ -388,3 +388,19 @@ Deviation, 2: maxTokens 800, not ~600, so a full 900-character recap plus the ot
 Proof:        fake Bedrock tests; an offline dry run with a fake that always returns junk dropped all 80 sections, stopped at exactly 40 calls, and printed no model text.
 Added:        requirements.txt and requirements-dev.txt (there were none).
 Disposition:  promote (143 tests passing). Kiro no longer builds voice_client; its session is AWS only.
+
+### 2026-09-26 . Block 3 . 3.5 live run 1 (owner's terminal, real Haiku 4.5) and the audit
+Run:          20 voice results, 5 golden games x 2 editions x 2 voices. 71 of 80 sections kept; the lock dropped 8 recaps and 1 spotlight (rules: number, spelled_number, banned). No errors.
+Audit:        Claude checked every kept section by hand against the facts sheets. 7 of 71 kept sections were false or broke a rule, and the lock passed all 7 because every number in them was real:
+              1. 25014 IND The Call: "The fourth quarter belonged to Atlanta" (Indiana won it 17-9).
+              2. 25014 IND Film Room: "The fourth quarter belonged to Atlanta (28-9 lead)" (28 was Atlanta's 3rd quarter, 9 its 4th).
+              3. 25014 IND spotlight: "Her 8-0 run in overtime" (a team run credited to Clark).
+              4. 25057 POR The Call: "Mercury climb past them" (Phoenix is still 7th, Portland 5th).
+              5. 25064 SEA The Call: "held Seattle to 21 points" in the 3rd (Seattle won the 3rd 21-15).
+              6. 25064 SEA spotlight: blamed Johnson's 5 turnovers on the losing side's page (tone rule).
+              7. 25071 PHX spotlight: "setting up Copper" (no assist targets in the facts).
+              Fuzzy, not provably false: "led by 10 in the third quarter" (the facts say only how big the deficit got).
+Pattern:      the model working out who won a quarter, what a run meant, or what the standings did. A "never do your own math" prompt rule did not stop it.
+Fix:          structure is deterministic, flavor is AI. facts.py now writes `plain_facts`: true sentences built by code for each quarter's winner and score, halftime and after-three scores, each team run, the comeback size, and today's standings place. Their numbers join `numbers`, so the lock allows them. Six new NEVER lines: quarter results and in-game scores only from plain_facts; runs belong to teams; no timing of a lead; no standings movement; no who-assisted-whom or play description; no blaming a player.
+Next:         owner reruns with --fresh; Claude audits run 2 the same way.
+Disposition:  promote (145 tests passing). The audit itself is CHECKPOINT 3 evidence: the lock caught 9 sections, a human caught 7 more.

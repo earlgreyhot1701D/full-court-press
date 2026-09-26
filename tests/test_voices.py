@@ -136,7 +136,8 @@ def test_system_prompt_has_the_rules(voice):
     p = voices.system_prompt(voice)
     for must in (voices.VOICES[voice]["label"], "sentence case", "the_number_key", "NEVER",
                  "Use only numbers and names that appear in FACTS", "dropped_categories",
-                 "Never do your own math"):
+                 "Never do your own math", "plain_facts", "Never credit a run to one player",
+                 "standings movement", "Never blame a player"):
         assert must in p
     assert "—" not in p.replace('"—"', "")
 

@@ -31,12 +31,17 @@ def main():
     if os.path.exists(SAVED) and not fresh:
         saved = json.load(open(SAVED, encoding="utf-8"))
     budget = voice_run.CallBudget(MAX_CALLS)
+    print("Starting. Each line below is one page's voice; about 5 to 10 seconds each.", flush=True)
     summary = []
 
     def result_fn(f, edition, voice):
         key = "%s/%s/%s" % (f["game_id"], edition, voice)
         if key not in saved:
+            print("calling Haiku: %s ..." % key, end=" ", flush=True)
             saved[key] = voice_run.run(voice_client.write, f, voice, edition, budget)
+            print("done (%d call%s)" % (saved[key]["calls"], "" if saved[key]["calls"] == 1 else "s"), flush=True)
+            os.makedirs(os.path.dirname(SAVED), exist_ok=True)  # save as we go: Ctrl+C loses nothing
+            json.dump(saved, open(SAVED, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         r = saved[key]
         kept = [s for s, v in r["sections"].items() if v is not None]
         dropped = [s for s, v in r["sections"].items() if v is None]

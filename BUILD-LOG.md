@@ -227,3 +227,9 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS. pytest 143 passed. Offline dry run with a junk-returning fake: 0 of 80 kept, 40 of 40 calls, no text in output.
 - Resources: none. No real model call made by Claude.
 - Evidence: LEDGER entry of the same date.
+
+## 2026-09-26 . 3.5 . Live run 1 audit and plain_facts (owner ran, Claude audited and fixed)
+- Did: owner ran `python -m zine.dev_render_live` (real Haiku 4.5, her terminal). Claude audited all 71 kept sections by hand, then added `plain_facts` to facts.py and six NEVER lines to voices.py; progress lines and save-as-you-go in dev_render_live.py.
+- Result: run 1: 71 of 80 kept, 7 false-or-rule-breaking among the kept. Fix in place; pytest 145 passed.
+- Resources: about 33 model calls (owner's account).
+- Evidence: LEDGER entry of the same date.

@@ -144,3 +144,25 @@ def test_team_fill_never_overrides_a_value_the_provider_supplied():
     assert complete_team(blank)["full_name"] == "Portland Fire"
     unknown = {"abbreviation": "XYZ", "city": "", "name": "Comets", "full_name": ""}
     assert complete_team(unknown)["full_name"] == "Comets"
+
+
+
+@needs_golden
+def test_plain_facts_state_quarter_winners_and_their_numbers_are_allowed():
+    f = golden_facts()["25014"]
+    assert "The Fever won the 4th quarter 17-9." in f["plain_facts"]
+    assert "At halftime the Dream led 44-40." in f["plain_facts"]
+    assert "The Fever went on an 8-0 run in overtime." in f["plain_facts"]
+    assert "The Dream are 1st in the East at 30-14." in f["plain_facts"]
+    for n in ("44", "40", "72", "64"):
+        assert n in f["allowed_numbers"]
+
+
+@needs_golden
+def test_every_plain_fact_passes_the_lock():
+    from zine import fact_lock
+    for gid, f in golden_facts().items():
+        for sentence in f["plain_facts"]:
+            out = {"headline": "x", "recap": sentence, "spotlight": {"player": f["player_lines"][0]["player"], "text": "x"},
+                   "the_number_key": f["the_number_key"]}
+            assert fact_lock.check(out, f)["sections"]["recap"] == "ok", (gid, sentence)

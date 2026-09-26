@@ -192,6 +192,42 @@ def build_facts(game, plays, roster_lists, standings_rows, league="wnba"):
     else:
         f["the_number_key"] = "margin" if "margin" in nums else "home_score"
 
+    # plain_facts: true sentences built by code for the claims a model kept getting wrong in the
+    # first live run (Sep 26): who won a quarter, the score at half and after three, whose run it
+    # was, how big a comeback was, where each team stands. The voice may use these; it never has to
+    # work them out. Every number in them is added to `numbers`, so the lock allows it.
+    def pname(q):
+        if q <= 4:
+            return "the %s quarter" % ("1st", "2nd", "3rd", "4th")[q - 1]
+        return "overtime" if q == 5 else "the %s overtime" % ("2nd", "3rd", "4th", "5th")[min(q - 6, 3)]
+    nick = {home["abbrev"]: "the " + home_t["name"], away["abbrev"]: "the " + away_t["name"]}
+    plain = []
+    qh, qa = f.get("quarters", {}).get("home", []), f.get("quarters", {}).get("away", [])
+    for i, (h, a) in enumerate(zip(qh, qa), 1):
+        if h == a:
+            plain.append("%s was tied %d-%d." % (pname(i)[0].upper() + pname(i)[1:], h, a))
+        else:
+            wab = home["abbrev"] if h > a else away["abbrev"]
+            plain.append("%s won %s %d-%d." % (nick[wab], pname(i), max(h, a), min(h, a)))
+    for n, label in ((2, "half"), (3, "q3end")):
+        if len(qh) >= n and len(qa) >= n:
+            h, a = sum(qh[:n]), sum(qa[:n])
+            nums["%s_home" % label], nums["%s_away" % label] = h, a
+            when = "At halftime" if n == 2 else "After 3 quarters"
+            if h == a:
+                plain.append("%s it was tied %d-%d." % (when, h, a))
+            else:
+                lab = home["abbrev"] if h > a else away["abbrev"]
+                plain.append("%s %s led %d-%d." % (when, nick[lab], max(h, a), min(h, a)))
+    for r in f["runs"]:
+        art = "an" if r["detail"].split("-")[0] in ("8", "11", "18") else "a"
+        plain.append("%s went on %s %s run in %s." % (nick[r["team_abbrev"]], art, r["detail"], pname(r["quarter"])))
+    if f.get("winner_max_deficit"):
+        plain.append("%s trailed by as many as %d and still won." % (nick[f["winner_abbrev"]], f["winner_max_deficit"]))
+    for ab, st in f["standings_line"].items():
+        plain.append("%s are %s at %d-%d." % (nick[ab], st["place"], st["wins"], st["losses"]))
+    f["plain_facts"] = [p_[0].upper() + p_[1:] for p_ in plain]
+
     f["allowed_numbers"] = sorted({str(v) for v in nums.values()}, key=lambda s: (len(s), s))
 
     # names: team full names, cities, nicknames, abbreviations; every player on the stat line,
