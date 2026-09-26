@@ -379,3 +379,12 @@ Found, 2: a two-line Number caption collided with the number. The number now tak
 Proof:        all 10 golden edition cards plus a stress card (long headline, long caption, pale color) checked on a contact sheet. dev_render_golden writes card.png next to each edition page.
 4.1:          the three OFL.txt files are present; glyph coverage is tested.
 Disposition:  promote (135 tests passing)
+
+### 2026-09-26 . Block 3 . 3.2 voice_client and a local live run
+Answer:       `voice_client.py` sends exactly what voices.py built to Bedrock Converse and returns the parsed JSON or None; it logs nothing. `dev_render_live.py` lets the owner run the real voices over the golden set from her own terminal (her AWS login, never an agent's), capped at 40 calls, saving results locally so re-renders cost nothing, printing only game, edition, voice, calls and lock rules.
+Why:          owner wants to read real Haiku voices on the full pages before deploy. Vercel was considered and set aside: the web host plays no part in the voices, the judged site is S3 + CloudFront, and a public URL would carry unchecked text about real players.
+Deviation, 1: a local run uses the system-defined profile us.anthropic.claude-haiku-4-5-20251001-v1:0 (confirmed in Block 0). tech.md's rule stands for the deployed stack: MODEL_ID is the tagged `fcp-recap` profile ARN.
+Deviation, 2: maxTokens 800, not ~600, so a full 900-character recap plus the other fields is not cut off mid-JSON.
+Proof:        fake Bedrock tests; an offline dry run with a fake that always returns junk dropped all 80 sections, stopped at exactly 40 calls, and printed no model text.
+Added:        requirements.txt and requirements-dev.txt (there were none).
+Disposition:  promote (143 tests passing). Kiro no longer builds voice_client; its session is AWS only.

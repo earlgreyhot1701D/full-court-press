@@ -129,7 +129,7 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
 
 ## Block 3: Voices and fact lock (Tier: Working. Disposition: promote)
 - [x] 3.1 `voices.py` (two MUST voices, two STUB comments), `output_schema.py` . DONE Sep 25 (Claude); prompts built here, voice_client only sends them
-- [ ] 3.2 `voice_client.py` (Converse, `MODEL_ID` env, no prompt/response logging)
+- [x] 3.2 `voice_client.py` (Converse, `MODEL_ID` env, no prompt/response logging) . DONE Sep 26 (Claude); owner runs `python -m zine.dev_render_live` locally for 3.5
 - [ ] 3.3 `fact_lock.py` + retry-once-then-drop flow . fact_lock.py DONE Sep 25 (Claude); retry flow DONE Sep 25 in voice_run.py (model call injected)
 - [x] 3.4 Tests for fact_lock and output_schema (design.md Testing) . DONE Sep 25 (Claude), tests/test_fact_lock.py
 - [ ] 3.5 Run golden set x 2 editions x 2 voices locally against Bedrock, render to `./out/`. Voice switcher opens on The Call (owner, Sep 25). Voice tuning is post-MVP STUB

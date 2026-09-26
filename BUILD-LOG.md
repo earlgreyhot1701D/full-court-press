@@ -220,3 +220,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS. pytest 135 passed. Contact sheet of all golden cards and a stress card checked by eye.
 - Resources: none.
 - Evidence: LEDGER entry of the same date.
+
+## 2026-09-26 . 3.2 . voice_client and local live run script (Claude, on disk)
+- Tier: Working
+- Did: `src/zine/voice_client.py`, `src/zine/dev_render_live.py`, `tests/test_voice_client.py`, dev_render_golden takes a result function, requirements files.
+- Result: PASS. pytest 143 passed. Offline dry run with a junk-returning fake: 0 of 80 kept, 40 of 40 calls, no text in output.
+- Resources: none. No real model call made by Claude.
+- Evidence: LEDGER entry of the same date.

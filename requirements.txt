@@ -1,0 +1,4 @@
+# Runtime (Lambda and local renders). boto3 ships in the Lambda runtime; listed for local runs.
+jinja2>=3.1
+pillow>=12.0
+boto3>=1.34

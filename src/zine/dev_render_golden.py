@@ -54,7 +54,9 @@ def load_all():
     return out
 
 
-def main():
+def main(result_fn=None):
+    """result_fn(f, edition, voice) -> voice_run result or None. Default: the stand-ins."""
+    result_fn = result_fn or standin_result
     colors = load_colors()
     facts = load_all()
     gotn = pick(facts)
@@ -71,7 +73,7 @@ def main():
             on_text, _ratio, low = contrast.on_spot(spot)
             dl_text, dl_count = dropped_labels(f)
             for voice in VOICE_ORDER:
-                v = voice_view.build(standin_result(f, team["abbrev"], voice), f)
+                v = voice_view.build(result_fn(f, team["abbrev"], voice), f)
                 pre = voice_view.root_prefix(voice)
                 ctx = {"f": f, "edition": team["abbrev"], "voice": v,
                        "the_number": voice_view.the_number(f, v and v["number_key"]),
