@@ -10,9 +10,9 @@ speak  audio_client.speak (or a fake), or None    audio, capped by MAX_AUDIO_PER
 today  the Pacific calendar date of this run
 
 Dates: from the day after the marker through yesterday (Pacific), at most LOOKBACK_DAYS back.
-The API's date filter is not documented as UTC or US time, so each night asks for that date and
-the next, then keeps games whose US Eastern date matches (facts.date_local). One extra request per
-night, correct either way. Unverified against the spec (fetch not approved in session); see LEDGER.
+The API files games by UTC date (confirmed on the real API, Sep 26 probe), so a US evening game
+shows up under the next UTC day. Each night asks for that date and the next, then keeps games
+whose US Eastern date matches. A night with no games is normal and advances the marker.
 
 A night is rebuilt as a whole when it has a new Final, so Game of the Night and Around the League
 stay consistent. Games already built reuse the cached feed and the cached voices: no new calls.
@@ -49,12 +49,12 @@ def dates_to_check(marker_date, today):
 
 
 def local_date(game):
-    """US Eastern calendar date of a game. A bare date, or a date at exactly midnight UTC, is a
-    calendar date the API already assigned, not a tip time, so it is taken as is (converting
-    midnight UTC to Eastern would file every game on the evening before)."""
+    """US Eastern calendar date of a game from its tip time. The API's `date` is a real UTC tip
+    time (probe, Sep 26: 00:00Z and 02:00Z Sep 25 are 8pm and 10pm Eastern on Sep 24), so it is
+    always converted, midnight included. Only a bare YYYY-MM-DD is taken as a calendar date."""
     raw = game.get("date") or ""
-    if len(raw) <= 10 or raw[10:19] in ("T00:00:00", " 00:00:00"):
-        return raw[:10]
+    if len(raw) <= 10:
+        return raw
     tip = datetime.strptime(raw[:19].replace(" ", "T"), "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
     return tip.astimezone(LEAGUE_TZ).date().isoformat()
 
@@ -77,7 +77,12 @@ def games_for_night(bdl, league, night):
             seen[g["id"]] = g
     mine = [g for g in seen.values() if local_date(g) == night.isoformat()]
     finals = [g for g in mine if is_final(g)]
-    return finals, sum(1 for g in mine if not is_final(g)), {"asked": asked, "matched": len(mine), "finals": len(finals)}
+    # The API files games by UTC date, so asking for UTC dates N and N+1 returns US Eastern nights
+    # N-1 (late games), N, and N+1 (early games). Anything else means that model of the API broke.
+    near = {(night + timedelta(days=k)).isoformat() for k in (-1, 0, 1)}
+    stray = sum(1 for g in seen.values() if local_date(g) not in near)
+    return finals, sum(1 for g in mine if not is_final(g)), {"asked": asked, "matched": len(mine),
+                                                              "finals": len(finals), "stray": stray}
 
 
 def game_inputs(store, bdl, league, game):
@@ -157,9 +162,10 @@ def run(store, bdl, write, speak, today, env=None, nights=None):
                 blocked = True
                 continue
             summary["nights"][night.isoformat()] = diag
-            if diag["asked"] and not diag["matched"]:
-                # the API returned games for this date and none matched: a date-logic problem,
-                # not an off night. Hold the marker so the night is not skipped for good.
+            if diag["stray"]:
+                # a game outside the three nights a UTC query can return: the date model is wrong.
+                # Hold the marker so no night is skipped for good. (A quiet night is not an error:
+                # asking for UTC date N always returns the previous evening's late games.)
                 summary["failed"].append({"night": night.isoformat(), "error": "UnmatchedGames"})
                 ok_night = False
             if pending:

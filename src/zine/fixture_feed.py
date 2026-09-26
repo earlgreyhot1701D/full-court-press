@@ -13,17 +13,12 @@ GOLDEN = os.path.join(ROOT, "fixtures", "golden")
 
 
 class FakeBDL:
-    def __init__(self, final=True, fail_plays_for=(), midnight_dates=False):
+    def __init__(self, final=True, fail_plays_for=()):
         self.games, self.plays, self.rosters = {}, {}, {}
         for d in glob.glob(os.path.join(GOLDEN, "[0-9]*")):
             g = json.load(open(os.path.join(d, "game.json")))["data"]
             if not final:
                 g = dict(g, status_state="in")
-            self.utc_day = getattr(self, "utc_day", {})
-            self.utc_day[g["id"]] = g["date"][:10]
-            if midnight_dates:  # the list reporting the API's own calendar date at midnight UTC
-                from zine.hunter import local_date
-                g = dict(g, date=local_date(g) + "T00:00:00.000Z")
             self.games[g["id"]] = g
             self.plays[g["id"]] = json.load(open(os.path.join(d, "plays.json")))["data"]
             for side in ("home_team", "visitor_team"):

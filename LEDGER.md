@@ -460,3 +460,12 @@ Fix, three parts, whatever the exact cause:
 3. Each run's summary carries per-night counts (`asked`, `matched`, `finals`), and the handler accepts `{"nights": ["YYYY-MM-DD"]}` to rebuild chosen nights without moving the marker back. Sep 25 is recovered that way.
 Probe: `tools/probe_game_dates.py` prints id, raw `date`, status for four dates, to confirm the cause on the real API.
 Disposition:  promote (170 tests passing). Redeploy, then invoke one forced night at a time (a 4-game night can use up to 32 model calls).
+
+### 2026-09-26 . Block 5 . Date model settled by the probe (Claude was wrong twice)
+Probe (Kiro, real API): dates[]=2026-09-25 returns 25081 at 00:00Z and 25082, 25083 at 02:00Z. Those are 8pm and 10pm US Eastern on Sep 24. The API files games by UTC date.
+So: the first deployed run (0 built for Eastern Sep 25) was correct; nobody played the evening of Sep 25. Kiro's earlier "Sep 25 has 3 finals" counted by UTC date. Claude's "midnight" fix was wrong: it treated 25081's 8pm Eastern tip as a calendar date and published it under Sep 25. Claude's "asked but none matched" guard was wrong too: a UTC query always returns the previous evening's late games, so it would flag every quiet night.
+The original design (ask UTC N and N+1, keep games by Eastern date) was right; Claude undid it without data. Lesson worth keeping: probe the real data before changing a data rule, twice over.
+Fix: `local_date` converts every timestamp, midnight included. The guard now fires only on a game outside the three Eastern nights a UTC query can return (N-1, N, N+1). Tests encode the probe's real values. A quiet night advances the marker.
+Cleanup needed on the live stack: 25081 sits under `site/wnba/2026-09-25/` and `state/slates/wnba/2026-09-25.json`. Kiro removes both, then rebuilds Eastern Sep 24 (its cached voices for 25081 are reused, no new calls for it).
+Proven by the partial run: Bedrock through fcp-recap works (7 calls, lock passing and rejecting as designed), Polly works (2 files), the log is clean.
+Disposition:  promote (170 tests passing)

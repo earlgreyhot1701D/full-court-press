@@ -94,23 +94,27 @@ def test_logs_carry_no_model_text(tmp_path, caplog):
 
 
 def test_local_date_formats():
-    assert hunter.local_date({"date": "2026-09-22T02:00:00.000Z"}) == "2026-09-21"   # real tip time, West Coast
-    assert hunter.local_date({"date": "2026-09-25T23:00:00.000Z"}) == "2026-09-25"
-    assert hunter.local_date({"date": "2026-09-25T00:00:00.000Z"}) == "2026-09-25"   # API's calendar date at midnight
+    # real probe values, Sep 26: the API returns UTC tip times
+    assert hunter.local_date({"date": "2026-09-25T00:00:00.000Z"}) == "2026-09-24"   # 8pm Eastern, Sep 24
+    assert hunter.local_date({"date": "2026-09-25T02:00:00.000Z"}) == "2026-09-24"   # 10pm Eastern, Sep 24
+    assert hunter.local_date({"date": "2026-09-22T02:00:00.000Z"}) == "2026-09-21"   # golden 25071
+    assert hunter.local_date({"date": "2026-09-25T23:00:00.000Z"}) == "2026-09-25"   # 7pm Eastern, Sep 25
     assert hunter.local_date({"date": "2026-09-25"}) == "2026-09-25"
 
 
 @needs_golden
-def test_midnight_dates_still_build_the_right_night(tmp_path):
+def test_quiet_night_is_not_a_failure(tmp_path):
+    # UTC Sep 22 returns 25071, an Eastern Sep 21 game; Eastern Sep 22 itself has no golden game
     store = LocalStore(str(tmp_path))
-    s = hunter.run(store, FakeBDL(midnight_dates=True), fake_write, None, date(2026, 9, 22), ENV)
-    assert 25071 in s["built"] and s["nights"]["2026-09-21"]["matched"] == 1
+    s = hunter.run(store, FakeBDL(), fake_write, None, date(2026, 9, 23), ENV)
+    assert s["built"] == [] and s["failed"] == [] and s["marker"]["wnba"] == "2026-09-22"
+    assert s["nights"]["2026-09-22"]["asked"] >= 1 and s["nights"]["2026-09-22"]["matched"] == 0
 
 
 @needs_golden
 def test_unmatched_games_hold_the_marker(tmp_path, monkeypatch):
     store = LocalStore(str(tmp_path))
-    monkeypatch.setattr(hunter, "local_date", lambda g: "1999-01-01")  # simulate the Sep 26 bug
+    monkeypatch.setattr(hunter, "local_date", lambda g: "1999-01-01")  # a date no UTC query could return
     s = hunter.run(store, FakeBDL(), fake_write, None, date(2026, 9, 23), ENV)   # night 2026-09-22 has games by UTC day
     assert {"night": "2026-09-22", "error": "UnmatchedGames"} in s["failed"]
     assert s["marker"]["wnba"] is None
