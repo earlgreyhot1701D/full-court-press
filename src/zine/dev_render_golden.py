@@ -12,7 +12,7 @@ import glob
 import json
 import os
 
-from zine import contrast, render, voice_run, voice_view
+from zine import card, contrast, render, voice_run, voice_view
 from zine.voices import VOICE_ORDER
 from zine.dev_render_block1 import (dropped_labels, edition_urls, human_date, load_colors,
                                     max_run, read_url, spot_for, winner_loser)
@@ -89,6 +89,9 @@ def main():
                 os.makedirs(os.path.dirname(p), exist_ok=True)
                 open(p, "w", encoding="utf-8").write(render.render("issue.html", ctx))
                 written.append(p)
+                if voice == VOICE_ORDER[0]:  # one card per edition, from the default voice
+                    png = card.render(f, spot, v and v["headline"], ctx["the_number"])
+                    open(os.path.join(os.path.dirname(p), "card.png"), "wb").write(png)
     idx = []
     for f in sorted(facts, key=lambda f: (f["game_id"] != gotn, f["tip_time_utc"])):
         home = dict(f["home"], spot=spot_for(colors, f["home"]["abbrev"]))

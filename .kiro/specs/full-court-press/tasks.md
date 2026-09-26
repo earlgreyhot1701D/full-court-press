@@ -140,8 +140,8 @@ Tier: Working. Happy path + known edges only. No backend, no AWS calls.
   - _Requirements: 5, 6_
 
 ## Block 4: Share card (Tier: Working. Disposition: promote)
-- [ ] 4.1 Fonts: DONE in task 1.1 (moved up, Block 1 cannot render without them). Verify here that the OFL.txt files are present and that the print sheet renders with no glyph fallback.
-- [ ] 4.2 `card.py` per design.md share card spec, text fitting rules (shrink to a floor, then ellipsis), one card per edition, contrast pick for text on the team color. Reference output: `design/card-*.png`
+- [x] 4.1 (verified Sep 26, Claude) Fonts: DONE in task 1.1 (moved up, Block 1 cannot render without them). Verify here that the OFL.txt files are present and that the print sheet renders with no glyph fallback.
+- [x] 4.2 (DONE Sep 26, Claude) `card.py` per design.md share card spec, text fitting rules (shrink to a floor, then ellipsis), one card per edition, contrast pick for text on the team color. Reference output: `design/card-*.png`
 - [ ] 4.3 CHECKPOINT 4
   - Cards for all golden games x both editions: nothing overflows, only locked or deterministic text, no logos or photos, pale team colors still readable
   - _Requirements: 8_

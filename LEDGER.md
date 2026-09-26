@@ -370,3 +370,12 @@ Deviation:    design.md called for two JavaScript `<button>`s with aria-pressed.
 Proof:        25071 renders Claude's stand-ins (fixtures/voice_standins/25071.json, labeled, local dev only) through the real voice_run flow; the other four games render the passed state. Headless browser at 390px: switcher marks the current voice, tap targets 41px, no horizontal scroll, no page errors.
 Noted:        a score like "26-18" can break across lines at the hyphen in the recap. Cosmetic; left for the polish pass.
 Disposition:  promote (123 tests passing)
+
+### 2026-09-26 . Block 4 . Share card
+Answer:       `card.py` renders one 1200x630 PNG per edition from the facts sheet, the default voice's locked headline (or the code-built score line when it was dropped, Req 8.2) and The Number. Layout follows the Sep 20 proof. No logos, photos or league marks.
+Changed from the proof: the headline wraps to 2 lines before it shrinks, then shrinks to a floor, and only at the floor ends in an ellipsis (the proof truncated on one line). A team color that no text reaches 4.5:1 on gets a paper headline block with the team color on the border.
+Found, 1: Archivo's variable axes are Weight then Width, not the other way round. The first render set every label to Thin. Fixed; caught by eye on the contact sheet, not by a test.
+Found, 2: a two-line Number caption collided with the number. The number now takes the space above the caption and shrinks to fit.
+Proof:        all 10 golden edition cards plus a stress card (long headline, long caption, pale color) checked on a contact sheet. dev_render_golden writes card.png next to each edition page.
+4.1:          the three OFL.txt files are present; glyph coverage is tested.
+Disposition:  promote (135 tests passing)

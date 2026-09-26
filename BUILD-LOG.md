@@ -213,3 +213,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: PASS. pytest 123 passed. Browser check at 390px on four pages.
 - Resources: none. No model called.
 - Evidence: LEDGER entry of the same date.
+
+## 2026-09-26 . 4.1, 4.2 . Share card (Claude, on disk)
+- Tier: Working
+- Did: `src/zine/card.py`, `tests/test_card.py`, card.png per edition in the golden render.
+- Result: PASS. pytest 135 passed. Contact sheet of all golden cards and a stress card checked by eye.
+- Resources: none.
+- Evidence: LEDGER entry of the same date.
