@@ -6,7 +6,7 @@ What changed since you last worked here: Claude built every non-AWS piece on dis
 voice client, share card, site builder, hunter, audio, template.yaml, bundle builder). 166 tests pass.
 You do not write application code this session.
 
-Your job: steps 1, 2, 4, 5 and 6 of DEPLOY.md. Step 3 (sam deploy) only after the owner says go.
+Your job: steps 0, 1, 2, 4, 5 and 6 of DEPLOY.md (step 0 changes a billing setting: propose first). Step 3 (sam deploy) only after the owner says go.
 
 Guardrails:
 - Propose before each AWS-changing command; wait for the owner's go.

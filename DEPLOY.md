@@ -7,8 +7,19 @@ Rules that still hold: no IAM users or access keys; never read, print or log the
 (it lives only in SSM `/full-court-press/bdl-api-key`); redact the account id in anything saved;
 logs never contain prompts, model text, feed bodies or keys.
 
-## 0. Owner, before the session
-- [ ] Billing > Cost allocation tags: `Project` is **Active** (needed by the `fcp-project` budget filter).
+## 0. Cost allocation tag (Kiro checks, owner approves the change)
+No record that `Project` was ever activated (OWNER-SETUP.md listed it as a Block 0 owner step; no LEDGER entry).
+```
+aws ce list-cost-allocation-tags --tag-keys Project
+```
+- `Status: Active`: nothing to do, note it in LEDGER.
+- `Inactive`: propose, and on the owner's go run
+  `aws ce update-cost-allocation-tags-status --cost-allocation-tags-status TagKey=Project,Status=Active`
+- Not listed: the key has not appeared yet (it shows up to 24 hours after the first tagged resource).
+  Deploy anyway, then check again tomorrow. Costs before activation are not tagged; the `fcp-project`
+  budget reads $0 until then, and `fcp-polly` still works because it filters by service.
+
+## 0b. Owner, before the session
 - [ ] Optional, recommended: rerun the voices so the golden set publishes under the latest rules:
       `python -m zine.dev_render_live --fresh` (your terminal, `$env:PYTHONPATH="src"` and `$env:MODEL_ID=...` set).
 

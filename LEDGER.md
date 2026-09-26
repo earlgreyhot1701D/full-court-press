@@ -432,3 +432,6 @@ Found, 1: the team color was set by an inline `<style>` tag, which that CSP woul
 Found, 2: the local golden render had no About/Archive pages and the footer's golden link pointed nowhere locally. A link test now checks every relative link and asset on the built site (532, 0 broken).
 Not proven until deploy: the bundle importing on Python 3.13 in Lambda (this machine runs 3.10), Bedrock through the tagged profile, and the date query. DEPLOY.md step 4 checks all three.
 Disposition:  promote (166 tests passing)
+
+### 2026-09-26 . Block 5 . Cost allocation tag
+Found:   no record that the `Project` cost allocation tag was ever activated (OWNER-SETUP.md had it as a Block 0 owner step; no LEDGER entry). Moved to DEPLOY.md step 0 for Kiro: check with `aws ce list-cost-allocation-tags`, activate with `aws ce update-cost-allocation-tags-status` on the owner's go.
