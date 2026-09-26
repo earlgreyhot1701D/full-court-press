@@ -476,3 +476,9 @@ Count: 5 is correct. Claude's "expect 3" in KIRO-FIX-PROMPT-2 came from the wron
 Cause (Claude): facts.py leaves `quarters` out when the quarter scores do not add up to the final in true game order (by design, Block 2). The issue template read `f.quarters` unconditionally. The golden set never hit that case, so no test did either.
 Fix: the Game flow panel shows a plain note ("Quarter scores aren't shown for this game...") and the runs by quarter label when `quarters` is missing. New test: every optional fact, missing or empty, on every golden game, and pages, card and audio script still build (found no other gap). The hunter's failure entry now carries the UndefinedError message (a template field name, never model text) so the next one is quicker to find.
 Disposition:  promote (172 tests passing)
+
+### 2026-09-26 . Block 5 . Forced rebuild skipped 25079 (Claude's bug)
+Found (Kiro): the Sep 24 re-invoke built nothing. The night's slate listed 25079 as built even though its page had failed, because the hunter saved slate rows for every game it built facts for, not every game it published. A forced night then saw "all built" and skipped.
+Fix: a forced night always rebuilds (cached voices mean no new model calls for games already written; Polly audio is re-synthesized, pennies); the slate records only games that actually published. Test covers both.
+Process note: KIRO-FIX prompts told Kiro to stop on any mismatch with Claude's expected counts, and Claude's counts were wrong twice. Prompt 4 stops only on real errors.
+Disposition:  promote

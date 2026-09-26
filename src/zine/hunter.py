@@ -172,7 +172,7 @@ def run(store, bdl, write, speak, today, env=None, nights=None):
                 summary["pending_nights"].append(night.isoformat())
                 ok_night = False
             built = {r["game_id"] for r in state.load_night(store, league, night.isoformat())}
-            if finals and any(g["id"] not in built for g in finals):
+            if finals and (forced or any(g["id"] not in built for g in finals)):  # forced nights always rebuild
                 facts_list = []
                 for g in finals:
                     try:
@@ -216,7 +216,8 @@ def run(store, bdl, write, speak, today, env=None, nights=None):
                                 err["detail"] = str(e)[:120]
                             summary["failed"].append(err)
                             ok_night = False
-                    state.save_night(store, league, night.isoformat(), rows)
+                    published = set(summary["built"])
+                    state.save_night(store, league, night.isoformat(), [r for r in rows if r["game_id"] in published])
             if ok_night and not blocked and not forced:
                 advance_to = night.isoformat()
             else:

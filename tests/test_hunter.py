@@ -126,3 +126,20 @@ def test_forced_nights_rebuild_without_moving_the_marker_back(tmp_path):
     state.write_marker(store, {"wnba": "2026-09-25"})
     s = hunter.run(store, FakeBDL(), fake_write, None, date(2026, 9, 26), ENV, nights=["2026-09-21"])
     assert 25071 in s["built"] and s["marker"]["wnba"] == "2026-09-25"
+
+
+@needs_golden
+def test_failed_game_is_not_recorded_as_built_and_forced_night_rebuilds(tmp_path, monkeypatch):
+    from zine import site_build
+    store = LocalStore(str(tmp_path))
+    real = site_build.issue_files
+    def boom(f, *a, **k):
+        if f["game_id"] == 25071:
+            raise RuntimeError("render")
+        return real(f, *a, **k)
+    monkeypatch.setattr(site_build, "issue_files", boom)
+    s = hunter.run(store, FakeBDL(), fake_write, None, date(2026, 9, 22), ENV)
+    assert s["built"] == [] and not state.load_night(store, "wnba", "2026-09-21")
+    monkeypatch.setattr(site_build, "issue_files", real)
+    s = hunter.run(store, FakeBDL(), fake_write, None, date(2026, 9, 22), ENV, nights=["2026-09-21"])
+    assert s["built"] == [25071] and [r["game_id"] for r in state.load_night(store, "wnba", "2026-09-21")] == [25071]
