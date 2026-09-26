@@ -124,7 +124,7 @@ Resources:
     Type: AWS::Bedrock::ApplicationInferenceProfile
     Properties:
       InferenceProfileName: fcp-recap
-      Description: Full Court Press voices, tagged so model spend is attributed to the project (Req 12.3b)
+      Description: Full Court Press voices tagged so model spend is attributed to the project Req 12.3b
       ModelSource:
         CopyFrom: !Sub "arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/${HaikuSystemProfile}"
       Tags: [{ Key: Project, Value: full-court-press }]

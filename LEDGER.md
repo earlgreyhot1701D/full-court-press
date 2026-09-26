@@ -435,3 +435,10 @@ Disposition:  promote (166 tests passing)
 
 ### 2026-09-26 . Block 5 . Cost allocation tag
 Found:   no record that the `Project` cost allocation tag was ever activated (OWNER-SETUP.md had it as a Block 0 owner step; no LEDGER entry). Moved to DEPLOY.md step 0 for Kiro: check with `aws ce list-cost-allocation-tags`, activate with `aws ce update-cost-allocation-tags-status` on the owner's go.
+
+### 2026-09-26 . Block 5 . Project cost allocation tag activated (Kiro)
+Question:     Was the `Project` cost allocation tag ever activated? (OWNER-SETUP.md listed it as a Block 0 owner step, no prior LEDGER entry.)
+Answer:       It existed as a UserDefined tag but was Inactive (LastUsedDate 2026-09-01). Activated on the owner's go: `aws ce update-cost-allocation-tags-status --cost-allocation-tags-status TagKey=Project,Status=Active` returned Errors: [] and the status now reads Active. Activation date: 2026-09-26. Tagged costs can take up to ~24h to populate in Cost Explorer / the fcp-project budget; fcp-polly is unaffected (filters by service).
+Cost:         none. Reversible (flip back to Inactive the same way).
+Disposition:  CHECKPOINT 5 tag item satisfied; recheck tomorrow that tagged spend appears.
+Changes PRD?: no.
