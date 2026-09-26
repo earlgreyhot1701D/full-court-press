@@ -469,3 +469,10 @@ Fix: `local_date` converts every timestamp, midnight included. The guard now fir
 Cleanup needed on the live stack: 25081 sits under `site/wnba/2026-09-25/` and `state/slates/wnba/2026-09-25.json`. Kiro removes both, then rebuilds Eastern Sep 24 (its cached voices for 25081 are reused, no new calls for it).
 Proven by the partial run: Bedrock through fcp-recap works (7 calls, lock passing and rejecting as designed), Polly works (2 files), the log is clean.
 Disposition:  promote (170 tests passing)
+
+### 2026-09-26 . Block 5 . Sep 24 rebuild: 5 games is right, 25079 exposed a template gap
+Run (Kiro): Eastern Sep 24 matched 5 finals (25079 to 25083), stray 0, 31 model calls, 10 audio files. Built 4; 25079 failed with UndefinedError.
+Count: 5 is correct. Claude's "expect 3" in KIRO-FIX-PROMPT-2 came from the wrong UTC count; with Eastern dates the evening of Sep 24 had 5 games.
+Cause (Claude): facts.py leaves `quarters` out when the quarter scores do not add up to the final in true game order (by design, Block 2). The issue template read `f.quarters` unconditionally. The golden set never hit that case, so no test did either.
+Fix: the Game flow panel shows a plain note ("Quarter scores aren't shown for this game...") and the runs by quarter label when `quarters` is missing. New test: every optional fact, missing or empty, on every golden game, and pages, card and audio script still build (found no other gap). The hunter's failure entry now carries the UndefinedError message (a template field name, never model text) so the next one is quicker to find.
+Disposition:  promote (172 tests passing)

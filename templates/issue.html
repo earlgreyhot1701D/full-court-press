@@ -197,6 +197,13 @@
       <h2 class="slab misreg">By quarter</h2>
       {% set ns = namespace(run_noted=false) %}
       <div class="runs">
+        {% if not f.quarters %}
+        {# facts leaves quarters out when they do not add up to the final in true game order #}
+        <p class="droppednote">Quarter scores aren&rsquo;t shown for this game. They didn&rsquo;t add up to the final, so we left them out.</p>
+        {% for r in f.runs %}
+        <div class="run runline"><span class="q">{{ "OT" if r.quarter > 4 else "Q" ~ r.quarter }} run</span><div class="bar"><i style="width:{{ [ (100 * r.points / max_run)|round|int, 12 ]|max }}%"></i></div><b>{{ r.team_abbrev }} {{ r.points }}</b></div>
+        {% endfor %}
+        {% else %}
         {% for i in range(f.quarters.home|length) %}
         {% set h = f.quarters.home[i] %}{% set a = f.quarters.away[i] %}
         {% set qlabel = ("OT" if i >= 4 else "Q" ~ (i + 1)) %}
@@ -216,6 +223,7 @@
         {% if r.points == max_run and not ns.run_noted %}{% set ns.run_noted = true %}<div class="scribble note-run" aria-hidden="true"><svg class="arrow" viewBox="0 0 30 26" aria-hidden="true" focusable="false"><path d="M4 22 C6 11 13 5 25 5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M18 1 L25 5 L19 11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> biggest run of the game</div>{% endif %}
         {% endfor %}
         {% endfor %}
+        {% endif %}
       </div>
       <span class="folio print-only">5</span>
     </div>

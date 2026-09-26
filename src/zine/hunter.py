@@ -211,7 +211,10 @@ def run(store, bdl, write, speak, today, env=None, nights=None):
                                     log.info(json.dumps({"game_id": f["game_id"], "edition": ed, "voice": v,
                                                          "calls": r["calls"], "lock": r["log"]}))
                         except Exception as e:
-                            summary["failed"].append({"game_id": f["game_id"], "error": type(e).__name__})
+                            err = {"game_id": f["game_id"], "error": type(e).__name__}
+                            if type(e).__name__ == "UndefinedError":  # names a template field, never model text
+                                err["detail"] = str(e)[:120]
+                            summary["failed"].append(err)
                             ok_night = False
                     state.save_night(store, league, night.isoformat(), rows)
             if ok_night and not blocked and not forced:
