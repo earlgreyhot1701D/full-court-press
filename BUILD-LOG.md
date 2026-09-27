@@ -290,3 +290,7 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Did: owner ran REDEPLOY-STEPS.md (local, gitignored): build_lambda, sam deploy with the domain parameters, forced rebuild of Sep 21, 22, 23, 24 one at a time, CloudFront invalidation, golden republished with SITE_URL.
 - Result (Claude checked in the owner's browser): all 56 voice pages 200; 36 AI recaps, 20 code-written recaps, 0 empty; no "Last night" heading anywhere. Front page heading THURSDAY, SEP 24, title "Full Court Press . WNBA Thursday, Sep 24". Game of the Night moved from Valkyries-Sparks (no Valkyries recap) to Aces 100, Mercury 82, and "Read the issue" lands on an AI recap. Every front-page card opens a page with a recap (3 AI, 2 code). Golden shows "The golden set"; About uses the ransom masthead; team cards read "THU, SEP 24 . Final"; footer says "Latest games".
 - Evidence: live URLs under https://fullcourtpress.lol/.
+
+## 2026-09-27 . 5.7 . Home button, golden note, scrolling ticker live; demo take 2 and screenshots (owner + Claude)
+- Did: owner ran tools/redeploy.ps1 -Record (one command: build, deploy with the stack's own parameters, rebuild Sep 21 to 24, invalidate and wait, golden, record). Claude converted the recording to MP4 (trimmed the blank lead-in), checked 15 frames, and cut six README screenshots from it.
+- Result: live site has the Home button on every inner page, the golden note, the scrolling ticker; demo/demo.mp4 is 84 s at 1x, ends on the full slate; Polly player plays on camera.
