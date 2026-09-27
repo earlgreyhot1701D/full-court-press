@@ -20,6 +20,7 @@ import os
 from zine import card, contrast, render, voice_view
 from zine.pagekit import (DEFAULT_SPOT, dropped_labels, human_date, slate_date, card_date, load_colors, max_run, spot_for,
                           winner_loser)
+from zine import plain_recap
 from zine.paths import STATIC, rel_root
 from zine.voices import VOICE_ORDER
 
@@ -43,9 +44,30 @@ def _ctx_paths(path, prefix):
             "og_default": og}
 
 
-def slate_row(f, gotn_id, prefix=""):
-    """Deterministic summary of one game for the index, archive, team pages and Around the League."""
+def best_voice(results, f, edition):
+    """The first voice (in VOICE_ORDER) whose page for this edition kept its recap; else the default."""
+    for v in VOICE_ORDER:
+        view = voice_view.build((results or {}).get((edition, v)), f)
+        if view and view.get("recap"):
+            return v
+    return VOICE_ORDER[0]
+
+
+def has_recap(results, f, edition):
+    return any((voice_view.build((results or {}).get((edition, v)), f) or {}).get("recap") for v in VOICE_ORDER)
+
+
+def featurable(facts_list, results_by_game):
+    """game_ids whose winner's page kept a recap in at least one voice: the only games the front
+    page should send a reader to as Game of the Night."""
+    return {f["game_id"] for f in facts_list if has_recap(results_by_game.get(f["game_id"]), f, f["winner_abbrev"])}
+
+
+def slate_row(f, gotn_id, prefix="", results=None):
+    """Deterministic summary of one game for the index, archive, team pages and Around the League.
+    results (optional): links open the voice that kept its recap, so a card never lands on a cut one."""
     w, l = winner_loser(f)
+    pick_v = (lambda ed: best_voice(results, f, ed)) if results is not None else (lambda ed: "the_call")
     return {"game_id": f["game_id"], "league": f.get("league", "wnba"), "date_local": f["date_local"],
             "tip_time_utc": f.get("tip_time_utc", ""),
             "home": {k: f["home"][k] for k in ("team", "abbrev", "score")},
@@ -53,8 +75,8 @@ def slate_row(f, gotn_id, prefix=""):
             "winner_abbrev": f["winner_abbrev"], "overtime": bool(f.get("overtime_periods")),
             "is_game_of_night": f["game_id"] == gotn_id,
             "winner_team": w["team"], "winner_score": w["score"], "loser_team": l["team"], "loser_score": l["score"],
-            "editions": {t["abbrev"]: voice_view.issue_path(f, t["abbrev"], "the_call", prefix) for t in (f["home"], f["away"])},
-            "read": voice_view.issue_path(f, f["winner_abbrev"], "the_call", prefix)}
+            "editions": {t["abbrev"]: voice_view.issue_path(f, t["abbrev"], pick_v(t["abbrev"]), prefix) for t in (f["home"], f["away"])},
+            "read": voice_view.issue_path(f, f["winner_abbrev"], pick_v(f["winner_abbrev"]), prefix)}
 
 
 def issue_files(f, results, gotn_id, day_rows, colors=None, audio=None, movers=None, prefix="", base_url=""):
@@ -86,7 +108,9 @@ def issue_files(f, results, gotn_id, day_rows, colors=None, audio=None, movers=N
                 "card_url": (base_url + folder + "card.png") if base_url else to_folder + "card.png",
                 "slate": day_rows, "standings_movers": movers, "spot_color": spot,
                 "on_spot_text": on_text, "low_contrast": low, "date_display": human_date(f["date_local"]),
-                "max_run": max_run(f), "dropped_labels": dl_text, "dropped_count": dl_count})
+                "max_run": max_run(f), "dropped_labels": dl_text, "dropped_count": dl_count,
+                "plain_recap": plain_recap.build(f, ed),
+                "row_urls": {r["game_id"]: rel_root(path) + r["read"] for r in day_rows if r.get("read")}})
             files[path] = (render.render("issue.html", ctx).encode("utf-8"), HTML)
             if voice == VOICE_ORDER[0]:  # one card per edition, from the default voice
                 files[folder + "card.png"] = (card.render(f, spot, v and v["headline"], number), TYPES[".png"])

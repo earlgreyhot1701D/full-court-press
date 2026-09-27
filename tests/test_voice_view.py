@@ -48,8 +48,11 @@ def test_clean_voice_renders_every_section(f71):
 def test_dropped_recap_shows_writers_room_and_keeps_the_rest(f71):
     bad = dict(CLEAN, recap="Kahleah Copper scored 33 points.")
     html = page(f71, run(f71, bad, bad))
-    assert "The writers&rsquo; room passed on this one." in html
+    assert "The writers&rsquo; room passed on this one" in html
     assert CLEAN["headline"] in html and "33 points" not in html
+    # the floor: a code-written recap, labeled as such, instead of an empty story
+    assert 'class="recap plainrecap">The Mercury beat the Wings 87-86.' in html
+    assert "written by code, from the counted facts . no AI" in html
 
 
 @needs_golden
@@ -70,7 +73,8 @@ def test_dropped_number_uses_facts_default(f71):
 @needs_golden
 def test_whole_voice_dropped(f71):
     html = page(f71, None)
-    assert "The writers&rsquo; room passed on this one." in html and "Spotlight" not in html
+    assert "The writers&rsquo; room passed on this one" in html and "Spotlight" not in html
+    assert 'class="recap plainrecap"' in html
 
 
 @needs_golden
@@ -79,3 +83,41 @@ def test_spotlight_stats_come_from_facts_not_the_model(f71):
     assert v["spotlight"]["stats"] == [{"value": 15, "label": "PTS"}, {"value": 11, "label": "REB"},
                                        {"value": 12, "label": "AST"}]
     assert v["spotlight"]["initials"] == "AT" and v["spotlight"]["team"] == "Phoenix Mercury"
+
+
+@needs_golden
+def test_plain_recap_passes_the_fact_lock_for_every_golden_page():
+    """The code-written recap is true by construction; prove it with the same lock the AI faces."""
+    from zine import dev_render_golden, fact_lock, plain_recap
+    for f in dev_render_golden.load_all():
+        phrases = set(f.get("allowed_names", [])) | fact_lock.COMMON_CAPS
+        for t in (f["home"], f["away"]):
+            text = plain_recap.build(f, t["abbrev"])
+            assert text, (f["game_id"], t["abbrev"])
+            assert fact_lock._check_text(text, set(f.get("allowed_numbers", [])), phrases) == "ok", (f["game_id"], t["abbrev"], text)
+            if t["abbrev"] == f["winner_abbrev"]:
+                assert " beat " in text.split(".")[0]
+            else:
+                assert " lost to " in text.split(".")[0]
+
+
+@needs_golden
+def test_cards_and_featured_game_follow_the_voice_that_kept_its_recap(f71):
+    from zine import site_build
+    from zine.game_of_night import pick
+    kept = run(f71, CLEAN, voice="film_room")
+    results = {("PHX", "the_call"): None, ("PHX", "film_room"): kept}
+    row = site_build.slate_row(f71, f71["game_id"], results=results)
+    assert row["read"].endswith("PHX/film-room/index.html")
+    assert site_build.featurable([f71], {f71["game_id"]: results}) == {f71["game_id"]}
+    assert site_build.featurable([f71], {f71["game_id"]: {}}) == set()
+    # nothing qualifies: every game stays in the running
+    assert pick([f71], eligible=set()) == f71["game_id"]
+
+
+def test_pick_skips_a_game_whose_winner_page_lost_its_recap():
+    from zine.game_of_night import pick
+    close = {"game_id": 1, "final_margin": 1, "tip_time_utc": "2026-09-24T23:00Z", "notable": []}
+    blowout = {"game_id": 2, "final_margin": 30, "tip_time_utc": "2026-09-24T23:30Z", "notable": []}
+    assert pick([close, blowout]) == 1
+    assert pick([close, blowout], eligible={2}) == 2

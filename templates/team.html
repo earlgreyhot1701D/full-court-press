@@ -12,7 +12,7 @@
 <header class="top"{% if team.spot %} style="--spot:{{ team.spot }}"{% endif %}>
   <div class="wrap">
     <span class="kick spot-surface">WNBA . {{ team.team }}</span>
-    <a class="homelink" href="{{ root_prefix }}index.html" aria-label="Latest games"><h1 class="slab mast">Full Court Press</h1></a>
+    <a class="homelink" href="{{ root_prefix }}index.html">{% include "_ransom.html" %}</a>
     <p class="sub">{{ team.team }} issues, newest first</p>
   </div>
 </header>
@@ -35,7 +35,7 @@
       <span class="nm">{{ g.away.team }}</span><span class="sc">{{ g.away.score }}</span>
     </a>
     <div class="meta">
-      <span>{{ g.date_local }} . Final{% if g.overtime %} / OT{% endif %}</span>
+      <span>{{ g.date_short }} . Final{% if g.overtime %} / OT{% endif %}</span>
       <a class="go" href="{{ g.read_url }}">Read the issue &rarr;</a>
     </div>
   </article>

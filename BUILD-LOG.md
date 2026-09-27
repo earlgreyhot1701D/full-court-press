@@ -278,3 +278,9 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result (Claude checked in the owner's browser): https://fullcourtpress.lol/ 200 from CloudFront (Hit), CSP present; https://www.fullcourtpress.lol/ loads the same front page; /static/favicon.svg 200 image/svg+xml; /static/og-default.png and /static/apple-touch-icon.png 200 image/png; front page has icon links and og:image = https://fullcourtpress.lol/static/og-default.png; game page 25082 LA og:image = https://fullcourtpress.lol/wnba/2026-09-24/25082/LA/card.png.
 - Known, not new: bare folder URLs like /about/ return 403 (S3 has no folder index); every site link uses .../index.html, so no page links to a bare folder.
 - Evidence: live URLs above. Cert ARN and account ID kept out of this log.
+
+## 2026-09-27 . 5c . Recap floor, featured game follows the words, design pass (Claude)
+- Tier: Standard (app code, no deploy)
+- Did: plain_recap.py (new); game_of_night.pick(eligible=); site_build.best_voice / has_recap / featurable, slate_row(results=); hunter builds voices for every game before picking Game of the Night; dev_render_golden uses the same rule; issue.html plain-recap branch, linked slate rows, stat line open, "The story" heading; _ransom.html shared by front, about, team, archive; team card dates; footer label.
+- Result: 188 tests pass (5 new). Rendered and checked: game page with a cut recap, about, team page at desktop and phone width.
+- Evidence: live measurement before the change: 20 of 56 voice pages without a recap. Goes live with the next deploy.

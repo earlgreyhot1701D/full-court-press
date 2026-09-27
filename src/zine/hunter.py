@@ -183,14 +183,25 @@ def run(store, bdl, write, speak, today, env=None, nights=None):
                         summary["failed"].append({"game_id": g["id"], "error": type(e).__name__})
                         ok_night = False
                 if facts_list:
-                    gotn = pick(facts_list)
-                    rows = [site_build.slate_row(f, gotn) for f in facts_list]
                     for f in facts_list:
                         for ab, s in f.get("standings_line", {}).items():
                             new_ranks[ab] = s["conference_rank"]
+                    # Pass 1: voices for every game first, so the Game of the Night can follow them:
+                    # the front page never features a game whose winner's page lost its recap.
+                    voiced = {}
                     for f in facts_list:
                         try:
-                            results = voices_for(store, write, f, budget)
+                            voiced[f["game_id"]] = voices_for(store, write, f, budget)
+                        except Exception as e:
+                            summary["failed"].append({"game_id": f["game_id"], "error": type(e).__name__})
+                            ok_night = False
+                    facts_list = [f for f in facts_list if f["game_id"] in voiced]
+                    gotn = pick(facts_list, eligible=site_build.featurable(facts_list, voiced))
+                    rows = [site_build.slate_row(f, gotn, results=voiced[f["game_id"]]) for f in facts_list]
+                    # Pass 2: audio and pages
+                    for f in facts_list:
+                        try:
+                            results = voiced[f["game_id"]]
                             audio = {}
                             for t in (f["home"], f["away"]):
                                 if speak and audio_left > 0:

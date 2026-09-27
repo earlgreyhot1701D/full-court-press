@@ -93,3 +93,13 @@ body { background-color:#FCF3F5;
 .card .gdate { text-align:right; font:800 10.5px 'Archivo',sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--mut); margin:0 0 6px; }
 .golden-intro { max-width:62ch; margin:6px 0 16px; color:var(--ink); font-size:15px; }
 .golden-intro a { color:var(--spot-text); font-weight:700; }
+
+/* stat line open by default; the toggle shows minus when open */
+details.box[open] summary::after { content:"\2212"; }
+/* rest of the slate: each other game is a link */
+a.strip { color:var(--ink); text-decoration:none; }
+a.strip:hover, a.strip:focus-visible { background:var(--spot); color:var(--on-spot); outline:2px solid var(--ink); outline-offset:2px; }
+/* the code-written recap: same drop cap, a quieter byline */
+.recap.plainrecap + .byline { font-style:italic; }
+/* ransom masthead on the narrower about / team / archive headers: one line on desktop */
+.top .wrap:not(.wide) .mast.ransom { font-size:clamp(26px,7.4vw,44px); }

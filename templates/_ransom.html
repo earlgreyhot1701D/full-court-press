@@ -1,0 +1,3 @@
+{# Cut-out ransom-note masthead, shared by the front, about, team and archive pages. Read as one word
+   by screen readers via aria-label; each letter is decoration. #}
+<h1 class="slab mast ransom" aria-label="Full Court Press">{% set n = namespace(i=0) %}{% for word in ["FULL", "COURT", "PRESS"] %}<span class="word" aria-hidden="true">{% for ch in word %}{% set n.i = n.i + 1 %}<span class="rn rn{{ n.i % 5 }}">{{ ch }}</span>{% endfor %}</span>{% endfor %}</h1>

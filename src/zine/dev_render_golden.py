@@ -49,12 +49,13 @@ def standin_result(f, edition, voice):
 def golden_files(result_fn, prefix=""):
     """Every file of the golden site. Used locally (prefix "") and by publish_golden ("golden/")."""
     facts = load_all()
-    gotn = pick(facts)
-    rows = [site_build.slate_row(f, gotn, prefix) for f in facts]
+    voiced = {f["game_id"]: {(t["abbrev"], v): result_fn(f, t["abbrev"], v) for t in (f["home"], f["away"])
+                             for v in VOICE_ORDER} for f in facts}
+    gotn = pick(facts, eligible=site_build.featurable(facts, voiced))  # same rule as the morning run
+    rows = [site_build.slate_row(f, gotn, prefix, results=voiced[f["game_id"]]) for f in facts]
     files = {}
     for f in facts:
-        results = {(t["abbrev"], v): result_fn(f, t["abbrev"], v) for t in (f["home"], f["away"]) for v in VOICE_ORDER}
-        files.update(site_build.issue_files(f, results, gotn, rows, prefix=prefix))
+        files.update(site_build.issue_files(f, voiced[f["game_id"]], gotn, rows, prefix=prefix))
     nights = {}
     for r in rows:
         nights.setdefault(r["date_local"], []).append(r)

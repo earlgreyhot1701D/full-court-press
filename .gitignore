@@ -27,3 +27,4 @@ build/
 out-live-cache/
 payload.json
 response.json
+out-check/

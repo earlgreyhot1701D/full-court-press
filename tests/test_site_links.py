@@ -84,3 +84,21 @@ def test_golden_front_says_what_it_is_and_dates_every_card(monkeypatch):
     assert front.count('class="gdate"') == 5
     assert "Game of the Night" not in front and "Pick of the Set" in front
     assert 'class="golden-intro"' in front
+
+
+@needs_golden
+def test_design_pass_sep27(monkeypatch):
+    """Ransom masthead on about/team/archive, readable dates on team cards, the stat line open,
+    other games in 'The rest of the slate' are links, footer says Latest games."""
+    monkeypatch.setattr(site_build, "GOLDEN_AT", "")
+    files, _ = dev_render_golden.golden_files(dev_render_golden.standin_result)
+    pages = {p: b.decode("utf-8") for p, (b, t) in files.items() if t.startswith("text/html")}
+    for p in ("about/index.html", "archive/index.html", "team/PHX/index.html"):
+        assert 'class="slab mast ransom"' in pages[p], p
+    team = pages["team/PHX/index.html"]
+    assert not re.search(r"\\d{4}-\\d\\d-\\d\\d \\. Final", team) and "MON, SEP 21 . Final" in team
+    issue = pages["wnba/2026-09-21/25071/PHX/index.html"]
+    assert '<details class="box" open>' in issue
+    assert ">Last night</h2>" not in issue and ">The story</h2>" in issue
+    assert issue.count('<a class="strip"') == 4 and 'aria-current="page"><span>Phoenix Mercury 87' in issue
+    assert ">Latest games</a> ." in issue and ">All games<" not in issue

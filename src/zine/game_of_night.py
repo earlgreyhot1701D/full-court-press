@@ -36,10 +36,14 @@ def score(facts, rules):
     return pts, why
 
 
-def pick(facts_list, rules=None):
-    """Returns the game_id of the Game of the Night, or None for an empty slate."""
+def pick(facts_list, rules=None, eligible=None):
+    """Returns the game_id of the Game of the Night, or None for an empty slate.
+    eligible: optional set of game_ids that can be featured (the winner's page has a recap).
+    If none of the games qualify, every game stays in the running."""
     if not facts_list:
         return None
     rules = rules or load_rules()
+    if eligible is not None:
+        facts_list = [f for f in facts_list if f["game_id"] in eligible] or facts_list
     ranked = sorted(facts_list, key=lambda f: (score(f, rules)[0], f["tip_time_utc"]), reverse=True)
     return ranked[0]["game_id"]

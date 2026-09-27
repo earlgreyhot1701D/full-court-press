@@ -90,7 +90,7 @@
 
       <div class="fold screen-only"><span>fold here when you print</span></div>
       <span class="lbl">The recap</span>
-      <h2 class="slab misreg">Last night</h2>
+      <h2 class="slab misreg">The story</h2>
 
       {# edition toggle: direct links to each team's edition, server-rendered (Req 10.1b-i) #}
       <div class="voices screen-only" role="group" aria-label="Edition">
@@ -110,6 +110,11 @@
       {% if voice and voice.recap %}
       <p class="recap">{{ voice.recap }}</p>
       <span class="byline">by {{ voice.label }}</span>
+      {% elif plain_recap %}
+      {# the floor: the AI recap was cut, so code writes a plain one from the counted facts #}
+      <p class="recap plainrecap">{{ plain_recap }}</p>
+      <span class="byline">written by code, from the counted facts . no AI</span>
+      <p class="whypassed">The writers&rsquo; room passed on this one: our AI writer&rsquo;s draft didn&rsquo;t match this game&rsquo;s facts, so we cut it and printed the plain version instead. {% if voice_links %}Try the other voice above, or {% endif %}<a href="{{ root_prefix }}about/index.html#how-we-check">see how we check</a>.</p>
       {% else %}
       <p class="recap writersroom">The writers&rsquo; room passed on this one.</p>
       <p class="whypassed">Our AI writer&rsquo;s draft didn&rsquo;t match this game&rsquo;s facts, so we cut it instead of publishing something wrong. Every number on this page is counted by code. {% if voice_links %}Try the other voice above, or {% endif %}<a href="{{ root_prefix }}about/index.html#how-we-check">see how we check</a>.</p>
@@ -156,8 +161,8 @@
       <p class="droppednote">{{ dropped_labels }} aren&rsquo;t shown for this game. The count didn&rsquo;t add up, so we left them out.</p>
       {% endif %}
       {% if f.player_lines %}<div class="scribble note-counted" aria-hidden="true">counted from every single play</div>{% endif %}
-      <details class="box">
-        <summary>Show the stat line</summary>
+      <details class="box" open>
+        <summary>The stat line</summary>
         <div class="tbls">
           {% for team in [f.home, f.away] %}
           <table>
@@ -238,7 +243,11 @@
       <h2 class="slab misreg">The rest of the slate</h2>
       <div>
         {% for g in slate %}
-        <div class="strip{% if g.game_id == f.game_id %} g spot-surface{% endif %}"><span>{{ g.winner_team }} {{ g.winner_score }} . {{ g.loser_team }} {{ g.loser_score }}</span><span>F{% if g.overtime %}/OT{% endif %}</span></div>
+        {% if g.game_id == f.game_id or not row_urls.get(g.game_id) %}
+        <div class="strip{% if g.game_id == f.game_id %} g spot-surface{% endif %}"{% if g.game_id == f.game_id %} aria-current="page"{% endif %}><span>{{ g.winner_team }} {{ g.winner_score }} . {{ g.loser_team }} {{ g.loser_score }}</span><span>F{% if g.overtime %}/OT{% endif %}</span></div>
+        {% else %}
+        <a class="strip" href="{{ row_urls[g.game_id] }}"><span>{{ g.winner_team }} {{ g.winner_score }} . {{ g.loser_team }} {{ g.loser_score }}</span><span>F{% if g.overtime %}/OT{% endif %} &rarr;</span></a>
+        {% endif %}
         {% endfor %}
       </div>
       {% if standings_movers %}<p class="movers"><b>Standings movers:</b> {{ standings_movers }}</p>{% endif %}
