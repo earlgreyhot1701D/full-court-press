@@ -33,3 +33,5 @@ REDEPLOY-STEPS.md
 # demo recorder scratch
 demo_raw/
 demo_fail_*.png
+demo/*.mp4
+demo/*.webm

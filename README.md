@@ -15,9 +15,22 @@
 
 Unofficial fan project. Not affiliated with, endorsed by, or associated with the WNBA, any team, or our data provider. Data from [BALLDONTLIE](https://www.balldontlie.io).
 
-**Contents:** [Architecture](#architecture) . [How it's made](#how-its-made) . [Honest limitations](#honest-limitations) . [Tech stack](#tech-stack) . [Repo map](#repo-map) . [Run it locally](#run-it-locally) . [Cost](#cost) . [Stubs](#stubs-not-built-on-purpose) . [License](#license)
+**Contents:** [Screenshots](#screenshots) . [Architecture](#architecture) . [How it's made](#how-its-made) . [Honest limitations](#honest-limitations) . [Tech stack](#tech-stack) . [Repo map](#repo-map) . [Run it locally](#run-it-locally) . [Cost](#cost) . [Stubs](#stubs-not-built-on-purpose) . [License](#license)
 
 ---
+
+## Screenshots
+
+From the live site, Sep 24 games.
+
+| | |
+|---|---|
+| ![Front page: the date, the slate, the featured game](design/screenshots/01-front.png) | ![A Sun edition: the Polly audio recap playing, then the story](design/screenshots/02-issue-polly.png) |
+| **Front page.** The games' own date, never "last night." | **An issue.** Polly reads a 10-second recap built by code. |
+| ![Two editions, two voices](design/screenshots/03-story-voices.png) | ![The stat line, counted from every play](design/screenshots/04-stat-line.png) |
+| **The story.** Each team's edition, in The Call or The Film Room. | **The stat line.** Counted by code from the play-by-play. |
+| ![Print view: an 8-panel pocket zine](design/screenshots/05-print-zine.png) | ![A recap written by code after the AI draft failed the check](design/screenshots/06-code-recap.png) |
+| **Print.** The issue folds into an 8-panel pocket zine. | **When the AI recap fails the check,** code writes a plain one, and the page says so. |
 
 ## Architecture
 
