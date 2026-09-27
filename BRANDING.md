@@ -10,7 +10,7 @@ Labels: **IN USE** means it ships today. **PROPOSED** means it's waiting on a de
 
 **Name:** Full Court Press (always three words, title case; never "FCP" in anything a fan reads)
 **Domain:** fullcourtpress.lol
-**One-liner (PROPOSED):** The morning-after zine for last night's WNBA games.
+**One-liner (IN USE):** The zine for last night's WNBA games. (Dropped "morning-after": it reads like Plan B.)
 **Longer line (PROPOSED):** Counted stats, written in two voices, checked before they print. One page on your phone, eight panels on paper.
 **Name origin:** a personal easter egg. It was the name of a court newsletter back in the day.
 
@@ -91,6 +91,6 @@ Sources: the three first options and both CP versions live in `design/favicon/` 
 ## 8. Still to decide
 
 - [x] Favicon: A2
-- [ ] One-liner wording
+- [x] One-liner: The zine for last night's WNBA games.
 - [x] Default social preview (og-default.png)
 - [ ] GitHub repo social card and cover image for the article

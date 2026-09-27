@@ -15,7 +15,7 @@
     {# index masthead does NOT link to itself (Req 10d). Cut-out ransom-note letters, read as one word by
        screen readers via aria-label; each letter is decoration. #}
     <h1 class="slab mast ransom" aria-label="Full Court Press">{% set n = namespace(i=0) %}{% for word in ["FULL", "COURT", "PRESS"] %}<span class="word" aria-hidden="true">{% for ch in word %}{% set n.i = n.i + 1 %}<span class="rn rn{{ n.i % 5 }}">{{ ch }}</span>{% endfor %}</span>{% endfor %}</h1>
-    <p class="sub">the morning zine for women&rsquo;s pro basketball</p>
+    <p class="sub">the zine for last night&rsquo;s WNBA games</p>
   </div>
 </header>
 

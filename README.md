@@ -1,6 +1,6 @@
 # Full Court Press
 
-A morning-after fan zine for the WNBA. Every finished game gets an issue, written from **each team's side**, not just the winner's, in two voices, with a share card, a 10-second audio recap, and a print button that folds the issue into an 8-panel pocket zine.
+The zine for last night's WNBA games. An unofficial fan zine. Every finished game gets an issue, written from **each team's side**, not just the winner's, in two voices, with a share card, a 10-second audio recap, and a print button that folds the issue into an 8-panel pocket zine.
 
 **Live:** https://dfph64wiizg5i.cloudfront.net/
 **Golden set** (five real games, always there for judges): https://dfph64wiizg5i.cloudfront.net/golden/index.html

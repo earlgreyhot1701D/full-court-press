@@ -39,7 +39,7 @@
         {% if is_game_of_night %}<span class="scribble note-gotn" aria-hidden="true">game of the night! <svg class="arrow" viewBox="0 0 30 26" aria-hidden="true" focusable="false"><path d="M3 5 C13 1 23 7 24 19" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M17 15 L24 20 L28 12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="gotn" aria-label="Game of the Night">Game<br>of the<br>Night</div>{% endif %}
       </div>
       <a class="homelink" href="{{ root_prefix }}index.html" aria-label="All of last night&rsquo;s games"><h1 class="slab mast">Full Court Press</h1></a>
-      <p class="tagline">the morning zine for women&rsquo;s pro basketball</p>
+      <p class="tagline">the zine for last night&rsquo;s WNBA games</p>
       <p class="date">{{ winner.team }} {{ winner.score }} . {{ loser.team }} {{ loser.score }} . final{% if f.overtime_periods %} / OT{% endif %}</p>
       <div class="scorerow">
         <div class="score slab" aria-label="Final score">
