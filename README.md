@@ -2,35 +2,78 @@
 
 ![Full Court Press: the zine for last night's WNBA games](design/readme-banner.png)
 
-**Live:** https://fullcourtpress.lol
+**The zine for last night's WNBA games.** Every finished game gets an issue, written from **each team's side**, not just the winner's, in two voices, with a share card, a 10-second audio recap, and a print button that folds the issue into an 8-panel pocket zine.
 
-The zine for last night's WNBA games. An unofficial fan zine. Every finished game gets an issue, written from **each team's side**, not just the winner's, in two voices, with a share card, a 10-second audio recap, and a print button that folds the issue into an 8-panel pocket zine.
+| | |
+|---|---|
+| **Live site** | https://fullcourtpress.lol |
+| **Golden set** (five real games, always up, for judges) | https://fullcourtpress.lol/golden/index.html |
+| **Built for** | AWS Builder Center "Zero to Shipped" hackathon, September 2026 |
+| **Status** | MVP. WNBA only; a new issue every morning after games |
 
-**Live:** https://dfph64wiizg5i.cloudfront.net/
-**Golden set** (five real games, always there for judges): https://dfph64wiizg5i.cloudfront.net/golden/index.html
+Unofficial fan project. Not affiliated with, endorsed by, or associated with the WNBA, any team, or our data provider. Data from [BALLDONTLIE](https://www.balldontlie.io).
 
-Unofficial fan zine. Not affiliated with, endorsed by, or associated with the WNBA, any team, or our data provider. Data from [BALLDONTLIE](https://www.balldontlie.io).
-
-Built for the AWS Builder Center "Zero to Shipped" hackathon, September 2026.
+**Contents:** [Architecture](#architecture) . [How it's made](#how-its-made) . [Honest limitations](#honest-limitations) . [Tech stack](#tech-stack) . [Repo map](#repo-map) . [Run it locally](#run-it-locally) . [Cost](#cost) . [Stubs](#stubs-not-built-on-purpose) . [License](#license)
 
 ---
+
+## Architecture
+
+One scheduled Lambda does everything, then gets out of the way. Readers only ever touch static files behind CloudFront.
+
+```
+                                ┌──────────────────────────┐
+                                │  EventBridge Scheduler   │  6:15am Pacific, daily
+                                └────────────┬─────────────┘
+                                             │ invoke
+                                             ▼
+ ┌───────────────┐  API key   ┌──────────────────────────────┐   game list,    ┌──────────────┐
+ │ SSM Parameter │ ─────────► │   Lambda: fcp-hunter         │ ◄────────────── │ BALLDONTLIE  │
+ │ Store (secret)│            │   python 3.13                │  play-by-play,  │ (WNBA data)  │
+ └───────────────┘            │                              │  standings      └──────────────┘
+                              │  1. find last night's finals │
+                              │  2. count stats from plays   │  code
+                              │  3. facts sheet + plain_facts│  code
+                              │  4. write the voices ────────┼──► Amazon Bedrock
+                              │     fact lock, retry, drop   │    (Claude Haiku 4.5, via an
+                              │  5. share card (Pillow)      │     application inference profile)
+                              │  6. audio recap ─────────────┼──► Amazon Polly (neural)
+                              │  7. render static pages      │
+                              └──────────────┬───────────────┘
+                                             │ put objects
+                                             ▼
+                              ┌──────────────────────────────┐
+                              │  S3 (private, no public URL) │  pages, cards, mp3, state
+                              └──────────────┬───────────────┘
+                                             │ Origin Access Control
+                                             ▼
+ ┌───────────────┐            ┌──────────────────────────────┐
+ │ ACM cert      │ ─────────► │  CloudFront                  │  CSP, HSTS, nosniff,
+ │ (us-east-1)   │            │                              │  frame DENY, referrer policy
+ └───────────────┘            └──────────────┬───────────────┘
+                                             │  fullcourtpress.lol (DNS at Porkbun)
+                                             ▼
+                                         the reader
+
+ Side rails: CloudWatch Logs (ids, counts, lock results only) . AWS Budgets ($10 project, $2 Polly)
+             . Project cost tag . everything defined in template.yaml (AWS SAM)
+```
+
+Inside the Lambda, the one rule that shapes everything: **code decides what's true, the model only decides how it sounds.**
+
+```
+play-by-play ──► pbp_stats ──► facts sheet ──► plain_facts ──► voices prompt ──► Haiku
+                 (counted)     (reconciled     (claims as       (quote these,
+                                to the final)   sentences)       never do math)
+                                                                               │
+      page  ◄── voice_view ◄── recheck at render ◄── fact lock + banned words ◄┘
+                               (current rules on     (fail twice: the section
+                                saved voices)         is dropped, and the page says so)
+```
 
 ## How it's made
 
 Deterministic structure, AI flavor. Code writes every number. The AI writes the voice, and code checks it.
-
-```
-EventBridge Scheduler, 6:15am Pacific
-  -> Lambda (the hunter)
-       finds last night's finals (BALLDONTLIE)
-       counts every stat from the play-by-play          code, never the model
-       builds a facts sheet + plain_facts sentences     code
-       asks Claude Haiku 4.5 (Bedrock) for 2 voices x 2 editions
-       fact lock + banned words, retry once, else drop the section
-       share card (Pillow), audio (Polly neural, script built by code)
-       writes a static site to private S3
-  -> CloudFront (OAC, CSP, HSTS) -> you
-```
 
 - **Stats are counted, not bought.** The data tier this project pays for has no box score, so `pbp_stats.py` counts points, rebounds, assists, steals and blocks from the play-by-play text. Every team's points must add up to the final score or the stat line is dropped. Other categories are dropped one by one if their count cannot be trusted.
 - **The fact lock** (`fact_lock.py`) rejects any number or name the model writes that is not in that game's facts sheet, spelled-out numbers included. A section that fails twice is dropped and the page says "The writers' room passed on this one."
@@ -75,16 +118,78 @@ Before any product code existed, each risky question got a throwaway script with
 
 Each has a matching entry in [LEDGER.md](LEDGER.md) under Block 0.
 
+## Tech stack
+
+| Layer | Tool |
+|---|---|
+| Language | Python 3.13, Jinja2 templates, plain CSS (no framework, no build step) |
+| Compute | AWS Lambda, triggered by EventBridge Scheduler |
+| AI writing | Amazon Bedrock, Claude Haiku 4.5, Converse API |
+| Audio | Amazon Polly, neural voice (Danielle) |
+| Images | Pillow (share cards) |
+| Hosting | S3 (private) + CloudFront (OAC), ACM certificate, custom domain |
+| Secrets | SSM Parameter Store (the data API key) |
+| Infra as code | AWS SAM (`template.yaml`) |
+| Data | BALLDONTLIE WNBA API (paid tier: games, play-by-play, standings) |
+| Tests | pytest, fully offline (fixtures, no AWS, no model calls) |
+
+## Repo map
+
+```
+src/zine/        the app: hunter.py is the Lambda entry point
+  pbp_stats.py     counts stats from play-by-play
+  facts.py         facts sheet + plain_facts sentences
+  voices.py        the two voices, banned words, prompts
+  voice_run.py     fact lock, retry once, drop; recheck at render
+  site_build.py    renders every page, card and data file
+templates/       Jinja2 pages (front, issue, team, archive, about)
+static/          CSS, fonts (OFL), favicon, social preview
+tests/           pytest suite, offline
+fixtures/        recorded API responses for tests and dry runs
+spike/           Block 0 throwaway scripts (evidence, not product)
+tools/           build_lambda.py (the deploy bundle), fetch helpers
+design/          mockups, brand assets, favicon options
+template.yaml    all AWS resources (SAM)
+PRD.md           the spec: MUST / STUB / NEVER
+BRANDING.md      colors, type, voice, icon
+LEDGER.md        decisions and findings, including the wrong turns
+BUILD-LOG.md     what each agent did, block by block
+DEPLOY.md        the deploy runbook
+```
+
 ## Run it locally
+
+Needs Python 3.13. No AWS account or API key needed for tests or local renders.
+
+macOS / Linux:
 
 ```
 pip install -r requirements-dev.txt
-PYTHONPATH=src:tests python -m pytest            # 170+ tests, offline, no AWS
-PYTHONPATH=src python -m zine.dev_render_golden  # the golden site into out-golden/
-PYTHONPATH=src python -m zine.dry_run --date 2026-09-22   # the hunter on fixtures, no model, no AWS
+PYTHONPATH=src:tests python -m pytest                      # 183 tests, offline
+PYTHONPATH=src python -m zine.dev_render_golden            # the golden site into out-golden/
+PYTHONPATH=src python -m zine.dry_run --date 2026-09-22    # the hunter on fixtures, no model, no AWS
 ```
 
-Deploying is in [DEPLOY.md](DEPLOY.md).
+Windows (PowerShell):
+
+```
+pip install -r requirements-dev.txt
+$env:PYTHONPATH="src;tests"; python -m pytest
+$env:PYTHONPATH="src"; python -m zine.dev_render_golden
+$env:PYTHONPATH="src"; python -m zine.dry_run --date 2026-09-22
+```
+
+Deploying needs an AWS account, the AWS SAM CLI, and a BALLDONTLIE key with WNBA play-by-play access. Steps are in [DEPLOY.md](DEPLOY.md). Build the bundle with `tools/build_lambda.py`, never `sam build` (it needs Linux wheels for Pillow).
+
+## Cost
+
+| Item | Why it stays small |
+|---|---|
+| Lambda | One run a day, a few minutes at most |
+| Bedrock (Haiku 4.5) | About 20 calls on a full night; voices are cached, so rebuilds cost nothing |
+| Polly | One ~10-second recap per game |
+| S3 + CloudFront | A static site with a handful of visitors |
+| Guardrails | $10/month budget on the Project tag, $2/month on Polly, both alerting |
 
 ## Stubs (not built, on purpose)
 
@@ -92,15 +197,17 @@ Deploying is in [DEPLOY.md](DEPLOY.md).
 - **Two more voices**, The Insider and The Big Picture (`voices.py`).
 - **Voice tuning** on real output, with drop rates tracked per voice.
 - **One run at a time** via an S3 lock (a new account's Lambda concurrency is 10, so reserved concurrency is not possible).
-- **Zine design stretch:** photocopy grain, crooked cards, cut-out masthead, rubber stamps.
 - **Tip jar** on the About page.
 
 ## Credits
 
 Data from [BALLDONTLIE](https://www.balldontlie.io). Fonts: Alfa Slab One, Archivo and Caveat, all SIL Open Font License, licenses in `static/fonts/`. The name is a hand-me-down from an old courthouse newsletter.
 
-AI Assisted. Human Approved. Powered by NLP.
 
 ## License
 
-Code: [MIT](LICENSE). The fonts keep their own SIL Open Font License (`static/fonts/`). Game data belongs to its source and is not covered by this license. Not affiliated with the WNBA or any team.
+Code: [MIT](LICENSE). The fonts keep their own SIL Open Font License (`static/fonts/`). Game data belongs to its source and is not covered by this license.
+
+---
+
+AI Assisted. Human Approved. Powered by NLP.
