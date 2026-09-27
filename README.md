@@ -31,6 +31,8 @@ From the live site, Sep 24 games.
 | **The story.** Each team's edition, in The Call or The Film Room. | **The stat line.** Counted by code from the play-by-play. |
 | ![Print view: an 8-panel pocket zine](design/screenshots/05-print-zine.png) | ![A recap written by code after the AI draft failed the check](design/screenshots/06-code-recap.png) |
 | **Print.** The issue folds into an 8-panel pocket zine. | **When the AI recap fails the check,** code writes a plain one, and the page says so. |
+| ![The share card with its Save button](design/screenshots/07-share-card.png) | |
+| **Share card.** Every edition makes one, with a Save button; the page link shows it too. | |
 
 ## Architecture
 

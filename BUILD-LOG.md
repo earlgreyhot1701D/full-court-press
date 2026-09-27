@@ -294,3 +294,7 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 ## 2026-09-27 . 5.7 . Home button, golden note, scrolling ticker live; demo take 2 and screenshots (owner + Claude)
 - Did: owner ran tools/redeploy.ps1 -Record (one command: build, deploy with the stack's own parameters, rebuild Sep 21 to 24, invalidate and wait, golden, record). Claude converted the recording to MP4 (trimmed the blank lead-in), checked 15 frames, and cut six README screenshots from it.
 - Result: live site has the Home button on every inner page, the golden note, the scrolling ticker; demo/demo.mp4 is 84 s at 1x, ends on the full slate; Polly player plays on camera.
+
+## 2026-09-27 . 5.8 . Share card on the page; demo take 3 (owner + Claude)
+- Found: the share card (card.png, one per edition) was only in the og:image tag, so a visitor never saw it. Now every issue page shows it with a Save button (download name full-court-press-<date>-<game>-<edition>.png). Test added; 191 pass.
+- Owner ran tools/redeploy.ps1 -Record. Claude verified live (share card and Save on the Sun and Tempo film-room pages), converted take 3 (89 s, blank lead-in trimmed at 4 s), checked 24 frames, and recut the README screenshots, adding the share card.
