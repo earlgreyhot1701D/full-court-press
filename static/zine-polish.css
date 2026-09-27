@@ -103,3 +103,16 @@ a.strip:hover, a.strip:focus-visible { background:var(--spot); color:var(--on-sp
 .recap.plainrecap + .byline { font-style:italic; }
 /* ransom masthead on the narrower about / team / archive headers: one line on desktop */
 .top .wrap:not(.wide) .mast.ransom { font-size:clamp(26px,7.4vw,44px); }
+/* Home button: a real button, not just a link */
+.backbar .wrap { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+.backbar a.homebtn { display:inline-flex; align-items:center; min-height:34px; padding:4px 12px; background:var(--plum); color:#FCF3F5; border:2px solid var(--ink); box-shadow:2px 2px 0 var(--spot); }
+.backbar a.homebtn:hover, .backbar a.homebtn:focus-visible { background:var(--spot); color:var(--ink); }
+.goldennote { background:#F4E27A; border-bottom:2px solid var(--ink); padding:8px 0; font-size:13px; }
+.goldennote a { color:var(--ink); font-weight:800; }
+/* around-the-league ticker scrolls (from the approved mockup); pauses on hover; still for reduced motion */
+.ticker .track { display:flex; width:max-content; animation:fcp-tick 45s linear infinite; }
+.ticker .grp { display:flex; flex:none; }
+.ticker .grp span { padding:0 22px; }
+.ticker:hover .track, .ticker:focus-within .track { animation-play-state:paused; }
+@keyframes fcp-tick { to { transform:translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ticker .track { animation:none; } .ticker { overflow-x:auto; } }

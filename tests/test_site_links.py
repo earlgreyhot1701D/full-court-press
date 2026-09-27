@@ -102,3 +102,27 @@ def test_design_pass_sep27(monkeypatch):
     assert ">Last night</h2>" not in issue and ">The story</h2>" in issue
     assert issue.count('<a class="strip"') == 4 and 'aria-current="page"><span>Phoenix Mercury 87' in issue
     assert ">Latest games</a> ." in issue and ">All games<" not in issue
+
+
+
+@needs_golden
+def test_home_button_everywhere_and_golden_points_home(monkeypatch):
+    """Every page but the front has a Home button to the real front page. Golden pages also say
+    they are saved games without audio, and link back to the golden index."""
+    files, _ = dev_render_golden.golden_files(dev_render_golden.standin_result, prefix="golden/")
+    issue = files["golden/wnba/2026-09-21/25071/PHX/index.html"][0].decode("utf-8")
+    assert '<a class="homebtn" href="../../../../../index.html">&larr; Home</a>' in issue
+    assert 'class="goldenlink" href="../../../../../golden/index.html"' in issue and "without audio" in issue
+    live = site_build.issue_files(dev_render_golden.load_all()[0], {}, None, [])
+    page = next(b for p, (b, t) in live.items() if p.endswith("index.html")).decode("utf-8")
+    assert 'class="homebtn"' in page and "goldennote" not in page
+
+
+def test_ticker_loops_with_one_readable_copy():
+    html = site_build.render.render("today.html", {"ticker": [{"text": "Aces 100 . Mercury 82", "mark": "F"}],
+                                                   "slate": [], "team_tabs": [], "slate_heading": "X",
+                                                   "static_prefix": "", "root_prefix": "", "site_home": "index.html"})
+    assert html.count("Aces 100 . Mercury 82") == 2
+    assert '<div class="grp" aria-hidden="true">' in html
+    css = open(os.path.join(os.path.dirname(__file__), "..", "static", "zine-polish.css"), encoding="utf-8").read()
+    assert "@keyframes fcp-tick" in css and "prefers-reduced-motion" in css

@@ -27,7 +27,11 @@
 
 {% if ticker %}
 <div class="ticker" aria-label="Around the league">
-  {% for item in ticker %}<span>{{ item.text }} <b>{{ item.mark }}</b></span>{% endfor %}
+  {# two copies of the line, so the scroll loops with no gap; screen readers get the first copy only #}
+  <div class="track">
+    <div class="grp">{% for item in ticker %}<span>{{ item.text }} <b>{{ item.mark }}</b></span>{% endfor %}</div>
+    <div class="grp" aria-hidden="true">{% for item in ticker %}<span>{{ item.text }} <b>{{ item.mark }}</b></span>{% endfor %}</div>
+  </div>
 </div>
 {% endif %}
 

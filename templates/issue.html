@@ -21,7 +21,7 @@
 {% set loser  = f.away if f.winner_abbrev == f.home.abbrev else f.home %}
 
 {# back bar + home link (Req 10d), hidden in print #}
-<div class="backbar screen-only"><div class="wrap"><a href="{{ root_prefix }}index.html">&larr; Latest games</a></div></div>
+{% include "_backbar.html" %}
 
 <nav class="teams screen-only" aria-label="Pick your team">
   <div class="row" id="teamrow">

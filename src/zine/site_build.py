@@ -41,6 +41,7 @@ def _ctx_paths(path, prefix):
     og = (site + "static/og-default.png") if site else up + "static/og-default.png"
     return {"root_prefix": up + prefix, "static_prefix": up + "static/", "golden_url": up + GOLDEN_AT + "index.html",
             "site_home": up + "index.html",
+            "in_golden": bool(prefix) and prefix == GOLDEN_AT,
             "og_default": og}
 
 

@@ -1,0 +1,9 @@
+{# Home button on every page but the front. It always goes to the real front page, even from the
+   golden set, which also gets its own link back to the golden index. #}
+<div class="backbar screen-only"><div class="wrap">
+  <a class="homebtn" href="{{ site_home }}">&larr; Home</a>
+  {% if in_golden %}<a class="goldenlink" href="{{ root_prefix }}index.html">Golden set</a>{% endif %}
+</div></div>
+{% if in_golden %}
+<div class="goldennote screen-only"><div class="wrap">You&rsquo;re in the golden set: five saved games kept up for reference, without audio. The live issues, with the Polly audio recap, are on <a href="{{ site_home }}">the home page</a>.</div></div>
+{% endif %}
