@@ -100,3 +100,7 @@ Deploying is in [DEPLOY.md](DEPLOY.md).
 Data from [BALLDONTLIE](https://www.balldontlie.io). Fonts: Alfa Slab One, Archivo and Caveat, all SIL Open Font License, licenses in `static/fonts/`. The name is a hand-me-down from an old courthouse newsletter.
 
 AI Assisted. Human Approved. Powered by NLP.
+
+## License
+
+Code: [MIT](LICENSE). The fonts keep their own SIL Open Font License (`static/fonts/`). Game data belongs to its source and is not covered by this license. Not affiliated with the WNBA or any team.
