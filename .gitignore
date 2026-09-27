@@ -29,3 +29,7 @@ payload.json
 response.json
 out-check/
 REDEPLOY-STEPS.md
+
+# demo recorder scratch
+demo_raw/
+demo_fail_*.png

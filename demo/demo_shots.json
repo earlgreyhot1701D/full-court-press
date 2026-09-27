@@ -1,0 +1,24 @@
+{
+  "url": "https://fullcourtpress.lol/",
+  "steps": [
+    {"action": "wait", "ms": 3000, "pause": 0},
+    {"action": "scroll", "y": 420, "pause": 2600},
+    {"action": "scroll", "y": -420, "pause": 1400},
+    {"action": "click", "selector": "nav.teams.index button[data-team=\"CON\"]", "pause": 2200},
+    {"action": "click", "selector": "article.card[data-teams*=\"CON\"] a.go", "pause": 3200},
+    {"action": "scroll_to", "selector": ".recap", "offset": 260, "pause": 6500},
+    {"action": "click", "selector": ".voices[aria-label=\"Voice\"] a:text-is(\"The Film Room\")", "pause": 800},
+    {"action": "scroll_to", "selector": ".recap", "offset": 260, "pause": 6000},
+    {"action": "click", "selector": ".voices[aria-label=\"Edition\"] a:text-is(\"Tempo edition\")", "pause": 800},
+    {"action": "scroll_to", "selector": ".recap", "offset": 260, "pause": 6500},
+    {"action": "scroll_to", "selector": "details.box", "offset": 150, "pause": 3500},
+    {"action": "scroll", "y": 700, "pause": 3000},
+    {"action": "media", "value": "print", "pause": 5000},
+    {"action": "media", "value": "screen", "pause": 600},
+    {"action": "scroll_to", "selector": "a.strip", "offset": 300, "pause": 1500},
+    {"action": "click", "selector": "a.strip:has-text(\"Valkyries\")", "pause": 800},
+    {"action": "scroll_to", "selector": ".plainrecap", "offset": 260, "pause": 7000},
+    {"action": "goto", "path": "about/index.html#how-we-check", "pause": 5000},
+    {"action": "goto", "path": "./", "pause": 2500}
+  ]
+}
