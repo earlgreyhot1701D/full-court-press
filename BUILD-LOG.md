@@ -284,3 +284,9 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Did: plain_recap.py (new); game_of_night.pick(eligible=); site_build.best_voice / has_recap / featurable, slate_row(results=); hunter builds voices for every game before picking Game of the Night; dev_render_golden uses the same rule; issue.html plain-recap branch, linked slate rows, stat line open, "The story" heading; _ransom.html shared by front, about, team, archive; team card dates; footer label.
 - Result: 188 tests pass (5 new). Rendered and checked: game page with a cut recap, about, team page at desktop and phone width.
 - Evidence: live measurement before the change: 20 of 56 voice pages without a recap. Goes live with the next deploy.
+
+## 2026-09-27 . 5.6 . The one redeploy: recap floor, featured game follows the words, design pass live (owner)
+- Tier: Full (deploy)
+- Did: owner ran REDEPLOY-STEPS.md (local, gitignored): build_lambda, sam deploy with the domain parameters, forced rebuild of Sep 21, 22, 23, 24 one at a time, CloudFront invalidation, golden republished with SITE_URL.
+- Result (Claude checked in the owner's browser): all 56 voice pages 200; 36 AI recaps, 20 code-written recaps, 0 empty; no "Last night" heading anywhere. Front page heading THURSDAY, SEP 24, title "Full Court Press . WNBA Thursday, Sep 24". Game of the Night moved from Valkyries-Sparks (no Valkyries recap) to Aces 100, Mercury 82, and "Read the issue" lands on an AI recap. Every front-page card opens a page with a recap (3 AI, 2 code). Golden shows "The golden set"; About uses the ransom masthead; team cards read "THU, SEP 24 . Final"; footer says "Latest games".
+- Evidence: live URLs under https://fullcourtpress.lol/.
