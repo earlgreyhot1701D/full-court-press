@@ -26,7 +26,8 @@ SLAB = os.path.join(FONTS, "AlfaSlabOne-Regular.ttf")
 SANS = os.path.join(FONTS, "Archivo-VariableFont_wdth_wght.ttf")
 
 PAPER, INK, MUT, CARD = "#F4EEE2", "#1E1B18", "#6B6259", "#FFFBF3"
-RULE = "#E4DCCD"
+BLUSH = "#FCF3F5"      # the site's soft riso paper (Sep 26)
+DOT = (252, 224, 237)  # the site's pink dot screen: #FF48B0 at 11% over the blush
 PINK = "#FF48B0"
 PLUM = "#2B1A2F"  # the site's dark surface (Sep 26), used for the card's top band
 ELLIPSIS = "…"
@@ -106,10 +107,11 @@ def _date_line(f):
 def render(f, spot, headline=None, number=None):
     """-> PNG bytes. `spot` is the edition team's hex color; `headline` is the locked headline
     or None; `number` is {"value", "caption"} from voice_view.the_number, or None."""
-    img = Image.new("RGB", (W, H), PAPER)
+    img = Image.new("RGB", (W, H), BLUSH)
     d = ImageDraw.Draw(img)
-    for y in range(156, H, 26):  # ruled paper
-        d.line([(0, y), (W, y)], fill=RULE, width=1)
+    for y in range(136, H, 11):  # soft riso dot screen, 11 px pitch like the site
+        for x in range((y // 11) % 2 * 5, W, 11):
+            d.ellipse([x - 1.4, y - 1.4, x + 1.4, y + 1.4], fill=DOT)
 
     # top band: masthead, date, team-color rule
     d.rectangle([0, 0, W, 120], fill=PLUM)
@@ -164,6 +166,8 @@ def render(f, spot, headline=None, number=None):
     lh = hf.size + 10
     top = 374 + (164 - lh * len(hl)) // 2
     for j, line in enumerate(hl):
+        if not low:
+            d.text((66, top + j * lh + 1), line, font=hf, fill=PINK)  # off-register ghost
         d.text((68, top + j * lh), line, font=hf, fill=ink)
 
     # footer

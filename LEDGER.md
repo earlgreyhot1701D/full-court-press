@@ -522,3 +522,8 @@ QA re-run: 8 page types at 390 and 1280 px: no contrast failures, no horizontal 
 ### 2026-09-26 . Block 5c . Plum ink header (owner)
 Options rendered: black (today), plum ink, blush pink, cream with a pink rule. Owner picked plum: a second riso ink next to the pink, softer than black, same contrast for cream text. Applied as a token (--plum #2B1A2F) to the index header, issue covers, ticker, issue footer, and the share card's top band. Text ink unchanged. QA re-run on all page types: clean. 181 tests pass.
 Domain: owner bought fullcourtpress.lol (Sep 26). Next: KIRO-DOMAIN-PROMPT.md after the current deploy.
+
+### 2026-09-26 . Block 5c . Everything matches: share card and print sheet (owner: "everything has to match")
+Share card: blush riso paper with the same 11 px pink dot screen, plum top band, pink off-register ghost behind the headline (skipped when the team color is low contrast). Print sheet: panels on the blush dot paper, cover panel plum.
+Found by the print check, both older than today: (1) panel 8 ("How this is made") printed pale on-dark text on light paper, because the rule targeted a footer inside panel 8 while the footer IS panel 8; (2) printed covers had no masthead, because the masthead sits inside the home link and print hides links of that class. Both fixed, plus a gap between team name and score on the printed cover.
+181 tests pass.

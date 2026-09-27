@@ -12,7 +12,7 @@
   body { background-image:none; }
 
   .sheet { display:grid; grid-template-columns:repeat(4,2.75in); grid-template-rows:repeat(2,4.25in); width:11in; height:8.5in; }
-  .pnl { width:2.75in; height:4.25in; overflow:hidden; padding:.2in .18in .25in; position:relative; background:var(--paper); background-image:var(--grit), repeating-linear-gradient(0deg, transparent, transparent 17px, rgba(30,27,24,.05) 17px, rgba(30,27,24,.05) 18px); background-size:160px 160px, auto; outline:1px dashed #bbb; font-size:10px; }
+  .pnl { width:2.75in; height:4.25in; overflow:hidden; padding:.2in .18in .25in; position:relative; background:#FCF3F5; background-image:radial-gradient(circle, rgba(255,72,176,.11) 26%, transparent 28%); background-size:9px 9px; outline:1px dashed #bbb; font-size:10px; }
   .pnl .wrap { padding:0; max-width:none; }
 
   /* fold order: top row upside down (5,4,3,2); bottom row (6,7,8,1) */
@@ -23,8 +23,12 @@
   .p2 .folio, .p4 .folio, .p6 .folio { left:.18in; } .p3 .folio, .p5 .folio, .p7 .folio { right:.18in; }
 
   /* cover */
-  .p1.cover { border-bottom:0; padding:.2in .18in; background-color:var(--ink) !important; background-image:var(--grit), var(--dots) !important; background-size:160px 160px, 7px 7px !important; }
+  .p1.cover { border-bottom:0; padding:.2in .18in; background-color:#2B1A2F !important; background-image:var(--grit), var(--dots) !important; background-size:160px 160px, 7px 7px !important; }
   .p1 .mast { font-size:30px; margin-top:10px; }
+  /* the masthead sits inside the home link (Req 10d), which print hides; show it on the cover panel
+     as plain type (found in the Sep 26 QA: printed covers had no masthead) */
+  .sheet .p1 a.homelink { display:block !important; color:inherit; text-decoration:none; }
+  .p1 .score .r { gap:6px; }
   .p1 .tagline { font-size:9px; } .p1 .date { font-size:7.5px; position:absolute; bottom:.12in; left:.18in; }
   .p1 .kick { font-size:6.5px; letter-spacing:.14em; max-width:1.55in; }
   .p1 .gotn { width:48px; height:48px; font-size:6px; border-width:3px; }
@@ -64,10 +68,11 @@
   .p7 .strip { font-size:9px; padding:5px 7px; } .p7 .movers { font-size:9px; }
 
   /* back cover */
-  .p8 { background-color:var(--paper); }
-  .p8 footer { margin:0; padding:0; background:none; border:0; color:var(--ink); }
-  .p8 footer h2 { color:var(--ink); }
-  .p8 footer p { font-size:9px; }
+  /* panel 8 IS the footer element (footer.pnl.p8), so target it directly; the old ".p8 footer"
+     never matched and left pale on-dark text on light paper (found in the Sep 26 QA) */
+  footer.p8 { margin:0; background:#FCF3F5; background-image:radial-gradient(circle, rgba(255,72,176,.11) 26%, transparent 28%); background-size:9px 9px; border:0; color:var(--ink); }
+  footer.p8 h2 { color:var(--ink); }
+  footer.p8 p { font-size:9px; color:var(--ink); }
   .p8 .qr { display:flex; gap:8px; align-items:center; margin-top:8px; } .p8 .qr svg { width:66px; height:66px; border:2px solid var(--ink); }
   .p8 .qr span { font:800 8px/1.4 'Archivo'; letter-spacing:.1em; text-transform:uppercase; }
   .p8 .colo { font-size:7.5px; border-color:var(--ink); color:var(--mut); position:absolute; left:.18in; right:.18in; bottom:.25in; }
