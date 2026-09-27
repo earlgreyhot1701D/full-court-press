@@ -8,7 +8,7 @@ Usage (PowerShell, from the repo folder):
 
 Without ffmpeg on the machine it saves demo/demo.webm instead (Claude converts it).
 Actions: goto, click, hover, press, wait, wait_for, scroll (smooth, by y), scroll_to (selector),
-media (print | screen). Every step takes an optional "pause" in ms (default 600).
+media (print | screen), play (an <audio> selector). Every step takes an optional "pause" in ms (default 600).
 """
 import argparse
 import asyncio
@@ -26,7 +26,7 @@ async def run(shots, headed, w, h):
     raw_dir = pathlib.Path("demo_raw")
     raw_dir.mkdir(exist_ok=True)
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=not headed)
+        browser = await p.chromium.launch(headless=not headed, args=["--autoplay-policy=no-user-gesture-required", "--mute-audio"])
         ctx = await browser.new_context(viewport={"width": w, "height": h}, record_video_dir=str(raw_dir),
                                         record_video_size={"width": w, "height": h})
         page = await ctx.new_page()
@@ -57,6 +57,8 @@ async def run(shots, headed, w, h):
                             "([sel, off]) => { const el = document.querySelector(sel);"
                             " window.scrollTo({top: el.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth'}); }",
                             [s["selector"], s.get("offset", 90)])
+                    elif a == "play":  # starts the player so its progress bar moves on camera (the video is silent)
+                        await page.evaluate("sel => document.querySelector(sel).play()", s["selector"])
                     elif a == "media":
                         await page.emulate_media(media=s["value"])
                         await page.evaluate("window.scrollTo(0, 0)")

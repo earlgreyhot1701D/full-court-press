@@ -1,6 +1,6 @@
 # Full Court Press: demo narration
 
-About 75 seconds, read at a relaxed pace. The video is recorded from the live site at 1x speed,
+About 85 seconds, read at a relaxed pace. The video is recorded from the live site at 1x speed,
 no audio, so you add this voiceover in your editor. Timestamps are approximate: slide each line
 to where its shot starts. Say what it means, not what's being clicked.
 
@@ -8,18 +8,19 @@ to where its shot starts. Say what it means, not what's being clicked.
 |---|---|---|
 | 0:00 | Front page: ransom masthead, Thursday Sep 24, the cards | This is Full Court Press, the zine for last night's WNBA games. Every morning at 6:15, a Lambda finds the finals and prints an issue for every game. |
 | 0:08 | Scroll the slate, tap the Sun tab | Pick your team. |
-| 0:12 | Sun edition cover, then the recap (The Call) | The score, The Number and every stat are counted by code from the play-by-play. The AI only writes the voice. This one is The Call. |
-| 0:23 | The Film Room | Same facts, second voice. The Film Room goes quarter by quarter, evidence first. |
-| 0:31 | Tempo edition | And the team that lost gets its own edition, told from their side. Honest about the loss. |
-| 0:39 | The stat line, then the quarters | Every one of these numbers was counted from every single play, and each team's points have to add up to the final score before anything prints. |
-| 0:47 | Print view: the 8-panel sheet | Hit print, and the whole issue folds into an eight-panel pocket zine. |
-| 0:53 | Valkyries page, the code-written recap | This is the part I care about most. Every sentence the AI writes is checked against the facts. The AI recap on this page didn't pass, so we cut it, and code wrote a plain one instead. The page tells you that. |
-| 1:05 | About: How we check the numbers | How we check, and what the checks can't prove, is right on the About page. |
-| 1:10 | Back to the front page | Lambda, Bedrock, Polly, S3 and CloudFront. Live at fullcourtpress dot lol. I directed, the agents built, and I validated and decided. AI Assisted. Human Approved. Powered by NLP. |
+| 0:12 | Sun edition cover, then the Polly player playing | Every edition gets a ten-second audio recap, read by Amazon Polly. **Drop the real clip in under this shot:** https://fullcourtpress.lol/wnba/2026-09-24/25079/CON/recap.mp3 |
+| 0:23 | The recap (The Call) | The score, The Number and every stat are counted by code from the play-by-play. The AI only writes the voice. This one is The Call. |
+| 0:33 | The Film Room | Same facts, second voice. The Film Room goes quarter by quarter, evidence first. |
+| 0:41 | Tempo edition | And the team that lost gets its own edition, told from their side. Honest about the loss. |
+| 0:49 | The stat line, then the quarters | Every one of these numbers was counted from every single play, and each team's points have to add up to the final score before anything prints. |
+| 0:57 | Print view: the 8-panel sheet | Hit print, and the whole issue folds into an eight-panel pocket zine. |
+| 1:03 | Valkyries page, the code-written recap | This is the part I care about most. Every sentence the AI writes is checked against the facts. The AI recap on this page didn't pass, so we cut it, and code wrote a plain one instead. The page tells you that. |
+| 1:15 | About: How we check the numbers | How we check, and what the checks can't prove, is right on the About page. |
+| 1:20 | Back to the front page | Lambda, Bedrock, Polly, S3 and CloudFront. Live at fullcourtpress dot lol. I directed, the agents built, and I validated and decided. AI Assisted. Human Approved. Powered by NLP. |
 
 ## If you run long
 
-Cut in this order: the 0:08 line, then the second sentence at 0:39. Keep 0:53 and the close.
+Cut in this order: the 0:08 line, then the second sentence at 0:49. Keep 1:03 and the close.
 
 ## Numbers to keep consistent with the article and README
 
