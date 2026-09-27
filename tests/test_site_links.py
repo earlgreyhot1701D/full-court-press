@@ -71,3 +71,16 @@ def test_front_page_names_the_date_not_last_night():
     assert "<title>Full Court Press . WNBA Thursday, Sep 24</title>" in front
     night = files["archive/2026-09-21/index.html"][0].decode("utf-8")
     assert '<h2 class="slab">MONDAY, SEP 21</h2>' in night
+
+
+@needs_golden
+def test_golden_front_says_what_it_is_and_dates_every_card(monkeypatch):
+    """The golden set mixes nights: no "last night", no "Game of the Night", a date on every card."""
+    monkeypatch.setattr(site_build, "GOLDEN_AT", "")
+    files, _ = dev_render_golden.golden_files(dev_render_golden.standin_result)
+    front = files["index.html"][0].decode("utf-8")
+    assert '<h2 class="slab">The golden set</h2>' in front
+    assert "5 real games, Aug 16 to Sep 21" in front
+    assert front.count('class="gdate"') == 5
+    assert "Game of the Night" not in front and "Pick of the Set" in front
+    assert 'class="golden-intro"' in front

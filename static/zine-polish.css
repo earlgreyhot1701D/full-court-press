@@ -88,3 +88,8 @@ body { background-color:#FCF3F5;
    pink, softer than black, same contrast for the cream text on it. Text ink stays --ink. */
 :root { --plum:#2B1A2F; }
 .top, .cover, .ticker, footer { background-color:var(--plum); }
+
+/* golden set: the page mixes nights, so each card shows its date and the page says what it is */
+.card .gdate { text-align:right; font:800 10.5px 'Archivo',sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--mut); margin:0 0 6px; }
+.golden-intro { max-width:62ch; margin:6px 0 16px; color:var(--ink); font-size:15px; }
+.golden-intro a { color:var(--spot-text); font-weight:700; }

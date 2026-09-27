@@ -38,6 +38,9 @@
     <h2 class="slab">{{ slate_heading }}</h2>
     {% if slate_note %}<span class="date">{{ slate_note }}</span>{% endif %}
   </div>
+  {% if is_golden %}
+  <p class="golden-intro">Five real games from the 2026 season, kept up so there is always a full set of issues to read, even on a night with no games. Every page here was built by the same code that runs each morning. For the newest games, go to <a href="{{ site_home }}">the front page</a>.</p>
+  {% endif %}
 
   {% if not slate %}
   <div class="nogame">No issues here yet. Check back after the next game.</div>
@@ -47,7 +50,8 @@
   <div class="slate">
   {% for g in slate %}
   <article class="card{% if g.is_game_of_night %} gotn{% endif %}" data-teams="{{ g.home.abbrev }} {{ g.away.abbrev }}"{% if g.spot %} style="--spot:{{ g.spot }}"{% endif %}>
-    {% if g.is_game_of_night %}<div class="badge">Game of the Night</div>{% endif %}
+    {% if g.is_game_of_night %}<div class="badge">{{ "Pick of the Set" if is_golden else "Game of the Night" }}</div>{% endif %}
+    {% if show_dates %}<p class="gdate">{{ g.date_short }}</p>{% endif %}
     {# each team name links directly to that team's edition (Req 10.1b-i) #}
     <a class="row {{ 'win' if g.winner_abbrev == g.home.abbrev else 'lose' }}" href="{{ g.edition_urls[g.home.abbrev] }}">
       <span class="chip" style="background:{{ g.home.spot }}"></span>

@@ -22,7 +22,7 @@ from zine.voices import VOICE_ORDER
 GOLDEN = os.path.join(ROOT, "fixtures", "golden")
 OUT = os.path.join(ROOT, "out-golden")
 STANDINS = os.path.join(ROOT, "fixtures", "voice_standins")
-LABEL = "Golden set, five real games"
+LABEL = "The golden set"
 
 
 def load_all():

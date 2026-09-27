@@ -22,6 +22,15 @@ def human_date(iso):
     return "%s, %s %d, %d" % (days[dt.weekday()], months[dt.month - 1], dt.day, dt.year)
 
 
+def card_date(iso):
+    """'2026-08-16' -> 'SAT, AUG 16'. For cards on a page that mixes nights (the golden set)."""
+    full = human_date(iso)
+    if full == iso:
+        return iso
+    day, rest = full.split(", ", 1)
+    return "%s, %s" % (day[:3], rest.rsplit(",", 1)[0])
+
+
 def slate_date(iso):
     """'2026-09-24' -> 'THURSDAY, SEP 24'. The front page heading: the games' own date, never
     "last night", because a static page can be read days later (or after a night with no games)."""

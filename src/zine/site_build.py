@@ -18,7 +18,7 @@ import json
 import os
 
 from zine import card, contrast, render, voice_view
-from zine.pagekit import (DEFAULT_SPOT, dropped_labels, human_date, slate_date, load_colors, max_run, spot_for,
+from zine.pagekit import (DEFAULT_SPOT, dropped_labels, human_date, slate_date, card_date, load_colors, max_run, spot_for,
                           winner_loser)
 from zine.paths import STATIC, rel_root
 from zine.voices import VOICE_ORDER
@@ -39,6 +39,7 @@ def _ctx_paths(path, prefix):
     site = os.environ.get("SITE_URL", "")
     og = (site + "static/og-default.png") if site else up + "static/og-default.png"
     return {"root_prefix": up + prefix, "static_prefix": up + "static/", "golden_url": up + GOLDEN_AT + "index.html",
+            "site_home": up + "index.html",
             "og_default": og}
 
 
@@ -99,7 +100,18 @@ def _index_card(row, page_path, colors):
     return {"game_id": row["game_id"], "home": home, "away": away, "winner_abbrev": row["winner_abbrev"],
             "overtime": row["overtime"], "is_game_of_night": row["is_game_of_night"],
             "spot": spot_for(colors, row["winner_abbrev"]), "date_local": row["date_local"],
+            "date_short": card_date(row["date_local"]),
             "edition_urls": {k: up + p for k, p in row["editions"].items()}, "read_url": up + row["read"]}
+
+
+def _span_note(rows):
+    """'5 real games, Aug 16 to Sep 21' for a page that mixes nights."""
+    ds = sorted(r["date_local"] for r in rows)
+    if not ds:
+        return ""
+    short = lambda d: card_date(d).split(", ", 1)[1].title()
+    span = short(ds[0]) if ds[0] == ds[-1] else "%s to %s" % (short(ds[0]), short(ds[-1]))
+    return "%d real games, %s" % (len(rows), span)
 
 
 def front_files(nights, colors=None, prefix="", label=None, front_rows=None):
@@ -117,7 +129,9 @@ def front_files(nights, colors=None, prefix="", label=None, front_rows=None):
     files[p] = (render.render("today.html", dict(base, **_ctx_paths(p, prefix), **{
         "date_display": label or (human_date(dates[0]) if dates else ""),
         "slate_heading": label or (slate_date(dates[0]) if dates else ""),
-        "slate_note": "" if label else "Final scores",
+        "slate_note": _span_note(latest) if label else "Final scores",
+        "show_dates": bool(label),   # a label means the page mixes nights, so each card carries its date
+        "is_golden": bool(label),
         "slate": [_index_card(r, p, colors) for r in order(latest)],
         "team_tabs": [{"abbrev": a, "spot": t["spot"]} for a, t in colors.items()],
         "ticker": [{"text": "%s %s . %s %s" % (r["winner_team"], r["winner_score"], r["loser_team"], r["loser_score"]),
