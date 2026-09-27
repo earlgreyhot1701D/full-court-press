@@ -93,4 +93,6 @@ Sources: the three first options and both CP versions live in `design/favicon/` 
 - [x] Favicon: A2
 - [x] One-liner: The zine for last night's WNBA games.
 - [x] Default social preview (og-default.png)
-- [ ] GitHub repo social card and cover image for the article
+- [x] README banner: `design/readme-banner.png` (1280x400)
+- [ ] GitHub social preview: upload `static/og-default.png` in repo Settings
+- [ ] Article cover image

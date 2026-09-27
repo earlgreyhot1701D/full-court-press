@@ -1,5 +1,9 @@
 # Full Court Press
 
+![Full Court Press: the zine for last night's WNBA games](design/readme-banner.png)
+
+**Live:** https://fullcourtpress.lol
+
 The zine for last night's WNBA games. An unofficial fan zine. Every finished game gets an issue, written from **each team's side**, not just the winner's, in two voices, with a share card, a 10-second audio recap, and a print button that folds the issue into an 8-panel pocket zine.
 
 **Live:** https://dfph64wiizg5i.cloudfront.net/
