@@ -498,3 +498,7 @@ Fix: banned words for (1) and (2) and the soft ones (perfect, unbeaten, streak, 
 Effect on the live cache: 151 -> 141 text sections kept; 6 of the 13 false claims removed plus 3 soft ones; 1 fine recap lost to "climb out". The other 7 are pattern 3, the lock's stated limit.
 Page copy: a dropped voice section now says why ("Our AI writer's draft didn't match this game's facts, so we cut it instead of publishing something wrong. Every number on this page is counted by code.") with a link to the About page's "how we check" (owner asked, Sep 26).
 Disposition:  promote (181 tests passing)
+
+### 2026-09-26 . Block 5 . Custom domain fullcourtpress.lol (owner)
+Decided: fullcourtpress.com is taken; owner chose fullcourtpress.lol at Porkbun ($1.54 first year; renewal price to check).
+Prep (Claude): template.yaml takes optional SiteDomain and SiteCertArn (condition HasDomain): CloudFront aliases for the apex and www, TLS 1.2 certificate, SITE_URL follows the domain, CloudFrontDomain output for DNS. Empty parameters keep today's behavior. KIRO-DOMAIN-PROMPT.md: request the us-east-1 certificate, owner adds the validation CNAMEs and the apex ALIAS / www CNAME at Porkbun, deploy with the parameters.

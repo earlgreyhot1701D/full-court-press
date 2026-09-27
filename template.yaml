@@ -28,6 +28,17 @@ Parameters:
   HaikuModelId:
     Type: String
     Default: anthropic.claude-haiku-4-5-20251001-v1:0
+  SiteDomain:
+    Type: String
+    Default: ""
+    Description: Custom domain (fullcourtpress.lol). Empty = CloudFront domain only.
+  SiteCertArn:
+    Type: String
+    Default: ""
+    Description: ACM certificate ARN in us-east-1 covering SiteDomain and www.SiteDomain (requested before deploy, DNS-validated at Porkbun).
+
+Conditions:
+  HasDomain: !And [!Not [!Equals [!Ref SiteDomain, ""]], !Not [!Equals [!Ref SiteCertArn, ""]]]
 
 Globals:
   Function:
@@ -88,6 +99,13 @@ Resources:
         Enabled: true
         Comment: Full Court Press
         DefaultRootObject: index.html
+        Aliases: !If [HasDomain, [!Ref SiteDomain, !Sub "www.${SiteDomain}"], !Ref AWS::NoValue]
+        ViewerCertificate: !If
+          - HasDomain
+          - AcmCertificateArn: !Ref SiteCertArn
+            SslSupportMethod: sni-only
+            MinimumProtocolVersion: TLSv1.2_2021
+          - !Ref AWS::NoValue
         HttpVersion: http2and3
         PriceClass: PriceClass_100
         Origins:
@@ -154,7 +172,7 @@ Resources:
       Environment:
         Variables:
           BUCKET: !Ref SiteBucket
-          SITE_URL: !Sub "https://${SiteDistribution.DomainName}/"
+          SITE_URL: !If [HasDomain, !Sub "https://${SiteDomain}/", !Sub "https://${SiteDistribution.DomainName}/"]
           MODEL_ID: !GetAtt RecapProfile.InferenceProfileArn
           BDL_KEY_PARAM: !Ref BdlKeyParam
           LEAGUES: wnba
@@ -244,7 +262,9 @@ Resources:
 
 Outputs:
   SiteUrl:
-    Value: !Sub "https://${SiteDistribution.DomainName}/"
+    Value: !If [HasDomain, !Sub "https://${SiteDomain}/", !Sub "https://${SiteDistribution.DomainName}/"]
+  CloudFrontDomain:
+    Value: !GetAtt SiteDistribution.DomainName
   BucketName:
     Value: !Ref SiteBucket
   HunterName:
