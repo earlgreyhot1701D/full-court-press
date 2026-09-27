@@ -18,7 +18,7 @@ import json
 import os
 
 from zine import card, contrast, render, voice_view
-from zine.pagekit import (DEFAULT_SPOT, dropped_labels, human_date, load_colors, max_run, spot_for,
+from zine.pagekit import (DEFAULT_SPOT, dropped_labels, human_date, slate_date, load_colors, max_run, spot_for,
                           winner_loser)
 from zine.paths import STATIC, rel_root
 from zine.voices import VOICE_ORDER
@@ -116,6 +116,8 @@ def front_files(nights, colors=None, prefix="", label=None, front_rows=None):
     p = prefix + "index.html"
     files[p] = (render.render("today.html", dict(base, **_ctx_paths(p, prefix), **{
         "date_display": label or (human_date(dates[0]) if dates else ""),
+        "slate_heading": label or (slate_date(dates[0]) if dates else ""),
+        "slate_note": "" if label else "Final scores",
         "slate": [_index_card(r, p, colors) for r in order(latest)],
         "team_tabs": [{"abbrev": a, "spot": t["spot"]} for a, t in colors.items()],
         "ticker": [{"text": "%s %s . %s %s" % (r["winner_team"], r["winner_score"], r["loser_team"], r["loser_score"]),
@@ -128,7 +130,8 @@ def front_files(nights, colors=None, prefix="", label=None, front_rows=None):
     for d in dates:  # one page per night, reusing the index layout
         p = prefix + "archive/%s/index.html" % d
         files[p] = (render.render("today.html", dict(base, **_ctx_paths(p, prefix), **{
-            "date_display": human_date(d), "slate": [_index_card(r, p, colors) for r in order(nights[d])],
+            "date_display": human_date(d), "slate_heading": slate_date(d), "slate_note": "Final scores",
+            "slate": [_index_card(r, p, colors) for r in order(nights[d])],
             "team_tabs": [], "ticker": []})).encode("utf-8"), HTML)
 
     p = prefix + "about/index.html"

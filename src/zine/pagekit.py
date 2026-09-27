@@ -22,6 +22,13 @@ def human_date(iso):
     return "%s, %s %d, %d" % (days[dt.weekday()], months[dt.month - 1], dt.day, dt.year)
 
 
+def slate_date(iso):
+    """'2026-09-24' -> 'THURSDAY, SEP 24'. The front page heading: the games' own date, never
+    "last night", because a static page can be read days later (or after a night with no games)."""
+    full = human_date(iso)
+    return full.rsplit(",", 1)[0] if full != iso else iso
+
+
 def dropped_labels(f):
     names = [CATEGORY_LABELS.get(c, c) for c in (f.get("dropped_categories") or [])]
     if not names:

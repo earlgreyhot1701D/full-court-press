@@ -7,18 +7,18 @@
 {% block title %}{{ team.team }} . Full Court Press{% endblock %}
 
 {% block body %}
-<div class="backbar screen-only"><div class="wrap"><a href="{{ root_prefix }}index.html">&larr; All of last night&rsquo;s games</a></div></div>
+<div class="backbar screen-only"><div class="wrap"><a href="{{ root_prefix }}index.html">&larr; Latest games</a></div></div>
 
 <header class="top"{% if team.spot %} style="--spot:{{ team.spot }}"{% endif %}>
   <div class="wrap">
     <span class="kick spot-surface">WNBA . {{ team.team }}</span>
-    <a class="homelink" href="{{ root_prefix }}index.html" aria-label="All of last night&rsquo;s games"><h1 class="slab mast">Full Court Press</h1></a>
+    <a class="homelink" href="{{ root_prefix }}index.html" aria-label="Latest games"><h1 class="slab mast">Full Court Press</h1></a>
     <p class="sub">{{ team.team }} issues, newest first</p>
   </div>
 </header>
 
 <div class="wrap">
-  {% if no_game_last_night %}<div class="nogame">No game last night.</div>{% endif %}
+  {% if no_game_last_night %}<div class="nogame">No game in the latest slate.</div>{% endif %}
 
   {% if not issues %}
   <div class="nogame">No issues here yet. Check back after the next game.</div>

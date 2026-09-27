@@ -6,7 +6,7 @@
   output here. The index masthead does NOT link to itself (Req 10d).
   `slate` is the ordered list of game cards; `ticker` is the Around-the-League line.
 #}
-{% block title %}Full Court Press . last night&rsquo;s games{% endblock %}
+{% block title %}Full Court Press . WNBA {{ slate_heading|title }}{% endblock %}
 
 {% block body %}
 <header class="top">
@@ -34,8 +34,9 @@
 
 <div class="wrap wide">
   <div class="slatehead">
-    <h2 class="slab">Last night</h2>
-    <span class="date">{{ date_display }}</span>
+    {# the games' own date, never "last night": a static page gets read days later #}
+    <h2 class="slab">{{ slate_heading }}</h2>
+    {% if slate_note %}<span class="date">{{ slate_note }}</span>{% endif %}
   </div>
 
   {% if not slate %}

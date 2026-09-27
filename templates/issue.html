@@ -21,7 +21,7 @@
 {% set loser  = f.away if f.winner_abbrev == f.home.abbrev else f.home %}
 
 {# back bar + home link (Req 10d), hidden in print #}
-<div class="backbar screen-only"><div class="wrap"><a href="{{ root_prefix }}index.html">&larr; All of last night&rsquo;s games</a></div></div>
+<div class="backbar screen-only"><div class="wrap"><a href="{{ root_prefix }}index.html">&larr; Latest games</a></div></div>
 
 <nav class="teams screen-only" aria-label="Pick your team">
   <div class="row" id="teamrow">
@@ -38,7 +38,7 @@
         <span class="kick spot-surface">{{ f.league|upper }} . {{ date_display }}</span>
         {% if is_game_of_night %}<span class="scribble note-gotn" aria-hidden="true">game of the night! <svg class="arrow" viewBox="0 0 30 26" aria-hidden="true" focusable="false"><path d="M3 5 C13 1 23 7 24 19" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M17 15 L24 20 L28 12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="gotn" aria-label="Game of the Night">Game<br>of the<br>Night</div>{% endif %}
       </div>
-      <a class="homelink" href="{{ root_prefix }}index.html" aria-label="All of last night&rsquo;s games"><h1 class="slab mast">Full Court Press</h1></a>
+      <a class="homelink" href="{{ root_prefix }}index.html" aria-label="Latest games"><h1 class="slab mast">Full Court Press</h1></a>
       <p class="tagline">the zine for last night&rsquo;s WNBA games</p>
       <p class="date">{{ winner.team }} {{ winner.score }} . {{ loser.team }} {{ loser.score }} . final{% if f.overtime_periods %} / OT{% endif %}</p>
       <div class="scorerow">

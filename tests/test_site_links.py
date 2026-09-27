@@ -59,3 +59,15 @@ def test_every_page_has_icon_and_one_social_preview(monkeypatch):
         if imgs[0].endswith("card.png"):
             continue
         assert imgs[0] == "https://example.test/static/og-default.png", (path, imgs[0])
+
+
+def test_front_page_names_the_date_not_last_night():
+    """The slate heading is the games' date. "Last night" is wrong the moment the page is read a day later."""
+    nights = {"2026-09-24": [], "2026-09-21": []}
+    files = site_build.front_files(nights)
+    front = files["index.html"][0].decode("utf-8")
+    assert '<h2 class="slab">THURSDAY, SEP 24</h2>' in front
+    assert "Last night</h2>" not in front
+    assert "<title>Full Court Press . WNBA Thursday, Sep 24</title>" in front
+    night = files["archive/2026-09-21/index.html"][0].decode("utf-8")
+    assert '<h2 class="slab">MONDAY, SEP 21</h2>' in night
