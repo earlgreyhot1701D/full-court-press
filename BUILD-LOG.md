@@ -271,3 +271,10 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 - Result: all four nights clean (failed=[], stray=0, model_calls=0 because voices are cached and re-checked at render): Sep24 [25079,25080,25081,25082,25083]; Sep23 [25077,25078]; Sep22 [25072,25073,25074,25075,25076]; Sep21 [25070,25071]. Golden republished: 61 files, Game of the Night 25071, 74 voice sections kept. Spot check on the live site, 25081 IND / The Call edition: shows "The writers' room passed on this one." followed by the new line "Our AI writer's draft didn't match this game's facts..." linking to /about/index.html#how-we-check; About returns 200 and the how-we-check anchor exists.
 - Resources: S3 site + golden objects rewritten. No new model calls (cached voices). No template/app-code edits by Kiro.
 - Evidence: CloudWatch run summaries; live URLs under https://dfph64wiizg5i.cloudfront.net/.
+
+## 2026-09-27 . 5.5 . Custom domain + favicon + default social preview, one deploy (owner, Kiro credits saved)
+- Tier: Full (deploy)
+- Did: owner ran every step herself from KIRO-DOMAIN-AND-ICON-PROMPT.md: cert ISSUED, tools/build_lambda.py, one sam deploy with SiteDomain=fullcourtpress.lol + the cert, Porkbun ALIAS (apex) and CNAME www to the CloudFront domain, forced rebuild of Eastern Sep 24, CloudFront invalidation /*, golden republished with SITE_URL=https://fullcourtpress.lol/.
+- Result (Claude checked in the owner's browser): https://fullcourtpress.lol/ 200 from CloudFront (Hit), CSP present; https://www.fullcourtpress.lol/ loads the same front page; /static/favicon.svg 200 image/svg+xml; /static/og-default.png and /static/apple-touch-icon.png 200 image/png; front page has icon links and og:image = https://fullcourtpress.lol/static/og-default.png; game page 25082 LA og:image = https://fullcourtpress.lol/wnba/2026-09-24/25082/LA/card.png.
+- Known, not new: bare folder URLs like /about/ return 403 (S3 has no folder index); every site link uses .../index.html, so no page links to a bare folder.
+- Evidence: live URLs above. Cert ARN and account ID kept out of this log.

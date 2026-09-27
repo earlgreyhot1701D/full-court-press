@@ -527,3 +527,7 @@ Domain: owner bought fullcourtpress.lol (Sep 26). Next: KIRO-DOMAIN-PROMPT.md af
 Share card: blush riso paper with the same 11 px pink dot screen, plum top band, pink off-register ghost behind the headline (skipped when the team color is low contrast). Print sheet: panels on the blush dot paper, cover panel plum.
 Found by the print check, both older than today: (1) panel 8 ("How this is made") printed pale on-dark text on light paper, because the rule targeted a footer inside panel 8 while the footer IS panel 8; (2) printed covers had no masthead, because the masthead sits inside the home link and print hides links of that class. Both fixed, plus a gap between team name and score on the printed cover.
 181 tests pass.
+
+### 2026-09-27 . Block 5c . fullcourtpress.lol live, with its own icon (owner)
+Favicon: owner picked A2, the ransom F with a small cream CP tag (from five drawn options). Honest limit: at 16 px the CP tag blurs. Default social preview added for every non-game page; game pages keep their share card. BRANDING.md written. Found while wiring: static_files() skipped .svg, so the favicon would not have uploaded; fixed with a test that every page has the icon and exactly one og:image. 182 tests pass.
+Owner ran the deploy herself instead of through Kiro, to save credits. Two snags, both from Claude's instructions: a <DistributionId> placeholder that PowerShell reads as an operator (replaced by lookups), and the Porkbun step getting lost across messages.
