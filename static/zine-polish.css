@@ -14,7 +14,8 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index
 /* 3. ransom-note masthead, front page only */
 .mast.ransom { text-shadow:none; line-height:1.15; letter-spacing:0; display:flex; flex-wrap:wrap; gap:4px 3px; align-items:flex-end; }
 .mast.ransom .rn { display:inline-block; padding:0 .08em; line-height:1; border:2px solid var(--ink); box-shadow:2px 2px 0 rgba(0,0,0,.35); }
-.mast.ransom .gap { width:.35em; }
+.mast.ransom { column-gap:.35em; }
+.mast.ransom .word { display:inline-flex; gap:3px; white-space:nowrap; }   /* never break inside a word */
 .mast.ransom .rn0 { background:var(--paper); color:var(--ink); transform:rotate(-3deg); }
 .mast.ransom .rn1 { background:#FF48B0; color:var(--ink); transform:rotate(2deg) translateY(-3px); font-size:.92em; }
 .mast.ransom .rn2 { background:var(--ink); color:var(--paper); border-color:var(--paper); transform:rotate(-1deg); font-family:'Archivo',sans-serif; font-weight:900; }
@@ -48,3 +49,12 @@ nav.teams:not(.index) { display:none; }
 .voices a[aria-current="page"] { background:var(--spot); color:var(--on-spot); border-color:var(--ink); box-shadow:2px 2px 0 var(--ink); }
 :root[data-lowc="1"] .voices a[aria-current="page"] { background:var(--ink); color:var(--paper); }
 .voices .grp { min-width:62px; font-size:9.5px; }
+
+/* QA pass, Sep 26 */
+/* D3: "Last night" and its label stack on a phone instead of squeezing */
+.slatehead { flex-wrap:wrap; }
+@media (max-width:520px) { .slatehead .date { flex-basis:100%; } }
+/* D4: the cover's small score line repeats the score card right below it (kept in print) */
+@media screen { .cover .date { display:none; } }
+/* D5: on an issue, the game comes first; the masthead steps back */
+.cover .mast { font-size:clamp(30px,8.5vw,64px); }

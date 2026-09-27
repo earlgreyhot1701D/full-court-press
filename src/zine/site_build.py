@@ -135,7 +135,9 @@ def front_files(nights, colors=None, prefix="", label=None, front_rows=None):
                 teams.setdefault(r[side]["abbrev"], (r[side]["team"], []))[1].append(r)
     for ab, (name, rows) in sorted(teams.items()):
         p = prefix + "team/%s/index.html" % ab
+        t_on, _tr, t_low = contrast.on_spot(spot_for(colors, ab))  # the header kicker sits on the team color
         files[p] = (render.render("team.html", dict(base, **_ctx_paths(p, prefix), **{
+            "spot_color": spot_for(colors, ab), "on_spot_text": t_on, "low_contrast": t_low,
             "team": {"team": name, "abbrev": ab, "spot": spot_for(colors, ab)},
             "issues": [dict(_index_card(r, p, colors), date_local=r["date_local"]) for r in rows],
             "no_game_last_night": not any(r in latest for r in rows)})).encode("utf-8"), HTML)
