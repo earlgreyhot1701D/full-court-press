@@ -10,10 +10,11 @@
 
 {% block body %}
 <header class="top">
-  <div class="wrap">
+  <div class="wrap wide">
     <span class="kick spot-surface">WNBA . {{ date_display }}</span>
-    {# index masthead does NOT link to itself (Req 10d) #}
-    <h1 class="slab mast">Full Court Press</h1>
+    {# index masthead does NOT link to itself (Req 10d). Cut-out ransom-note letters, read as one word by
+       screen readers via aria-label; each letter is decoration. #}
+    <h1 class="slab mast ransom" aria-label="Full Court Press">{% for ch in "FULL COURT PRESS" %}{% if ch == " " %}<span class="gap" aria-hidden="true"> </span>{% else %}<span class="rn rn{{ loop.index % 5 }}" aria-hidden="true">{{ ch }}</span>{% endif %}{% endfor %}</h1>
     <p class="sub">the morning zine for women&rsquo;s pro basketball</p>
   </div>
 </header>
@@ -58,7 +59,7 @@
       <span class="sc">{{ g.away.score }}</span>
     </a>
     <div class="meta">
-      <span>Final{% if g.overtime %} / OT{% endif %}</span>
+      <span class="stamp">Final{% if g.overtime %} / OT{% endif %}</span>
       <a class="go" href="{{ g.read_url }}">Read the issue &rarr;</a>
     </div>
   </article>

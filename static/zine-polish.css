@@ -1,0 +1,50 @@
+/* Zine polish (Block 5c, Sep 26). Loaded after zine-energy.css, before print.css.
+   CSS only: photocopy grain, pasted-on crooked cards, tape, rubber stamps, highlighter,
+   ransom-note masthead, compact edition/voice tabs. Colors stay the palette tokens, so the
+   contrast tests still hold. print.css comes last and keeps the print sheet clean. */
+
+/* 1. photocopy grain over everything, stronger than the paper grit */
+body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index:50; opacity:.18; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='1.3' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+  background-size:220px 220px; }
+
+/* 2. index header lines up with the card grid */
+.top .wrap.wide { max-width:1040px; }
+
+/* 3. ransom-note masthead, front page only */
+.mast.ransom { text-shadow:none; line-height:1.15; letter-spacing:0; display:flex; flex-wrap:wrap; gap:4px 3px; align-items:flex-end; }
+.mast.ransom .rn { display:inline-block; padding:0 .08em; line-height:1; border:2px solid var(--ink); box-shadow:2px 2px 0 rgba(0,0,0,.35); }
+.mast.ransom .gap { width:.35em; }
+.mast.ransom .rn0 { background:var(--paper); color:var(--ink); transform:rotate(-3deg); }
+.mast.ransom .rn1 { background:#FF48B0; color:var(--ink); transform:rotate(2deg) translateY(-3px); font-size:.92em; }
+.mast.ransom .rn2 { background:var(--ink); color:var(--paper); border-color:var(--paper); transform:rotate(-1deg); font-family:'Archivo',sans-serif; font-weight:900; }
+.mast.ransom .rn3 { background:#FFFBF3; color:var(--ink); transform:rotate(4deg) translateY(2px); font-size:1.06em; }
+.mast.ransom .rn4 { background:#F4E27A; color:var(--ink); transform:rotate(-2deg); font-size:.96em; }
+
+/* 4. index cards: pasted on crooked, taped, straighten on hover/focus */
+.slate .card { transition:transform .15s ease; }
+.slate .card:nth-child(4n+1) { transform:rotate(-.9deg); }
+.slate .card:nth-child(4n+2) { transform:rotate(.7deg); }
+.slate .card:nth-child(4n+3) { transform:rotate(-.4deg); }
+.slate .card:nth-child(4n)   { transform:rotate(1deg); }
+.slate .card:hover, .slate .card:focus-within { transform:rotate(0) translateY(-2px); }
+.slate .card:not(.gotn)::before { content:""; position:absolute; top:-12px; left:calc(50% - 40px); width:80px; height:22px;
+  background:rgba(244,226,122,.75); border:1px solid rgba(30,27,24,.12); transform:rotate(-3deg); }
+@media (prefers-reduced-motion: reduce) { .slate .card { transition:none; } }
+
+/* 5. rubber-stamp FINAL */
+.meta .stamp { display:inline-block; color:#B8156E; border:2px solid #B8156E; border-radius:3px; padding:1px 7px;
+  transform:rotate(-4deg); letter-spacing:.18em; opacity:.9; }
+
+/* 6. highlighter under the winning score */
+.card .row.win .sc { background:linear-gradient(transparent 58%, rgba(255,72,176,.45) 58%, rgba(255,72,176,.45) 88%, transparent 88%); padding:0 3px; }
+
+/* 7. issue page: drop the second nav bar (it only ever said "All"; the back bar does that job) */
+nav.teams:not(.index) { display:none; }
+
+/* 8. compact edition / voice tabs */
+.voices { gap:6px; margin-bottom:10px; }
+.voices a { font:800 10.5px 'Archivo',sans-serif; letter-spacing:.1em; padding:6px 11px; border-width:2px; transform:none; min-height:32px; display:inline-flex; align-items:center; }
+.voices a[aria-current="page"] { background:var(--spot); color:var(--on-spot); border-color:var(--ink); box-shadow:2px 2px 0 var(--ink); }
+:root[data-lowc="1"] .voices a[aria-current="page"] { background:var(--ink); color:var(--paper); }
+.voices .grp { min-width:62px; font-size:9.5px; }

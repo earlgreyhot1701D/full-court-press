@@ -502,3 +502,8 @@ Disposition:  promote (181 tests passing)
 ### 2026-09-26 . Block 5 . Custom domain fullcourtpress.lol (owner)
 Decided: fullcourtpress.com is taken; owner chose fullcourtpress.lol at Porkbun ($1.54 first year; renewal price to check).
 Prep (Claude): template.yaml takes optional SiteDomain and SiteCertArn (condition HasDomain): CloudFront aliases for the apex and www, TLS 1.2 certificate, SITE_URL follows the domain, CloudFrontDomain output for DNS. Empty parameters keep today's behavior. KIRO-DOMAIN-PROMPT.md: request the us-east-1 certificate, owner adds the validation CNAMEs and the apex ALIAS / www CNAME at Porkbun, deploy with the parameters.
+
+### 2026-09-26 . Block 5c . Zine design polish (owner: "the deployed site is just so rough looking")
+Did (Claude): static/zine-polish.css plus small template changes. Index header aligned with the card grid; ransom-note cut-out masthead on the front page (aria-label reads "Full Court Press"; letters are decoration); cards pasted on crooked with masking tape, straightening on hover or focus (reduced motion honored); rubber-stamp FINAL; highlighter under the winning score; photocopy grain over the page; the issue page's second nav bar (only ever "All") removed; edition and voice tabs compact, one row on a phone, active tab in the team's color (ink when the color is low contrast), editions named by nickname ("Mercury edition").
+Palette tokens unchanged, so the contrast tests hold. print.css still loads last. 181 tests pass; links and CSP tests included.
+Items 5c.6 (staples, torn spotlight edge) and 5c.7 (off-register headlines) not done: the owner can judge whether they are still needed.

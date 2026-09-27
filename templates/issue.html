@@ -95,8 +95,8 @@
       {# edition toggle: direct links to each team's edition, server-rendered (Req 10.1b-i) #}
       <div class="voices screen-only" role="group" aria-label="Edition">
         <span class="grp" aria-hidden="true">Edition</span>
-        <a href="{{ edition_urls[f.home.abbrev] }}" {% if edition == f.home.abbrev %}aria-current="page"{% endif %}>{{ f.home.team }} edition</a>
-        <a href="{{ edition_urls[f.away.abbrev] }}" {% if edition == f.away.abbrev %}aria-current="page"{% endif %}>{{ f.away.team }} edition</a>
+        <a href="{{ edition_urls[f.home.abbrev] }}" {% if edition == f.home.abbrev %}aria-current="page"{% endif %}>{{ f.home.team.split(' ')|last }} edition</a>
+        <a href="{{ edition_urls[f.away.abbrev] }}" {% if edition == f.away.abbrev %}aria-current="page"{% endif %}>{{ f.away.team.split(' ')|last }} edition</a>
       </div>
 
       {# voice switcher: one page per voice, server-rendered links, opens on The Call (owner, Sep 25) #}
