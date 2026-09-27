@@ -86,7 +86,8 @@ def finish(raw, out, speed):
         print("ffmpeg not found, saved WebM instead: %s" % final)
         return final
     vf = ("setpts=PTS/%s," % speed) if speed != 1.0 else ""
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-vf", vf + "pad=ceil(iw/2)*2:ceil(ih/2)*2",
+    # -ss trims the blank white frames before the first page paints
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", "2", "-i", str(raw), "-vf", vf + "pad=ceil(iw/2)*2:ceil(ih/2)*2",
                     "-c:v", "libx264", "-crf", "22", "-preset", "medium", "-pix_fmt", "yuv420p",
                     "-movflags", "+faststart", "-an", str(out)], check=True)
     raw.unlink()
