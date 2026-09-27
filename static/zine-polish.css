@@ -83,3 +83,8 @@ body { background-color:#FCF3F5;
 .cover .headline { text-shadow:-2px 1px 0 rgba(255,72,176,.55); }
 .misreg { text-shadow:2px 2px 0 var(--spot), -1px -1px 0 rgba(255,72,176,.45); }
 @media print { .p4 .clip { clip-path:none; } .p4 .cliphold { filter:none; } }
+
+/* Plum ink for the dark surfaces (owner picked over black, Sep 26): a second riso ink next to the
+   pink, softer than black, same contrast for the cream text on it. Text ink stays --ink. */
+:root { --plum:#2B1A2F; }
+.top, .cover, .ticker, footer { background-color:var(--plum); }

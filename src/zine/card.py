@@ -28,6 +28,7 @@ SANS = os.path.join(FONTS, "Archivo-VariableFont_wdth_wght.ttf")
 PAPER, INK, MUT, CARD = "#F4EEE2", "#1E1B18", "#6B6259", "#FFFBF3"
 RULE = "#E4DCCD"
 PINK = "#FF48B0"
+PLUM = "#2B1A2F"  # the site's dark surface (Sep 26), used for the card's top band
 ELLIPSIS = "…"
 
 
@@ -111,7 +112,7 @@ def render(f, spot, headline=None, number=None):
         d.line([(0, y), (W, y)], fill=RULE, width=1)
 
     # top band: masthead, date, team-color rule
-    d.rectangle([0, 0, W, 120], fill=INK)
+    d.rectangle([0, 0, W, 120], fill=PLUM)
     d.text((44, 38), "FULL COURT PRESS", font=_font(SLAB, 48), fill=PAPER)
     dl = _date_line(f)
     df = _font(SANS, 20, 700)

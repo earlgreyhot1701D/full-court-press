@@ -518,3 +518,7 @@ After: no contrast failures, no horizontal scroll, no page errors on any page; f
 Options: four background treatments rendered on the same pages (newsprint, kraft, riso pink, collage). Owner picked riso, "softer rather than so bold".
 Did: blush paper #FCF3F5 with a fine, faint pink dot screen (11 px pitch, 11% pink), notebook lines removed, grey grain overlay cut to 8% so it stops muddying the pink; staples on the Game of the Night card and the spotlight clipping; torn bottom edge on the spotlight clipping (its offset color block moved to a drop-shadow on a wrapper, since clip-path drops box-shadow); off-register pink ghost on the cover headline and section headings. Print keeps the plain clipping.
 QA re-run: 8 page types at 390 and 1280 px: no contrast failures, no horizontal scroll, no page errors. 181 tests pass. Closes 5c.6 and 5c.7.
+
+### 2026-09-26 . Block 5c . Plum ink header (owner)
+Options rendered: black (today), plum ink, blush pink, cream with a pink rule. Owner picked plum: a second riso ink next to the pink, softer than black, same contrast for cream text. Applied as a token (--plum #2B1A2F) to the index header, issue covers, ticker, issue footer, and the share card's top band. Text ink unchanged. QA re-run on all page types: clean. 181 tests pass.
+Domain: owner bought fullcourtpress.lol (Sep 26). Next: KIRO-DOMAIN-PROMPT.md after the current deploy.
