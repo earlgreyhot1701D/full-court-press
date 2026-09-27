@@ -116,3 +116,9 @@ a.strip:hover, a.strip:focus-visible { background:var(--spot); color:var(--on-sp
 .ticker:hover .track, .ticker:focus-within .track { animation-play-state:paused; }
 @keyframes fcp-tick { to { transform:translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .ticker .track { animation:none; } .ticker { overflow-x:auto; } }
+/* share card: shown on the page, taped down like the other cards, with a save button */
+.sharecard .cardimg { display:block; width:100%; height:auto; margin:10px 0 14px; border:3px solid var(--ink); box-shadow:6px 6px 0 var(--spot); transform:rotate(-.6deg); }
+.sharecard .savecard { display:inline-flex; align-items:center; min-height:40px; padding:6px 16px; background:var(--plum); color:#FCF3F5; border:2px solid var(--ink); box-shadow:3px 3px 0 var(--spot); font:800 12px 'Archivo',sans-serif; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; }
+.sharecard .savecard:hover, .sharecard .savecard:focus-visible { background:var(--spot); color:var(--ink); }
+.sharecard .sharehint { margin-top:10px; color:var(--mut); font-size:13px; }
+.sharecard { padding-bottom:26px; }

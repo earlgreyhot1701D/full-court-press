@@ -1,6 +1,6 @@
 # Full Court Press: demo narration
 
-About 85 seconds, read at a relaxed pace. The video is recorded from the live site at 1x speed,
+About 90 seconds, read at a relaxed pace. The video is recorded from the live site at 1x speed,
 no audio, so you add this voiceover in your editor. Timestamps are approximate: slide each line
 to where its shot starts. Say what it means, not what's being clicked.
 
@@ -14,13 +14,14 @@ to where its shot starts. Say what it means, not what's being clicked.
 | 0:41 | Tempo edition | And the team that lost gets its own edition, told from their side. Honest about the loss. |
 | 0:49 | The stat line, then the quarters | Every one of these numbers was counted from every single play, and each team's points have to add up to the final score before anything prints. |
 | 0:57 | Print view: the 8-panel sheet | Hit print, and the whole issue folds into an eight-panel pocket zine. |
-| 1:03 | Valkyries page, the code-written recap | This is the part I care about most. Every sentence the AI writes is checked against the facts. The AI recap on this page didn't pass, so we cut it, and code wrote a plain one instead. The page tells you that. |
+| 1:02 | The share card, with Save the card | Every edition makes its own share card, ready to post. Paste the link anywhere and the same card shows up. |
+| 1:07 | Valkyries page, the code-written recap | This is the part I care about most. Every sentence the AI writes is checked against the facts. The AI recap on this page didn't pass, so we cut it, and code wrote a plain one instead. The page tells you that. |
 | 1:15 | About: How we check the numbers | How we check, and what the checks can't prove, is right on the About page. |
 | 1:20 | Back to the front page | Lambda, Bedrock, Polly, S3 and CloudFront. Live at fullcourtpress dot lol. I directed, the agents built, and I validated and decided. AI Assisted. Human Approved. Powered by NLP. |
 
 ## If you run long
 
-Cut in this order: the 0:08 line, then the second sentence at 0:49. Keep 1:03 and the close.
+Cut in this order: the 0:08 line, then the second sentence at 0:49. Keep 1:07 and the close.
 
 ## Numbers to keep consistent with the article and README
 

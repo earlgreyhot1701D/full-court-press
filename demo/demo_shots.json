@@ -88,6 +88,12 @@
     },
     {
       "action": "scroll_to",
+      "selector": ".sharecard",
+      "offset": 40,
+      "pause": 4000
+    },
+    {
+      "action": "scroll_to",
       "selector": "a.strip",
       "offset": 300,
       "pause": 1500

@@ -126,3 +126,15 @@ def test_ticker_loops_with_one_readable_copy():
     assert '<div class="grp" aria-hidden="true">' in html
     css = open(os.path.join(os.path.dirname(__file__), "..", "static", "zine-polish.css"), encoding="utf-8").read()
     assert "@keyframes fcp-tick" in css and "prefers-reduced-motion" in css
+
+
+@needs_golden
+def test_share_card_is_on_the_page_not_only_in_the_preview_tag(monkeypatch):
+    monkeypatch.setattr(site_build, "GOLDEN_AT", "")
+    files, _ = dev_render_golden.golden_files(dev_render_golden.standin_result)
+    for ed in ("PHX", "DAL"):
+        html = files["wnba/2026-09-21/25071/%s/index.html" % ed][0].decode("utf-8")
+        assert '<img class="cardimg" src="card.png"' in html
+        assert 'download="full-court-press-2026-09-21-25071-%s.png"' % ed in html
+    film = files["wnba/2026-09-21/25071/PHX/film-room/index.html"][0].decode("utf-8")
+    assert '<img class="cardimg" src="../card.png"' in film

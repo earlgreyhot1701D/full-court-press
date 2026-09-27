@@ -254,6 +254,18 @@
       <span class="folio print-only">6</span>
     </div>
   </section>
+
+  <!-- SHARE CARD (screen only): the same image link previews use, shown so a fan can save and post it -->
+  <section class="sharecard screen-only">
+    <div class="wrap">
+      <div class="fold screen-only"><span>fold here when you print</span></div>
+      <span class="lbl">Share it</span>
+      <h2 class="slab misreg">The share card</h2>
+      <img class="cardimg" src="{{ card_url }}" width="1200" height="630" alt="Share card: {{ winner.team }} {{ winner.score }}, {{ loser.team }} {{ loser.score }}, final" loading="lazy">
+      <a class="savecard" href="{{ card_url }}" download="full-court-press-{{ f.date_local }}-{{ f.game_id }}-{{ edition }}.png">Save the card</a>
+      <p class="sharehint">Post it anywhere. The link to this page shows the same card when you paste it.</p>
+    </div>
+  </section>
   </main>
 
   <!-- BACK COVER: how it's made + print button -->
