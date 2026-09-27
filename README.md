@@ -2,6 +2,8 @@
 
 ![Full Court Press: the zine for last night's WNBA games](design/readme-banner.png)
 
+[![tests](https://github.com/earlgreyhot1701D/full-court-press/actions/workflows/tests.yml/badge.svg)](https://github.com/earlgreyhot1701D/full-court-press/actions/workflows/tests.yml) ![Python 3.13](https://img.shields.io/badge/python-3.13-blue) ![License: MIT](https://img.shields.io/badge/license-MIT-green)
+
 **The zine for last night's WNBA games.** Every finished game gets an issue, written from **each team's side**, not just the winner's, in two voices, with a share card, a 10-second audio recap, and a print button that folds the issue into an 8-panel pocket zine.
 
 | | |
@@ -100,7 +102,7 @@ What that does not prove: rebounds and assists are still counted, not verified, 
 
 ## Built by two agents and a human
 
-I direct, validate and decide. Kiro (AWS's spec-driven agent) built the spec, the spikes and everything that touches AWS: the connection, the deploy, Bedrock, Polly, the API key in Parameter Store. Claude built the application code on disk, the tests and the design passes after a Kiro credit crunch mid-sprint. Each agent logs its own work in [BUILD-LOG.md](BUILD-LOG.md). Decisions and findings, including the wrong turns, are in [LEDGER.md](LEDGER.md). The deploy runbook is [DEPLOY.md](DEPLOY.md).
+I direct, validate and decide. Kiro (AWS's spec-driven agent) built the spec, the spikes and everything that touches AWS: the connection, the deploy, Bedrock, Polly, the API key in Parameter Store. Claude built the application code on disk, the tests and the design passes after a Kiro credit crunch mid-sprint. Each agent logs its own work in [BUILD-LOG.md](BUILD-LOG.md), and every prompt handed to Kiro is kept in [docs/agent-prompts/](docs/agent-prompts/). Decisions and findings, including the wrong turns, are in [LEDGER.md](LEDGER.md). The deploy runbook is [DEPLOY.md](DEPLOY.md).
 
 Security: no IAM users or access keys; the API key lives only in SSM and never passed through an agent; logs hold ids, counts and lock results only, never prompts, model text or keys; private bucket behind CloudFront OAC; CSP with no outside hosts; $10 and $2 budgets on the project tag and on Polly.
 
@@ -155,6 +157,8 @@ BRANDING.md      colors, type, voice, icon
 LEDGER.md        decisions and findings, including the wrong turns
 BUILD-LOG.md     what each agent did, block by block
 DEPLOY.md        the deploy runbook
+docs/agent-prompts/  every prompt handed to Kiro, and the owner-only setup steps
+.github/workflows/   tests on every push
 ```
 
 ## Run it locally

@@ -6,7 +6,7 @@ One file, one responsibility. No god files. If a file starts doing two jobs, sto
 full-court-press/
   PRD.md                    source of truth for scope and gates
   LEDGER.md                 findings ledger, one entry per block and per discard
-  OWNER-SETUP.md            steps only the owner does
+  docs/agent-prompts/OWNER-SETUP.md            steps only the owner does
   template.yaml             SAM stack
   requirements.txt          jinja2, Pillow (pinned only when a Full-tier block says so)
   .githooks/pre-commit      spike walls (see guardrails.md)

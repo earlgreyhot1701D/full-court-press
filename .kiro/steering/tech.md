@@ -19,7 +19,7 @@ Use the **Agent Toolkit for AWS** (`https://github.com/aws/agent-toolkit-for-aws
 - Profile name: `fcp` (used in every AWS CLI command and in Kiro's MCP config as `AWS_MCP_PROXY_PROFILES`).
 - Region: **us-east-1**. The toolkit uses us-east-1 internally, and it is a region that supports both Bedrock and Polly neural. Keep the whole stack there.
 - The toolkit adds its own AWS rules to `.kiro/steering/`. Those are additional, not a replacement: `guardrails.md` still wins on any conflict, and if they conflict, stop and report.
-- If the toolkit cannot be installed, fall back to an IAM user named `fcp-kiro-agent` with console access disabled and an access key (see OWNER-SETUP.md), and record the fallback in LEDGER.md.
+- If the toolkit cannot be installed, fall back to an IAM user named `fcp-kiro-agent` with console access disabled and an access key (see docs/agent-prompts/OWNER-SETUP.md), and record the fallback in LEDGER.md.
 
 ## Identity
 Owner decision, Sep 23 2026: this project runs on the account root identity. No IAM Identity Center

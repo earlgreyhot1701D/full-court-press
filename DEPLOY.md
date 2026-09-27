@@ -8,7 +8,7 @@ Rules that still hold: no IAM users or access keys; never read, print or log the
 logs never contain prompts, model text, feed bodies or keys.
 
 ## 0. Cost allocation tag (Kiro checks, owner approves the change)
-No record that `Project` was ever activated (OWNER-SETUP.md listed it as a Block 0 owner step; no LEDGER entry).
+No record that `Project` was ever activated (docs/agent-prompts/OWNER-SETUP.md listed it as a Block 0 owner step; no LEDGER entry).
 ```
 aws ce list-cost-allocation-tags --tag-keys Project
 ```
