@@ -7,6 +7,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Full Court Press{% endblock %}</title>
+  <link rel="icon" href="{{ static_prefix }}favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="{{ static_prefix }}favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="{{ static_prefix }}apple-touch-icon.png">
+  {# social preview: site-wide default; an issue page overrides the og block with its own share card #}
+  <meta property="og:site_name" content="Full Court Press">
+  <meta name="twitter:card" content="summary_large_image">
+  {% block og %}
+  <meta property="og:title" content="Full Court Press">
+  <meta property="og:description" content="The morning-after zine for last night's WNBA games.">
+  <meta property="og:image" content="{{ og_default }}">
+  {% endblock %}
   {% block head_extra %}{% endblock %}
   <link rel="stylesheet" href="{{ static_prefix }}styles.css">
   <link rel="stylesheet" href="{{ static_prefix }}zine-energy.css">

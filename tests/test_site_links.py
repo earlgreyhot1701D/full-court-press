@@ -21,7 +21,7 @@ def test_no_broken_links(tmp_path, monkeypatch):
             continue
         here = os.path.dirname(os.path.join(str(tmp_path), path))
         for u in re.findall(r'(?:href|src|content)="([^"#]+)"', body.decode("utf-8")):
-            if u.startswith(("http", "mailto", "data:")) or not re.search(r"\.(html|css|js|png|mp3|ttf|json)$", u):
+            if u.startswith(("http", "mailto", "data:")) or not re.search(r"\.(html|css|js|png|svg|mp3|ttf|json)$", u):
                 continue
             n += 1
             if not os.path.exists(os.path.normpath(os.path.join(here, u))):
@@ -41,3 +41,21 @@ def test_pages_need_nothing_the_csp_blocks():
             assert not _re.search(r"<script(?![^>]*\bsrc=)", html), path
             assert not _re.search(r'src="https?://', html), path                   # nothing loaded from outside
             assert not _re.search(r'<link[^>]*href="https?://', html), path       # no outside stylesheets
+
+
+@needs_golden
+def test_every_page_has_icon_and_one_social_preview(monkeypatch):
+    """Favicon links on every page; exactly one og:image per page. Issue pages use their own
+    share card; every other page uses the default preview, absolute when SITE_URL is set."""
+    monkeypatch.setenv("SITE_URL", "https://example.test/")
+    files, _ = dev_render_golden.golden_files(dev_render_golden.standin_result)
+    assert "static/favicon.svg" in site_build.static_files()
+    pages = {p: b.decode("utf-8") for p, (b, t) in files.items() if t.startswith("text/html")}
+    assert pages
+    for path, html in pages.items():
+        assert 'rel="icon"' in html and "favicon.svg" in html, path
+        imgs = re.findall(r'property="og:image" content="([^"]*)"', html)
+        assert len(imgs) == 1, (path, imgs)
+        if imgs[0].endswith("card.png"):
+            continue
+        assert imgs[0] == "https://example.test/static/og-default.png", (path, imgs[0])

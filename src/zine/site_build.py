@@ -25,7 +25,8 @@ from zine.voices import VOICE_ORDER
 
 HTML = "text/html; charset=utf-8"
 TYPES = {".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".json": "application/json",
-         ".ttf": "font/ttf", ".txt": "text/plain; charset=utf-8", ".png": "image/png", ".mp3": "audio/mpeg"}
+         ".ttf": "font/ttf", ".txt": "text/plain; charset=utf-8", ".png": "image/png", ".mp3": "audio/mpeg",
+         ".svg": "image/svg+xml"}
 
 
 GOLDEN_AT = "golden/"  # where the golden set lives; the local golden render sets "" (it is the root there)
@@ -33,7 +34,12 @@ GOLDEN_AT = "golden/"  # where the golden set lives; the local golden render set
 
 def _ctx_paths(path, prefix):
     up = rel_root(path)
-    return {"root_prefix": up + prefix, "static_prefix": up + "static/", "golden_url": up + GOLDEN_AT + "index.html"}
+    # Social previews need an absolute image URL; SITE_URL is set on the Lambda. Without it
+    # (local renders, tests) the default preview falls back to a relative path.
+    site = os.environ.get("SITE_URL", "")
+    og = (site + "static/og-default.png") if site else up + "static/og-default.png"
+    return {"root_prefix": up + prefix, "static_prefix": up + "static/", "golden_url": up + GOLDEN_AT + "index.html",
+            "og_default": og}
 
 
 def slate_row(f, gotn_id, prefix=""):

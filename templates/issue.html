@@ -10,7 +10,7 @@
 #}
 {% block title %}{{ f.home.team }} {{ f.home.score }}, {{ f.away.team }} {{ f.away.score }} . Full Court Press{% endblock %}
 
-{% block head_extra %}
+{% block og %}
   {# og:image points at this edition's share card (Req 8.4) #}
   <meta property="og:title" content="Full Court Press . {{ f.home.abbrev }} {{ f.home.score }}, {{ f.away.abbrev }} {{ f.away.score }}">
   <meta property="og:image" content="{{ card_url }}">
