@@ -78,6 +78,7 @@ def run(write, facts, voice, edition, budget=None):
     system = voices.system_prompt(voice)
     user = voices.user_message(facts, edition)
     log, attempts = [], []
+    note = ""  # set from the first attempt's failures before the retry reads it
 
     for attempt in (1, 2):
         text = user if attempt == 1 else user + "\n\nYOUR LAST ANSWER WAS REJECTED. " + note

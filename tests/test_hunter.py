@@ -1,8 +1,6 @@
 """Block 5.2: the hunter, run offline with the golden fixtures, a fake model, fake Polly and a local store."""
-import json
 from datetime import date
 
-import pytest
 
 from zine import hunter, state
 from zine.store import LocalStore

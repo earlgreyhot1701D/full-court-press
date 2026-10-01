@@ -3,7 +3,7 @@ import copy
 
 import pytest
 
-from zine import render, voice_run, voice_view
+from zine import voice_run, voice_view
 from test_fact_lock import CLEAN
 from test_facts_gotn import golden_facts, needs_golden
 

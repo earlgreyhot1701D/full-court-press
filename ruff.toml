@@ -1,0 +1,16 @@
+# spike/ is excluded: Block 0 evidence scripts are kept exactly as they ran.
+# Lint for correctness, not style: errors, undefined names, unused imports and variables.
+# A formatter (black / ruff format) is deliberately not enforced yet; see LEDGER 2026-10-01.
+target-version = "py313"
+line-length = 120
+extend-exclude = ["spike", "build", "out", "out-golden", "out-check", "out-dry", "out-live-cache", "demo_raw", "proof", ".aws-sam"]
+
+[lint]
+select = ["E4", "E7", "E9", "F"]
+# Style rules left off on purpose: short names like `l` in comprehensions (E741), small named
+# lambdas (E731), and one-line `a; b` statements (E70x) are used deliberately and read fine here.
+ignore = ["E741", "E731", "E701", "E702"]
+
+[lint.per-file-ignores]
+"tools/*" = ["E402"]
+"design/*" = ["E402"]   # dev scripts that add src/ to sys.path before importing

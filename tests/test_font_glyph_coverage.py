@@ -36,7 +36,7 @@ def _read_cmap_codepoints(path):
         return set()
 
     _version, n_sub = struct.unpack(">HH", data[cmap_off:cmap_off + 4])
-    best = None  # prefer a Unicode subtable (format 12 > 4)
+    # prefer a Unicode subtable (format 12 > 4)
     subs = []
     p = cmap_off + 4
     for _ in range(n_sub):

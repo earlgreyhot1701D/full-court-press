@@ -1,6 +1,7 @@
 # Runs the hand-written stand-in samples in voice-samples-25071.md through voice_run.check.
 # From the repo root: python design/voice_samples_check.py
-import json, sys
+import json
+import sys
 sys.path[:0] = ["src", "tests"]
 from test_facts_gotn import golden_facts
 from zine import voice_run

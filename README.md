@@ -148,7 +148,7 @@ Each has a matching entry in [LEDGER.md](LEDGER.md) under Block 0.
 | Secrets | SSM Parameter Store (the data API key) |
 | Infra as code | AWS SAM (`template.yaml`) |
 | Data | BALLDONTLIE WNBA API (paid tier: games, play-by-play, standings) |
-| Tests | pytest, fully offline (fixtures, no AWS, no model calls) |
+| Tests | pytest, fully offline (fixtures, no AWS, no model calls), plus Ruff lint; both run on every push |
 
 ## Repo map
 
@@ -161,7 +161,8 @@ src/zine/        the app: hunter.py is the Lambda entry point
   site_build.py    renders every page, card and data file
 templates/       Jinja2 pages (front, issue, team, archive, about)
 static/          CSS, fonts (OFL), favicon, social preview
-tests/           pytest suite, offline
+tests/           pytest suite, offline. test_regressions.py keeps every logged AI failure;
+                 test_site_health.py proves every golden edition publishes a usable issue
 fixtures/        recorded API responses for tests and dry runs
 spike/           Block 0 throwaway scripts (evidence, not product)
 tools/           build_lambda.py (the deploy bundle), fetch helpers
@@ -184,7 +185,7 @@ macOS / Linux:
 
 ```
 pip install -r requirements-dev.txt
-PYTHONPATH=src:tests python -m pytest                      # 183 tests, offline
+PYTHONPATH=src:tests python -m pytest                      # 200+ tests, offline
 PYTHONPATH=src python -m zine.dev_render_golden            # the golden site into out-golden/
 PYTHONPATH=src python -m zine.dry_run --date 2026-09-22    # the hunter on fixtures, no model, no AWS
 ```

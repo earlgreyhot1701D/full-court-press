@@ -17,7 +17,6 @@ import os
 import sys
 
 from zine import dev_render_golden, voice_client, voice_run
-from zine.voices import VOICE_ORDER
 
 SAVED = os.path.join(dev_render_golden.OUT, "voice-results.json")
 MAX_CALLS = 40
