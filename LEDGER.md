@@ -539,3 +539,7 @@ A. plain_recap.py: when a recap is cut, code writes 4 to 6 sentences from the co
 B. The hunter writes voices for every game first, then picks Game of the Night only from games whose winner's page kept a recap (if none qualify, every game stays in). Cards and "Read the issue" open the voice that kept its recap.
 Design pass (owner approved 1 to 5): team-page dates read "MON, SEP 21"; "The rest of the slate" rows link to each game; ransom masthead on About, team and archive (sized for the narrower header); the stat line opens by default; the footer says "Latest games". Found in the same pass: every game page still had a "LAST NIGHT" heading above the recap; now "The story".
 188 tests pass.
+
+### 2026-10-01 . Block 5c . The Print button never worked on the live site (owner: "i don't see the print out of the zine")
+The button used an inline onclick, and the site's own CSP (script-src 'self') blocks inline handlers, so it rendered and did nothing. The CSP test only looked for inline <script> tags. Fix: the handler moved to static/app.js; a hint line adds Ctrl+P; a new test fails on any on*= attribute in any page. Proven in a browser under the exact live CSP: old button printed 0 times with a "Refused to execute inline event handler" console error, new button printed once. 192 tests pass. Needs one redeploy.
+Also seen on return from vacation: the scheduled run published Sep 27, 29 and 30 (8 games) unattended.

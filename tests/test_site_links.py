@@ -138,3 +138,15 @@ def test_share_card_is_on_the_page_not_only_in_the_preview_tag(monkeypatch):
         assert 'download="full-court-press-2026-09-21-25071-%s.png"' % ed in html
     film = files["wnba/2026-09-21/25071/PHX/film-room/index.html"][0].decode("utf-8")
     assert '<img class="cardimg" src="../card.png"' in film
+
+
+@needs_golden
+def test_no_inline_event_handlers_the_csp_would_block():
+    """script-src 'self' blocks onclick= and friends, so a button wired that way silently does nothing
+    (the Print button did, until Oct 1). Handlers live in static/app.js."""
+    files, _ = dev_render_golden.golden_files(dev_render_golden.standin_result)
+    for path, (body, ctype) in files.items():
+        if ctype.startswith("text/html"):
+            assert not re.search(r"\son[a-z]+\s*=", body.decode("utf-8")), path
+    js = open(os.path.join(os.path.dirname(__file__), "..", "static", "app.js"), encoding="utf-8").read()
+    assert "button.printbtn" in js and "window.print()" in js

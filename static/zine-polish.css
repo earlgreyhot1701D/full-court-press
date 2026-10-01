@@ -122,3 +122,4 @@ a.strip:hover, a.strip:focus-visible { background:var(--spot); color:var(--on-sp
 .sharecard .savecard:hover, .sharecard .savecard:focus-visible { background:var(--spot); color:var(--ink); }
 .sharecard .sharehint { margin-top:10px; color:var(--mut); font-size:13px; }
 .sharecard { padding-bottom:26px; }
+.printhint { margin-top:10px; font-size:12.5px; color:#d9d2c6; }

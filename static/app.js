@@ -66,4 +66,18 @@
   } else {
     wireTeamPicker();
   }
+
+  /* Print button: wired here, not with an inline onclick, because the site's
+     Content Security Policy blocks inline handlers (script-src 'self'). */
+  function wirePrint() {
+    var btns = document.querySelectorAll("button.printbtn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function () { window.print(); });
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", wirePrint);
+  } else {
+    wirePrint();
+  }
 })();
