@@ -24,8 +24,8 @@
     <h2 class="slab">What this is</h2>
     <!-- OWNER: what-this-is -->
     <blockquote>
-      <p>Fanzines were self-published, non-commercial, and gloriously niche. Photocopied, stapled, made by fans who cared more than anyone was paying them to. I wanted one for the WNBA, where the morning after a game most teams get no recap at all unless they were the marquee matchup.</p>
-      <p>Full Court Press publishes one every morning. Every finished game gets an issue, written in your team&rsquo;s voice, not the winner&rsquo;s. There&rsquo;s a ten-second audio recap, and a print button that lays the whole issue out as an eight-panel sheet you fold into a pocket zine.</p>
+      <p>Fanzines were self-published, non-commercial, and gloriously niche. Photocopied, stapled, made by fans who cared more than anyone was paying them to. I wanted one for the WNBA. The morning after a game, I wanted more than a final score and a line in someone else&rsquo;s roundup, and I wanted it for every team, not only the matchup everyone was already talking about.</p>
+      <p>Full Court Press publishes the morning after every game day. Every finished game gets an issue, written in your team&rsquo;s voice, not the winner&rsquo;s. There&rsquo;s a ten-second audio recap, and a print button that lays the whole issue out as an eight-panel sheet you fold into a pocket zine.</p>
     </blockquote>
     <!-- /OWNER -->
   </section>
@@ -34,7 +34,7 @@
     <h2 class="slab">Who it&rsquo;s for</h2>
     <!-- OWNER: who-its-for -->
     <blockquote>
-      <p>For the fan who checks the score before they check anything else. For the one whose team plays at 7pm Pacific and gets three sentences in a roundup the next morning, if that. This is the recap your team would have written.</p>
+      <p>For the fan who checks the score before they check anything else. For the one who wants more than three sentences in a roundup about her team. This is the recap your team would have written.</p>
     </blockquote>
     <!-- /OWNER -->
   </section>
@@ -43,11 +43,11 @@
     <h2 class="slab" id="how-we-check">How we check the numbers</h2>
     <!-- OWNER: why-trust -->
     <blockquote>
-      <p>The old zines got things wrong all the time, by hand, with love. This one tries not to. The stats are counted from the play-by-play by code, never by the AI. Every team&rsquo;s points are checked against the final score before anything publishes. The AI writes the voice, and every number and name it writes is checked against those same facts. Anything that fails gets cut, and you&rsquo;ll see where.</p>
+      <p>Old zines had no fact-checker. Most were one fan, a typewriter and a copy machine, and the mistakes were part of the charm. This one has a fact-checker, and it&rsquo;s code. The stats are counted from the play-by-play by code, never by the AI. Every team&rsquo;s points are checked against the final score before anything publishes. The AI writes the voice, and every number and name it writes is checked against those same facts. Anything that fails gets cut, and you&rsquo;ll see where.</p>
     </blockquote>
     <!-- /OWNER -->
     {# spec-driven explanation of the method and the fact lock (Req 10c) #}
-    <p>In plain terms: the structure and every number on the page are produced by code. The voice, the sentences you read, is written by a model. Before anything publishes, a fact lock checks every number and name the model wrote against the facts sheet the code built. If a section fails the check, it is dropped rather than shown. When a whole voice section is dropped, you will see &ldquo;The writers&rsquo; room passed on this one.&rdquo; in its place, and the deterministic parts of the issue still publish.</p>
+    <p>In plain terms: the structure and every number on the page are produced by code. The voice, the sentences you read, is written by a model. Before anything publishes, a fact lock checks every number and name the model wrote against the facts sheet the code built. If a section fails the check, it is dropped rather than shown. When the recap is dropped, you will see &ldquo;The writers&rsquo; room passed on this one,&rdquo; and code writes a plain recap from the counted facts in its place, labeled as written by code. The deterministic parts of the issue always publish.</p>
     <p>An honest limit: points are verified against the final score, which comes from a separate source. The other counted categories (rebounds, assists, steals, blocks, turnovers) have no independent check, so a category is dropped for a game when its count cannot be trusted, and full player statistics sit behind a data tier this project does not buy. The NBA edition is stubbed and off until later.</p>
     <p>A second honest limit: the fact lock checks that every number and name came from the facts. It can&rsquo;t check that a sentence uses them the right way, so a voice can still get a claim wrong, like saying a team led when it didn&rsquo;t. To keep that rare, code writes the claims a model gets wrong most often (who won each quarter, the score at halftime, who led each team, where the standings sit) as plain sentences the voice can use, so it never has to work them out.</p>
   </section>

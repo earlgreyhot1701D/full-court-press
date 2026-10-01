@@ -12,7 +12,7 @@ them. Everything else on the About page is spec-driven.
 > who cared more than anyone was paying them to. I wanted one for the WNBA, where the morning after a
 > game most teams get no recap at all unless they were the marquee matchup.
 >
-> Full Court Press publishes one every morning. Every finished game gets an issue, written in your
+> Full Court Press publishes the morning after every game day. Every finished game gets an issue, written in your
 > team's voice, not the winner's. There's a ten-second audio recap, and a print button that lays the
 > whole issue out as an eight-panel sheet you fold into a pocket zine.
 
@@ -24,7 +24,7 @@ them. Everything else on the About page is spec-driven.
 
 ## Why you can trust the numbers
 
-> The old zines got things wrong all the time, by hand, with love. This one tries not to. The stats are
+> Old zines had no fact-checker. Most were one fan, a typewriter and a copy machine, and the mistakes were part of the charm. This one has a fact-checker, and it&rsquo;s code. The stats are
 > counted from the play-by-play by code, never by the AI. Every team's points are checked against the
 > final score before anything publishes. The AI writes the voice, and every number and name it writes
 > is checked against those same facts. Anything that fails gets cut, and you'll see where.

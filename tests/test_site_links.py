@@ -150,3 +150,17 @@ def test_no_inline_event_handlers_the_csp_would_block():
             assert not re.search(r"\son[a-z]+\s*=", body.decode("utf-8")), path
     js = open(os.path.join(os.path.dirname(__file__), "..", "static", "app.js"), encoding="utf-8").read()
     assert "button.printbtn" in js and "window.print()" in js
+
+
+@needs_golden
+def test_copy_never_promises_a_game_every_night(monkeypatch):
+    """The WNBA doesn't play every night (and playoff games are days apart): no "last night's WNBA games"
+    tagline, no "publishes one every morning", no "most teams get no recap" claim on any page."""
+    monkeypatch.setattr(site_build, "GOLDEN_AT", "")
+    files, _ = dev_render_golden.golden_files(dev_render_golden.standin_result)
+    pages = {p: b.decode("utf-8") for p, (b, t) in files.items() if t.startswith("text/html")}
+    assert "the zine for every WNBA game" in pages["index.html"]
+    for p, html in pages.items():
+        for bad in ("last night&rsquo;s WNBA", "last night's WNBA", "publishes one every morning", "marquee matchup"):
+            assert bad not in html, (p, bad)
+    assert "the morning after every game day" in pages["about/index.html"]

@@ -1,10 +1,10 @@
 # Full Court Press
 
-![Full Court Press: the zine for last night's WNBA games](design/readme-banner.png)
+![Full Court Press: the zine for every WNBA game](design/readme-banner.png)
 
 [![tests](https://github.com/earlgreyhot1701D/full-court-press/actions/workflows/tests.yml/badge.svg)](https://github.com/earlgreyhot1701D/full-court-press/actions/workflows/tests.yml) ![Python 3.13](https://img.shields.io/badge/python-3.13-blue) ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
-**The zine for last night's WNBA games.** Every finished game gets an issue, written from **each team's side**, not just the winner's, in two voices, with a share card, a 10-second audio recap, and a print button that folds the issue into an 8-panel pocket zine.
+**The zine for every WNBA game.** Every finished game gets an issue, written from **each team's side**, not just the winner's, in two voices, with a share card, a 10-second audio recap, and a print button that folds the issue into an 8-panel pocket zine.
 
 | | |
 |---|---|
@@ -48,7 +48,7 @@ One scheduled Lambda does everything, then gets out of the way. Readers only eve
  │ SSM Parameter │ ─────────► │   Lambda: fcp-hunter         │ ◄────────────── │ BALLDONTLIE  │
  │ Store (secret)│            │   python 3.13                │  play-by-play,  │ (WNBA data)  │
  └───────────────┘            │                              │  standings      └──────────────┘
-                              │  1. find last night's finals │
+                              │  1. find the newest finals   │
                               │  2. count stats from plays   │  code
                               │  3. facts sheet + plain_facts│  code
                               │  4. write the voices ────────┼──► Amazon Bedrock
