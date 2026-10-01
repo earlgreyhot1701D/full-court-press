@@ -298,3 +298,7 @@ Public build log. One entry per task, append only. No account id, no ARN carryin
 ## 2026-09-27 . 5.8 . Share card on the page; demo take 3 (owner + Claude)
 - Found: the share card (card.png, one per edition) was only in the og:image tag, so a visitor never saw it. Now every issue page shows it with a Save button (download name full-court-press-<date>-<game>-<edition>.png). Test added; 191 pass.
 - Owner ran tools/redeploy.ps1 -Record. Claude verified live (share card and Save on the Sun and Tempo film-room pages), converted take 3 (89 s, blank lead-in trimmed at 4 s), checked 24 frames, and recut the README screenshots, adding the share card.
+
+## 2026-10-01 . 5.9 . Print button fix live; all seven nights rebuilt (owner + Claude)
+- Did: owner signed in again with aws login (the session had lapsed over vacation; a stale browser cookie gave Bad Request until a private-window sign-in with --remote) and ran tools/redeploy.ps1, now rebuilding Sep 21, 22, 23, 24, 27, 29 and 30.
+- Result (Claude checked in the owner's browser): live app.js wires button.printbtn; pages on the oldest night, a Film Room page and the newest night have the button and the Ctrl+P hint and no inline handlers.
