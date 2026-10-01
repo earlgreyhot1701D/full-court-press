@@ -10,7 +10,7 @@
 param([switch]$Record)
 $ErrorActionPreference = "Stop"
 $env:AWS_PROFILE = "fcp"
-$Nights = @("2026-09-21", "2026-09-22", "2026-09-23", "2026-09-24")
+$Nights = @("2026-09-21", "2026-09-22", "2026-09-23", "2026-09-24", "2026-09-27", "2026-09-29", "2026-09-30")
 
 function Step($n, $text) { Write-Host ""; Write-Host "== $n. $text" -ForegroundColor Cyan }
 function Check($what) { if ($LASTEXITCODE -ne 0) { Write-Host "FAILED at: $what (paste this to Claude)" -ForegroundColor Red; exit 1 } }
