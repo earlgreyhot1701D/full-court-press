@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* 1200x630 social cover. Safe zone: everything that matters sits between y=63 and y=567,
+   so dev.to's 1000x420 article crop (trims ~63px top and bottom) and the 1.91:1 social
+   crop (no trim) both keep the full title, masthead, icon, and domain. */
+@font-face{font-family:Slab;src:url(AlfaSlabOne-Regular.ttf)}
+@font-face{font-family:Arch;src:url(Archivo-VariableFont_wdth_wght.ttf);font-weight:100 900}
+@font-face{font-family:Hand;src:url(Caveat-VariableFont_wght.ttf);font-weight:400 700}
+*{margin:0;box-sizing:border-box}
+body{width:1200px;height:630px;background:#FCF3F5;background-image:radial-gradient(circle,rgba(255,72,176,.14) 26%,transparent 28%);background-size:22px 22px;position:relative;overflow:hidden;font-family:Arch}
+.mast{position:absolute;left:80px;top:84px;display:flex;flex-direction:column;gap:14px}
+.w{display:inline-block;font-family:Slab;font-size:80px;line-height:1;padding:6px 18px 9px;border:5px solid #2B1A2F;box-shadow:8px 8px 0 #2B1A2F;text-transform:uppercase;width:max-content}
+.w1{background:#FF48B0;color:#2B1A2F;transform:rotate(-3deg)}
+.w2{background:#2B1A2F;color:#FCF3F5;font-family:Arch;font-weight:900;transform:rotate(2deg);margin-left:54px;box-shadow:8px 8px 0 #FF48B0}
+.w3{background:#F4E27A;color:#2B1A2F;transform:rotate(-1.5deg);margin-left:12px}
+.note{position:absolute;left:450px;top:96px;font-family:Hand;font-weight:700;font-size:34px;white-space:nowrap;color:#B8156E;transform:rotate(-6deg)}
+.icon{position:absolute;right:110px;top:88px;width:210px;height:210px;transform:rotate(4deg)}
+.stamp{position:absolute;right:150px;top:318px;border:5px solid #B8156E;color:#B8156E;font-family:Slab;font-size:32px;padding:2px 14px;transform:rotate(-8deg);letter-spacing:2px}
+.dom{position:absolute;right:120px;top:392px;font-weight:800;font-size:20px;color:#2B1A2F;letter-spacing:.06em}
+.band{position:absolute;left:0;right:0;top:450px;bottom:0;background:#2B1A2F;color:#FCF3F5;padding:40px 60px 0;white-space:nowrap}
+.band .t{font-family:Slab;font-size:30px;letter-spacing:.3px}
+.band .t b{color:#FF48B0;font-weight:400}
+</style></head><body>
+<div class="mast"><span class="w w1">Full</span><span class="w w2">Court</span><span class="w w3">Press</span></div>
+<div class="note">a zine for every WNBA game &rarr;</div>
+<img class="icon" src="favicon.svg">
+<div class="stamp">FINAL</div><div class="dom">fullcourtpress.lol</div>
+<div class="band"><span class="t">Can AI write a sports recap without making up stats? <b>Mostly.</b></span></div>
+</body></html>
